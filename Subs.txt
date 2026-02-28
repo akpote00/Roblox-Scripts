@@ -1,0 +1,146 @@
+local plr = game:GetService("Players").LocalPlayer
+			local msgidGlob = 0
+			local state = true
+			local font = "Arcade"
+			local tcol = Color3.fromRGB(255,217,0)
+			local tscol = Color3.fromRGB(0,0,0)
+			local fsiz = 28
+			local tr = true
+			local tsr = false
+			local fade = 2
+
+			local p = Instance.new("Part",game.Workspace)
+			p.Size = Vector3.new(0.2,0.2,0.2)
+			p.Transparency = 1
+			p.Anchored = true
+			p.CanCollide = false
+			p.Name = "Msg"
+			p.CFrame = plr.Character:WaitForChild("Head").CFrame + Vector3.new(0,2.25,0)
+
+			local r = 255
+			local b = 0
+			local g = 0
+
+			plr.Chatted:connect(function(c)
+				msgidGlob = msgidGlob + 1
+				local curMsgId = msgidGlob
+				if string.lower(c) == "!disable" then
+					state = false
+				elseif string.lower(c) == "!enable" then
+					state = true
+				elseif string.lower(string.sub(c,1,6)) == "!font " then
+					local old = font
+					font = string.sub(c,7,#c) or old
+				elseif string.lower(string.sub(c,1,8)) == "!tcolor " then
+					if string.lower(string.sub(c,9,#c)) == "rainbow" then
+						tr = true
+					else
+						tr = false
+						local old = tcol
+						tcol = Color3.fromRGB(string.sub(c,9,11),string.sub(c,13,15),string.sub(c,17,19)) or old
+					end
+				elseif string.lower(string.sub(c,1,9)) == "!tscolor " then
+					if string.sub(c,10,#c) == "rainbow" then
+						tsr = true
+					else
+						tsr = false
+						local old = tscol
+						tscol = Color3.fromRGB(string.sub(c,10,12),string.sub(c,14,16),string.sub(c,18,20)) or old
+					end
+				elseif string.lower(string.sub(c,1,6)) == "!size " then
+					local old = fsiz
+					fsiz = string.sub(c,7,#c) or old
+				elseif string.lower(string.sub(c,1,6)) == "!fade " then
+					local old = fade
+					fade = string.sub(c,7,#c) or old
+				end
+				if plr.Character and state == true then
+					if plr.Character:FindFirstChild("Head") then
+						for i,v in pairs(p:GetChildren()) do
+							if v:IsA("BillboardGui") and v.Name == "J2CMSG" then
+								v:Destroy()
+							end
+						end
+						local bbgui = Instance.new("BillboardGui",p)
+						bbgui.Name = "J2CMSG"
+						bbgui.AlwaysOnTop = true
+						bbgui.ExtentsOffsetWorldSpace = Vector3.new(0,4.5,0)
+						bbgui.Size = UDim2.new(0.2,0,0.14,0)
+						local tl = Instance.new("TextLabel",bbgui)
+						tl.BackgroundTransparency = 1
+						tl.BorderSizePixel = 0
+						tl.Size = UDim2.new(1,0,10,0)
+						tl.Position = UDim2.new(0,0,-5,0)
+						tl.Font = font or "SciFi"
+						tl.FontSize = "Size"..fsiz or "Size36"
+						tl.TextColor3 = tcol
+						tl.TextScaled = false
+						tl.TextWrapped = false
+						tl.TextStrokeColor3 = tscol
+						tl.TextStrokeTransparency = 0
+						
+						game:GetService("RunService").RenderStepped:connect(function()
+							if tr then
+								if tl.Parent ~= nil then
+									tl.TextColor3 = Color3.fromRGB(r,g,b)
+								end
+							end
+						end)
+
+						for i=1,#c do
+							if msgidGlob == curMsgId then
+								tl.Text = string.sub(c,1,i)
+								if string.sub(c,i,i) ~= " " then
+									local s = Instance.new("Sound",p)
+									s.SoundId = "rbxassetid://418252437"
+									s.Volume = 1
+									s.Pitch = 1
+									s:Play()
+									game.Debris:AddItem(s,2)
+								end
+								wait()
+							end
+						end
+						wait(fade)
+						if msgidGlob == curMsgId then
+							for i=1,10 do
+								if msgidGlob == curMsgId then
+									tl.TextTransparency = tl.TextTransparency + 0.1
+									tl.TextStrokeTransparency = tl.TextStrokeTransparency + 0.1
+									tl.Position = tl.Position + UDim2.new(0,0,0,-3)
+									wait()
+								end
+							end
+							if msgidGlob == curMsgId then
+								bbgui:Destroy()
+							end
+						end
+					end
+				end
+			end)
+
+			coroutine.resume(coroutine.create(function()
+				while wait() do
+					for i=0,255,10 do g = i wait() end
+					for i=255,0,-10 do r = i wait() end
+					for i=0,255,10 do b = i wait() end
+					for i=255,0,-10 do g = i wait() end
+					for i=0,255,10 do r = i wait() end
+					for i=255,0,-10 do b = i wait() end
+				end
+			end))
+
+			game:GetService("RunService").RenderStepped:connect(function()
+				if p.Parent ~= nil then
+					p.CFrame = p.CFrame:lerp(plr.Character:WaitForChild("Head").CFrame + Vector3.new(0,2.25,0),0.16)
+				else
+					p = Instance.new("Part",game.Workspace)
+					p.Size = Vector3.new(0.2,0.2,0.2)
+					p.Transparency = 1
+					p.Anchored = true
+					p.CanCollide = false
+					p.Name = "Msg"
+					p.CFrame = plr.Character:WaitForChild("Head").CFrame + Vector3.new(0,2.25,0)
+				end
+			end)
+		end

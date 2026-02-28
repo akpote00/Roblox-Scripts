@@ -1,0 +1,75 @@
+
+ -- Objects
+
+local ScreenGui = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local AgreeOverlay = Instance.new("TextButton")
+local Status = Instance.new("TextLabel")
+local SynapseLogo = Instance.new("Frame")
+local LOGO = Instance.new("ImageLabel")
+local UIListLayout = Instance.new("UIListLayout")
+
+function close()
+	Main:TweenPosition(UDim2.new(-0.15, 0, 0.200000003, 0), "In", "Quint", 0.5, false)
+end
+
+-- Properties
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.Name = "SYN_AUTORUN_FE"
+
+Main.Name = "Main"
+Main.Parent = ScreenGui
+Main.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(-0.15, 0, 0.200000003, 0)
+Main.Size = UDim2.new(0.150000006, 0, 0.150000006, 0)
+
+AgreeOverlay.Name = "OverrideTimerBTN"
+AgreeOverlay.Parent = Main
+AgreeOverlay.Size = UDim2.new(1, 0, 1, 0)
+AgreeOverlay.ZIndex = 2
+AgreeOverlay.BackgroundTransparency = 1
+AgreeOverlay.TextTransparency = 1
+AgreeOverlay.MouseButton1Click:connect(close)
+
+Status.Name = "Status"
+Status.Parent = Main
+Status.BackgroundColor3 = Color3.new(1, 1, 1)
+Status.BackgroundTransparency = 1
+Status.Position = UDim2.new(0.0500000007, 0, 0, 50)
+Status.Size = UDim2.new(0.899999976, 0, 0.5, 0)
+Status.Font = Enum.Font.Code
+if workspace.FilteringEnabled then
+Status.Text = "FILTERING IS ENABLED, SCRIPTS NOT SPECIFICALLY MADE FOR FE WILL NOT WORK!"
+else
+Status.Text = "FILTERING IS DISABLED, HAVE FUN!"
+end
+Status.TextColor3 = Color3.new(1, 1, 1)
+Status.TextSize = 14
+Status.TextWrapped = true
+Status.TextYAlignment = Enum.TextYAlignment.Top
+
+SynapseLogo.Name = "SynapseLogo"
+SynapseLogo.Parent = Main
+SynapseLogo.BackgroundColor3 = Color3.new(1, 1, 1)
+SynapseLogo.BackgroundTransparency = 1
+SynapseLogo.Position = UDim2.new(0, 0, 0.100000001, 0)
+SynapseLogo.Size = UDim2.new(1, 0, 0.300000012, 0)
+
+LOGO.Name = "LOGO"
+LOGO.Parent = SynapseLogo
+LOGO.BackgroundColor3 = Color3.new(1, 1, 1)
+LOGO.BackgroundTransparency = 1
+LOGO.Position = UDim2.new(0.0500000007, 0, 0.0500000007, 10)
+LOGO.Selectable = true
+LOGO.Size = UDim2.new(0, 150, 0, 30)
+LOGO.Image = "rbxassetid://1188953704"
+
+UIListLayout.Parent = SynapseLogo
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+
+wait(1.5)
+Main:TweenPosition(UDim2.new(0, 0, 0.200000003, 0), "Out", "Quint", 0.5, false)
+wait(3)
+close()

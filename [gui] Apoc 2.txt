@@ -1,0 +1,978 @@
+-- By Gambit
+
+local ApocGUI = Instance.new("ScreenGui")
+local background = Instance.new("Frame")
+local title = Instance.new("TextLabel")
+local scroll = Instance.new("ScrollingFrame")
+local killbutton = Instance.new("TextButton")
+local kickbutton = Instance.new("TextButton")
+local gotobutton = Instance.new("TextButton")
+local banbutton = Instance.new("TextButton")
+local specplayer = Instance.new("TextButton")
+local bringplayer = Instance.new("TextButton")
+local loopkillplr = Instance.new("TextButton")
+local namemessage = Instance.new("TextBox")
+local bluemsg = Instance.new("TextButton")
+local yellowmsg = Instance.new("TextButton")
+local greenmsg = Instance.new("TextButton")
+local redmsg = Instance.new("TextButton")
+local credits = Instance.new("TextLabel")
+local localgod = Instance.new("TextButton")
+local tpcorpses = Instance.new("TextButton")
+local localspawnfal = Instance.new("TextButton")
+local localspawng36 = Instance.new("TextButton")
+local localspawnak12 = Instance.new("TextButton")
+local localspawnan94 = Instance.new("TextButton")
+local localspawnpat = Instance.new("TextButton")
+local killall = Instance.new("TextButton")
+local esp = Instance.new("TextButton")
+local printhealth = Instance.new("Frame")
+local godtitle = Instance.new("TextLabel")
+local namemessagehealth = Instance.new("TextBox")
+local healthamount = Instance.new("TextLabel")
+local check = Instance.new("TextButton")
+local aimlock = Instance.new("TextButton")
+local LP = game.Players.LocalPlayer
+
+delremote=workspace.Remote.GrabItem
+function delobj(parent, instance)
+  local _p=parent
+  local _i=instance
+  delremote:FireServer(_p,nil,_i)
+end
+local banned={}
+
+ApocGUI.Name = "ApocGUI"
+ApocGUI.Parent = game.CoreGui
+
+background.Name = "background"
+background.Parent = ApocGUI
+background.Active = true
+background.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+background.BackgroundTransparency = 0.5
+background.BorderColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+background.BorderSizePixel = 0
+background.Draggable = true
+background.Position = UDim2.new(0, 169, 0, 132)
+background.Size = UDim2.new(0, 469, 0, 267)
+
+title.Name = "title"
+title.Parent = background
+title.BackgroundColor3 = Color3.new(1, 1, 1)
+title.BackgroundTransparency = 1
+title.Position = UDim2.new(0, 78, 0, -2)
+title.Size = UDim2.new(0, 312, 0, 50)
+title.Font = Enum.Font.SourceSansBold
+title.FontSize = Enum.FontSize.Size28
+title.Text = "Apocalypse Rising GUI"
+title.TextColor3 = Color3.new(1, 1, 1)
+title.TextSize = 28
+title.TextStrokeTransparency = 0
+title.TextWrapped = true
+
+scroll.Name = "scroll"
+scroll.Parent = background
+scroll.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+scroll.BackgroundTransparency = 0.5
+scroll.BorderColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+scroll.BorderSizePixel = 0
+scroll.Position = UDim2.new(0, 469, 0, 0)
+scroll.Size = UDim2.new(0, 100, 0, 267)
+
+killbutton.Name = "killbutton"
+killbutton.Parent = scroll
+killbutton.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+killbutton.BackgroundTransparency = 0.69999998807907
+killbutton.Position = UDim2.new(0, 6, 0, 6)
+killbutton.Size = UDim2.new(0, 76, 0, 30)
+killbutton.Font = Enum.Font.SourceSansBold
+killbutton.FontSize = Enum.FontSize.Size14
+killbutton.Text = "KILL"
+killbutton.TextColor3 = Color3.new(1, 1, 1)
+killbutton.TextScaled = true
+killbutton.TextSize = 14
+killbutton.TextWrapped = true
+
+kickbutton.Name = "kickbutton"
+kickbutton.Parent = scroll
+kickbutton.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+kickbutton.BackgroundTransparency = 0.69999998807907
+kickbutton.Position = UDim2.new(0, 6, 0, 44)
+kickbutton.Size = UDim2.new(0, 76, 0, 30)
+kickbutton.Font = Enum.Font.SourceSansBold
+kickbutton.FontSize = Enum.FontSize.Size14
+kickbutton.Text = "KICK"
+kickbutton.TextColor3 = Color3.new(1, 1, 1)
+kickbutton.TextScaled = true
+kickbutton.TextSize = 14
+kickbutton.TextWrapped = true
+
+gotobutton.Name = "gotobutton"
+gotobutton.Parent = scroll
+gotobutton.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+gotobutton.BackgroundTransparency = 0.69999998807907
+gotobutton.Position = UDim2.new(0, 6, 0, 82)
+gotobutton.Size = UDim2.new(0, 76, 0, 30)
+gotobutton.Font = Enum.Font.SourceSansBold
+gotobutton.FontSize = Enum.FontSize.Size14
+gotobutton.Text = "GOTO"
+gotobutton.TextColor3 = Color3.new(1, 1, 1)
+gotobutton.TextScaled = true
+gotobutton.TextSize = 14
+gotobutton.TextWrapped = true
+
+banbutton.Name = "banbutton"
+banbutton.Parent = scroll
+banbutton.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+banbutton.BackgroundTransparency = 0.69999998807907
+banbutton.Position = UDim2.new(0, 6, 0, 120)
+banbutton.Size = UDim2.new(0, 76, 0, 30)
+banbutton.Font = Enum.Font.SourceSansBold
+banbutton.FontSize = Enum.FontSize.Size14
+banbutton.Text = "BAN"
+banbutton.TextColor3 = Color3.new(1, 1, 1)
+banbutton.TextScaled = true
+banbutton.TextSize = 14
+banbutton.TextWrapped = true
+
+specplayer.Name = "specplayer"
+specplayer.Parent = scroll
+specplayer.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+specplayer.BackgroundTransparency = 0.69999998807907
+specplayer.Position = UDim2.new(0, 6, 0, 196)
+specplayer.Size = UDim2.new(0, 76, 0, 30)
+specplayer.Font = Enum.Font.SourceSansBold
+specplayer.FontSize = Enum.FontSize.Size14
+specplayer.Text = "SPECTATE"
+specplayer.TextColor3 = Color3.new(1, 1, 1)
+specplayer.TextScaled = true
+specplayer.TextSize = 14
+specplayer.TextWrapped = true
+
+bringplayer.Name = "bringplayer"
+bringplayer.Parent = scroll
+bringplayer.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+bringplayer.BackgroundTransparency = 0.69999998807907
+bringplayer.Position = UDim2.new(0, 6, 0, 158)
+bringplayer.Size = UDim2.new(0, 76, 0, 30)
+bringplayer.Font = Enum.Font.SourceSansBold
+bringplayer.FontSize = Enum.FontSize.Size14
+bringplayer.Text = "BRING"
+bringplayer.TextColor3 = Color3.new(1, 1, 1)
+bringplayer.TextScaled = true
+bringplayer.TextSize = 14
+bringplayer.TextWrapped = true
+
+loopkillplr.Name = "loopkillplr"
+loopkillplr.Parent = scroll
+loopkillplr.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+loopkillplr.BackgroundTransparency = 0.69999998807907
+loopkillplr.Position = UDim2.new(0, 6, 0, 234)
+loopkillplr.Size = UDim2.new(0, 76, 0, 30)
+loopkillplr.Font = Enum.Font.SourceSansBold
+loopkillplr.FontSize = Enum.FontSize.Size14
+loopkillplr.Text = "LOOPKILL"
+loopkillplr.TextColor3 = Color3.new(1, 1, 1)
+loopkillplr.TextScaled = true
+loopkillplr.TextSize = 14
+loopkillplr.TextWrapped = true
+
+namemessage.Name = "namemessage"
+namemessage.Parent = background
+namemessage.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+namemessage.BackgroundTransparency = 0.69999998807907
+namemessage.BorderColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+namemessage.Position = UDim2.new(0, 95, 0, 52)
+namemessage.Size = UDim2.new(0, 280, 0, 82)
+namemessage.Font = Enum.Font.SourceSansBold
+namemessage.FontSize = Enum.FontSize.Size24
+namemessage.Text = "PLAYERNAME/MESSAGE"
+namemessage.TextColor3 = Color3.new(1, 1, 1)
+namemessage.TextSize = 22
+namemessage.TextWrapped = true
+
+bluemsg.Name = "bluemsg"
+bluemsg.Parent = background
+bluemsg.BackgroundColor3 = Color3.new(0, 0, 1)
+bluemsg.BackgroundTransparency = 0.69999998807907
+bluemsg.BorderSizePixel = 0
+bluemsg.Position = UDim2.new(0, 95, 0, 140)
+bluemsg.Size = UDim2.new(0, 65, 0, 20)
+bluemsg.Font = Enum.Font.SourceSansBold
+bluemsg.FontSize = Enum.FontSize.Size14
+bluemsg.Text = "MSG"
+bluemsg.TextColor3 = Color3.new(1, 1, 1)
+bluemsg.TextScaled = true
+bluemsg.TextSize = 14
+bluemsg.TextWrapped = true
+
+yellowmsg.Name = "yellowmsg"
+yellowmsg.Parent = background
+yellowmsg.BackgroundColor3 = Color3.new(1, 1, 0)
+yellowmsg.BackgroundTransparency = 0.69999998807907
+yellowmsg.BorderSizePixel = 0
+yellowmsg.Position = UDim2.new(0, 167, 0, 140)
+yellowmsg.Size = UDim2.new(0, 65, 0, 20)
+yellowmsg.Font = Enum.Font.SourceSansBold
+yellowmsg.FontSize = Enum.FontSize.Size14
+yellowmsg.Text = "MSG"
+yellowmsg.TextColor3 = Color3.new(1, 1, 1)
+yellowmsg.TextScaled = true
+yellowmsg.TextSize = 14
+yellowmsg.TextWrapped = true
+
+greenmsg.Name = "greenmsg"
+greenmsg.Parent = background
+greenmsg.BackgroundColor3 = Color3.new(0, 1, 0)
+greenmsg.BackgroundTransparency = 0.69999998807907
+greenmsg.BorderSizePixel = 0
+greenmsg.Position = UDim2.new(0, 238, 0, 140)
+greenmsg.Size = UDim2.new(0, 65, 0, 20)
+greenmsg.Font = Enum.Font.SourceSansBold
+greenmsg.FontSize = Enum.FontSize.Size14
+greenmsg.Text = "MSG"
+greenmsg.TextColor3 = Color3.new(1, 1, 1)
+greenmsg.TextScaled = true
+greenmsg.TextSize = 14
+greenmsg.TextWrapped = true
+
+redmsg.Name = "redmsg"
+redmsg.Parent = background
+redmsg.BackgroundColor3 = Color3.new(1, 0, 0)
+redmsg.BackgroundTransparency = 0.69999998807907
+redmsg.BorderSizePixel = 0
+redmsg.Position = UDim2.new(0, 310, 0, 140)
+redmsg.Size = UDim2.new(0, 65, 0, 20)
+redmsg.Font = Enum.Font.SourceSansBold
+redmsg.FontSize = Enum.FontSize.Size14
+redmsg.Text = "MSG"
+redmsg.TextColor3 = Color3.new(1, 1, 1)
+redmsg.TextScaled = true
+redmsg.TextSize = 14
+redmsg.TextWrapped = true
+
+credits.Name = "credits"
+credits.Parent = background
+credits.BackgroundColor3 = Color3.new(1, 1, 1)
+credits.BackgroundTransparency = 1
+credits.Position = UDim2.new(0, 78, 0, 217)
+credits.Size = UDim2.new(0, 312, 0, 50)
+credits.Font = Enum.Font.SourceSansBold
+credits.FontSize = Enum.FontSize.Size28
+credits.Text = "Made by Gambit#8884"
+credits.TextColor3 = Color3.new(1, 1, 1)
+credits.TextSize = 28
+credits.TextStrokeTransparency = 0
+credits.TextWrapped = true
+
+localgod.Name = "localgod"
+localgod.Parent = background
+localgod.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+localgod.BackgroundTransparency = 0.69999998807907
+localgod.BorderSizePixel = 0
+localgod.Position = UDim2.new(0, 95, 0, 168)
+localgod.Size = UDim2.new(0, 134, 0, 33)
+localgod.Font = Enum.Font.SourceSansBold
+localgod.FontSize = Enum.FontSize.Size24
+localgod.Text = "GOD"
+localgod.TextColor3 = Color3.new(1, 1, 1)
+localgod.TextSize = 24
+localgod.TextWrapped = true
+
+tpcorpses.Name = "tpcorpses"
+tpcorpses.Parent = background
+tpcorpses.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+tpcorpses.BackgroundTransparency = 0.69999998807907
+tpcorpses.BorderSizePixel = 0
+tpcorpses.Position = UDim2.new(0, 241, 0, 168)
+tpcorpses.Size = UDim2.new(0, 134, 0, 33)
+tpcorpses.Font = Enum.Font.SourceSansBold
+tpcorpses.FontSize = Enum.FontSize.Size24
+tpcorpses.Text = "TP CORPSE"
+tpcorpses.TextColor3 = Color3.new(1, 1, 1)
+tpcorpses.TextSize = 24
+tpcorpses.TextWrapped = true
+
+localspawnfal.Name = "localspawnfal"
+localspawnfal.Parent = background
+localspawnfal.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+localspawnfal.BackgroundTransparency = 0.69999998807907
+localspawnfal.BorderSizePixel = 0
+localspawnfal.Position = UDim2.new(0, 5, 0, 52)
+localspawnfal.Size = UDim2.new(0, 82, 0, 33)
+localspawnfal.Font = Enum.Font.SourceSansBold
+localspawnfal.FontSize = Enum.FontSize.Size24
+localspawnfal.Text = "FALKIT"
+localspawnfal.TextColor3 = Color3.new(1, 1, 1)
+localspawnfal.TextSize = 24
+localspawnfal.TextWrapped = true
+
+localspawng36.Name = "localspawng36"
+localspawng36.Parent = background
+localspawng36.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+localspawng36.BackgroundTransparency = 0.69999998807907
+localspawng36.BorderSizePixel = 0
+localspawng36.Position = UDim2.new(0, 5, 0, 90)
+localspawng36.Size = UDim2.new(0, 82, 0, 33)
+localspawng36.Font = Enum.Font.SourceSansBold
+localspawng36.FontSize = Enum.FontSize.Size24
+localspawng36.Text = "G36KIT"
+localspawng36.TextColor3 = Color3.new(1, 1, 1)
+localspawng36.TextSize = 24
+localspawng36.TextWrapped = true
+
+localspawnak12.Name = "localspawnak12"
+localspawnak12.Parent = background
+localspawnak12.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+localspawnak12.BackgroundTransparency = 0.69999998807907
+localspawnak12.BorderSizePixel = 0
+localspawnak12.Position = UDim2.new(0, 5, 0, 128)
+localspawnak12.Size = UDim2.new(0, 82, 0, 33)
+localspawnak12.Font = Enum.Font.SourceSansBold
+localspawnak12.FontSize = Enum.FontSize.Size24
+localspawnak12.Text = "AK12KIT"
+localspawnak12.TextColor3 = Color3.new(1, 1, 1)
+localspawnak12.TextSize = 24
+localspawnak12.TextWrapped = true
+
+localspawnan94.Name = "localspawnan94"
+localspawnan94.Parent = background
+localspawnan94.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+localspawnan94.BackgroundTransparency = 0.69999998807907
+localspawnan94.BorderSizePixel = 0
+localspawnan94.Position = UDim2.new(0, 5, 0, 166)
+localspawnan94.Size = UDim2.new(0, 82, 0, 33)
+localspawnan94.Font = Enum.Font.SourceSansBold
+localspawnan94.FontSize = Enum.FontSize.Size24
+localspawnan94.Text = "AN94KIT"
+localspawnan94.TextColor3 = Color3.new(1, 1, 1)
+localspawnan94.TextSize = 24
+localspawnan94.TextWrapped = true
+
+localspawnpat.Name = "localspawnpat"
+localspawnpat.Parent = background
+localspawnpat.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+localspawnpat.BackgroundTransparency = 0.69999998807907
+localspawnpat.BorderSizePixel = 0
+localspawnpat.Position = UDim2.new(0, 5, 0, 204)
+localspawnpat.Size = UDim2.new(0, 82, 0, 33)
+localspawnpat.Font = Enum.Font.SourceSansBold
+localspawnpat.FontSize = Enum.FontSize.Size24
+localspawnpat.Text = "SSB"
+localspawnpat.TextColor3 = Color3.new(1, 1, 1)
+localspawnpat.TextSize = 24
+localspawnpat.TextWrapped = true
+
+killall.Name = "killall"
+killall.Parent = background
+killall.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+killall.BackgroundTransparency = 0.69999998807907
+killall.BorderSizePixel = 0
+killall.Position = UDim2.new(0, 384, 0, 52)
+killall.Size = UDim2.new(0, 82, 0, 60)
+killall.Font = Enum.Font.SourceSansBold
+killall.FontSize = Enum.FontSize.Size24
+killall.Text = "KILL ALL"
+killall.TextColor3 = Color3.new(1, 1, 1)
+killall.TextSize = 24
+killall.TextWrapped = true
+
+esp.Name = "esp"
+esp.Parent = background
+esp.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+esp.BackgroundTransparency = 0.69999998807907
+esp.BorderSizePixel = 0
+esp.Position = UDim2.new(0, 384, 0, 117)
+esp.Size = UDim2.new(0, 82, 0, 60)
+esp.Font = Enum.Font.SourceSansBold
+esp.FontSize = Enum.FontSize.Size24
+esp.Text = "ESP"
+esp.TextColor3 = Color3.new(1, 1, 1)
+esp.TextSize = 24
+esp.TextWrapped = true
+
+printhealth.Name = "printhealth"
+printhealth.Parent = background
+printhealth.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+printhealth.BackgroundTransparency = 0.5
+printhealth.BorderSizePixel = 0
+printhealth.Position = UDim2.new(0, -100, 0, 0)
+printhealth.Size = UDim2.new(0, 100, 0, 267)
+
+godtitle.Name = "godtitle"
+godtitle.Parent = printhealth
+godtitle.BackgroundColor3 = Color3.new(1, 1, 1)
+godtitle.BackgroundTransparency = 1
+godtitle.Position = UDim2.new(0, 0, 0, 20)
+godtitle.Size = UDim2.new(0, 100, 0, 50)
+godtitle.Font = Enum.Font.SourceSansBold
+godtitle.FontSize = Enum.FontSize.Size24
+godtitle.Text = "GOD CHECK"
+godtitle.TextColor3 = Color3.new(1, 1, 1)
+godtitle.TextSize = 20
+godtitle.TextStrokeTransparency = 0
+
+namemessagehealth.Name = "namemessagehealth"
+namemessagehealth.Parent = printhealth
+namemessagehealth.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+namemessagehealth.BackgroundTransparency = 0.69999998807907
+namemessagehealth.BorderColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+namemessagehealth.Position = UDim2.new(0, 7, 0, 72)
+namemessagehealth.Size = UDim2.new(0, 90, 0, 23)
+namemessagehealth.Font = Enum.Font.SourceSansBold
+namemessagehealth.FontSize = Enum.FontSize.Size11
+namemessagehealth.Text = "PLAYERNAME"
+namemessagehealth.TextColor3 = Color3.new(1, 1, 1)
+namemessagehealth.TextSize = 11
+namemessagehealth.TextWrapped = true
+
+healthamount.Name = "healthamount"
+healthamount.Parent = printhealth
+healthamount.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+healthamount.BackgroundTransparency = 0.5
+healthamount.BorderSizePixel = 0
+healthamount.Position = UDim2.new(0, 7, 0, 106)
+healthamount.Size = UDim2.new(0, 90, 0, 90)
+healthamount.Font = Enum.Font.SourceSansBold
+healthamount.FontSize = Enum.FontSize.Size24
+healthamount.Text = "HEALTH"
+healthamount.TextColor3 = Color3.new(1, 1, 1)
+healthamount.TextSize = 20
+
+check.Name = "check"
+check.Parent = printhealth
+check.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+check.BackgroundTransparency = 0.69999998807907
+check.Position = UDim2.new(0, 7, 0, 206)
+check.Size = UDim2.new(0, 90, 0, 30)
+check.Font = Enum.Font.SourceSansBold
+check.FontSize = Enum.FontSize.Size18
+check.Text = "CHECK"
+check.TextColor3 = Color3.new(1, 1, 1)
+check.TextSize = 18
+
+aimlock.Name = "aimlock"
+aimlock.Parent = background
+aimlock.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+aimlock.BackgroundTransparency = 0.69999998807907
+aimlock.BorderSizePixel = 0
+aimlock.Position = UDim2.new(0, 384, 0, 182)
+aimlock.Size = UDim2.new(0, 82, 0, 60)
+aimlock.Font = Enum.Font.SourceSansBold
+aimlock.FontSize = Enum.FontSize.Size24
+aimlock.Text = "AIMLOCK"
+aimlock.TextColor3 = Color3.new(1, 1, 1)
+aimlock.TextSize = 24
+aimlock.TextWrapped = true
+
+kickbutton.MouseButton1Click:connect(function()
+ local state, err = pcall(function()delobj(nil, game.Players[namemessage.Text])end)
+  if state then print(err) end 
+end)
+
+banbutton.MouseButton1Click:connect(function()
+while wait() do
+local state, err = pcall(function()delobj(nil, game.Players[namemessage.Text])end)
+  if state then print(err) end 
+wait(3)
+end
+end)
+
+localgod.MouseButton1Click:connect(function()
+game.Workspace.Remote.AddDamageSelf:FireServer(game.Players.LocalPlayer.Character.Humanoid, math.huge)
+end)
+
+killbutton.MouseButton1Click:connect(function()
+player = game.Players.LocalPlayer
+
+local function findergun()
+local back = player.Backpack:GetChildren()
+for a = 1, #back do
+if back[a]:IsA("Model") and back[a]:FindFirstChild("Shooter") then return back[a] end
+end
+return nil
+end
+
+local findgun = findergun()
+
+for i, v in ipairs(game.Players:GetChildren()) do
+if findgun and v.Character and v ~= player then
+if v.Name == namemessage.Text then
+for i = 1, 10 do game.Workspace.Remote.DoHitLogic:FireServer(findgun, v.Character.Head) end 
+end 
+end
+end 
+end)
+
+killall.MouseButton1Click:connect(function()
+player = game.Players.LocalPlayer
+
+local function findergun()
+local back = player.Backpack:GetChildren()
+for a = 1, #back do
+if back[a]:IsA("Model") and back[a]:FindFirstChild("Shooter") then return back[a] end
+end
+return nil
+end
+
+local findgun = findergun()
+
+for i, v in ipairs(game.Players:GetChildren()) do
+if findgun and v.Character and v ~= player then
+for i = 1, 10 do game.Workspace.Remote.DoHitLogic:FireServer(findgun, v.Character.Head) end 
+end
+end 
+end)
+
+gotobutton.MouseButton1Click:connect(function()
+game.Workspace.CurrentCamera.CameraSubject = LP.Character.Humanoid
+game.Workspace.Remote.AddDamageSelf:FireServer(game.Players.LocalPlayer.Character.Humanoid, math.huge)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[namemessage.Text].Character.HumanoidRootPart.Position)
+end)
+
+loopkillplr.MouseButton1Click:connect(function()
+while true do 
+player = game.Players.LocalPlayer
+
+local function findergun()
+local back = player.Backpack:GetChildren()
+for a = 1, #back do
+if back[a]:IsA("Model") and back[a]:FindFirstChild("Shooter") then return back[a] end
+end
+return nil
+end
+
+
+local findgun = findergun()
+for i, v in ipairs(game.Players:GetChildren()) do
+if findgun and v.Character and v ~= player then
+if v.Name == namemessage.Text then
+for i = 1, 10 do game.Workspace.Remote.DoHitLogic:FireServer(findgun, v.Character.Head) end 
+wait(5)
+end 
+end
+end 
+end
+end)
+
+specplayer.MouseButton1Down:connect(function()
+game.Workspace.CurrentCamera.CameraSubject = game.Players[namemessage.Text].Character.Humanoid
+end)
+
+aimlock.MouseButton1Down:connect(function()
+ENABLED = false
+PLAYER  = game.Players.LocalPlayer
+MOUSE   = PLAYER:GetMouse()
+CC      = game.Workspace.CurrentCamera
+_G.FREE_FOR_ALL = true
+_G.BIND = 50
+_G.AIM_AT = 'Head' 
+local player = game.Players.LocalPlayer
+local track = false
+
+function GetNearestPlayerToMouse()
+local PLAYERS      = {}
+local PLAYER_HOLD  = {}
+local DISTANCES    = {}
+for i, v in pairs(game.Players:GetPlayers()) do
+if v ~= PLAYER then
+table.insert(PLAYERS, v)
+end
+end
+for i, v in pairs(PLAYERS) do
+if _G.FREE_FOR_ALL == false then
+if v and (v.Character) ~= nil and v.TeamColor ~= PLAYER.TeamColor then
+local AIM = v.Character:FindFirstChild(_G.AIM_AT)
+if AIM ~= nil then
+local DISTANCE                 = (AIM.Position - game.Workspace.CurrentCamera.CoordinateFrame.p).magnitude
+local RAY                      = Ray.new(game.Workspace.CurrentCamera.CoordinateFrame.p, (MOUSE.Hit.p - CC.CoordinateFrame.p).unit * DISTANCE)
+local HIT,POS                  = game.Workspace:FindPartOnRay(RAY, game.Workspace)
+local DIFF                     = math.floor((POS - AIM.Position).magnitude)
+PLAYER_HOLD[v.Name .. i]       = {}
+PLAYER_HOLD[v.Name .. i].dist  = DISTANCE
+PLAYER_HOLD[v.Name .. i].plr   = v
+PLAYER_HOLD[v.Name .. i].diff  = DIFF
+table.insert(DISTANCES, DIFF)
+end
+end
+elseif _G.FREE_FOR_ALL == true then
+local AIM = v.Character:FindFirstChild(_G.AIM_AT)
+if AIM ~= nil then
+local DISTANCE                 = (AIM.Position - game.Workspace.CurrentCamera.CoordinateFrame.p).magnitude
+local RAY                      = Ray.new(game.Workspace.CurrentCamera.CoordinateFrame.p, (MOUSE.Hit.p - CC.CoordinateFrame.p).unit * DISTANCE)
+local HIT,POS                  = game.Workspace:FindPartOnRay(RAY, game.Workspace)
+local DIFF                     = math.floor((POS - AIM.Position).magnitude)
+PLAYER_HOLD[v.Name .. i]       = {}
+PLAYER_HOLD[v.Name .. i].dist  = DISTANCE
+PLAYER_HOLD[v.Name .. i].plr   = v
+PLAYER_HOLD[v.Name .. i].diff  = DIFF
+table.insert(DISTANCES, DIFF)
+end
+end
+end
+
+if unpack(DISTANCES) == nil then
+return false
+end
+
+local L_DISTANCE = math.floor(math.min(unpack(DISTANCES)))
+if L_DISTANCE > 20 then
+return false
+end
+
+for i, v in pairs(PLAYER_HOLD) do
+if v.diff == L_DISTANCE then
+return v.plr
+end
+end
+return false
+end
+
+local TRACK = false
+
+
+MOUSE.KeyDown:connect(function(KEY)
+KEY = KEY:lower():byte()
+if KEY == _G.BIND then
+ENABLED = true
+end
+end)
+MOUSE.KeyUp:connect(function(KEY)
+KEY = KEY:lower():byte()
+if KEY == _G.BIND then
+ENABLED = false
+end
+end)
+
+game:GetService('RunService').RenderStepped:connect(function()
+if ENABLED then
+local TARGET = GetNearestPlayerToMouse()
+if TARGET.Name == "rsxk20" then
+else
+
+if (TARGET ~= false) then
+local AIM = TARGET.Character:FindFirstChild(_G.AIM_AT)
+if AIM then
+CC.CoordinateFrame = CFrame.new(CC.CoordinateFrame.p, AIM.CFrame.p)
+end
+end
+end
+end
+end)
+end)
+
+esp.MouseButton1Click:connect(function()
+for i,v in pairs(game.Players:GetChildren()) do
+    if v.Name ~= game.Players.LocalPlayer.Name then
+        if v ~= game.Players.LocalPlayer.Character.Torso then    
+
+    local base = Instance.new('BillboardGui', workspace.Camera)
+    local esP = Instance.new('Frame', base)
+    base.AlwaysOnTop = true
+    base.Enabled = true
+    base.Size = UDim2.new(4.5,0,6,0)
+    base.Name = 'ESP'
+    base.Adornee = v.Character.Torso
+    base.StudsOffset = Vector3.new(0, -0.6, 0)
+    esP.BackgroundColor3 = Color3.new(75, 0, 0)
+    esP.BackgroundTransparency = 0.8
+    esP.BorderColor3 = Color3.new(0,0,0)
+    esP.BorderSizePixel = 1
+    esP.Size = UDim2.new(1,0,1,0)
+    local name = Instance.new('TextLabel',base)
+    name.Size = UDim2.new(1,0,1,0)
+    name.BackgroundTransparency = 1
+    name.Position = UDim2.new(0,0,0,0)
+    name.Text = v.Name
+    name.TextScaled = true
+        name.TextColor3 = Color3.new(255,255,255)
+    name.TextXAlignment = 'Center'
+    name.TextYAlignment = 'Top'
+        name.Font = 'Highway'
+        name.Position = UDim2.new(0,0,0,-100)
+end        
+    end
+end
+end)
+
+bringplayer.MouseButton1Click:connect(function()
+local plr = game.Workspace[namemessage.Text]
+local lol = 'Left Leg'
+local omg = 'Torso'
+local lpChar = game.Players.LocalPlayer.Character[omg]
+
+wait()
+local w = Instance.new('Weld', lpChar)
+w.Part0 = plr[lol]
+w.Part1 = lpChar
+w.C0 = lpChar.CFrame + CFrame.new(1,2,1)
+w.C1 = lpChar.CFrame
+plr.Humanoid.WalkSpeed = 0
+wait(.1)
+lpChar.CFrame = CFrame.new(0.1,0.1,0.1)
+end)
+
+redmsg.MouseButton1Down:connect(function()
+for i,v in pairs(game.Players:GetChildren())do
+workspace.Remote.SendMessage:FireServer(game.Players[v.Name], 'Red', namemessage.Text)
+end
+end)
+
+bluemsg.MouseButton1Down:connect(function()
+for i,v in pairs(game.Players:GetChildren())do
+workspace.Remote.SendMessage:FireServer(game.Players[v.Name], 'Blue', namemessage.Text)
+end
+end)
+
+greenmsg.MouseButton1Down:connect(function()
+for i,v in pairs(game.Players:GetChildren())do
+workspace.Remote.SendMessage:FireServer(game.Players[v.Name], 'Green', namemessage.Text)
+end
+end)
+
+yellowmsg.MouseButton1Down:connect(function()
+for i,v in pairs(game.Players:GetChildren())do
+workspace.Remote.SendMessage:FireServer(game.Players[v.Name], 'Yellow', namemessage.Text)
+end
+end)
+
+tpcorpses.MouseButton1Click:connect(function()
+for _, corpse in pairs(workspace:GetChildren()) do
+if corpse.Name == "Corpse" then
+corpse:MoveTo(workspace[game.Players.LocalPlayer.Name].Torso.Position + Vector3.new(math.random(-10,10),0,math.random(-10,10)))
+end
+end
+end)
+
+check.MouseButton1Click:connect(function()
+healthamount.Text = game.Workspace[namemessagehealth.Text].Humanoid.Health
+end)
+
+localspawnak12.MouseButton1Click:connect(function()
+local item = game.Lighting.LootDrops["AK-12"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AK47Ammo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AK47Ammo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AK47Ammo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AK47Ammo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AK47Ammo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AK47Ammo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AK47Ammo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AK47Ammo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["MilitaryPackBlack"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["Suppressor762"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["ACOG"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["Grip"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+end)
+
+localspawnan94.MouseButton1Click:connect(function()
+local item = game.Lighting.LootDrops["AN-94"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AKAmmo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AKAmmo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AKAmmo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AKAmmo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AKAmmo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AKAmmo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AKAmmo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["AKAmmo75"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["MilitaryPackBlack"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["Suppressor545"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["ACOG"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["Grip"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+end)
+
+localspawnpat.MouseButton1Click:connect(function()
+local item = game.Lighting.LootDrops["SilencedSquadBeret"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+end)
+
+localspawnfal.MouseButton1Click:connect(function()
+local item = game.Lighting.LootDrops["FAL"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["M14Ammo50"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["M14Ammo50"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["M14Ammo50"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["M14Ammo50"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["M14Ammo50"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["M14Ammo50"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["M14Ammo50"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["M14Ammo50"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["MilitaryPackBlack"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["Suppressor762"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["ACOG"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["Grip"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+end)
+
+localspawng36.MouseButton1Click:connect(function()
+local item = game.Lighting.LootDrops["G36K"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["STANAGAmmo100"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["STANAGAmmo100"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["STANAGAmmo100"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["STANAGAmmo100"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["STANAGAmmo100"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["STANAGAmmo100"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["STANAGAmmo100"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["STANAGAmmo100"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["MilitaryPackBlack"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["BloodBag"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+
+item = game.Lighting.LootDrops["Suppressor556"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["ACOG"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+item = game.Lighting.LootDrops["Grip"]
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players.LocalPlayer.Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+end)

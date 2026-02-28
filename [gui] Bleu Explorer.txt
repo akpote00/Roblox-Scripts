@@ -1,0 +1,449 @@
+function GiveExplorer(Frame)
+	local Asset = "rbxassetid://"
+	local Images = {
+		{{"IntValue", "BrickColorValue", "Color3Value", "Vector3Value", "CFrameValue", "NumberValue", "ObjectValue", "StringValue", "BoolValue", "RayValue"}, Asset..(1062678858)},
+		{{"BasePart", "Part", "WedgePart", "TrussPart"}, Asset..(1062679562)},
+		{{"ForceField", "TouchInterest"}, Asset..(1062680538)},
+		{{"Weld", "Rotate", "Glue"}, Asset..(1062684052)},
+		{{"BodyVelocity", "BodyPosition", "BodyForce", "BodyGyro", "BodyThrust", "BodyAngularVelocity", "BodyPosition", "RocketPropulsion"}, Asset..(1062685051)},
+		{{"Animation", "AnimationTrack"}, Asset..(1062686286)},
+		{{"Model"}, Asset..(1062686931)},
+		{{"Player", "Players"}, Asset..(1062687489)},
+		{{"BlockMesh", "SpecialMesh", "CylinderMesh", "FileMesh", "CharacterMesh"}, Asset..(1062688955)},
+		{{"TextButton", "TextBox"}, Asset..(1062691889)},
+		{{"Camera"}, Asset..(1062693048)},
+		{{"Hat", "Accoutrement"}, Asset..(1062694189)},
+		{{"LocalScript"}, Asset..(1062695626)},
+		{{"HopperBin"}, Asset..(1062696748)},
+		{{"Tool"}, Asset..(1062722172)},
+		{{"Humanoid"}, Asset..(1062698016)},
+		{{"Script"}, Asset..(1062699554)},
+		{{"Message", "Hint"}, Asset..(1062700710)},
+		{{"Terrain", "TerrainRegion"}, Asset..(1060561734)},
+		{{"StarterGui", "PlayerGui", "CoreGui"}, Asset..(1060567042)},
+		{{"Decal"}, Asset..(1062756601)},
+		{{"Texture"}, Asset..(1062757125)},
+		{{"Sound"}, Asset..(1062757920)},
+		{{"Lighting", "PointLight", "SurfaceLight", "SpotLight"}, Asset..(1062763578)},
+		{{"Workspace"}, Asset..(1062764279)},
+		{{"StarterPack", "StarterTools", "Backpack"}, Asset..(1062764650)},
+		{{"Teams"}, Asset..(1062765351)},
+		{{"Team"}, Asset..(1062765574)},
+		{{"SpawnLocation"}, Asset..(1062765760)},
+		{{"UIAspectRatioConstraint", "UIGridLayout", "UIListLayout", "UIPadding", "UIPageLayout", "UIScale", "UISizeConstraint", "UITableLayout", "UITextSizeConstraint"}, Asset..(1062766928)},
+		{{"SkyBox"}, Asset..(1062767368)},
+		{{"Debris"}, Asset..(1062768359)},
+		{{"SoundScape"}, Asset..(1062770571)},
+		{{"Explosion"}, Asset..(1062770974)},
+		{{"Flag"}, Asset..(1062771505)},
+		{{"FlagStand"}, Asset..(1062771765)},
+		{{"TShirt"}, Asset..(1062772699)},
+		{{"ClickDetector"}, Asset..(1062773145)},
+		{{"Sparkles"}, Asset..(1062773622)},
+		{{"Shirt"}, Asset..(1062774476)},
+		{{"Hat"}, Asset..(1062775547)},
+		{{"ScreenGui"}, Asset..(1062776046)},
+		{{"Frame", "ScrollingFrame"}, Asset..(1062776675)},
+		{{"ImageLabel"}, Asset..(1062776940)},
+		{{"TextLabel"}, Asset..(1062777305)},
+		{{"ImageButton"}, Asset..(1062777650)},
+		{{"SelectionBox", "SelectionSphere"}, Asset..(1062778253)},
+		{{"SurfaceSelection"}, Asset..(1062778494)},
+		{{"ArcHandles"}, Asset..(1062778714)},
+		{{"Lasso"}, Asset..(1062778971)},
+		{{"ConfigurationBox"}, Asset..(1062779247)},
+		{{"Smoke"}, Asset..(1062779534)},
+		{{"Fire"}, Asset..(1062780457)},
+		{{"Dialog"}, Asset..(1062781590)},
+		{{"DialogChoice"}, Asset..(1062781816)},
+		{{"BindableEvent"}, Asset..(1062783205)},
+		{{"TestService"}, Asset..(1062783547)},
+		{{"ServerStorage"}, Asset..(1062783806)},
+		{{"ReplicatedFirst", "ReplicatedStorage"}, Asset..(1062784089)},
+		{{"ServerScriptService"}, Asset..(1062784355)},
+		{{"NegativeOperation"}, Asset..(1062784798)},
+		{{"MeshPart", "UnionOperation"}, Asset..(1062784798)},
+		{{"RemoteEvent"}, Asset..(1062785512)},
+		{{"ModuleScript"}, Asset..(1062785765)},
+		{{"Folder"}, Asset..(1062786057)},
+		{{"StarterPlayerScripts", "StarterCharacterScripts"}, Asset..(1062786242)},
+		{{"StarterPlayer"}, Asset..(1062786462)},
+		{{"ParticleEmitter"}, Asset..(1062786758)},
+	}
+	
+	for i,v in pairs(Images) do
+		game:GetService("ContentProvider"):Preload(v[2])
+	end
+	
+	-- Objects
+	
+	local Header = Instance.new("Frame")
+	local CutButton = Instance.new("ImageButton")
+	local CopyButton = Instance.new("ImageButton")
+	local PasteButton = Instance.new("ImageButton")
+	local DeleteButton = Instance.new("ImageButton")
+	local TextLabel = Instance.new("TextLabel")
+	local Forwards = Instance.new("ImageButton")
+	local Backwards = Instance.new("ImageButton")
+	local Home = Instance.new("ImageButton")
+	local RefreshButton = Instance.new("ImageButton")
+	local ScrollingFrame = Instance.new("ScrollingFrame")
+	
+	-- Properties
+	
+	Header.Name = "Header"
+	Header.BackgroundColor3 = Color3.new(0.913725, 0.913725, 0.913725)
+	Header.BorderColor3 = Color3.new(0.584314, 0.584314, 0.584314)
+	Header.Size = UDim2.new(1, 0, 0, 18)
+	
+	CutButton.Name = "CutButton"
+	CutButton.Parent = Header
+	CutButton.BackgroundTransparency = 1
+	CutButton.ClipsDescendants = true
+	CutButton.Position = UDim2.new(1, -88, 0.5, -8)
+	CutButton.Size = UDim2.new(0, 16, 0, 16)
+	CutButton.Image = "rbxassetid://1060504061"
+	CutButton.ImageColor3 = Color3.new(0.588235, 0.588235, 0.588235)
+	CutButton.ImageTransparency = 0.80000001192093
+	
+	CopyButton.Name = "CopyButton"
+	CopyButton.Parent = Header
+	CopyButton.BackgroundTransparency = 1
+	CopyButton.ClipsDescendants = true
+	CopyButton.Position = UDim2.new(1, -70, 0.5, -8)
+	CopyButton.Size = UDim2.new(0, 16, 0, 16)
+	CopyButton.Image = "rbxassetid://1060504670"
+	CopyButton.ImageColor3 = Color3.new(0.588235, 0.588235, 0.588235)
+	CopyButton.ImageTransparency = 0.80000001192093
+	
+	PasteButton.Name = "PasteButton"
+	PasteButton.Parent = Header
+	PasteButton.BackgroundTransparency = 1
+	PasteButton.ClipsDescendants = true
+	PasteButton.Position = UDim2.new(1, -52, 0.5, -8)
+	PasteButton.Size = UDim2.new(0, 16, 0, 16)
+	PasteButton.Image = "rbxassetid://1060508793"
+	
+	DeleteButton.Name = "DeleteButton"
+	DeleteButton.Parent = Header
+	DeleteButton.BackgroundTransparency = 1
+	DeleteButton.Position = UDim2.new(1, -34, 0.5, -8)
+	DeleteButton.Size = UDim2.new(0, 16, 0, 16)
+	DeleteButton.Image = "rbxassetid://1060503742"
+	DeleteButton.ImageColor3 = Color3.new(0.588235, 0.588235, 0.588235)
+	DeleteButton.ImageTransparency = 0.80000001192093
+	
+	TextLabel.Parent = Header
+	TextLabel.BackgroundTransparency = 1
+	TextLabel.Position = UDim2.new(0, 4, 0, 0)
+	TextLabel.Size = UDim2.new(1, -4, 1, 0)
+	TextLabel.Font = Enum.Font.SourceSans
+	TextLabel.FontSize = Enum.FontSize.Size14
+	TextLabel.Text = "Explorer"
+	TextLabel.TextColor3 = Color3.new(0, 0, 0)
+	TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+	
+	Forwards.Name = "Forwards"
+	Forwards.Parent = Header
+	Forwards.BackgroundTransparency = 1
+	Forwards.ClipsDescendants = true
+	Forwards.Position = UDim2.new(1, -105, 0.5, -8)
+	Forwards.Size = UDim2.new(0, 16, 0, 16)
+	Forwards.Image = "rbxassetid://1062327105"
+	Forwards.ImageColor3 = Color3.new(0.588235, 0.588235, 0.588235)
+	Forwards.ImageTransparency = 0.80000001192093
+	
+	Backwards.Name = "Backwards"
+	Backwards.Parent = Header
+	Backwards.BackgroundTransparency = 1
+	Backwards.ClipsDescendants = true
+	Backwards.Position = UDim2.new(1, -122, 0.5, -8)
+	Backwards.Size = UDim2.new(0, 16, 0, 16)
+	Backwards.Image = "rbxassetid://1062322047"
+	Backwards.ImageColor3 = Color3.new(0.588235, 0.588235, 0.588235)
+	Backwards.ImageTransparency = 0.80000001192093
+	
+	Home.Name = "Home"
+	Home.Parent = Header
+	Home.BackgroundTransparency = 1
+	Home.ClipsDescendants = true
+	Home.Position = UDim2.new(1, -139, 0.5, -8)
+	Home.Size = UDim2.new(0, 16, 0, 16)
+	Home.Image = "http://www.roblox.com/asset/?id=1062463538"
+	
+	RefreshButton.Name = "RefreshButton"
+	RefreshButton.Parent = Header
+	RefreshButton.BackgroundTransparency = 1
+	RefreshButton.ClipsDescendants = true
+	RefreshButton.Position = UDim2.new(1, -156, 0.5, -8)
+	RefreshButton.Size = UDim2.new(0, 16, 0, 16)
+	RefreshButton.Image = "rbxassetid://1062143044"
+	
+	TextLabel.Parent = Header
+	TextLabel.BackgroundTransparency = 1
+	TextLabel.Position = UDim2.new(0, 4, 0, 0)
+	TextLabel.Size = UDim2.new(1, -4, 1, 0)
+	TextLabel.Font = Enum.Font.SourceSans
+	TextLabel.FontSize = Enum.FontSize.Size14
+	TextLabel.Text = "Explorer"
+	TextLabel.TextColor3 = Color3.new(0, 0, 0)
+	TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+	
+	ScrollingFrame.Parent = Frame
+	ScrollingFrame.BackgroundColor3 = Color3.new(1, 1, 1)
+	ScrollingFrame.BorderSizePixel = 0
+	ScrollingFrame.Position = UDim2.new(0, 0, 0, 20)
+	ScrollingFrame.Size = UDim2.new(1, 0, 1, -20)
+	ScrollingFrame.BottomImage = "rbxassetid://15034057"
+	ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+	ScrollingFrame.MidImage = "rbxassetid://15034057"
+	ScrollingFrame.TopImage = "rbxassetid://15034057"
+	ScrollingFrame.ScrollBarThickness = 5
+	
+	Header.Parent = Frame
+	
+	local Items = {}
+	
+	local function FindIcon(Item)
+		local ClassName = Item.ClassName
+		for i,v in pairs(Images) do
+			for o,b in pairs(v[1]) do
+				if b == ClassName then
+					return v[2]
+				end
+			end
+		end
+		return "rbxassetid://57403690"
+	end
+	
+	local function CreateEntry()
+		-- Objects
+
+		local Entry = Instance.new("TextButton")
+		local Icon = Instance.new("ImageLabel")
+		
+		-- Properties
+		
+		Entry.Name = "Entry"
+		Entry.BackgroundColor3 = Color3.new(0, 0.317647, 1)
+		Entry.BackgroundTransparency = 1
+		Entry.BorderSizePixel = 0
+		Entry.Size = UDim2.new(1, 0, 0, 20)
+		Entry.ZIndex = 2
+		Entry.Font = Enum.Font.SourceSans
+		Entry.FontSize = Enum.FontSize.Size14
+		Entry.Text = "          Restricted Instance"
+		Entry.TextXAlignment = Enum.TextXAlignment.Left
+		Entry.AutoButtonColor = false
+		
+		Icon.Name = "Icon"
+		Icon.Parent = Entry
+		Icon.BackgroundColor3 = Color3.new(1, 1, 1)
+		Icon.BackgroundTransparency = 1
+		Icon.BorderSizePixel = 0
+		Icon.Position = UDim2.new(0, 1, 0, 1)
+		Icon.Size = UDim2.new(0, 16, 0, 16)
+		Icon.ZIndex = 2
+		Icon.Image = "rbxassetid://1060503742"
+		
+		return Entry
+	end
+	
+	local Entry = CreateEntry()
+	
+	local LocalPlayer = game:GetService("Players").LocalPlayer
+
+	local function CreateNewEntry()
+		return Entry:Clone()
+	end
+	
+	local CurrentLevel = game
+	local Levels = {}
+	
+	local SelectedButton = Instance.new("Frame")
+	local SelectedObject = nil
+		
+	local function ExploreObject(Object, DontClear)
+		TextLabel.Text = "Explorer - " .. Object:GetFullName()
+		if DontClear ~= true then
+			Levels = {}
+		end
+		if Object ~= game then
+			Backwards.ImageColor3 = Color3.new(255,255,255)
+			Backwards.ImageTransparency = 0
+		else
+			Backwards.ImageColor3 = Color3.new(150/255,150/255,150/255)
+			Backwards.ImageTransparency = .8
+		end
+		local ExplorerIndex = 0
+		ScrollingFrame:ClearAllChildren()
+		ScrollingFrame.CanvasSize = UDim2.new()
+		CurrentLevel = Object
+		for i,v in pairs(Object:GetChildren()) do
+			local CurrentEntry = CreateNewEntry()
+			CurrentEntry.Parent = ScrollingFrame
+			CurrentEntry.Position = UDim2.new(0,0,0,ExplorerIndex)
+			pcall(function()
+				CurrentEntry.Icon.Image = FindIcon(v)
+				CurrentEntry.Text = "          " .. v.Name	
+				local DoubleClick = tick()
+				CurrentEntry.MouseButton1Down:connect(function()
+			        if tick() - DoubleClick < 0.4 then
+						if #v:GetChildren() > 0 then
+							ExploreObject(v)
+						end
+					else
+						if CurrentEntry.Transparency == 1 then
+							pcall(function()
+								SelectedButton.BackgroundTransparency = 1
+							end)
+							SelectedObject = v
+							SelectedButton = CurrentEntry
+							CurrentEntry.BackgroundTransparency = .8
+							CopyButton.ImageColor3 = Color3.new(1,1,1)
+							CopyButton.ImageTransparency = 0
+							
+							CutButton.ImageColor3 = Color3.new(1,1,1)
+							CutButton.ImageTransparency = 0
+							
+							DeleteButton.ImageColor3 = Color3.new(1,1,1)
+							DeleteButton.ImageTransparency = 0
+							
+							PasteButton.ImageColor3 = Color3.new(1,1,1)
+							PasteButton.ImageTransparency = 0
+						else
+							SelectedObject = nil
+							SelectedButton = Instance.new("Frame")
+							CurrentEntry.BackgroundTransparency = 1
+
+							CopyButton.ImageColor3 = Color3.new(150/255,150/255,150/255)
+							CopyButton.ImageTransparency = .8
+							
+							CutButton.ImageColor3 = Color3.new(150/255,150/255,150/255)
+							CutButton.ImageTransparency = .8
+							
+							DeleteButton.ImageColor3 = Color3.new(150/255,150/255,150/255)
+							DeleteButton.ImageTransparency = .8
+						
+						end
+			        end
+			        DoubleClick = tick()
+				end)
+			end)
+			ScrollingFrame.CanvasSize = ScrollingFrame.CanvasSize + UDim2.new(0,0,0,20)
+			ExplorerIndex = ExplorerIndex + 20
+		end
+	end
+	
+	RefreshButton.MouseButton1Down:connect(function()
+		ExploreObject(CurrentLevel)
+	end)
+	
+	Home.MouseButton1Down:connect(function()
+		Levels = {}
+		if Levels[#Levels] == nil then
+			Forwards.ImageColor3 = Color3.new(150/255,150/255,150/255)
+			Forwards.ImageTransparency = .8
+		end
+		ExploreObject(game)
+	end)
+	
+	Backwards.MouseButton1Down:connect(function()
+		if CurrentLevel ~= game then
+			table.insert(Levels, CurrentLevel)
+			ExploreObject(CurrentLevel.Parent, true)
+			Forwards.ImageColor3 = Color3.new(255,255,255)
+			Forwards.ImageTransparency = 0
+		end
+	end)
+	
+	Forwards.MouseButton1Down:connect(function()
+		if Levels[#Levels] ~= nil then
+			ExploreObject(Levels[#Levels], true)
+			table.remove(Levels, #Levels)
+			if Levels[#Levels] == nil then
+				Forwards.ImageColor3 = Color3.new(150/255,150/255,150/255)
+				Forwards.ImageTransparency = .8
+			end
+		end
+	end)
+	
+	DeleteButton.MouseButton1Down:connect(function()
+		if SelectedObject ~= nil then
+			SelectedObject:remove()
+			SelectedObject = nil
+			ExploreObject(CurrentLevel, true)
+			
+			CopyButton.ImageColor3 = Color3.new(150/255,150/255,150/255)
+			CopyButton.ImageTransparency = .8
+			
+			CutButton.ImageColor3 = Color3.new(150/255,150/255,150/255)
+			CutButton.ImageTransparency = .8
+			
+			DeleteButton.ImageColor3 = Color3.new(150/255,150/255,150/255)
+			DeleteButton.ImageTransparency = .8
+		end
+	end)
+	
+	local Clipboard = Instance.new("Model")
+	
+	CutButton.MouseButton1Down:connect(function()
+		if SelectedObject ~= nil then
+			SelectedObject.Parent = nil
+			Clipboard = SelectedObject
+			SelectedObject = nil
+			ExploreObject(CurrentLevel, true)
+		end
+	end)	
+	
+	CopyButton.MouseButton1Down:connect(function()
+		if SelectedObject ~= nil then
+			Clipboard = SelectedObject
+			ExploreObject(CurrentLevel, true)
+		end
+	end)	
+	
+	PasteButton.MouseButton1Down:connect(function()
+		if SelectedObject ~= nil then
+			Clipboard:Clone().Parent = SelectedObject
+			ExploreObject(SelectedObject, true)
+		else
+			Clipboard:Clone().Parent = CurrentLevel
+			ExploreObject(CurrentLevel, true)
+		end
+	end)
+	
+	local Folder = Instance.new("Folder")
+	Folder.Name = "Welcome"
+	Instance.new("Folder",Folder).Name = "Bleu Explorer"
+	Instance.new("Folder",Folder).Name = "v.2.07"
+	Instance.new("Folder",Folder).Name = "Press the Home icon to continue"
+	
+	ExploreObject(Folder)
+end
+
+-- Objects
+
+local TextButton = Instance.new("TextButton")
+local Frame = Instance.new("Frame")
+
+-- Properties
+
+TextButton.Parent = game:GetService("CoreGui"):FindFirstChild("RobloxGui")
+TextButton.BackgroundColor3 = Color3.new(1, 1, 1)
+TextButton.BackgroundTransparency = 1
+TextButton.Draggable = true
+TextButton.Position = UDim2.new(1, -320, 1, -420)
+TextButton.Size = UDim2.new(0, 140, 0, 20)
+TextButton.ZIndex = 5
+TextButton.Font = Enum.Font.SourceSans
+TextButton.FontSize = Enum.FontSize.Size14
+TextButton.Text = ""
+
+Frame.Parent = TextButton
+Frame.BackgroundColor3 = Color3.new(1, 1, 1)
+Frame.BorderColor3 = Color3.new(0.584314, 0.584314, 0.584314)
+Frame.Size = UDim2.new(0, 300, 0, 400)
+Frame.ZIndex = 1
+
+GiveExplorer(Frame)

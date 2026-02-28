@@ -1,0 +1,2323 @@
+--//   Arsenic   \\--
+
+if game.Players.LocalPlayer.PlayerGui:FindFirstChild("Arsenic Rebirth") then
+  game.Players.LocalPlayer.PlayerGui["Arsenic Rebirth"]:Destroy()
+end
+wait(0.5)
+--\\ Definitions //--
+local ArsenicRebirth = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
+local DRAG = Instance.new("TextButton", ArsenicRebirth)
+local Body = Instance.new("Frame", DRAG)
+local Title = Instance.new("TextLabel", Body)
+-- Pages
+local PageHolder = Instance.new("Frame", Body)
+local IntroPage = Instance.new("Frame", PageHolder)
+local ServerPage = Instance.new("ScrollingFrame", PageHolder)
+local LocalPage = Instance.new("Frame", PageHolder)
+local CrosshairPage = Instance.new("Frame", PageHolder)
+local PlayersPage = Instance.new("Frame", PageHolder)
+local SpawningPage = Instance.new("Frame", PageHolder)
+local VehiclesPage = Instance.new("Frame", PageHolder)
+local TeleportsPage = Instance.new("Frame", PageHolder)
+local StatisticsPage = Instance.new("Frame", PageHolder)
+local ClothesPage = Instance.new("Frame", PageHolder)
+local KitsPage = Instance.new("Frame", PageHolder)
+local Sidebar = Instance.new("ScrollingFrame", Body)
+-- Buttons
+local VehiclesButton = Instance.new("TextButton", Sidebar)
+local ServerButton = Instance.new("TextButton", Sidebar)
+local LocalButton = Instance.new("TextButton", Sidebar)
+local PlayersButton = Instance.new("TextButton", Sidebar)
+local CrosshairButton = Instance.new("TextButton", Sidebar)
+local SpawningButton = Instance.new("TextButton", Sidebar)
+local KitsButton = Instance.new("TextButton", Sidebar)
+local ClothesButton = Instance.new("TextButton", Sidebar)
+local StatisticsButton = Instance.new("TextButton", Sidebar)
+local TeleportsButton = Instance.new("TextButton", Sidebar)
+-- Intro
+local i1 = Instance.new("ImageLabel", IntroPage)
+local i2 = Instance.new("ImageLabel", IntroPage)
+local i3 = Instance.new("ImageLabel", IntroPage)
+local i4 = Instance.new("ImageLabel", IntroPage)
+local i5 = Instance.new("ImageLabel", IntroPage)
+local i6 = Instance.new("ImageLabel", IntroPage)
+local i7 = Instance.new("ImageLabel", IntroPage)
+local c = Instance.new("ImageLabel", IntroPage)
+local l = Instance.new("TextLabel", IntroPage)
+-- Crosshair
+local holder = Instance.new("Frame", CrosshairPage)
+local redvalue = Instance.new("TextBox", holder)
+local greenvalue = Instance.new("TextBox", holder)
+local bluevalue = Instance.new("TextBox", holder)
+local bluelabel = Instance.new("TextLabel", holder)
+local greenlabel = Instance.new("TextLabel", holder)
+local redlabel = Instance.new("TextLabel", holder)
+local crossholder = Instance.new("Frame", CrosshairPage)
+local Top = Instance.new("Frame", crossholder)
+local Right = Instance.new("Frame", crossholder)
+local Bottom = Instance.new("Frame", crossholder)
+local Left = Instance.new("Frame", crossholder)
+local SetCross = Instance.new("TextButton", CrosshairPage)
+local SetRainbowCross = Instance.new("TextButton", CrosshairPage)
+-- Local
+local espholder = Instance.new("Frame", LocalPage)
+local esptoggle = Instance.new("ImageButton", espholder)
+local esplabel = Instance.new("TextLabel", espholder)
+local espball = Instance.new("ImageLabel", esptoggle)
+local godholder = Instance.new("Frame", LocalPage)
+local godtoggle = Instance.new("ImageButton", godholder)
+local godlabel = Instance.new("TextLabel", godholder)
+local godball = Instance.new("ImageLabel", godtoggle)
+local noclipholder = Instance.new("Frame", LocalPage)
+local nocliptoggle = Instance.new("ImageButton", noclipholder)
+local nocliplabel = Instance.new("TextLabel", noclipholder)
+local noclipball = Instance.new("ImageLabel", nocliptoggle)
+--Server
+local serverlabel = Instance.new("TextLabel", ServerPage)
+local servermessageholder = Instance.new("Frame", serverlabel)
+local msg = Instance.new("TextBox", servermessageholder)
+local sendmessage = Instance.new("TextButton", servermessageholder)
+local messagespam = Instance.new("Frame", servermessageholder)
+local messagetoggle = Instance.new("ImageButton", messagespam)
+local messageball = Instance.new("ImageLabel", messagetoggle)
+local msgspamlabel = Instance.new("TextLabel", messagespam)
+local chatspam = Instance.new("Frame", servermessageholder)
+local chatspamtoggle = Instance.new("ImageButton", chatspam)
+local chatspamball = Instance.new("ImageLabel", chatspamtoggle)
+local chatspamlabel = Instance.new("TextLabel", chatspam)
+local msgholder = Instance.new("Frame", servermessageholder)
+local setcolor = Instance.new("TextButton", msgholder)
+local colorscroll = Instance.new("ScrollingFrame", msgholder)
+local colorvalue = Instance.new("StringValue", serverlabel)
+local msgred = Instance.new("TextButton", colorscroll)
+local msgyellow = Instance.new("TextButton", colorscroll)
+local msggreen = Instance.new("TextButton", colorscroll)
+local msgblue = Instance.new("TextButton", colorscroll)
+local msgwhite = Instance.new("TextButton", colorscroll)
+local musiclabel = Instance.new("TextLabel", ServerPage)
+local musiccontentholder = Instance.new("Frame", musiclabel)
+local musictext = Instance.new("TextBox", musiccontentholder)
+local playmusic = Instance.new("TextButton", musiccontentholder)
+local musicholder = Instance.new("Frame", musiccontentholder)
+local extra = Instance.new("Frame", musicholder)
+local servervolume = Instance.new("TextBox", extra)
+local serverpitch = Instance.new("TextBox", extra)
+local musicsep = Instance.new("Frame", musiclabel)
+-- Player
+local selectplayer = Instance.new("TextButton", PlayersPage)
+local kill = Instance.new("TextButton", PlayersPage)
+-- Spawning
+local normalpage = Instance.new("Frame" ,SpawningPage)
+local itembox = Instance.new("TextBox", normalpage)
+local spawnframe = Instance.new("ScrollingFrame", normalpage)
+local amountbox = Instance.new("TextBox", normalpage)
+local spawnplayer = Instance.new("TextButton", normalpage)
+local spawn = Instance.new("TextButton", normalpage)
+local weapons = Instance.new("TextButton", SpawningPage)
+local normal = Instance.new("TextButton", SpawningPage)
+-- Kits
+local susatholder = Instance.new("Frame")
+local susattoggle = Instance.new("ImageButton")
+local susatball = Instance.new("ImageLabel")
+local susatlabel = Instance.new("TextLabel")
+local suppholder = Instance.new("Frame")
+local supptoggle = Instance.new("ImageButton")
+local suppball = Instance.new("ImageLabel")
+local supplabel = Instance.new("TextLabel")
+local acogholder = Instance.new("Frame")
+local acogtoggle = Instance.new("ImageButton")
+local acogball = Instance.new("ImageLabel")
+local acoglabel = Instance.new("TextLabel")
+local selectplayerk = Instance.new("TextButton")
+local GunIMGLabels = Instance.new("ScrollingFrame")
+local M14 = Instance.new("ImageButton")
+local M4A1 = Instance.new("ImageButton")
+local HK21 = Instance.new("ImageButton")
+local G36K = Instance.new("ImageButton")
+local MK17 = Instance.new("ImageButton")
+local COLUMBINE = Instance.new("ImageButton")
+
+-- Vehicles
+local selectvehicle = Instance.new("TextButton", VehiclesPage)
+local hornmusiclabel = Instance.new("TextLabel", VehiclesPage)
+local hornmusiccontentholder = Instance.new("Frame", hornmusiclabel)
+local hornmusictext = Instance.new("TextBox", hornmusiccontentholder)
+local hornplaymusic = Instance.new("TextButton", hornmusiccontentholder)
+local hornmusicsep = Instance.new("Frame", hornmusiclabel)
+
+--//     UI    \\--
+--\\ Properties//--
+
+ArsenicRebirth.Name = "Arsenic Rebirth"
+
+DRAG.Name = "DRAG"
+DRAG.Active = true
+DRAG.BackgroundColor3 = Color3.new(0, 0, 0)
+DRAG.BorderSizePixel = 0
+DRAG.BackgroundTransparency = 0.40000000596046
+DRAG.BorderColor3 = Color3.new(0, 0, 0)
+DRAG.Draggable = true
+DRAG.Position = UDim2.new(0, 497, 0, 305)
+DRAG.Size = UDim2.new(0, 500, 0, 10)
+DRAG.Font = Enum.Font.ArialBold
+DRAG.FontSize = Enum.FontSize.Size10
+DRAG.Text = "- DRAG -"
+DRAG.TextColor3 = Color3.new(1, 1, 1)
+DRAG.TextSize = 10
+DRAG.TextTransparency = 0.20000000298023
+
+Body.Name = "Body"
+Body.BackgroundColor3 = Color3.new(0, 0, 0)
+Body.BackgroundTransparency = 0.40000000596046
+Body.BorderSizePixel = 0
+Body.Position = UDim2.new(0, 0, 0, -245)
+Body.Size = UDim2.new(0, 500, 0, 240)
+
+Title.Name = "Title"
+Title.BackgroundColor3 = Color3.new(1, 1, 1)
+Title.BackgroundTransparency = 1
+Title.Size = UDim2.new(1, 0, 0, 15)
+Title.Font = Enum.Font.ArialBold
+Title.FontSize = Enum.FontSize.Size14
+Title.Text = "Arsenic Rebirth"
+Title.TextColor3 = Color3.new(1, 1, 1)
+Title.TextSize = 14
+Title.TextTransparency = 0.20000000298023
+
+PageHolder.Name = "PageHolder"
+PageHolder.BackgroundColor3 = Color3.new(1, 1, 1)
+PageHolder.BackgroundTransparency = 1
+PageHolder.Position = UDim2.new(0, 115, 0, 30)
+PageHolder.Size = UDim2.new(0, 380, 0, 200)
+
+IntroPage.Name = "IntroPage"
+IntroPage.BackgroundColor3 = Color3.new(1, 1, 1)
+IntroPage.BackgroundTransparency = 1
+IntroPage.Size = UDim2.new(1, 0, 0, 200)
+
+ServerPage.Name = "ServerPage"
+ServerPage.Visible = false
+ServerPage.BackgroundColor3 = Color3.new(1, 1, 1)
+ServerPage.BackgroundTransparency = 1
+ServerPage.Size = UDim2.new(1, 0, 0, 200)
+ServerPage.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+ServerPage.CanvasSize = UDim2.new(0, 0, 2, 0)
+ServerPage.ScrollBarThickness = 5
+ServerPage.BorderSizePixel = 0
+ServerPage.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+
+LocalPage.Name = "LocalPage"
+LocalPage.Visible = false
+LocalPage.BackgroundColor3 = Color3.new(1, 1, 1)
+LocalPage.BackgroundTransparency = 1
+LocalPage.Size = UDim2.new(1, 0, 0, 200)
+
+CrosshairPage.Name = "CrosshairPage"
+CrosshairPage.Visible = false
+CrosshairPage.BackgroundColor3 = Color3.new(1, 1, 1)
+CrosshairPage.BackgroundTransparency = 1
+CrosshairPage.Size = UDim2.new(1, 0, 0, 200)
+
+PlayersPage.Name = "PlayersPage"
+PlayersPage.Visible = false
+PlayersPage.BackgroundColor3 = Color3.new(1, 1, 1)
+PlayersPage.BackgroundTransparency = 1
+PlayersPage.Size = UDim2.new(1, 0, 0, 200)
+
+SpawningPage.Name = "SpawningPage"
+SpawningPage.Visible = false
+SpawningPage.BackgroundColor3 = Color3.new(1, 1, 1)
+SpawningPage.BackgroundTransparency = 1
+SpawningPage.Size = UDim2.new(1, 0, 0, 200)
+
+VehiclesPage.Name = "VehiclesPage"
+VehiclesPage.Visible = false
+VehiclesPage.BackgroundColor3 = Color3.new(1, 1, 1)
+VehiclesPage.BackgroundTransparency = 1
+VehiclesPage.Size = UDim2.new(1, 0, 0, 200)
+
+ClothesPage.Name = "ClothesPage"
+ClothesPage.Visible = false
+ClothesPage.BackgroundColor3 = Color3.new(1, 1, 1)
+ClothesPage.BackgroundTransparency = 1
+ClothesPage.Size = UDim2.new(1, 0, 0, 200)
+
+StatisticsPage.Name = "StatisticsPage"
+StatisticsPage.Visible = false
+StatisticsPage.BackgroundColor3 = Color3.new(1, 1, 1)
+StatisticsPage.BackgroundTransparency = 1
+StatisticsPage.Size = UDim2.new(1, 0, 0, 200)
+
+KitsPage.Name = "KitsPage"
+KitsPage.Visible = false
+KitsPage.BackgroundColor3 = Color3.new(1, 1, 1)
+KitsPage.BackgroundTransparency = 1
+KitsPage.Size = UDim2.new(1, 0, 0, 200)
+
+TeleportsPage.Name = "TeleportsPage"
+TeleportsPage.Visible = false
+TeleportsPage.BackgroundColor3 = Color3.new(1, 1, 1)
+TeleportsPage.BackgroundTransparency = 1
+TeleportsPage.Size = UDim2.new(1, 0, 0, 200)
+
+Sidebar.Name = "Sidebar"
+Sidebar.BackgroundColor3 = Color3.new(1, 1, 1)
+Sidebar.BackgroundTransparency = 1
+Sidebar.BorderSizePixel = 0
+Sidebar.Position = UDim2.new(0, 0, 0, 30)
+Sidebar.Size = UDim2.new(0, 110, 0, 205)
+Sidebar.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+Sidebar.CanvasSize = UDim2.new(0, 0, 1.23, 0)
+Sidebar.ScrollBarThickness = 5
+Sidebar.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+
+VehiclesButton.Name = "VehiclesButton"
+VehiclesButton.BackgroundColor3 = Color3.new(0.756863, 0.298039, 0.266667)
+VehiclesButton.BackgroundTransparency = 0.40000000596046
+VehiclesButton.BorderSizePixel = 0
+VehiclesButton.Position = UDim2.new(0, 5, 0, 150)
+VehiclesButton.Size = UDim2.new(0, 90, 0, 25)
+VehiclesButton.Font = Enum.Font.ArialBold
+VehiclesButton.FontSize = Enum.FontSize.Size14
+VehiclesButton.Text = "VEHICLES"
+VehiclesButton.TextColor3 = Color3.new(1, 1, 1)
+VehiclesButton.TextSize = 14
+VehiclesButton.TextTransparency = 0.20000000298023
+
+ServerButton.Name = "ServerButton"
+ServerButton.BackgroundColor3 = Color3.new(0.756863, 0.298039, 0.266667)
+ServerButton.BackgroundTransparency = 0.40000000596046
+ServerButton.BorderSizePixel = 0
+ServerButton.Position = UDim2.new(0, 5, 0, 0)
+ServerButton.Size = UDim2.new(0, 90, 0, 25)
+ServerButton.Font = Enum.Font.ArialBold
+ServerButton.FontSize = Enum.FontSize.Size14
+ServerButton.Text = "SERVER"
+ServerButton.TextColor3 = Color3.new(1, 1, 1)
+ServerButton.TextSize = 14
+ServerButton.TextTransparency = 0.20000000298023
+
+LocalButton.Name = "LocalButton"
+LocalButton.BackgroundColor3 = Color3.new(0.756863, 0.298039, 0.266667)
+LocalButton.BackgroundTransparency = 0.40000000596046
+LocalButton.BorderSizePixel = 0
+LocalButton.Position = UDim2.new(0, 5, 0, 30)
+LocalButton.Size = UDim2.new(0, 90, 0, 25)
+LocalButton.Font = Enum.Font.ArialBold
+LocalButton.FontSize = Enum.FontSize.Size14
+LocalButton.Text = "LOCAL"
+LocalButton.TextColor3 = Color3.new(1, 1, 1)
+LocalButton.TextSize = 14
+LocalButton.TextTransparency = 0.20000000298023
+
+PlayersButton.Name = "PlayersButton"
+PlayersButton.BackgroundColor3 = Color3.new(0.756863, 0.298039, 0.266667)
+PlayersButton.BackgroundTransparency = 0.40000000596046
+PlayersButton.BorderSizePixel = 0
+PlayersButton.Position = UDim2.new(0, 5, 0, 60)
+PlayersButton.Size = UDim2.new(0, 90, 0, 25)
+PlayersButton.Font = Enum.Font.ArialBold
+PlayersButton.FontSize = Enum.FontSize.Size14
+PlayersButton.Text = "PLAYERS"
+PlayersButton.TextColor3 = Color3.new(1, 1, 1)
+PlayersButton.TextSize = 14
+PlayersButton.TextTransparency = 0.20000000298023
+
+CrosshairButton.Name = "CrosshairButton"
+CrosshairButton.BackgroundColor3 = Color3.new(0.756863, 0.298039, 0.266667)
+CrosshairButton.BackgroundTransparency = 0.40000000596046
+CrosshairButton.BorderSizePixel = 0
+CrosshairButton.Position = UDim2.new(0, 5, 0, 90)
+CrosshairButton.Size = UDim2.new(0, 90, 0, 25)
+CrosshairButton.Font = Enum.Font.ArialBold
+CrosshairButton.FontSize = Enum.FontSize.Size14
+CrosshairButton.Text = "CROSSHAIR"
+CrosshairButton.TextColor3 = Color3.new(1, 1, 1)
+CrosshairButton.TextSize = 14
+CrosshairButton.TextTransparency = 0.20000000298023
+
+SpawningButton.Name = "SpawningButton"
+SpawningButton.BackgroundColor3 = Color3.new(0.756863, 0.298039, 0.266667)
+SpawningButton.BackgroundTransparency = 0.40000000596046
+SpawningButton.BorderSizePixel = 0
+SpawningButton.Position = UDim2.new(0, 5, 0, 120)
+SpawningButton.Size = UDim2.new(0, 90, 0, 25)
+SpawningButton.Font = Enum.Font.ArialBold
+SpawningButton.FontSize = Enum.FontSize.Size14
+SpawningButton.Text = "SPAWNING"
+SpawningButton.TextColor3 = Color3.new(1, 1, 1)
+SpawningButton.TextSize = 14
+SpawningButton.TextTransparency = 0.20000000298023
+
+KitsButton.Name = "KitsButton"
+KitsButton.Parent = Sidebar
+KitsButton.BackgroundColor3 = Color3.new(0.756863, 0.294118, 0.266667)
+KitsButton.BackgroundTransparency = 0.40000000596046
+KitsButton.BorderSizePixel = 0
+KitsButton.Position = UDim2.new(0, 5, 0, 180)
+KitsButton.Size = UDim2.new(0, 90, 0, 25)
+KitsButton.Font = Enum.Font.ArialBold
+KitsButton.FontSize = Enum.FontSize.Size14
+KitsButton.Text = "KITS"
+KitsButton.TextColor3 = Color3.new(1, 1, 1)
+KitsButton.TextSize = 14
+KitsButton.TextTransparency = 0.20000000298023
+
+ClothesButton.Name = "ClothesButton"
+ClothesButton.BackgroundColor3 = Color3.new(0.756863, 0.298039, 0.266667)
+ClothesButton.BackgroundTransparency = 0.40000000596046
+ClothesButton.BorderSizePixel = 0
+ClothesButton.Position = UDim2.new(0, 5, 0, 210)
+ClothesButton.Size = UDim2.new(0, 90, 0, 25)
+ClothesButton.Font = Enum.Font.ArialBold
+ClothesButton.FontSize = Enum.FontSize.Size14
+ClothesButton.Text = "CLOTHES"
+ClothesButton.TextColor3 = Color3.new(1, 1, 1)
+ClothesButton.TextSize = 14
+ClothesButton.TextTransparency = 0.20000000298023
+
+StatisticsButton.Name = "StatisticsButton"
+StatisticsButton.BackgroundColor3 = Color3.new(0.756863, 0.298039, 0.266667)
+StatisticsButton.BackgroundTransparency = 0.40000000596046
+StatisticsButton.BorderSizePixel = 0
+StatisticsButton.Position = UDim2.new(0, 5, 0, 240)
+StatisticsButton.Size = UDim2.new(0, 90, 0, 25)
+StatisticsButton.Font = Enum.Font.ArialBold
+StatisticsButton.FontSize = Enum.FontSize.Size14
+StatisticsButton.Text = "STATISTICS"
+StatisticsButton.TextColor3 = Color3.new(1, 1, 1)
+StatisticsButton.TextSize = 14
+StatisticsButton.TextTransparency = 0.20000000298023
+
+TeleportsButton.Name = "TeleportsButton"
+TeleportsButton.BackgroundColor3 = Color3.new(0.756863, 0.298039, 0.266667)
+TeleportsButton.BackgroundTransparency = 0.40000000596046
+TeleportsButton.BorderSizePixel = 0
+TeleportsButton.Position = UDim2.new(0, 5, 0, 270)
+TeleportsButton.Size = UDim2.new(0, 90, 0, 25)
+TeleportsButton.Font = Enum.Font.ArialBold
+TeleportsButton.FontSize = Enum.FontSize.Size14
+TeleportsButton.Text = "TELEPORTS"
+TeleportsButton.TextColor3 = Color3.new(1, 1, 1)
+TeleportsButton.TextSize = 14
+TeleportsButton.TextTransparency = 0.20000000298023
+
+--//    Page    \\--
+--\\ Properties //--
+
+
+--[[
+
+Intro
+
+]]--
+
+
+i1.BackgroundTransparency = 1
+i1.Position = UDim2.new(0.100000001, 0, 0.150000006, 0)
+i1.Size = UDim2.new(0, 150, 0, 150)
+i1.Image = "rbxassetid://1014815936"
+
+i2.BackgroundTransparency = 1
+i2.Position = UDim2.new(0.100000001, 0, 0.150000006, 0)
+i2.Size = UDim2.new(0, 150, 0, 150)
+i2.Image = "rbxassetid://1014815675"
+
+i3.BackgroundTransparency = 1
+i3.Position = UDim2.new(0.100000001, 0, 0.150000006, 0)
+i3.Size = UDim2.new(0, 150, 0, 150)
+i3.Image = "rbxassetid://1014772958"
+
+i4.BackgroundTransparency = 1
+i4.Position = UDim2.new(0.100000001, 0, 0.150000006, 0)
+i4.Size = UDim2.new(0, 150, 0, 150)
+i4.Image = "rbxassetid://1014848524"
+
+i5.BackgroundTransparency = 1
+i5.Position = UDim2.new(0.100000001, 0, 0.150000006, 0)
+i5.Size = UDim2.new(0, 150, 0, 150)
+i5.Image = "rbxassetid://1014837599"
+
+i6.BackgroundTransparency = 1
+i6.BorderColor3 = Color3.new(1, 1, 1)
+i6.Position = UDim2.new(0.100000001, 0, 0.150000006, 0)
+i6.Size = UDim2.new(0, 150, 0, 150)
+i6.Image = "rbxassetid://1014773078"
+
+i7.BackgroundTransparency = 1
+i7.Position = UDim2.new(0.100000001, 0, 0.150000006, 0)
+i7.Size = UDim2.new(0, 150, 0, 150)
+i7.Image = "rbxassetid://1014848627"
+
+c.BackgroundTransparency = 1
+c.Position = UDim2.new(0.525, 0, 0.150000006, 0)
+c.Size = UDim2.new(0, 150, 0, 150)
+c.Image = "rbxassetid://1158115602"
+
+l.BackgroundColor3 = Color3.new(1, 1, 1)
+l.BackgroundTransparency = 1
+l.Size = UDim2.new(1, 0, 0, 25)
+l.Font = Enum.Font.ArialBold
+l.FontSize = Enum.FontSize.Size14
+l.Text = "CREATED BY INTEGER & CINI"
+l.TextColor3 = Color3.new(1, 1, 1)
+l.TextSize = 14
+l.TextTransparency = 0.20000000298023
+
+--[[
+
+Crosshair
+
+]]--
+
+holder.Name = "holder"
+holder.BackgroundColor3 = Color3.new(1, 1, 1)
+holder.BackgroundTransparency = 1
+holder.Position = UDim2.new(0.25, 0, 0, 0)
+holder.Size = UDim2.new(0, 175, 0, 25)
+
+redvalue.Name = "redvalue"
+redvalue.BackgroundColor3 = Color3.new(0, 0, 0)
+redvalue.BackgroundTransparency = 0.80000001192093
+redvalue.BorderSizePixel = 0
+redvalue.Position = UDim2.new(0, 30, 0, 0)
+redvalue.Size = UDim2.new(0, 30, 0, 25)
+redvalue.Font = Enum.Font.ArialBold
+redvalue.FontSize = Enum.FontSize.Size12
+redvalue.Text = "255"
+redvalue.TextColor3 = Color3.new(1, 1, 1)
+redvalue.TextSize = 12
+redvalue.TextTransparency = 0.20000000298023
+
+greenvalue.Name = "greenvalue"
+greenvalue.BackgroundColor3 = Color3.new(0, 0, 0)
+greenvalue.BackgroundTransparency = 0.80000001192093
+greenvalue.BorderSizePixel = 0
+greenvalue.Position = UDim2.new(0, 95, 0, 0)
+greenvalue.Size = UDim2.new(0, 30, 0, 25)
+greenvalue.Font = Enum.Font.ArialBold
+greenvalue.FontSize = Enum.FontSize.Size12
+greenvalue.Text = "0"
+greenvalue.TextColor3 = Color3.new(1, 1, 1)
+greenvalue.TextSize = 12
+greenvalue.TextTransparency = 0.20000000298023
+
+bluevalue.Name = "bluevalue"
+bluevalue.BackgroundColor3 = Color3.new(0, 0, 0)
+bluevalue.BackgroundTransparency = 0.80000001192093
+bluevalue.BorderSizePixel = 0
+bluevalue.Position = UDim2.new(0, 150, 0, 0)
+bluevalue.Size = UDim2.new(0, 30, 0, 25)
+bluevalue.Font = Enum.Font.ArialBold
+bluevalue.FontSize = Enum.FontSize.Size12
+bluevalue.Text = "0"
+bluevalue.TextColor3 = Color3.new(1, 1, 1)
+bluevalue.TextSize = 12
+bluevalue.TextTransparency = 0.20000000298023
+
+bluelabel.Name = "bluelabel"
+bluelabel.BackgroundColor3 = Color3.new(1, 1, 1)
+bluelabel.BackgroundTransparency = 1
+bluelabel.Position = UDim2.new(0, 125, 0, 0)
+bluelabel.Size = UDim2.new(0, 25, 0, 25)
+bluelabel.Font = Enum.Font.ArialBold
+bluelabel.FontSize = Enum.FontSize.Size14
+bluelabel.Text = "B:"
+bluelabel.TextColor3 = Color3.new(0, 0.666667, 1)
+bluelabel.TextSize = 14
+
+greenlabel.Name = "greenlabel"
+greenlabel.BackgroundColor3 = Color3.new(1, 1, 1)
+greenlabel.BackgroundTransparency = 1
+greenlabel.Position = UDim2.new(0, 65, 0, 0)
+greenlabel.Size = UDim2.new(0, 25, 0, 25)
+greenlabel.Font = Enum.Font.ArialBold
+greenlabel.FontSize = Enum.FontSize.Size14
+greenlabel.Text = "G:"
+greenlabel.TextColor3 = Color3.new(0, 1, 0)
+greenlabel.TextSize = 14
+
+redlabel.Name = "redlabel"
+redlabel.BackgroundColor3 = Color3.new(1, 1, 1)
+redlabel.BackgroundTransparency = 1
+redlabel.Size = UDim2.new(0, 25, 0, 25)
+redlabel.Font = Enum.Font.ArialBold
+redlabel.FontSize = Enum.FontSize.Size14
+redlabel.Text = "R:"
+redlabel.TextColor3 = Color3.new(1, 0, 0)
+redlabel.TextSize = 14
+
+crossholder.Name = "crossholder"
+crossholder.BackgroundColor3 = Color3.new(1, 1, 1)
+crossholder.BackgroundTransparency = 1
+crossholder.Position = UDim2.new(0.400000006, 0, 0.25, 0)
+crossholder.Size = UDim2.new(0, 75, 0, 75)
+
+Top.Name = "Top"
+Top.BackgroundColor3 = Color3.new(1, 0, 0)
+Top.BorderSizePixel = 0
+Top.Position = UDim2.new(0.479999989, 0, 0, 0)
+Top.Size = UDim2.new(0, 4, 0, 20)
+
+Right.Name = "Right"
+Right.BackgroundColor3 = Color3.new(1, 0, 0)
+Right.BorderSizePixel = 0
+Right.Position = UDim2.new(0.800000012, 0, 0.479999989, 0)
+Right.Size = UDim2.new(0, 20, 0, 4)
+
+Bottom.Name = "Bottom"
+Bottom.BackgroundColor3 = Color3.new(1, 0, 0)
+Bottom.BorderSizePixel = 0
+Bottom.Position = UDim2.new(0.479999989, 0, 0.800000012, 0)
+Bottom.Size = UDim2.new(0, 4, 0, 20)
+
+Left.Name = "Left"
+Left.BackgroundColor3 = Color3.new(1, 0, 0)
+Left.BorderSizePixel = 0
+Left.Position = UDim2.new(0, 0, 0.479999989, 0)
+Left.Size = UDim2.new(0, 20, 0, 4)
+
+SetCross.Name = "SetCross"
+SetCross.BackgroundColor3 = Color3.new(0, 0.333333, 0)
+SetCross.BackgroundTransparency = 0.5
+SetCross.BorderSizePixel = 0
+SetCross.Position = UDim2.new(0, 90, 0, 150)
+SetCross.Size = UDim2.new(0, 200, 0, 20)
+SetCross.Font = Enum.Font.ArialBold
+SetCross.FontSize = Enum.FontSize.Size14
+SetCross.Text = "SET CROSSHAIR"
+SetCross.TextColor3 = Color3.new(1, 1, 1)
+SetCross.TextSize = 14
+SetCross.TextTransparency = 0.20000000298023
+
+SetRainbowCross.Name = "SetRainbowCross"
+SetRainbowCross.BackgroundColor3 = Color3.new(0, 0.333333, 0)
+SetRainbowCross.BackgroundTransparency = 0.5
+SetRainbowCross.BorderSizePixel = 0
+SetRainbowCross.Position = UDim2.new(0, 90, 0, 175)
+SetRainbowCross.Size = UDim2.new(0, 200, 0, 20)
+SetRainbowCross.Font = Enum.Font.ArialBold
+SetRainbowCross.FontSize = Enum.FontSize.Size14
+SetRainbowCross.Text = "SET RAINBOW CROSSHAIR"
+SetRainbowCross.TextColor3 = Color3.new(1, 1, 1)
+SetRainbowCross.TextSize = 14
+SetRainbowCross.TextTransparency = 0.20000000298023
+
+--[[
+
+Local
+
+]]--
+
+-- God
+
+godholder.BackgroundColor3 = Color3.new(1, 1, 1)
+godholder.BackgroundTransparency = 1
+godholder.Size = UDim2.new(0, 100, 0, 50)
+
+godtoggle.BackgroundColor3 = Color3.new(1, 1, 1)
+godtoggle.BackgroundTransparency = 1
+godtoggle.Position = UDim2.new(0.3, 0, 0, 0)
+godtoggle.Size = UDim2.new(0, 42, 0, 24)
+godtoggle.Image = "rbxassetid://1151662243"
+godtoggle.ImageTransparency = 0.4
+
+godlabel.BackgroundColor3 = Color3.new(1, 1, 1)
+godlabel.BackgroundTransparency = 1
+godlabel.Position = UDim2.new(0, 0, 0.5, 0)
+godlabel.Size = UDim2.new(1, 0, 0.5, 0)
+godlabel.Font = Enum.Font.ArialBold
+godlabel.FontSize = Enum.FontSize.Size14
+godlabel.Text = "GOD : OFF"
+godlabel.TextColor3 = Color3.new(1, 1, 1)
+godlabel.TextSize = 14
+godlabel.TextTransparency = 0.2
+
+godball.BackgroundColor3 = Color3.new(1, 1, 1)
+godball.BackgroundTransparency = 1
+godball.Position = UDim2.new(0.08, 0, 0.145, 0)
+godball.Size = UDim2.new(0, 18, 0, 18)
+godball.Image = "rbxassetid://1151662385"
+
+-- Noclip
+
+noclipholder.BackgroundColor3 = Color3.new(1, 1, 1)
+noclipholder.BackgroundTransparency = 1
+noclipholder.Size = UDim2.new(0, 100, 0, 50)
+noclipholder.Position = UDim2.new(0.25, 0, 0, 0)
+
+nocliptoggle.BackgroundColor3 = Color3.new(1, 1, 1)
+nocliptoggle.BackgroundTransparency = 1
+nocliptoggle.Position = UDim2.new(0.3, 0, 0, 0)
+nocliptoggle.Size = UDim2.new(0, 42, 0, 24)
+nocliptoggle.Image = "rbxassetid://1151662243"
+nocliptoggle.ImageTransparency = 0.4
+
+nocliplabel.BackgroundColor3 = Color3.new(1, 1, 1)
+nocliplabel.BackgroundTransparency = 1
+nocliplabel.Position = UDim2.new(0, 0, 0.5, 0)
+nocliplabel.Size = UDim2.new(1, 0, 0.5, 0)
+nocliplabel.Font = Enum.Font.ArialBold
+nocliplabel.FontSize = Enum.FontSize.Size14
+nocliplabel.Text = "NOCLIP : OFF"
+nocliplabel.TextColor3 = Color3.new(1, 1, 1)
+nocliplabel.TextSize = 14
+nocliplabel.TextTransparency = 0.2
+
+noclipball.BackgroundColor3 = Color3.new(1, 1, 1)
+noclipball.BackgroundTransparency = 1
+noclipball.Position = UDim2.new(0.08, 0, 0.145, 0)
+noclipball.Size = UDim2.new(0, 18, 0, 18)
+noclipball.Image = "rbxassetid://1151662385"
+
+-- ESP
+
+espholder.Name = "espholder"
+espholder.BackgroundColor3 = Color3.new(1, 1, 1)
+espholder.BackgroundTransparency = 1
+espholder.Position = UDim2.new(0.5, 0, 0, 0)
+espholder.Size = UDim2.new(0, 100, 0, 50)
+
+esptoggle.Name = "esptoggle"
+esptoggle.BackgroundColor3 = Color3.new(1, 1, 1)
+esptoggle.BackgroundTransparency = 1
+esptoggle.Position = UDim2.new(0.300000012, 0, 0, 0)
+esptoggle.Size = UDim2.new(0, 42, 0, 24)
+esptoggle.Image = "rbxassetid://1151662243"
+esptoggle.ImageTransparency = 0.40000000596046
+
+espball.Name = "espball"
+espball.BackgroundColor3 = Color3.new(1, 1, 1)
+espball.BackgroundTransparency = 1
+espball.Position = UDim2.new(0.0799999982, 0, 0.144999996, 0)
+espball.Size = UDim2.new(0, 18, 0, 18)
+espball.Image = "rbxassetid://1151662385"
+
+esplabel.Name = "esplabel"
+esplabel.BackgroundColor3 = Color3.new(1, 1, 1)
+esplabel.BackgroundTransparency = 1
+esplabel.Position = UDim2.new(0, 0, 0.5, 0)
+esplabel.Size = UDim2.new(1, 0, 0.5, 0)
+esplabel.Font = Enum.Font.ArialBold
+esplabel.FontSize = Enum.FontSize.Size14
+esplabel.Text = "ESP : OFF"
+esplabel.TextColor3 = Color3.new(1, 1, 1)
+esplabel.TextSize = 14
+esplabel.TextTransparency = 0.20000000298023
+
+selectplayer.Name = "selectplayer"
+selectplayer.BackgroundColor3 = Color3.new(0, 0, 0)
+selectplayer.BackgroundTransparency = 0.80000001192093
+selectplayer.Position = UDim2.new(0.224999994, 0, 0, 0)
+selectplayer.Size = UDim2.new(0, 200, 0, 25)
+selectplayer.Font = Enum.Font.ArialBold
+selectplayer.FontSize = Enum.FontSize.Size14
+selectplayer.Text = "SELECT PLAYER"
+selectplayer.TextColor3 = Color3.new(1, 1, 1)
+selectplayer.TextSize = 14
+selectplayer.TextTransparency = 0.20000000298023
+
+--[[
+
+Server
+
+]]--
+
+serverlabel.Name = "serverlabel"
+serverlabel.BackgroundColor3 = Color3.new(1, 1, 1)
+serverlabel.BackgroundTransparency = 1
+serverlabel.Size = UDim2.new(1, 0, 0, 20)
+serverlabel.Font = Enum.Font.ArialBold
+serverlabel.FontSize = Enum.FontSize.Size14
+serverlabel.Text = "Server/Text Messaging"
+serverlabel.TextColor3 = Color3.new(1, 1, 1)
+serverlabel.TextSize = 14
+serverlabel.TextTransparency = 0.20000000298023
+
+-- Server Message Spam
+
+servermessageholder.Name = "servermessageholder"
+servermessageholder.BackgroundColor3 = Color3.new(1, 1, 1)
+servermessageholder.BackgroundTransparency = 1
+servermessageholder.Position = UDim2.new(0, 0, 0, 25)
+servermessageholder.Size = UDim2.new(1, 0, 0, 100)
+
+msg.Name = "msg"
+msg.BackgroundColor3 = Color3.new(0, 0, 0)
+msg.BackgroundTransparency = 0.80000001192093
+msg.BorderSizePixel = 0
+msg.Position = UDim2.new(0.200000003, 0, 0, 0)
+msg.Size = UDim2.new(0, 225, 0, 50)
+msg.Font = Enum.Font.ArialBold
+msg.FontSize = Enum.FontSize.Size14
+msg.PlaceholderText = "MESSAGE HERE"
+msg.Text = ""
+msg.TextColor3 = Color3.new(1, 1, 1)
+msg.TextSize = 14
+msg.TextWrapped = true
+
+sendmessage.Name = "sendmessage"
+sendmessage.BackgroundColor3 = Color3.new(0, 0.333333, 0)
+sendmessage.BackgroundTransparency = 0.5
+sendmessage.BorderSizePixel = 0
+sendmessage.Position = UDim2.new(0.0250000004, 0, 1, 0)
+sendmessage.Size = UDim2.new(0, 100, 0, 25)
+sendmessage.Font = Enum.Font.ArialBold
+sendmessage.FontSize = Enum.FontSize.Size14
+sendmessage.Text = "SEND"
+sendmessage.TextColor3 = Color3.new(1, 1, 1)
+sendmessage.TextSize = 14
+sendmessage.TextTransparency = 0.20000000298023
+
+messagespam.Name = "messagespam"
+messagespam.BackgroundColor3 = Color3.new(1, 1, 1)
+messagespam.BackgroundTransparency = 1
+messagespam.Position = UDim2.new(0.314500004, 0, 1, 0)
+messagespam.Size = UDim2.new(0, 75, 0, 50)
+
+messagetoggle.Name = "messagetoggle"
+messagetoggle.BackgroundColor3 = Color3.new(1, 1, 1)
+messagetoggle.BackgroundTransparency = 1
+messagetoggle.Size = UDim2.new(0, 42, 0, 24)
+messagetoggle.Image = "rbxassetid://1151662243"
+messagetoggle.ImageTransparency = 0.40000000596046
+
+messageball.Name = "messageball"
+messageball.BackgroundColor3 = Color3.new(1, 1, 1)
+messageball.BackgroundTransparency = 1
+messageball.Position = UDim2.new(0.0799999982, 0, 0.144999996, 0)
+messageball.Size = UDim2.new(0, 18, 0, 18)
+messageball.Image = "rbxassetid://1151662385"
+
+-- Message Spam
+
+msgspamlabel.Name = "msgspamlabel"
+msgspamlabel.BackgroundColor3 = Color3.new(1, 1, 1)
+msgspamlabel.BackgroundTransparency = 1
+msgspamlabel.Position = UDim2.new(0.574999988, 0, 0, 0)
+msgspamlabel.Size = UDim2.new(1, 0, 0.5, 0)
+msgspamlabel.Font = Enum.Font.ArialBold
+msgspamlabel.FontSize = Enum.FontSize.Size14
+msgspamlabel.Text = "MSG SPAM"
+msgspamlabel.TextColor3 = Color3.new(1, 1, 1)
+msgspamlabel.TextSize = 14
+msgspamlabel.TextTransparency = 0.20000000298023
+
+chatspam.Name = "chatspam"
+chatspam.BackgroundColor3 = Color3.new(1, 1, 1)
+chatspam.BackgroundTransparency = 1
+chatspam.Position = UDim2.new(0.649999976, 0, 1, 0)
+chatspam.Size = UDim2.new(0, 75, 0, 25)
+
+chatspamtoggle.Name = "chatspamtoggle"
+chatspamtoggle.BackgroundColor3 = Color3.new(1, 1, 1)
+chatspamtoggle.BackgroundTransparency = 1
+chatspamtoggle.Size = UDim2.new(0, 42, 0, 24)
+chatspamtoggle.Image = "rbxassetid://1151662243"
+chatspamtoggle.ImageTransparency = 0.40000000596046
+
+chatspamball.Name = "chatspamball"
+chatspamball.BackgroundColor3 = Color3.new(1, 1, 1)
+chatspamball.BackgroundTransparency = 1
+chatspamball.Position = UDim2.new(0.0799999982, 0, 0.144999996, 0)
+chatspamball.Size = UDim2.new(0, 18, 0, 18)
+chatspamball.Image = "rbxassetid://1151662385"
+
+chatspamlabel.Name = "chatspamlabel"
+chatspamlabel.BackgroundColor3 = Color3.new(1, 1, 1)
+chatspamlabel.BackgroundTransparency = 1
+chatspamlabel.Position = UDim2.new(0.6, 0, 0, 0)
+chatspamlabel.Size = UDim2.new(1, 0, 0, 25)
+chatspamlabel.Font = Enum.Font.ArialBold
+chatspamlabel.FontSize = Enum.FontSize.Size14
+chatspamlabel.Text = "CHAT SPAM"
+chatspamlabel.TextColor3 = Color3.new(1, 1, 1)
+chatspamlabel.TextSize = 14
+chatspamlabel.TextTransparency = 0.20000000298023
+
+msgholder.Name = "msgholder"
+msgholder.BackgroundColor3 = Color3.new(1, 1, 1)
+msgholder.BackgroundTransparency = 1
+msgholder.Size = UDim2.new(1, 0, 1, 0)
+
+-- Server Messages
+
+setcolor.Name = "setcolor"
+setcolor.BackgroundColor3 = Color3.new(0, 0, 0)
+setcolor.BackgroundTransparency = 0.80000001192093
+setcolor.Position = UDim2.new(0.200000003, 0, 0.625, 0)
+setcolor.Size = UDim2.new(0, 225, 0, 25)
+setcolor.Font = Enum.Font.ArialBold
+setcolor.FontSize = Enum.FontSize.Size14
+setcolor.Text = "COLOR HERE"
+setcolor.TextColor3 = Color3.new(1, 1, 1)
+setcolor.TextSize = 14
+setcolor.TextTransparency = 0.20000000298023
+
+colorscroll.Name = "colorscroll"
+colorscroll.Visible = false
+colorscroll.BackgroundColor3 = Color3.new(0, 0, 0)
+colorscroll.BackgroundTransparency = 0.80000001192093
+colorscroll.BorderSizePixel = 0
+colorscroll.Position = UDim2.new(0.200000003, 0, 0.949999988, 0)
+colorscroll.Size = UDim2.new(0, 225, 0, 85)
+colorscroll.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+colorscroll.CanvasSize = UDim2.new(0, 0, 1.25, 0)
+colorscroll.ScrollBarThickness = 5
+colorscroll.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+
+msgred.Name = "msgred"
+msgred.BackgroundColor3 = Color3.new(0, 0, 0)
+msgred.BackgroundTransparency = 0.89999997615814
+msgred.Size = UDim2.new(1, 0, 0, 25)
+msgred.Font = Enum.Font.ArialBold
+msgred.FontSize = Enum.FontSize.Size14
+msgred.Text = "RED"
+msgred.TextColor3 = Color3.new(1, 1, 1)
+msgred.TextSize = 14
+msgred.TextTransparency = 0.20000000298023
+
+msgyellow.Name = "msgyellow"
+msgyellow.BackgroundColor3 = Color3.new(0, 0, 0)
+msgyellow.BackgroundTransparency = 0.89999997615814
+msgyellow.Position = UDim2.new(0, 0, 0, 25)
+msgyellow.Size = UDim2.new(1, 0, 0, 25)
+msgyellow.Font = Enum.Font.ArialBold
+msgyellow.FontSize = Enum.FontSize.Size14
+msgyellow.Text = "YELLOW"
+msgyellow.TextColor3 = Color3.new(1, 1, 1)
+msgyellow.TextSize = 14
+msgyellow.TextTransparency = 0.20000000298023
+
+msggreen.Name = "msggreen"
+msggreen.BackgroundColor3 = Color3.new(0, 0, 0)
+msggreen.BackgroundTransparency = 0.89999997615814
+msggreen.Position = UDim2.new(0, 0, 0, 50)
+msggreen.Size = UDim2.new(1, 0, 0, 25)
+msggreen.Font = Enum.Font.ArialBold
+msggreen.FontSize = Enum.FontSize.Size14
+msggreen.Text = "GREEN"
+msggreen.TextColor3 = Color3.new(1, 1, 1)
+msggreen.TextSize = 14
+msggreen.TextTransparency = 0.20000000298023
+
+msgblue.Name = "msgblue"
+msgblue.BackgroundColor3 = Color3.new(0, 0, 0)
+msgblue.BackgroundTransparency = 0.89999997615814
+msgblue.Position = UDim2.new(0, 0, 0, 75)
+msgblue.Size = UDim2.new(1, 0, 0, 25)
+msgblue.Font = Enum.Font.ArialBold
+msgblue.FontSize = Enum.FontSize.Size14
+msgblue.Text = "BLUE"
+msgblue.TextColor3 = Color3.new(1, 1, 1)
+msgblue.TextSize = 14
+msgblue.TextTransparency = 0.20000000298023
+
+msgwhite.Name = "msgwhite"
+msgwhite.BackgroundColor3 = Color3.new(0, 0, 0)
+msgwhite.BackgroundTransparency = 0.89999997615814
+msgwhite.Position = UDim2.new(0, 0, 0, 100)
+msgwhite.Size = UDim2.new(1, 0, 0, 25)
+msgwhite.Font = Enum.Font.ArialBold
+msgwhite.FontSize = Enum.FontSize.Size14
+msgwhite.Text = "WHITE"
+msgwhite.TextColor3 = Color3.new(1, 1, 1)
+msgwhite.TextSize = 14
+msgwhite.TextTransparency = 0.20000000298023
+
+-- Server Music
+
+musiclabel.Name = "musiclabel"
+musiclabel.BackgroundColor3 = Color3.new(1, 1, 1)
+musiclabel.BackgroundTransparency = 1
+musiclabel.Position = UDim2.new(0, 0, 0, 175)
+musiclabel.Size = UDim2.new(1, 0, 0, 20)
+musiclabel.Font = Enum.Font.ArialBold
+musiclabel.FontSize = Enum.FontSize.Size14
+musiclabel.Text = "Server Music"
+musiclabel.TextColor3 = Color3.new(1, 1, 1)
+musiclabel.TextSize = 14
+musiclabel.TextTransparency = 0.20000000298023
+
+musiccontentholder.Name = "musiccontentholder"
+musiccontentholder.BackgroundColor3 = Color3.new(1, 1, 1)
+musiccontentholder.BackgroundTransparency = 1
+musiccontentholder.Position = UDim2.new(0, 0, 0, 25)
+musiccontentholder.Size = UDim2.new(1, 0, 0, 100)
+
+musictext.Name = "musictext"
+musictext.BackgroundColor3 = Color3.new(0, 0, 0)
+musictext.BackgroundTransparency = 0.80000001192093
+musictext.BorderSizePixel = 0
+musictext.Position = UDim2.new(0.200000003, 0, 0, 0)
+musictext.Size = UDim2.new(0, 225, 0, 25)
+musictext.Font = Enum.Font.ArialBold
+musictext.FontSize = Enum.FontSize.Size14
+musictext.PlaceholderText = "SONG ID HERE"
+musictext.Text = ""
+musictext.TextColor3 = Color3.new(1, 1, 1)
+musictext.TextSize = 14
+musictext.TextTransparency = 0.20000000298023
+musictext.TextWrapped = true
+
+playmusic.Name = "playmusic"
+playmusic.BackgroundColor3 = Color3.new(0, 0.333333, 0)
+playmusic.BackgroundTransparency = 0.5
+playmusic.BorderSizePixel = 0
+playmusic.Position = UDim2.new(0.375, 0, 0.600000024, 0)
+playmusic.Size = UDim2.new(0, 100, 0, 25)
+playmusic.Font = Enum.Font.ArialBold
+playmusic.FontSize = Enum.FontSize.Size14
+playmusic.Text = "PLAY"
+playmusic.TextColor3 = Color3.new(1, 1, 1)
+playmusic.TextSize = 14
+playmusic.TextTransparency = 0.20000000298023
+
+musicholder.Name = "musicholder"
+musicholder.BackgroundColor3 = Color3.new(1, 1, 1)
+musicholder.BackgroundTransparency = 1
+musicholder.Size = UDim2.new(1, 0, 1, 0)
+
+extra.Name = "extra"
+extra.BackgroundColor3 = Color3.new(1, 1, 1)
+extra.BackgroundTransparency = 1
+extra.Size = UDim2.new(0, 225, 0, 25)
+
+servervolume.Name = "servervolume"
+servervolume.BackgroundColor3 = Color3.new(0, 0, 0)
+servervolume.BackgroundTransparency = 0.80000001192093
+servervolume.Position = UDim2.new(0, 76, 0, 30)
+servervolume.Size = UDim2.new(0.485000014, 0, 0, 25)
+servervolume.Font = Enum.Font.ArialBold
+servervolume.FontSize = Enum.FontSize.Size14
+servervolume.PlaceholderText = "VOLUME"
+servervolume.Text = ""
+servervolume.TextColor3 = Color3.new(1, 1, 1)
+servervolume.TextSize = 14
+servervolume.TextTransparency = 0.20000000298023
+
+serverpitch.Name = "serverpitch"
+serverpitch.BackgroundColor3 = Color3.new(0, 0, 0)
+serverpitch.BackgroundTransparency = 0.80000001192093
+serverpitch.Position = UDim2.new(0, 192, 0, 30)
+serverpitch.Size = UDim2.new(0.485000014, 0, 0, 25)
+serverpitch.Font = Enum.Font.ArialBold
+serverpitch.FontSize = Enum.FontSize.Size14
+serverpitch.PlaceholderText = "PITCH"
+serverpitch.Text = ""
+serverpitch.TextColor3 = Color3.new(1, 1, 1)
+serverpitch.TextSize = 14
+serverpitch.TextTransparency = 0.20000000298023
+
+musicsep.Name = "musicsep"
+musicsep.BackgroundColor3 = Color3.new(1, 1, 1)
+musicsep.BackgroundTransparency = 0.20000000298023
+musicsep.BorderSizePixel = 0
+musicsep.Position = UDim2.new(0, 10, 0, -10)
+musicsep.Size = UDim2.new(0.925000012, 0, 0, 1)
+
+--[[
+
+Player
+
+]]--
+
+kill.Name = "kill"
+kill.BackgroundColor3 = Color3.new(0, 0.333333, 0)
+kill.BackgroundTransparency = 0.40000000596046
+kill.BorderSizePixel = 0
+kill.Position = UDim2.new(0, 5, 0, 35)
+kill.Size = UDim2.new(0, 100, 0, 25)
+kill.Font = Enum.Font.ArialBold
+kill.FontSize = Enum.FontSize.Size14
+kill.Text = "Kill"
+kill.TextColor3 = Color3.new(1, 1, 1)
+kill.TextSize = 14
+kill.TextTransparency = 0.20000000298023
+
+--[[
+
+Spawning
+
+]]--
+
+normalpage.Name = "normalpage"
+normalpage.BackgroundColor3 = Color3.new(1, 1, 1)
+normalpage.BackgroundTransparency = 1
+normalpage.Size = UDim2.new(1, 0, 1, 0)
+
+itembox.Name = "itembox"
+itembox.BackgroundColor3 = Color3.new(0, 0, 0)
+itembox.BackgroundTransparency = 0.80000001192093
+itembox.BorderSizePixel = 0
+itembox.PlaceholderText = "ITEM NAME"
+--itembox.PlaceholderTextColor3 = Color3.new(0.733333333, 0.733333333, 0.733333333)
+itembox.Position = UDim2.new(0.224999994, 0, 0, 45)
+itembox.Size = UDim2.new(0, 200, 0, 25)
+itembox.TextColor3 = Color3.new(1,1,1)
+itembox.TextTransparency = 0.2
+itembox.Font = Enum.Font.ArialBold
+itembox.FontSize = Enum.FontSize.Size14
+itembox.Text = ""
+itembox.TextSize = 14
+
+amountbox.Name = "amountbox"
+amountbox.BackgroundColor3 = Color3.new(0, 0, 0)
+amountbox.BackgroundTransparency = 0.80000001192093
+amountbox.BorderSizePixel = 0
+amountbox.PlaceholderText = "ITEM AMOUNT"
+--amountbox.PlaceholderTextColor3 = Color3.new(0.733333333, 0.733333333, 0.733333333)
+amountbox.Position = UDim2.new(0.224999994, 0, 0, 105)
+amountbox.Size = UDim2.new(0, 200, 0, 25)
+amountbox.TextColor3 = Color3.new(1,1,1)
+amountbox.TextTransparency = 0.2
+amountbox.Font = Enum.Font.ArialBold
+amountbox.FontSize = Enum.FontSize.Size14
+amountbox.Text = ""
+amountbox.TextSize = 14
+
+spawn.Name = "spawn"
+spawn.BackgroundColor3 = Color3.new(0, 0.333333, 0)
+spawn.BackgroundTransparency = 0.40000000596046
+spawn.BorderSizePixel = 0
+spawn.Position = UDim2.new(0.224999994, 0, 0, 150)
+spawn.Size = UDim2.new(0, 200, 0, 25)
+spawn.Font = Enum.Font.ArialBold
+spawn.FontSize = Enum.FontSize.Size14
+spawn.Text = "SPAWN"
+spawn.TextColor3 = Color3.new(1, 1, 1)
+spawn.TextSize = 14
+spawn.TextTransparency = 0.20000000298023
+
+spawnplayer.Name = "spawnplayer"
+spawnplayer.BackgroundColor3 = Color3.new(0, 0, 0)
+spawnplayer.BackgroundTransparency = 0.8
+spawnplayer.BorderSizePixel = 0
+spawnplayer.Position = UDim2.new(0.224999994, 0, 0, 75)
+spawnplayer.Size = UDim2.new(0, 200, 0, 25)
+spawnplayer.Font = Enum.Font.ArialBold
+spawnplayer.FontSize = Enum.FontSize.Size14
+spawnplayer.Text = "SELECT PLAYER"
+spawnplayer.TextColor3 = Color3.new(1, 1, 1)
+spawnplayer.TextSize = 14
+spawnplayer.TextTransparency = 0.20000000298023
+
+weapons.Name = "weapons"
+weapons.BackgroundColor3 = Color3.new(0.756863, 0.294118, 0.266667)
+weapons.BackgroundTransparency = 0.40000000596046
+weapons.BorderSizePixel = 0
+weapons.Position = UDim2.new(0.5, 0, 0, 0)
+weapons.Size = UDim2.new(0, 95, 0, 25)
+weapons.Font = Enum.Font.ArialBold
+weapons.FontSize = Enum.FontSize.Size14
+weapons.Text = "WEAPONS"
+weapons.TextColor3 = Color3.new(1, 1, 1)
+weapons.TextSize = 14
+weapons.TextTransparency = 0.20000000298023
+
+normal.Name = "normal"
+normal.BackgroundColor3 = Color3.new(0, 0.333333, 0)
+normal.BackgroundTransparency = 0.40000000596046
+normal.BorderSizePixel = 0
+normal.Position = UDim2.new(0.224999994, 0, 0, 0)
+normal.Size = UDim2.new(0, 95, 0, 25)
+normal.Font = Enum.Font.ArialBold
+normal.FontSize = Enum.FontSize.Size14
+normal.Text = "NORMAL"
+normal.TextColor3 = Color3.new(1, 1, 1)
+normal.TextSize = 14
+normal.TextTransparency = 0.20000000298023
+
+spawnframe.Name = "spawnframe"
+spawnframe.BackgroundColor3 = Color3.new(0, 0, 0)
+spawnframe.BackgroundTransparency = 0.8
+spawnframe.BorderSizePixel = 0
+spawnframe.Visible = false
+spawnframe.Position = UDim2.new(0.225, 0, 0, 75)
+spawnframe.ScrollBarThickness = 5
+spawnframe.ZIndex = 5
+spawnframe.Size = UDim2.new(0, 200, 0, 100)
+spawnframe.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+spawnframe.CanvasSize = UDim2.new(0, 0, 0, 0)
+spawnframe.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+--[[
+
+KITS
+
+]]--
+susatholder.Name = "susatholder"
+susatholder.Parent = KitsPage
+susatholder.BackgroundColor3 = Color3.new(1, 1, 1)
+susatholder.BackgroundTransparency = 1
+susatholder.Position = UDim2.new(0.699999988, 0, 0, 0)
+susatholder.Size = UDim2.new(0, 100, 0, 50)
+
+susattoggle.Name = "susattoggle"
+susattoggle.Parent = susatholder
+susattoggle.BackgroundColor3 = Color3.new(1, 1, 1)
+susattoggle.BackgroundTransparency = 1
+susattoggle.Position = UDim2.new(0.300000012, 0, 0, 0)
+susattoggle.Size = UDim2.new(0, 42, 0, 24)
+susattoggle.Image = "rbxassetid://1151662243"
+susattoggle.ImageTransparency = 0.40000000596046
+
+susatball.Name = "susatball"
+susatball.Parent = susattoggle
+susatball.BackgroundColor3 = Color3.new(1, 1, 1)
+susatball.BackgroundTransparency = 1
+susatball.Position = UDim2.new(0.0799999982, 0, 0.144999996, 0)
+susatball.Size = UDim2.new(0, 18, 0, 18)
+susatball.Image = "rbxassetid://1151662385"
+
+susatlabel.Name = "susatlabel"
+susatlabel.Parent = susatholder
+susatlabel.BackgroundColor3 = Color3.new(1, 1, 1)
+susatlabel.BackgroundTransparency = 1
+susatlabel.Position = UDim2.new(0, 0, 0.5, 0)
+susatlabel.Size = UDim2.new(1, 0, 0.5, 0)
+susatlabel.Font = Enum.Font.ArialBold
+susatlabel.FontSize = Enum.FontSize.Size14
+susatlabel.Text = "SUSAT SIGHT"
+susatlabel.TextColor3 = Color3.new(1, 1, 1)
+susatlabel.TextSize = 14
+susatlabel.TextTransparency = 0.20000000298023
+
+suppholder.Name = "suppholder"
+suppholder.Parent = KitsPage
+suppholder.BackgroundColor3 = Color3.new(1, 1, 1)
+suppholder.BackgroundTransparency = 1
+suppholder.Size = UDim2.new(0, 100, 0, 50)
+
+supptoggle.Name = "supptoggle"
+supptoggle.Parent = suppholder
+supptoggle.BackgroundColor3 = Color3.new(1, 1, 1)
+supptoggle.BackgroundTransparency = 1
+supptoggle.Position = UDim2.new(0.300000012, 0, 0, 0)
+supptoggle.Size = UDim2.new(0, 42, 0, 24)
+supptoggle.Image = "rbxassetid://1151662243"
+supptoggle.ImageTransparency = 0.40000000596046
+
+suppball.Name = "suppball"
+suppball.Parent = supptoggle
+suppball.BackgroundColor3 = Color3.new(1, 1, 1)
+suppball.BackgroundTransparency = 1
+suppball.Position = UDim2.new(0.0799999982, 0, 0.144999996, 0)
+suppball.Size = UDim2.new(0, 18, 0, 18)
+suppball.Image = "rbxassetid://1151662385"
+
+supplabel.Name = "supplabel"
+supplabel.Parent = suppholder
+supplabel.BackgroundColor3 = Color3.new(1, 1, 1)
+supplabel.BackgroundTransparency = 1
+supplabel.Position = UDim2.new(0, 0, 0.5, 0)
+supplabel.Size = UDim2.new(1, 0, 0.5, 0)
+supplabel.Font = Enum.Font.ArialBold
+supplabel.FontSize = Enum.FontSize.Size14
+supplabel.Text = "SUPPRESSORS"
+supplabel.TextColor3 = Color3.new(1, 1, 1)
+supplabel.TextSize = 14
+supplabel.TextTransparency = 0.20000000298023
+
+acogholder.Name = "acogholder"
+acogholder.Parent = KitsPage
+acogholder.BackgroundColor3 = Color3.new(1, 1, 1)
+acogholder.BackgroundTransparency = 1
+acogholder.Position = UDim2.new(0.349999994, 0, 0, 0)
+acogholder.Size = UDim2.new(0, 100, 0, 50)
+
+acogtoggle.Name = "acogtoggle"
+acogtoggle.Parent = acogholder
+acogtoggle.BackgroundColor3 = Color3.new(1, 1, 1)
+acogtoggle.BackgroundTransparency = 1
+acogtoggle.Position = UDim2.new(0.300000012, 0, 0, 0)
+acogtoggle.Size = UDim2.new(0, 42, 0, 24)
+acogtoggle.Image = "rbxassetid://1151662243"
+acogtoggle.ImageTransparency = 0.40000000596046
+
+acogball.Name = "acogtoggle"
+acogball.Parent = acogtoggle
+acogball.BackgroundColor3 = Color3.new(1, 1, 1)
+acogball.BackgroundTransparency = 1
+acogball.Position = UDim2.new(0.0799999982, 0, 0.144999996, 0)
+acogball.Size = UDim2.new(0, 18, 0, 18)
+acogball.Image = "rbxassetid://1151662385"
+
+acoglabel.Name = "acoglabel"
+acoglabel.Parent = acogholder
+acoglabel.BackgroundColor3 = Color3.new(1, 1, 1)
+acoglabel.BackgroundTransparency = 1
+acoglabel.Position = UDim2.new(0, 0, 0.5, 0)
+acoglabel.Size = UDim2.new(1, 0, 0.5, 0)
+acoglabel.Font = Enum.Font.ArialBold
+acoglabel.FontSize = Enum.FontSize.Size14
+acoglabel.Text = "ACOG SIGHT"
+acoglabel.TextColor3 = Color3.new(1, 1, 1)
+acoglabel.TextSize = 14
+acoglabel.TextTransparency = 0.20000000298023
+
+selectplayerk.Name = "selectplayer"
+selectplayerk.Parent = KitsPage
+selectplayerk.BackgroundColor3 = Color3.new(0, 0, 0)
+selectplayerk.BackgroundTransparency = 0.80000001192093
+selectplayerk.Position = UDim2.new(0.224999994, 0, 0.850000024, 0)
+selectplayerk.Size = UDim2.new(0, 200, 0, 25)
+selectplayerk.Font = Enum.Font.ArialBold
+selectplayerk.FontSize = Enum.FontSize.Size14
+selectplayerk.Text = "SELECT PLAYER"
+selectplayerk.TextColor3 = Color3.new(1, 1, 1)
+selectplayerk.TextSize = 14
+selectplayerk.TextTransparency = 0.20000000298023
+
+GunIMGLabels.Name = "GunIMGLabels"
+GunIMGLabels.Parent = KitsPage
+GunIMGLabels.BackgroundColor3 = Color3.new(1, 1, 1)
+GunIMGLabels.BackgroundTransparency = 1
+GunIMGLabels.BorderSizePixel = 0
+GunIMGLabels.Position = UDim2.new(0, 0, 0, 50)
+GunIMGLabels.Size = UDim2.new(1, 0, 0.5, 0)
+GunIMGLabels.BottomImage = ""
+GunIMGLabels.CanvasSize = UDim2.new(0, 0, 0.75, 0)
+GunIMGLabels.MidImage = ""
+GunIMGLabels.TopImage = ""
+
+M14.Name = "M14"
+M14.Parent = GunIMGLabels
+M14.BackgroundColor3 = Color3.new(0, 0, 0)
+M14.BackgroundTransparency = 1
+M14.Position = UDim2.new(0, 10, 0, 0)
+M14.Size = UDim2.new(0, 75, 0, 75)
+M14.Image = "rbxassetid://112746408"
+M14.ImageColor3 = Color3.new(0.705882, 0.705882, 0.705882)
+
+M4A1.Name = "M4A1"
+M4A1.Parent = GunIMGLabels
+M4A1.BackgroundColor3 = Color3.new(0, 0, 0)
+M4A1.BackgroundTransparency = 1
+M4A1.Position = UDim2.new(0, 10, 0, 75)
+M4A1.Size = UDim2.new(0, 75, 0, 75)
+M4A1.Image = "rbxassetid://112746403"
+M4A1.ImageColor3 = Color3.new(0.705882, 0.705882, 0.705882)
+
+HK21.Name = "HK21"
+HK21.Parent = GunIMGLabels
+HK21.BackgroundColor3 = Color3.new(0, 0, 0)
+HK21.BackgroundTransparency = 1
+HK21.Position = UDim2.new(0.349999994, 0, 0, 0)
+HK21.Size = UDim2.new(0, 75, 0, 75)
+HK21.Image = "rbxassetid://116675802"
+HK21.ImageColor3 = Color3.new(0.705882, 0.705882, 0.705882)
+
+G36K.Name = "G36K"
+G36K.Parent = GunIMGLabels
+G36K.BackgroundColor3 = Color3.new(0, 0, 0)
+G36K.BackgroundTransparency = 1
+G36K.Position = UDim2.new(0.349999994, 0, 0, 75)
+G36K.Size = UDim2.new(0, 75, 0, 75)
+G36K.Image = "rbxassetid://112746387"
+G36K.ImageColor3 = Color3.new(0.705882, 0.705882, 0.705882)
+
+MK17.Name = "MK17"
+MK17.Parent = GunIMGLabels
+MK17.BackgroundColor3 = Color3.new(0, 0, 0)
+MK17.BackgroundTransparency = 1
+MK17.Position = UDim2.new(0.699999988, 0, 0, 0)
+MK17.Size = UDim2.new(0, 75, 0, 75)
+MK17.Image = "rbxassetid://116675808"
+MK17.ImageColor3 = Color3.new(0.705882, 0.705882, 0.705882)
+
+COLUMBINE.Name = "COLUMBINE"
+COLUMBINE.Parent = GunIMGLabels
+COLUMBINE.BackgroundColor3 = Color3.new(0, 0, 0)
+COLUMBINE.BackgroundTransparency = 1
+COLUMBINE.Position = UDim2.new(0.699999988, 0, 0, 75)
+COLUMBINE.Size = UDim2.new(0, 75, 0, 75)
+COLUMBINE.Image = "rbxassetid://112731921"
+COLUMBINE.ImageColor3 = Color3.new(0.705882, 0.705882, 0.705882)
+--[[
+
+Vehicles
+
+]]--
+
+selectvehicle.Name = "selectvehicle"
+selectvehicle.BackgroundColor3 = Color3.new(0, 0, 0)
+selectvehicle.BackgroundTransparency = 0.80000001192093
+selectvehicle.Position = UDim2.new(0.224999994, 0, 0, 0)
+selectvehicle.Size = UDim2.new(0, 200, 0, 25)
+selectvehicle.Font = Enum.Font.ArialBold
+selectvehicle.FontSize = Enum.FontSize.Size14
+selectvehicle.Text = "SELECT VEHICLE"
+selectvehicle.TextColor3 = Color3.new(1, 1, 1)
+selectvehicle.TextSize = 14
+selectvehicle.TextTransparency = 0.20000000298023
+
+hornmusiclabel.Name = "hornmusiclabel"
+hornmusiclabel.BackgroundColor3 = Color3.new(1, 1, 1)
+hornmusiclabel.BackgroundTransparency = 1
+hornmusiclabel.Position = UDim2.new(0, 0, 0, 50)
+hornmusiclabel.Size = UDim2.new(1, 0, 0, 20)
+hornmusiclabel.Font = Enum.Font.ArialBold
+hornmusiclabel.FontSize = Enum.FontSize.Size14
+hornmusiclabel.Text = "Horn Music"
+hornmusiclabel.TextColor3 = Color3.new(1, 1, 1)
+hornmusiclabel.TextSize = 14
+hornmusiclabel.TextTransparency = 0.20000000298023
+
+hornmusiccontentholder.Name = "hornmusiccontentholder"
+hornmusiccontentholder.BackgroundColor3 = Color3.new(1, 1, 1)
+hornmusiccontentholder.BackgroundTransparency = 1
+hornmusiccontentholder.Position = UDim2.new(0, 0, 0, 25)
+hornmusiccontentholder.Size = UDim2.new(1, 0, 0, 100)
+hornmusictext.PlaceholderText = "SONG ID"
+hornmusictext.Name = "hornmusictext"
+hornmusictext.BackgroundColor3 = Color3.new(0, 0, 0)
+hornmusictext.BackgroundTransparency = 0.80000001192093
+hornmusictext.BorderSizePixel = 0
+hornmusictext.Position = UDim2.new(0.200000003, 0, 0, 0)
+hornmusictext.Size = UDim2.new(0, 225, 0, 25)
+hornmusictext.Font = Enum.Font.ArialBold
+hornmusictext.FontSize = Enum.FontSize.Size14
+hornmusictext.Text = ""
+hornmusictext.TextColor3 = Color3.new(1, 1, 1)
+hornmusictext.TextSize = 14
+hornmusictext.TextTransparency = 0.20000000298023
+hornmusictext.TextWrapped = true
+
+hornplaymusic.Name = "hornplaymusic"
+hornplaymusic.BackgroundColor3 = Color3.new(0, 0.333333, 0)
+hornplaymusic.BackgroundTransparency = 0.5
+hornplaymusic.BorderSizePixel = 0
+hornplaymusic.Position = UDim2.new(0.375, 0, 0.300000012, 0)
+hornplaymusic.Size = UDim2.new(0, 100, 0, 25)
+hornplaymusic.Font = Enum.Font.ArialBold
+hornplaymusic.FontSize = Enum.FontSize.Size14
+hornplaymusic.Text = "SET ID"
+hornplaymusic.TextColor3 = Color3.new(1, 1, 1)
+hornplaymusic.TextSize = 14
+hornplaymusic.TextTransparency = 0.20000000298023
+
+hornmusicsep.Name = "hornmusicsep"
+hornmusicsep.BackgroundColor3 = Color3.new(1, 1, 1)
+hornmusicsep.BackgroundTransparency = 0.20000000298023
+hornmusicsep.BorderSizePixel = 0
+hornmusicsep.Position = UDim2.new(0, 10, 0, -10)
+hornmusicsep.Size = UDim2.new(0.925000012, 0, 0, 1)
+
+--[[
+
+Spawning
+
+]]--
+
+
+
+--//  Arsenic  \\--
+--\\ Functions // --
+
+bypass = getrenv().shared.fireserver--[[debug.getfenv and debug.getfenv(game.Players.LocalPlayer.PlayerGui:FindFirstChild('HitEqualsYouDie')).shared.fireserver or getfenv().getrenv and getfenv().getrenv().shared.fireserver or getfenv(0).shared.fireserver
+if not bypass then
+	game.Players.LocalPlayer:Kick("You are not in Apocalypse Rising, or your exploit does not work with this GUI.")
+	return
+end]]--
+--#TAGS# : bypass, serializer bypass
+
+for i, v in next, Sidebar:GetChildren() do
+    v.MouseEnter:connect(function()
+        v:TweenPosition(UDim2.new(0, 10, 0, v.Position.Y.Offset), "Out", "Quad", 0.5, true)
+    end)
+
+    v.MouseLeave:connect(function()
+        v:TweenPosition(UDim2.new(0, 5, 0, v.Position.Y.Offset), "Out", "Quad", 0.5, true)
+    end)
+
+    v.MouseButton1Click:connect(function()
+        local base_name = string.gsub(v.Name, "Button", "")
+
+        for q, r in next, Sidebar:GetChildren() do
+            if v.Name == r.Name then
+                v.BackgroundColor3 = Color3.new(0, .333333, 0)
+            else
+                v.BackgroundColor3 = Color3.new(0.756863, 0.298039, 0.266667)
+            end
+        end
+
+        for j, k in next, PageHolder:GetChildren() do
+            if k.Name == base_name .. "Page" then
+                k.Visible = true
+            else
+                k.Visible = false
+            end
+        end
+    end)
+end
+--[[
+
+Server
+
+]]
+
+messageenable = false
+messagetoggle.MouseButton1Click:Connect(function()
+	if messageenable == false then
+		messageenable = true
+		messageball:TweenPosition(UDim2.new(0.5, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		messagetoggle.Image = "rbxassetid://1151662053"
+		colors = {"Red", "Yellow", "Green", "Blue", "White"}
+		while messageenable do
+			wait()
+			for i,v in pairs(game.Players:GetChildren()) do
+			workspace.Remote.SendMessage:FireServer(v,colors[math.random(#colors)], msg.Text)
+			end
+		end
+	else
+		messageenable = false
+		messageball:TweenPosition(UDim2.new(0.08, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		messagetoggle.Image = "rbxassetid://1151662243"
+	end
+end)
+--#TAGS# : message spam, spam message
+
+chatspamenable = false
+chatspamtoggle.MouseButton1Click:Connect(function()
+	if chatspamenable == false then
+		chatspamenable = true
+		chatspamball:TweenPosition(UDim2.new(0.5, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		chatspamtoggle.Image = "rbxassetid://1151662053"
+		words = {tostring(msg.Text), msg.Text..'.'}
+		while chatspamenable do
+			wait()
+			game.workspace.Remote.Chat:FireServer("Global", words[math.random(#words)])
+		end
+	else
+		chatspamenable = false
+		chatspamball:TweenPosition(UDim2.new(0.08, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		chatspamtoggle.Image = "rbxassetid://1151662243"
+	end
+end)
+--#TAGS# : chat spam, spam chat
+
+colorvisible = false
+setcolor.MouseButton1Click:Connect(function()
+	if colorvisible == false then
+		colorvisible = true
+		colorscroll.Visible = true
+	else
+		colorvisible = false
+		colorscroll.Visible = false
+	end
+end)
+
+msgred.MouseButton1Click:Connect(function()
+	colorvisible = false
+	colorvalue = "Red"
+	setcolor.Text = "RED"
+	colorscroll.Visible = false
+end)
+
+msggreen.MouseButton1Click:Connect(function()
+	colorvisible = false
+	colorvalue = "Green"
+	setcolor.Text = "GREEN"
+	colorscroll.Visible = false
+end)
+
+msgyellow.MouseButton1Click:Connect(function()
+	colorvisible = false
+	colorvalue = "Yellow"
+	setcolor.Text = "YELLOW"
+	colorscroll.Visible = false
+end)
+
+msgblue.MouseButton1Click:Connect(function()
+	colorvisible = false
+	colorvalue = "Blue"
+	setcolor.Text = "BLUE"
+	colorscroll.Visible = false
+end)
+
+msgwhite.MouseButton1Click:Connect(function()
+	colorvisible = false
+	colorvalue = "White"
+	setcolor.Text = "WHITE"
+	colorscroll.Visible = false
+end)
+
+sendmessage.MouseButton1Click:Connect(function()
+    for i,v in pairs(game.Players:GetChildren()) do
+      workspace.Remote.SendMessage:FireServer(v, colorvalue, msg.Text)
+    end
+end)
+--#TAGS# : message, server message
+
+--[[
+
+Local
+
+]]--
+
+godenable = false
+godtoggle.MouseButton1Click:Connect(function()
+	if godenable == false then
+		godenable = true
+		godlabel.Text = "GOD : ON"
+		godball:TweenPosition(UDim2.new(0.5, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		godtoggle.Image = "rbxassetid://1151662053"
+		bypass("AddDamage", game.Players.LocalPlayer.Character.Humanoid, math.huge)
+	else
+		godenable = false
+		godlabel.Text = "GOD : OFF"
+		godball:TweenPosition(UDim2.new(0.08, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		godtoggle.Image = "rbxassetid://1151662243"
+		bypass('HealthSet', 'MaxHealth', 100)
+		bypass('HealthSet', 'Health', 100)
+	end
+end)
+--#TAGS# : god, godmode, god mode, infinite health
+
+noclip = false
+game:GetService('RunService').Stepped:connect(function()
+	if noclip then
+		game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+	end
+end)
+nocliptoggle.MouseButton1Click:connect(function()
+	noclip = not noclip
+	if nocliplabel.Text == "NOCLIP : ON" then
+		nocliplabel.Text = "NOCLIP : OFF"
+		noclipball:TweenPosition(UDim2.new(0.08, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		nocliptoggle.Image = "rbxassetid://1151662243"
+	else
+		nocliplabel.Text = "NOCLIP : ON"
+		noclipball:TweenPosition(UDim2.new(0.5, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		nocliptoggle.Image = "rbxassetid://1151662053"
+	end
+end)
+--#TAGS# : noclip, walk through walls, walk in walls, hide in walls
+
+local esp = false
+local player = game.Players.LocalPlayer
+esptoggle.MouseButton1Click:Connect(function()
+	if esp == false then
+		esp = true
+		esplabel.Text = "ESP : ON"
+		espball:TweenPosition(UDim2.new(0.5, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		esptoggle.Image = "rbxassetid://1151662053"
+		for get,nplayer in ipairs(game.Players:GetPlayers()) do
+			if nplayer.Name == player.Name then
+				else
+				local espgui = Instance.new('BillboardGui', workspace.CurrentCamera)
+				espgui.Name = 'espgui'
+				local espguiFrame = Instance.new('Frame', espgui)
+				espguiFrame.Name = 'espguiFrame'
+				local espguiName = Instance.new('TextLabel', espguiFrame)
+				espguiName.Name = 'espguiName'
+				espgui.AlwaysOnTop = true
+				espgui.Enabled = true
+				espgui.Size = UDim2.new(0,60,0,15)
+				espgui.Adornee = nplayer.Character.Head
+				espguiFrame.BackgroundTransparency = 1
+				espguiFrame.Size = UDim2.new(1,0,1,0)
+				espguiName.Size = UDim2.new(1,0,1,0)
+				espguiName.BackgroundTransparency = 1
+				espguiName.Text = nplayer.Name
+				espguiName.TextColor3 = Color3.new(255, 255,255)
+				espguiName.TextStrokeColor3 = Color3.new(0, 0, 0)
+				espguiName.TextStrokeTransparency = 0
+				espguiName.Font = "ArialBold"
+				espguiName.TextScaled = true
+				espguiName.TextSize = 14
+				espguiName.TextWrapped = false
+			end
+		end
+
+		for get,nvehicle in ipairs(workspace.Vehicles:GetChildren()) do
+			local espvgui = Instance.new('BillboardGui', workspace.CurrentCamera)
+			espvgui.Name = 'espvgui'
+			local espvguiFrame = Instance.new('Frame', espvgui)
+			espvguiFrame.Name = 'espvguiFrame'
+			local espvguiName = Instance.new('TextLabel', espvguiFrame)
+			espvguiName.Name = 'espvguiName'
+			espvgui.AlwaysOnTop = true
+			espvgui.Enabled = true
+			espvgui.Size = UDim2.new(0,60,0,15)
+			espvgui.Adornee = nvehicle.Essentials.Engine
+			espvguiFrame.BackgroundTransparency = 1
+			espvguiFrame.Size = UDim2.new(1,0,1,0)
+			espvguiName.Size = UDim2.new(1,0,1,0)
+			espvguiName.BackgroundTransparency = 1
+			espvguiName.Text = nvehicle.Name
+			espvguiName.TextColor3 = Color3.new(0, 255, 0)
+			espvguiName.TextStrokeColor3 = Color3.new(0, 0, 0)
+			espvguiName.TextStrokeTransparency = 0
+			espvguiName.Font = "ArialBold"
+			espvguiName.TextScaled = true
+			espvguiName.TextSize = 14
+			espvguiName.TextWrapped = false
+			if nvehicle.Name == "VehicleWreck" then
+				espvguiName.TextColor3 = Color3.new(1, 0, 0)
+				espvguiName.Text = "Exploded Vehicle"
+			end
+		end
+	elseif esp == true then
+		esp = false
+		esplabel.Text = "ESP : OFF"
+		espball:TweenPosition(UDim2.new(0.08, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		esptoggle.Image = "rbxassetid://1151662243"
+		for i,v in ipairs(game.Workspace.CurrentCamera:GetChildren()) do
+			if v.Name == 'espgui' then
+				v:Destroy()
+				for i,v in ipairs(game.Workspace.CurrentCamera:GetChildren()) do
+					if v.Name == 'espvgui' then
+					v:Destroy()
+					end
+				end
+			end
+		end
+	end
+end)
+--#TAGS# : esp, wall hacks, walls, see players
+
+playerlistexists = false
+selectplayer.MouseButton1Click:Connect(function()
+	if playerlistexists == false then
+		playerlistexists = true
+		local PlayerListFrame = Instance.new("ScrollingFrame", PlayersPage)
+		local function formInstance(class, properties)
+		local temp = Instance.new(class)
+		for i,v in pairs(properties) do
+			temp[i] = v
+		end
+		return temp
+	end
+	PlayerListFrame.Size = UDim2.new(0, 200, 0, 100)
+	PlayerListFrame.BackgroundColor3 = Color3.new(0,0,0)
+	PlayerListFrame.BackgroundTransparency = 0.8
+	PlayerListFrame.Position = UDim2.new(0.225, 0, 0, 25)
+	PlayerListFrame.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+	PlayerListFrame.ScrollBarThickness = 5
+	PlayerListFrame.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+	local function StartPlayerList()
+		PlayerListFrame:ClearAllChildren()
+		wait()
+		local curPlayerPosition = UDim2.new(0,0,0,0)
+		for _,v in pairs(game.Players:GetPlayers()) do
+			local playerButton = formInstance('TextButton',
+			{BackgroundColor3=Color3.fromRGB(1,1,1),
+			BorderSizePixel=0,
+			BorderColor3=Color3.fromRGB(1,1,1),
+			BackgroundTransparency = 0.8,
+			Position=curPlayerPosition,
+			Size=UDim2.new(1,0,0,25),
+			ZIndex=2,
+			TextSize=14,
+			Font=Enum.Font.ArialBold,
+			Text=v.Name,
+			TextColor3=Color3.new(1,1,1),
+			TextTransparency = 0.2,
+			TextWrapped=true,
+			Parent=PlayerListFrame})
+			curPlayerPosition = curPlayerPosition + UDim2.new(0,0,0,25)
+			PlayerListFrame.CanvasSize = UDim2.new(0,0,0,(30*#game.Players:GetPlayers()))
+			playerButton.MouseButton1Click:connect(function()
+			selectplayer.Text = v.Name
+			PlayerListFrame:Destroy()
+			playerlistexists = false
+			end)
+		end
+	end
+		game.Players.PlayerRemoving:connect(StartPlayerList)
+		game.Players.PlayerAdded:connect(StartPlayerList)
+		StartPlayerList()
+	else
+		playerlist = false
+	end
+end)
+--#TAGS# : player list, list of players
+playerlistexists = false
+selectplayerk.MouseButton1Click:Connect(function()
+	if playerlistexists == false then
+		playerlistexists = true
+		local PlayerListFrame = Instance.new("ScrollingFrame", KitsPage)
+		local function formInstance(class, properties)
+		local temp = Instance.new(class)
+		for i,v in pairs(properties) do
+			temp[i] = v
+		end
+		return temp
+	end
+	PlayerListFrame.Size = UDim2.new(0, 200, 0, 100)
+	PlayerListFrame.BackgroundColor3 = Color3.new(0,0,0)
+	PlayerListFrame.BackgroundTransparency = 0.8
+	PlayerListFrame.Position = UDim2.new(0.225, 0, 0, 75)
+	PlayerListFrame.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+	PlayerListFrame.ScrollBarThickness = 5
+	PlayerListFrame.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+	local function StartPlayerList()
+		PlayerListFrame:ClearAllChildren()
+		wait()
+		local curPlayerPosition = UDim2.new(0,0,0,0)
+		for _,v in pairs(game.Players:GetPlayers()) do
+			local playerButton = formInstance('TextButton',
+			{BackgroundColor3=Color3.fromRGB(1,1,1),
+			BorderSizePixel=0,
+			BorderColor3=Color3.fromRGB(1,1,1),
+			BackgroundTransparency = 0.8,
+			Position=curPlayerPosition,
+			Size=UDim2.new(1,0,0,25),
+			ZIndex=2,
+			TextSize=14,
+			Font=Enum.Font.ArialBold,
+			Text=v.Name,
+			TextColor3=Color3.new(1,1,1),
+			TextTransparency = 0.2,
+			TextWrapped=true,
+			Parent=PlayerListFrame})
+			curPlayerPosition = curPlayerPosition + UDim2.new(0,0,0,25)
+			PlayerListFrame.CanvasSize = UDim2.new(0,0,0,(30*#game.Players:GetPlayers()))
+			playerButton.MouseButton1Click:connect(function()
+			selectplayerk.Text = v.Name
+			PlayerListFrame:Destroy()
+			playerlistexists = false
+			end)
+		end
+	end
+		game.Players.PlayerRemoving:connect(StartPlayerList)
+		game.Players.PlayerAdded:connect(StartPlayerList)
+		StartPlayerList()
+	else
+		playerlist = false
+	end
+end)
+--[[
+
+Players
+
+]]--
+
+kill.MouseButton1Click:Connect(function()
+	SelectedPlr = selectplayer.Text
+	bypass('Destruct', game.Players[SelectedPlr].Character.Head)
+end)
+--#TAGS# : kill, kill player
+
+--[[
+
+Crosshair
+
+]]--
+
+function rainbowbutton()
+	v = SetRainbowCross
+	while wait() do
+		v.BackgroundColor3 = Color3.new(1, 0, 0)
+		v.BorderColor3 = Color3.new(1, 0, 0)
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			v.BackgroundColor3 = Color3.new(v.BackgroundColor3.r,v.BackgroundColor3.g+(17/255),v.BackgroundColor3.b)
+			v.BorderColor3 = Color3.new(v.BorderColor3.r,v.BorderColor3.g+(17/255),v.BorderColor3.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			v.BackgroundColor3 = Color3.new(v.BackgroundColor3.r-(17/255),v.BackgroundColor3.g,v.BackgroundColor3.b)
+			v.BorderColor3 = Color3.new(v.BorderColor3.r-(17/255),v.BorderColor3.g,v.BorderColor3.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			v.BackgroundColor3 = Color3.new(v.BackgroundColor3.r,v.BackgroundColor3.g,v.BackgroundColor3.b+(17/255))
+			v.BorderColor3 = Color3.new(v.BorderColor3.r,v.BorderColor3.g,v.BorderColor3.b+(17/255))
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			v.BackgroundColor3 = Color3.new(v.BackgroundColor3.r,v.BackgroundColor3.g-(17/255),v.BackgroundColor3.b)
+			v.BorderColor3 = Color3.new(v.BorderColor3.r,v.BorderColor3.g-(17/255),v.BorderColor3.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			v.BackgroundColor3 = Color3.new(v.BackgroundColor3.r+(17/255),v.BackgroundColor3.g,v.BackgroundColor3.b)
+			v.BorderColor3 = Color3.new(v.BorderColor3.r+(17/255),v.BorderColor3.g,v.BorderColor3.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			v.BackgroundColor3 = Color3.new(v.BackgroundColor3.r,v.BackgroundColor3.g,v.BackgroundColor3.b-(17/255))
+			v.BorderColor3 = Color3.new(v.BorderColor3.r,v.BorderColor3.g,v.BorderColor3.b-(17/255))
+		end
+	end
+end
+--#TAGS# : rainbow crosshair button, rgb button, rainbow button
+
+rainbow = false
+SetRainbowCross.MouseButton1Click:Connect(function()
+	rainbow = true
+	while rainbow == true do
+		for i,v in pairs(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor:GetChildren()) do
+			v.BackgroundColor3 = Color3.new(1, 0, 0)
+			v.BorderColor3 = Color3.new(1, 0, 0)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			for i,v in pairs(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor:GetChildren()) do
+				v.BackgroundColor3 = Color3.new(v.BackgroundColor3.r, v.BackgroundColor3.g+(17/255), v.BackgroundColor3.b)
+				v.BorderColor3 = Color3.new(v.BorderColor3.r, v.BorderColor3.g+(17/255), v.BorderColor3.b)
+			end
+		end
+			for i=1,15 do
+				game:GetService("RunService").RenderStepped:wait()
+			for i,v in pairs(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor:GetChildren()) do
+				v.BackgroundColor3 = Color3.new(v.BackgroundColor3.r-(17/255), v.BackgroundColor3.g, v.BackgroundColor3.b)
+				v.BorderColor3 = Color3.new(v.BorderColor3.r-(17/255), v.BorderColor3.g, v.BorderColor3.b)
+			end
+		end
+			for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			for i,v in pairs(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor:GetChildren()) do
+				v.BackgroundColor3 = Color3.new(v.BackgroundColor3.r, v.BackgroundColor3.g, v.BackgroundColor3.b+(17/255))
+				v.BorderColor3 = Color3.new(v.BorderColor3.r, v.BorderColor3.g, v.BorderColor3.b+(17/255))
+			end
+		end
+			for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			for i,v in pairs(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor:GetChildren()) do
+				v.BackgroundColor3 = Color3.new(v.BackgroundColor3.r, v.BackgroundColor3.g-(17/255), v.BackgroundColor3.b)
+				v.BorderColor3 = Color3.new(v.BorderColor3.r, v.BorderColor3.g-(17/255), v.BorderColor3.b)
+			end
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			for i,v in pairs(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor:GetChildren()) do
+				v.BackgroundColor3 = Color3.new(v.BackgroundColor3.r+(17/255), v.BackgroundColor3.g, v.BackgroundColor3.b)
+				v.BorderColor3 = Color3.new(v.BorderColor3.r+(17/255), v.BorderColor3.g, v.BorderColor3.b)
+			end
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			for i,v in pairs(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor:GetChildren()) do
+				v.BackgroundColor3 = Color3.new(v.BackgroundColor3.r, v.BackgroundColor3.g, v.BackgroundColor3.b-(17/255))
+				v.BorderColor3 = Color3.new(v.BorderColor3.r, v.BorderColor3.g, v.BorderColor3.b-(17/255))
+			end
+		end
+	end
+	repeat until rainbow == false
+end)
+--#TAGS# : rainbow crosshair, rgb crosshair
+
+SetCross.MouseButton1Click:Connect(function()
+	rainbow = false
+	for i,v in pairs(CrosshairPage.crossholder:GetChildren()) do
+		v.BackgroundColor3 = Color3.new(redvalue.Text/255, greenvalue.Text/255, bluevalue.Text/255)
+		game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3 = Color3.new(redvalue.Text/255, greenvalue.Text/255, bluevalue.Text/255)
+		game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3 = Color3.new(redvalue.Text/255, greenvalue.Text/255, bluevalue.Text/255)
+		game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3 = Color3.new(redvalue.Text/255, greenvalue.Text/255, bluevalue.Text/255)
+		game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3 = Color3.new(redvalue.Text/255, greenvalue.Text/255, bluevalue.Text/255)
+		game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3 = Color3.new(redvalue.Text/255, greenvalue.Text/255, bluevalue.Text/255)
+		game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3 = Color3.new(redvalue.Text/255, greenvalue.Text/255, bluevalue.Text/255)
+		game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3 = Color3.new(redvalue.Text/255, greenvalue.Text/255, bluevalue.Text/255)
+		game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3 = Color3.new(redvalue.Text/255, greenvalue.Text/255, bluevalue.Text/255)
+	end
+end)
+--#TAGS# : change crosshair, crosshair color, color crosshair
+
+--[[
+
+Spawning
+
+]]--
+
+splrlistexists = false
+spawnplayer.MouseButton1Click:Connect(function()
+	if splrlistexists == false then
+		splrlistexists = true
+		local spawnplayerframe = Instance.new("ScrollingFrame", SpawningPage)
+		local function formInstance(class, properties)
+		local temp = Instance.new(class)
+		for i,v in pairs(properties) do
+			temp[i] = v
+		end
+		return temp
+	end
+	spawnplayerframe.Size = UDim2.new(0, 200, 0, 100)
+	spawnplayerframe.BackgroundColor3 = Color3.new(0,0,0)
+	spawnplayerframe.BackgroundTransparency = 0.8
+	spawnplayerframe.Position = UDim2.new(0.225, 0, 0, 100)
+	spawnplayerframe.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+	spawnplayerframe.ScrollBarThickness = 5
+	spawnplayerframe.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+	local function StartPlayerList()
+		spawnplayerframe:ClearAllChildren()
+		wait()
+		local curPlayerPosition = UDim2.new(0,0,0,0)
+		for _,v in pairs(game.Players:GetPlayers()) do
+			local playerButton = formInstance('TextButton',
+			{BackgroundColor3=Color3.fromRGB(1,1,1),
+			BorderSizePixel=0,
+			BorderColor3=Color3.fromRGB(1,1,1),
+			BackgroundTransparency = 0.8,
+			Position=curPlayerPosition,
+			Size=UDim2.new(1,0,0,25),
+			ZIndex=5,
+			TextSize=14,
+			Font=Enum.Font.ArialBold,
+			Text=v.Name,
+			TextColor3=Color3.new(1,1,1),
+			TextTransparency = 0.2,
+			TextWrapped=true,
+			Parent=spawnplayerframe})
+			curPlayerPosition = curPlayerPosition + UDim2.new(0,0,0,25)
+			spawnplayerframe.CanvasSize = UDim2.new(0,0,0,(30*#game.Players:GetPlayers()))
+			playerButton.MouseButton1Click:connect(function()
+			spawnplayer.Text = v.Name
+			spawnplayerframe:Destroy()
+			splrlistexists = false
+			end)
+		end
+	end
+		game.Players.PlayerRemoving:connect(StartPlayerList)
+		game.Players.PlayerAdded:connect(StartPlayerList)
+		StartPlayerList()
+	else
+		playerlist = false
+	end
+end)
+
+local gui = normalpage
+local box = gui:WaitForChild('itembox')
+local items = gui:WaitForChild('spawnframe')
+local path = game.Lighting.LootDrops
+local btn = gui:WaitForChild('spawn')
+local client = game.Players.LocalPlayer
+
+
+local function search(text)
+	local items = {}
+	for i, v in next, path:GetChildren() do
+		if text:upper() == v.Name:sub(1, string.len(text)):upper() then
+			table.insert(items, v.Name)
+		end
+	end
+	return items
+end
+
+local function bind(thing, f)
+	thing.MouseButton1Click:connect(function()
+		f()
+	end)
+end
+
+box.Changed:connect(function()
+	if box.Text == "" then
+		spawnframe.Visible = false
+	else
+	spawnframe.Visible = true
+	local list = search(box.Text)
+	if box.Text:gsub("", "") == "" then
+		items.CanvasSize = UDim2.new(0, 0, 0, 0)
+		items:ClearAllChildren()
+		return
+	end
+	items.CanvasSize = UDim2.new(0, 0, 0, 0)
+	items:ClearAllChildren()
+	for i, v in next, list do
+		local yPos = ((20 * i) - 20)
+		local s = Instance.new('TextButton', items)
+		s.BorderSizePixel = 0
+		s.Font = Enum.Font.ArialBold
+		s.Text = v
+		s.Name = v
+		s.ZIndex = 6
+		s.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		s.BackgroundTransparency = 0.8
+		s.TextSize = 14
+		s.TextColor3 = Color3.new(1, 1, 1)
+		s.Size = UDim2.new(0, 200, 0, 25)
+		s.Position = UDim2.new(0, 0, 0, yPos)
+		bind(s, function()
+			box.Text = s.Text
+			items:ClearAllChildren()
+			items.Visible = false
+		end)
+	end
+	items.CanvasSize = UDim2.new(0, 0, 0, (30 * #list))
+	end
+end)
+
+spawn.MouseButton1Click:Connect(function()
+	plr = spawnplayer.Text
+	num = amountbox.Text
+	for i = 1, num do
+		local item = path:FindFirstChild(box.Text)
+		if item then
+			game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players[plr].Character.Torso.Position - item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))
+		end
+	end
+end)
+--[[
+
+Kits
+
+]]
+local a={}a[1]=game.Workspace.Remote.PlaceMaterial a[2]=game.Lighting.LootDrops["M14Ammo50"]a[3]=game.Lighting.LootDrops["STANAGAmmo100"]a[4]=game.Lighting.LootDrops["BloodBag"]a[5]=game.Lighting.LootDrops["M14"]a[6]=game.Lighting.LootDrops["HK21"]a[7]=game.Lighting.LootDrops["Mk 17"]a[8]=game.Lighting.LootDrops["G36K"]a[9]=game.Lighting.LootDrops["M4A1"]a[10]=game.Lighting.LootDrops["SCAR-L"]a[11]=game.Lighting.LootDrops["Patriot"]a[12]=game.Lighting.LootDrops["TEC-9"]a[13]=game.Lighting.LootDrops["TEC9Ammo32"]a[14]=game.Lighting.LootDrops["Shotgun"]a[15]=game.Lighting.LootDrops["ShotgunAmmo"]a[16]=game.Lighting.LootDrops["C4"]a[17]=game.Lighting.LootDrops["Detonator"]a[18]=game.Lighting.LootDrops["CamoSpecialTop"]a[19]=game.Lighting.LootDrops["CamoSpecialBottom"]a[20]=game.Lighting.LootDrops["BandanaRenegade"]a[21]=game.Lighting.LootDrops["BrimmedBlack"]a[22]=game.Lighting.LootDrops["Suppressor762"]a[23]=game.Lighting.LootDrops["Suppressor556"]a[24]=game.Lighting.LootDrops["Suppressor9"]a[25]=game.Lighting.LootDrops["ACOG"]a[26]=game.Lighting.LootDrops["Grip"]a[27]=game.Lighting.LootDrops["MilitaryPackBlack"]
+function random()
+	return Vector3.new(math.random(1,3),-2,math.random(1,3))
+end
+function spawnItem(itemName)
+	local item = game.Lighting.LootDrops[tostring(itemName)]
+  local plr = game.Players[selectplayerk.Text].Character.Torso
+	a[1]:FireServer(item, plr.Position-item.PrimaryPart.Position + random())
+end
+function spawn762()
+  local plr = game.Players[selectplayerk.Text].Character.Torso
+	a[1]:FireServer(a[2], plr.Position-a[2].PrimaryPart.Position + random())
+	a[1]:FireServer(a[2], plr.Position-a[2].PrimaryPart.Position + random())
+	a[1]:FireServer(a[2], plr.Position-a[2].PrimaryPart.Position + random())
+	a[1]:FireServer(a[2], plr.Position-a[2].PrimaryPart.Position + random())
+	a[1]:FireServer(a[2], plr.Position-a[2].PrimaryPart.Position + random())
+	a[1]:FireServer(a[2], plr.Position-a[2].PrimaryPart.Position + random())
+	a[1]:FireServer(a[2], plr.Position-a[2].PrimaryPart.Position + random())
+	a[1]:FireServer(a[2], plr.Position-a[2].PrimaryPart.Position + random())
+	a[1]:FireServer(a[2], plr.Position-a[2].PrimaryPart.Position + random())
+	a[1]:FireServer(a[2], plr.Position-a[2].PrimaryPart.Position + random())
+	a[1]:FireServer(a[2], plr.Position-a[2].PrimaryPart.Position + random())
+	a[1]:FireServer(a[2], plr.Position-a[2].PrimaryPart.Position + random())
+end
+function spawn556()
+  local plr = game.Players[selectplayerk.Text].Character.Torso
+	a[1]:FireServer(a[3], plr.Position-a[3].PrimaryPart.Position + random())
+	a[1]:FireServer(a[3], plr.Position-a[3].PrimaryPart.Position + random())
+	a[1]:FireServer(a[3], plr.Position-a[3].PrimaryPart.Position + random())
+	a[1]:FireServer(a[3], plr.Position-a[3].PrimaryPart.Position + random())
+	a[1]:FireServer(a[3], plr.Position-a[3].PrimaryPart.Position + random())
+	a[1]:FireServer(a[3], plr.Position-a[3].PrimaryPart.Position + random())
+	a[1]:FireServer(a[3], plr.Position-a[3].PrimaryPart.Position + random())
+	a[1]:FireServer(a[3], plr.Position-a[3].PrimaryPart.Position + random())
+	a[1]:FireServer(a[3], plr.Position-a[3].PrimaryPart.Position + random())
+	a[1]:FireServer(a[3], plr.Position-a[3].PrimaryPart.Position + random())
+	a[1]:FireServer(a[3], plr.Position-a[3].PrimaryPart.Position + random())
+	a[1]:FireServer(a[3], plr.Position-a[3].PrimaryPart.Position + random())
+end
+function spawnBB()
+  local plr = game.Players[selectplayerk.Text].Character.Torso
+	a[1]:FireServer(a[4], plr.Position-a[4].PrimaryPart.Position + random())
+	a[1]:FireServer(a[4], plr.Position-a[4].PrimaryPart.Position + random())
+	a[1]:FireServer(a[4], plr.Position-a[4].PrimaryPart.Position + random())
+	a[1]:FireServer(a[4], plr.Position-a[4].PrimaryPart.Position + random())
+	a[1]:FireServer(a[4], plr.Position-a[4].PrimaryPart.Position + random())
+	a[1]:FireServer(a[4], plr.Position-a[4].PrimaryPart.Position + random())
+	a[1]:FireServer(a[4], plr.Position-a[4].PrimaryPart.Position + random())
+	a[1]:FireServer(a[4], plr.Position-a[4].PrimaryPart.Position + random())
+end
+local suptoggled = false
+local player = game.Players.LocalPlayer
+supptoggle.MouseButton1Click:Connect(function()
+	if suptoggled == false then
+		suptoggled = true
+		suppball:TweenPosition(UDim2.new(0.5, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		supptoggle.Image = "rbxassetid://1151662053"
+	elseif suptoggled == true then
+		suptoggled = false
+		suppball:TweenPosition(UDim2.new(0.08, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		supptoggle.Image = "rbxassetid://1151662243"
+	end
+end)
+local acogtoggled = false
+local player = game.Players.LocalPlayer
+acogtoggle.MouseButton1Click:Connect(function()
+	if acogtoggled == false then
+		acogtoggled = true
+		acogball:TweenPosition(UDim2.new(0.5, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		acogtoggle.Image = "rbxassetid://1151662053"
+    susattoggled = false
+		susatball:TweenPosition(UDim2.new(0.08, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		susattoggle.Image = "rbxassetid://1151662243"
+	elseif acogtoggled == true then
+		acogtoggled = false
+		acogball:TweenPosition(UDim2.new(0.08, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		acogtoggle.Image = "rbxassetid://1151662243"
+	end
+end)
+local susattoggled = false
+local player = game.Players.LocalPlayer
+susattoggle.MouseButton1Click:Connect(function()
+	if susattoggled == false then
+		susattoggled = true
+		susatball:TweenPosition(UDim2.new(0.5, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		susattoggle.Image = "rbxassetid://1151662053"
+    acogtoggled = false
+		acogball:TweenPosition(UDim2.new(0.08, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		acogtoggle.Image = "rbxassetid://1151662243"
+	elseif susattoggled == true then
+		susattoggled = false
+		susatball:TweenPosition(UDim2.new(0.08, 0, 0.145, 0), "Out", "Quad", 0.25, true)
+		susattoggle.Image = "rbxassetid://1151662243"
+	end
+end)
+
+M14.MouseButton1Click:Connect(function()
+  spawnItem(a[27])
+  spawn762()
+  spawnBB()
+  spawnItem(a[5])
+  spawnItem(a[26])
+  if acogtoggled == true then
+  spawnItem(a[25])
+  end
+  if susattoggled == true then
+  spawnItem(a[28])
+  end
+  if suptoggled == true then
+  spawnItem(a[22])
+  end
+end)
+HK21.MouseButton1Click:Connect(function()
+  spawnItem(a[27])
+  spawn762()
+  spawnBB()
+  spawnItem(a[26])
+  spawnItem(a[6])
+  if acogtoggled == true then
+  spawnItem(a[25])
+  end
+  if susattoggled == true then
+  spawnItem(a[28])
+  end
+  if suptoggled == true then
+  spawnItem(a[22])
+  end
+end)
+MK17.MouseButton1Click:Connect(function()
+  spawnItem(a[27])
+  spawn762()
+  spawnBB()
+  spawnItem(a[26])
+  spawnItem(a[7])
+  if acogtoggled == true then
+  spawnItem(a[25])
+  end
+  if susattoggled == true then
+  spawnItem(a[28])
+  end
+  if suptoggled == true then
+  spawnItem(a[22])
+  end
+end)
+M4A1.MouseButton1Click:Connect(function()
+  spawnItem(a[27])
+  spawn556()
+  spawnBB()
+  spawnItem(a[26])
+  spawnItem(a[9])
+  if acogtoggled == true then
+  spawnItem(a[25])
+  end
+  if susattoggled == true then
+  spawnItem(a[28])
+  end
+  if suptoggled == true then
+  spawnItem(a[23])
+  end
+end)
+G36K.MouseButton1Click:Connect(function()
+  spawnItem(a[27])
+  spawn556()
+  spawnBB()
+  spawnItem(a[26])
+  spawnItem(a[8])
+  if acogtoggled == true then
+  spawnItem(a[25])
+  end
+  if susattoggled == true then
+  spawnItem(a[28])
+  end
+  if suptoggled == true then
+  spawnItem(a[23])
+  end
+end)
+COLUMBINE.MouseButton1Click:Connect(function()
+  spawnItem(a[27])
+  spawnItem(a[12])
+  spawnItem(a[13])
+  spawnItem(a[13])
+  spawnItem(a[13])
+  spawnItem(a[13])
+  spawnItem(a[14])
+  spawnItem(a[15])
+  spawnItem(a[15])
+  spawnItem(a[15])
+  spawnItem(a[15])
+  spawnItem(a[16])
+  spawnItem(a[16])
+  spawnItem(a[16])
+  spawnItem(a[16])
+  spawnItem(a[17])
+  spawnItem(a[18])
+  spawnItem(a[19])
+  spawnItem(a[20])
+  spawnItem(a[21])
+end)
+--[[
+
+Vehicles
+
+]]--
+
+selectvehicle.MouseButton1Click:Connect(function()
+	if vehiclelistexists == false then
+		vehiclelistexists = true
+		local VehiclesListFrame = Instance.new("ScrollingFrame", VehiclesPage)
+		local function formInstance(class, properties)
+			local temp = Instance.new(class)
+			for i,v in pairs(properties) do
+				temp[i] = v
+			end
+			return temp
+		end
+
+		VehiclesListFrame.Size = UDim2.new(0, 200, 0, 100)
+		VehiclesListFrame.BackgroundColor3 = Color3.new(0,0,0)
+		VehiclesListFrame.BackgroundTransparency = 0.8
+		VehiclesListFrame.Position = UDim2.new(0.225, 0, 0, 25)
+		VehiclesListFrame.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+		VehiclesListFrame.ScrollBarThickness = 5
+		VehiclesListFrame.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+
+		local function StartVehiclesList()
+			VehiclesListFrame:ClearAllChildren()
+			wait()
+			local curVehiclesPosition = UDim2.new(0,0,0,0)
+			for _,v in pairs(workspace.Vehicles:GetChildren()) do
+				local vehicleButton = formInstance('TextButton',
+				{BackgroundColor3=Color3.fromRGB(1,1,1),
+				BorderSizePixel=0,
+				BorderColor3=Color3.fromRGB(1,1,1),
+				BackgroundTransparency = 0.8,
+				Position=curVehiclesPosition,
+				Size=UDim2.new(1,0,0,25),
+				ZIndex=2,
+				TextSize=14,
+				Font=Enum.Font.ArialBold,
+				Text=v.Name,
+				TextColor3=Color3.new(1,1,1),
+				TextTransparency = 0.2,
+				TextWrapped=true,
+				Parent=VehiclesListFrame})
+			curVehiclesPosition = curVehiclesPosition + UDim2.new(0,0,0,25)
+			VehiclesListFrame.CanvasSize = UDim2.new(0,0,0,(30*#workspace.Vehicles:GetChildren()))
+			vehicleButton.MouseButton1Click:connect(function()
+			selectvehicle.Text = v.Name
+			VehiclesListFrame:Destroy()
+			vehiclelistexists = false
+			end)
+			end
+		end
+		StartVehiclesList()
+	else
+		vehiclelistexists = false
+	end
+end)
+--#TAGS# vehicle list
+
+hornplaymusic.MouseButton1Click:Connect(function()
+	vehicle = selectvehicle.Text
+	bypass("SoundIdSet", workspace.Vehicles[vehicle].Essentials.Base.Horn, "rbxassetid://"..hornmusictext.Text)
+end)
+--#TAGS# vehicle music, vehicle horn, horn id, change horn
+
+rainbowbutton()

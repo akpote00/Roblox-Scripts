@@ -1,0 +1,1090 @@
+--RR Apoc Gui V3 Made by RelentlessRaptor / !!!RelentlessRaptor#5709 on discord--
+--Enjoy and don't take any of my scripts without credit!
+
+
+--Instances--Instances--
+wait(0.3)
+plrgui = game.Players.LocalPlayer.PlayerGui
+
+main = Instance.new("ScreenGui",plrgui)
+main.Name = ("ApocGui")
+
+frame = Instance.new("Frame",main)
+frame.Name = ("frame")
+
+lp = Instance.new("TextButton",frame)
+lp.Name = ("lp")
+
+op = Instance.new("TextButton",frame)
+op.Name = ("op")
+
+sr = Instance.new("TextButton",frame)
+sr.Name = ("sr")
+
+ss = Instance.new("TextButton",frame)
+ss.Name = ("ss")
+
+lpf = Instance.new("Frame",frame)
+lpf.Name = ("lpf")
+
+opf = Instance.new("Frame",frame)
+opf.Name = ("opf")
+
+srf = Instance.new("Frame",frame)
+srf.Name = ("srf")
+
+ssf = Instance.new("Frame",frame)
+ssf.Name = ("ssf")
+
+r1 = Instance.new("TextLabel",frame)
+r1.Name = ("r1")
+
+r2 = Instance.new("TextLabel",frame)
+r2.Name = ("r2")
+
+god1 = Instance.new("TextButton",lpf)
+god1.Name = ("god1")
+
+god2 = Instance.new("TextButton",lpf)
+god2.Name = ("god2")
+
+esp = Instance.new("TextButton",lpf)
+esp.Name = ("esp")
+
+tpb = Instance.new("TextButton",lpf)
+tpb.Name = ("tpb")
+
+tpc = Instance.new("TextButton",lpf)
+tpc.Name = ("tpc")
+
+c4w = Instance.new("TextButton",lpf)
+c4w.Name = ("c4w")
+
+inf = Instance.new("TextButton",lpf)
+inf.Name = ("inf")
+
+invis = Instance.new("TextButton",lpf)
+invis.Name = ("invis")
+
+noclip = Instance.new("TextButton",lpf)
+noclip.Name = ("noclip")
+
+pname = Instance.new("TextBox",opf)
+pname.Name = ("pname")
+
+spec = Instance.new("TextButton",opf)
+spec.Name = ("spec")
+
+kill = Instance.new("TextButton",opf)
+kill.Name = ("kill")
+
+kothers = Instance.new("TextButton",opf)
+kothers.Name = ("kothers")
+
+tpto = Instance.new("TextButton",opf)
+tpto.Name = ("tpto")
+
+lkill = Instance.new("TextButton",opf)
+lkill.Name = ("lkill")
+
+mbox = Instance.new("TextBox",srf)
+mbox.Name = ("mbox")
+
+redm = Instance.new("TextButton",mbox)
+redm.Name = ("redm")
+
+yellowm = Instance.new("TextButton",mbox)
+yellowm.Name = ("yellowm")
+
+greenm = Instance.new("TextButton",mbox)
+greenm.Name = ("greenm")
+
+bluem = Instance.new("TextButton",mbox)
+bluem.Name = ("bluem")
+
+whitem = Instance.new("TextButton",mbox)
+whitem.Name = ("whitem")
+
+
+crlist = Instance.new("ScrollingFrame",srf)
+
+
+
+--Appearance--Appearance--
+frame.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+frame.Position = UDim2.new(0.5,0,-0.5,0)
+frame.Size = UDim2.new(0,450,0,500)
+frame.BorderSizePixel = 0
+frame.BackgroundColor3 = Color3.new(80/255,80/255,80/255)
+
+lp.Position = UDim2.new(0,20,0,20)
+lp.Size = UDim2.new(0,75,0,75)
+lp.BorderSizePixel = 0
+lp.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+lp.Text = ("Local Player")
+lp.Font = ("Arial")
+lp.TextScaled = true
+
+op.Position = UDim2.new(0,20,0,105)
+op.Size = UDim2.new(0,75,0,75)
+op.BorderSizePixel = 0
+op.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+op.Text = ("Others")
+op.Font = ("Arial")
+op.TextSize = 25
+op.TextWrapped = false
+
+sr.Position = UDim2.new(0,20,0,190)
+sr.Size = UDim2.new(0,75,0,75)
+sr.BorderSizePixel = 0
+sr.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+sr.Text = ("Server")
+sr.Font = ("Arial")
+sr.TextSize = 26
+sr.TextWrapped = false
+
+ss.Position = UDim2.new(0,20,0,280)
+ss.Size = UDim2.new(0,75,0,75)
+ss.BorderSizePixel = 0
+ss.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+ss.Text = ("Spawning")
+ss.Font = ("Arial")
+ss.TextSize = 16
+ss.TextWrapped = false
+
+lpf.Position = UDim2.new(0,110,0,20)
+lpf.Size = UDim2.new(0,335,0,475)
+lpf.BorderSizePixel = 0
+lpf.BackgroundColor3 = Color3.new(180/255,180/255,180/255)
+
+opf.Position = UDim2.new(0,110,0,20)
+opf.Size = UDim2.new(0,335,0,475)
+opf.BorderSizePixel = 0
+opf.BackgroundColor3 = Color3.new(180/255,180/255,180/255)
+opf.Visible = false
+
+srf.Position = UDim2.new(0,110,0,20)
+srf.Size = UDim2.new(0,335,0,475)
+srf.BorderSizePixel = 0
+srf.BackgroundColor3 = Color3.new(180/255,180/255,180/255)
+srf.Visible = false
+
+ssf.Position = UDim2.new(0,110,0,20)
+ssf.Size = UDim2.new(0,335,0,475)
+ssf.BorderSizePixel = 0
+ssf.BackgroundColor3 = Color3.new(180/255,180/255,180/255)
+ssf.Visible = false
+
+r1.Position = UDim2.new(0,20,0,475)
+r1.Size = UDim2.new(0,1,0,1)
+r1.BackgroundTransparency = 1
+r1.Text = ("R")
+r1.TextSize = 30
+r1.TextColor3 = Color3.new(226/255,0/255,0/255)
+
+r2.Position = UDim2.new(0,50,0,475)
+r2.Size = UDim2.new(0,1,0,1)
+r2.BackgroundTransparency = 1
+r2.Text = ("R")
+r2.TextSize = 30
+r2.TextColor3 = Color3.new(230/255,110/255,0/255)
+
+--Local Player
+
+godenabled = false
+god1.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+god1.Position = UDim2.new(0.25,0,0.05,0)
+god1.Size = UDim2.new(0,150,0,60)
+god1.BorderSizePixel = 0
+god1.Text = ("Enable God #1")
+god1.TextScaled = true
+god1.BackgroundColor3 = Color3.new(1,1,1)
+god1.TextColor3 = Color3.new(0,0,0)
+
+god2.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+god2.Position = UDim2.new(0.25,0,0.2,0)
+god2.Size = UDim2.new(0,150,0,60)
+god2.BorderSizePixel = 0
+god2.Text = ("God #2 (UnDisableable)")
+god2.TextScaled = true
+god2.BackgroundColor3 = Color3.new(1,1,1)
+god2.TextColor3 = Color3.new(0,0,0)
+
+esp.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+esp.Position = UDim2.new(0.25,0,0.35,0)
+esp.Size = UDim2.new(0,150,0,60)
+esp.BorderSizePixel = 0
+esp.Text = ("Mustardfoot's ESP")
+esp.TextScaled = true
+esp.BackgroundColor3 = Color3.new(1,1,1)
+esp.TextColor3 = Color3.new(0,0,0)
+
+tpb.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+tpb.Position = UDim2.new(0.25,0,0.5,0)
+tpb.Size = UDim2.new(0,150,0,60)
+tpb.BorderSizePixel = 0
+tpb.Text = ("Teleport Bodies")
+tpb.TextScaled = true
+tpb.BackgroundColor3 = Color3.new(1,1,1)
+tpb.TextColor3 = Color3.new(0,0,0)
+
+tpc.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+tpc.Position = UDim2.new(0.25,0,0.65,0)
+tpc.Size = UDim2.new(0,150,0,60)
+tpc.BorderSizePixel = 0
+tpc.Text = ("Teleport Crates")
+tpc.TextScaled = true
+tpc.BackgroundColor3 = Color3.new(1,1,1)
+tpc.TextColor3 = Color3.new(0,0,0)
+
+c4w.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+c4w.Position = UDim2.new(0.25,0,0.8,0)
+c4w.Size = UDim2.new(0,150,0,60)
+c4w.BorderSizePixel = 0
+c4w.Text = ("Enable C4 walk")
+c4w.TextScaled = true
+c4w.BackgroundColor3 = Color3.new(1,1,1)
+c4w.TextColor3 = Color3.new(0,0,0)
+
+inf.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+inf.Position = UDim2.new(0.75,0,0.05,0)
+inf.Size = UDim2.new(0,150,0,60)
+inf.BorderSizePixel = 0
+inf.Text = ("Inf. Hung/Thirst/Stam")
+inf.TextScaled = true
+inf.BackgroundColor3 = Color3.new(1,1,1)
+inf.TextColor3 = Color3.new(0,0,0)
+
+invis.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+invis.Position = UDim2.new(0.75,0,0.2,0)
+invis.Size = UDim2.new(0,150,0,60)
+invis.BorderSizePixel = 0
+invis.Text = ("Invisible")
+invis.TextScaled = true
+invis.BackgroundColor3 = Color3.new(1,1,1)
+invis.TextColor3 = Color3.new(0,0,0)
+
+noclip.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+noclip.Position = UDim2.new(0.75,0,0.35,0)
+noclip.Size = UDim2.new(0,150,0,60)
+noclip.BorderSizePixel = 0
+noclip.Text = ("Noclip")
+noclip.TextScaled = true
+noclip.BackgroundColor3 = Color3.new(1,1,1)
+noclip.TextColor3 = Color3.new(0,0,0)
+
+--Other Players
+
+pname.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+pname.Position = UDim2.new(0.5,0,0.05,0)
+pname.Size = UDim2.new(0,225,0,60)
+pname.BorderSizePixel = 0
+pname.Text = ("Player Name")
+pname.TextScaled = true
+pname.BackgroundColor3 = Color3.new(1,1,1)
+pname.TextColor3 = Color3.new(0,0,0)
+
+spec.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+spec.Position = UDim2.new(0.25,0,0.2,0)
+spec.Size = UDim2.new(0,150,0,60)
+spec.BorderSizePixel = 0
+spec.Text = ("Spectate Player")
+spec.TextScaled = true
+spec.BackgroundColor3 = Color3.new(1,1,1)
+spec.TextColor3 = Color3.new(0,0,0)
+
+kill.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+kill.Position = UDim2.new(0.25,0,0.35,0)
+kill.Size = UDim2.new(0,150,0,60)
+kill.BorderSizePixel = 0
+kill.Text = ("Kill Player")
+kill.TextScaled = true
+kill.BackgroundColor3 = Color3.new(1,1,1)
+kill.TextColor3 = Color3.new(0,0,0)
+
+kothers.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+kothers.Position = UDim2.new(0.25,0,0.5,0)
+kothers.Size = UDim2.new(0,150,0,60)
+kothers.BorderSizePixel = 0
+kothers.Text = ("Kill Others")
+kothers.TextScaled = true
+kothers.BackgroundColor3 = Color3.new(1,1,1)
+kothers.TextColor3 = Color3.new(0,0,0)
+
+tpto.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+tpto.Position = UDim2.new(0.25,0,0.65,0)
+tpto.Size = UDim2.new(0,150,0,60)
+tpto.BorderSizePixel = 0
+tpto.Text = ("Teleport To")
+tpto.TextScaled = true
+tpto.BackgroundColor3 = Color3.new(1,1,1)
+tpto.TextColor3 = Color3.new(0,0,0)
+
+lkill.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+lkill.Position = UDim2.new(0.25,0,0.8,0)
+lkill.Size = UDim2.new(0,150,0,60)
+lkill.BorderSizePixel = 0
+lkill.Text = ("Loop Kill Player")
+lkill.TextScaled = true
+lkill.BackgroundColor3 = Color3.new(1,1,1)
+lkill.TextColor3 = Color3.new(0,0,0)
+
+
+--Server
+
+mbox.AnchorPoint = Vector2.new(0.5,0,0.5,0)
+mbox.Position = UDim2.new(0.5,0,0.05,0)
+mbox.Size = UDim2.new(0,225,0,60)
+mbox.BorderSizePixel = 0
+mbox.Text = ("Server Message")
+mbox.TextScaled = true
+mbox.BackgroundColor3 = Color3.new(1,1,1)
+mbox.TextColor3 = Color3.new(0,0,0)
+
+redm.Position = UDim2.new(0,0,1,0)
+redm.Size = UDim2.new(0,45,0,60)
+redm.BorderSizePixel = 0
+redm.Text = ("")
+redm.TextScaled = true
+redm.BackgroundColor3 = Color3.new(255/255,0/255,0/255)
+
+yellowm.Position = UDim2.new(0.2,0,1,0)
+yellowm.Size = UDim2.new(0,45,0,60)
+yellowm.BorderSizePixel = 0
+yellowm.Text = ("")
+yellowm.TextScaled = true
+yellowm.BackgroundColor3 = Color3.new(255/255,255/255,0/255)
+
+greenm.Position = UDim2.new(0.4,0,1,0)
+greenm.Size = UDim2.new(0,45,0,60)
+greenm.BorderSizePixel = 0
+greenm.Text = ("")
+greenm.TextScaled = true
+greenm.BackgroundColor3 = Color3.new(0/255,255/255,0/255)
+
+bluem.Position = UDim2.new(0.6,0,1,0)
+bluem.Size = UDim2.new(0,45,0,60)
+bluem.BorderSizePixel = 0
+bluem.Text = ("")
+bluem.TextScaled = true
+bluem.BackgroundColor3 = Color3.new(0/255,0/255,255/255)
+
+whitem.Position = UDim2.new(0.8,0,1,0)
+whitem.Size = UDim2.new(0,45,0,60)
+whitem.BorderSizePixel = 0
+whitem.Text = ("")
+whitem.TextScaled = true
+whitem.BackgroundColor3 = Color3.new(255/255,255/255,255/255)
+
+crlist.AnchorPoint = Vector2.new(0,0,0.5,0)
+crlist.Position = UDim2.new(0,0,0.32,0)
+crlist.Size = UDim2.new(0,200,0,300)
+crlist.BackgroundColor3 = Color3.new(150/255,150/255,255/255)
+crlist.CanvasSize = UDim2.new(0,0,0,1600)
+crlist.BorderSizePixel = 0
+crlist.ScrollBarThickness = 6
+local UIListLayout = Instance.new('UIListLayout', crlist)
+
+local function addCar(carn)
+	local car = Instance.new('TextButton')
+	car.Size = UDim2.new(1, -6, 0, 40)
+	car.Text = carn.Name
+	car.Name = carn.Name
+	car.Parent = crlist
+	car.BackgroundColor3 = Color3.fromRGB(0, 170, 40)
+	car.TextScaled = true
+	car.BorderSizePixel = 0
+	
+	car.MouseButton1Click:connect(function()
+		
+		game.Workspace.Remote.AddDamageSelf:FireServer(game.Players.LocalPlayer.Character.Humanoid, math.huge)
+	wait(0.5)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Vehicles[car.Name].Seats.Driver.CFrame + Vector3.new(0,8,0)
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid.Health = 100
+		
+	end)
+end
+
+--Server
+
+
+--Button Actions--Button Actions--
+
+
+
+
+current = lpf
+
+lp.MouseButton1Down:connect(function()
+	if current ~= lpf then
+		lpf.Visible = true
+		current.Visible = false
+		current = lpf
+	end
+end)
+
+op.MouseButton1Down:connect(function()
+	if current ~= opf then
+		opf.Visible = true
+		current.Visible = false
+		current = opf
+	end
+end)
+
+sr.MouseButton1Down:connect(function()
+	if current ~= srf then
+		srf.Visible = true
+		current.Visible = false
+		current = srf
+	end
+end)
+
+ss.MouseButton1Down:connect(function()
+	if current ~= ssf then
+		ssf.Visible = true
+		current.Visible = false
+		current = ssf
+	end
+end)
+
+
+--Local Player
+
+god1.MouseEnter:connect(function()
+	god1.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+end)
+god1.MouseLeave:connect(function()
+	god1.BackgroundColor3 = Color3.new(1,1,1)
+end)
+god1.MouseButton1Up:connect(function()
+	if godenabled == false then
+		god1.Text = ("Disable God #1")
+		godenabled = true
+		while godenabled == true do
+			wait(0.0000001)
+			if game.Players.LocalPlayer.Character.Humanoid.Health ~= 100 then
+				game.Workspace.Remote.AddDamageSelf:FireServer(game.Players.LocalPlayer.Character.Humanoid.Health,game.Players.LocalPlayer.Character.Humanoid.Health- 100)
+			end
+		end
+	else
+		godenabled = false
+		god1.Text = ("Enable God #1")
+	end
+end)
+
+god2.MouseEnter:connect(function()
+	god2.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+	
+end)
+god2.MouseLeave:connect(function()
+	god2.BackgroundColor3 = Color3.new(1,1,1)
+end)
+god2.MouseButton1Up:connect(function()
+	game.Workspace.Remote.AddDamageSelf:FireServer(game.Players.LocalPlayer.Character.Humanoid, math.huge)
+	wait(0.5)
+	while true do
+		wait(0.01)
+		game.Players.LocalPlayer.Humanoid.Health = 100
+	end
+	
+end)
+
+esp.MouseEnter:connect(function()
+	esp.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+	
+end)
+esp.MouseLeave:connect(function()
+	esp.BackgroundColor3 = Color3.new(1,1,1)
+end)
+esp.MouseButton1Up:connect(function()
+
+
+local crashy = false -- CHANGE THIS TO TRUE IF IT CRASHES THIS GAME
+on = false
+if game.CoreGui:FindFirstChild('ESP') then
+	game.CoreGui.ESP:Destroy()
+elseif game.Players.LocalPlayer.PlayerGui:FindFirstChild('ESP') then
+	game.Players.LocalPlayer.PlayerGui.ESP:Destroy()
+end
+
+function doit(hey)
+	local t1 = Instance.new('SurfaceGui',hey)
+	t1.AlwaysOnTop = true
+	local t1g = Instance.new('Frame',t1)
+	t1g.Size = UDim2.new(1,0,1,0)
+	t1g.BackgroundColor3 = t1.Parent.BrickColor.Color
+	local t2 = Instance.new('SurfaceGui',hey)		
+	t2.AlwaysOnTop = true
+	t2.Face = Enum.NormalId.Right
+	local t2g = Instance.new('Frame',t2)
+	t2g.Size = UDim2.new(1,0,1,0)
+	t2g.BackgroundColor3 = t2.Parent.BrickColor.Color
+	local t3 = Instance.new('SurfaceGui',hey)
+	t3.AlwaysOnTop = true
+	t3.Face = Enum.NormalId.Left
+	local t3g = Instance.new('Frame',t3)
+	t3g.Size = UDim2.new(1,0,1,0)
+	t3g.BackgroundColor3 = t3.Parent.BrickColor.Color
+	local t4 = Instance.new('SurfaceGui',hey)
+	t4.AlwaysOnTop = true
+	t4.Face = Enum.NormalId.Back
+	local t4g = Instance.new('Frame',t4)
+	t4g.Size = UDim2.new(1,0,1,0)
+	t4g.BackgroundColor3 = t4.Parent.BrickColor.Color
+	local t5 = Instance.new('SurfaceGui',hey)
+	t5.AlwaysOnTop = true
+	t5.Face = Enum.NormalId.Top
+	local t5g = Instance.new('Frame',t5)
+	t5g.Size = UDim2.new(1,0,1,0)
+	t5g.BackgroundColor3 = t5.Parent.BrickColor.Color
+	local t6 = Instance.new('SurfaceGui',hey)
+	t6.AlwaysOnTop = true
+	t6.Face = Enum.NormalId.Bottom
+	local t6g = Instance.new('Frame',t6)
+	t6g.Size = UDim2.new(1,0,1,0)
+	t6g.BackgroundColor3 = t6.Parent.BrickColor.Color
+end
+function undo(chr)
+	for i,v in pairs(chr:GetChildren()) do
+		if v.ClassName == "Part" or v.ClassName == "MeshPart" then
+			for a,c in pairs(v:GetChildren()) do
+				if c.ClassName == "SurfaceGui" then
+					c:Destroy()
+				end
+				if c.ClassName == "BillboardGui" and c.Name == "thingyye" then
+					c:Destroy()
+				end
+			end
+		end
+	end
+end
+
+local gui = Instance.new('ScreenGui')
+if crashy == false then
+	gui.Parent = game.CoreGui
+else
+	gui.Parent = game.Players.LocalPlayer.PlayerGui
+end
+gui.Name = "ESP"
+gui.ResetOnSpawn = false
+local frame = Instance.new('Frame',gui)
+frame.Size = UDim2.new(0.2,0,0.3,0)
+frame.Position = UDim2.new(0,0,0.9,0)
+frame.BackgroundTransparency = 0.5
+frame.BackgroundColor3 = Color3.fromRGB(131,182,239)
+frame.BorderSizePixel = 4
+frame.BorderColor3 = Color3.fromRGB(66,134,244)
+frame.Active = true
+frame.Draggable = true 
+local txt = Instance.new('TextLabel',frame)
+txt.Text = "Mustardfoot's ESP Gui"
+txt.TextColor3 = Color3.fromRGB(255,255,255)
+txt.Size = UDim2.new(1,0,0.3,0)
+txt.TextScaled = true
+txt.BackgroundTransparency = 1
+local but = Instance.new('TextButton',frame)
+but.Text = "ESP On"
+but.TextColor3 = Color3.fromRGB(255,255,255)
+but.Size = UDim2.new(0.7,0,0.3,0)
+but.Position = UDim2.new(0.15,0,0.5,0)
+but.BorderSizePixel = 0
+but.TextScaled = true
+but.BackgroundColor3 = Color3.fromRGB(66,134,244)
+but.BackgroundTransparency = 0.4
+for i,v in pairs(game.Players:GetChildren()) do
+	if v.Character ~= nil then
+		undo(v.Character)
+	end
+end
+
+but.MouseButton1Down:connect(function()
+if but.Text == "ESP On" then
+but.Text = "ESP Off"
+on = true
+for i,v in pairs(game.Players:GetChildren()) do
+	if v.Character ~= game.Players.LocalPlayer.Character and v.Character.Head:FindFirstChild('ScreenGui') == nil then
+		if v.Character:FindFirstChild('Head') then
+			local bill = Instance.new('BillboardGui',v.Character.Head)
+			bill.Name = "thingyye"
+			bill.AlwaysOnTop = true
+			bill.Size = UDim2.new(2,1,2)
+			bill.Adornee = v.Character.Head 
+			local txt = Instance.new('TextLabel',bill)
+			txt.Text = v.Name
+			txt.BackgroundTransparency = 1
+			txt.Size = UDim2.new(1,0,1,0)
+			txt.TextColor3 = v.TeamColor.Color
+		end
+		for a,c in pairs(v.Character:GetChildren()) do
+			if c.ClassName == "MeshPart" and c.Transparency ~= 1 then
+				doit(c)
+			elseif c.ClassName == "Part" and c.Transparency ~= 1 then
+			doit(c)
+			end
+		end
+	end 
+end 
+else
+	but.Text = "ESP On"
+	on = false
+	for i,v in pairs(game.Players:GetChildren()) do
+		undo(v.Character)
+	end
+end
+end)
+
+for i,v in pairs(game.Players:GetChildren()) do
+	v.CharacterAdded:connect(function()
+	v.Character:WaitForChild('Head')
+	wait(1)
+	if on == true then
+	if v.Character ~= game.Players.LocalPlayer.Character and v.Character.Head:FindFirstChild('ScreenGui') == nil then
+		if v.Character:FindFirstChild('Head') then
+			local bill = Instance.new('BillboardGui',v.Character.Head)
+			bill.Name = "thingyye"
+			bill.AlwaysOnTop = true
+			bill.Size = UDim2.new(2,1,2)
+			bill.Adornee = v.Character.Head 
+			local txt = Instance.new('TextLabel',bill)
+			txt.Text = v.Name
+			txt.BackgroundTransparency = 1
+			txt.Size = UDim2.new(1,0,1,0)
+			txt.TextColor3 = v.TeamColor.Color
+		end
+		for a,c in pairs(v.Character:GetChildren()) do
+			if c.ClassName == "MeshPart" and c.Transparency ~= 1 then
+				doit(c)
+			elseif c.ClassName == "Part" and c.Transparency ~= 1 then
+			doit(c)
+			end
+		end
+	end 
+	end
+	end)
+end  
+
+game.Players.PlayerAdded:connect(function(v)
+v.CharacterAdded:connect(function()
+	v.Character:WaitForChild('Head')
+	wait(1)
+	if on == true then
+	if v.Character ~= game.Players.LocalPlayer.Character and v.Character.Head:FindFirstChild('ScreenGui') == nil then
+		if v.Character:FindFirstChild('Head') then
+			local bill = Instance.new('BillboardGui',v.Character.Head)
+			bill.Name = "thingyye"
+			bill.AlwaysOnTop = true
+			bill.Size = UDim2.new(2,1,2)
+			bill.Adornee = v.Character.Head 
+			local txt = Instance.new('TextLabel',bill)
+			txt.Text = v.Name
+			txt.BackgroundTransparency = 1
+			txt.Size = UDim2.new(1,0,1,0)
+			txt.TextColor3 = v.TeamColor.Color
+		end
+		for a,c in pairs(v.Character:GetChildren()) do
+			if c.ClassName == "MeshPart" and c.Transparency ~= 1 then
+				doit(c)
+			elseif c.ClassName == "Part" and c.Transparency ~= 1 then
+			doit(c)
+			end
+		end
+	end 
+	end
+	end)
+end)
+
+
+end)
+
+tpb.MouseEnter:connect(function()
+	tpb.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+	
+end)
+tpb.MouseLeave:connect(function()
+	tpb.BackgroundColor3 = Color3.new(1,1,1)
+end)
+tpb.MouseButton1Up:connect(function()
+	for i,v in pairs(workspace:GetChildren()) do
+		if v.Name == "Corpse" then
+			v:MoveTo(workspace[game.Players.LocalPlayer.Name].Torso.Position + Vector3.new(math.random(-10,10),0,math.random(-10,10)))
+		end
+	end
+end)
+
+tpc.MouseEnter:connect(function()
+	tpc.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+	
+end)
+tpc.MouseLeave:connect(function()
+	tpc.BackgroundColor3 = Color3.new(1,1,1)
+end)
+tpc.MouseButton1Up:connect(function()
+	for _,v in pairs(workspace:children()) do
+		if v.Name == "LargeCrateOpen" or v.Name == "SmallCrateOpen" then
+			v:MoveTo(game.Players.LocalPlayer.Character.Torso.Position + Vector3.new(math.random(-10,10),0,math.random(-10,10)))
+		end	
+	end
+end)
+
+c4w.MouseEnter:connect(function()
+	c4w.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+	
+end)
+c4w.MouseLeave:connect(function()
+	c4w.BackgroundColor3 = Color3.new(1,1,1)
+end)
+c4enabled = false ---
+c4w.MouseButton1Up:connect(function()
+	if c4enabled == false then
+		c4w.Text = ("Disable C4 walk")
+	c4enabled = true
+			while c4enabled == true do
+				workspace.Remote.PlaceC4:FireServer(game.Lighting.Materials.C4Placed, game.Players.LocalPlayer.Character.Torso.Position - Vector3.new(1, 3, 1), true)
+				wait(0.3)
+			end	
+	else
+		c4w.Text = ("Enable C4 walk")
+		c4enabled = false
+	end
+end)
+
+inf.MouseEnter:connect(function()
+	inf.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+	
+end)
+inf.MouseLeave:connect(function()
+	inf.BackgroundColor3 = Color3.new(1,1,1)
+end)
+inf.MouseButton1Up:connect(function()
+	while true do
+		wait(0.1)
+		game.Players.LocalPlayer.Backpack.GlobalFunctions.Stamina.Value = (100)
+		game.Players.LocalPlayer.playerstats.Hunger.Value = (100)
+		game.Players.LocalPlayer.playerstats.Thirst.Value = (100)
+	end
+end)
+
+invis.MouseEnter:connect(function()
+	invis.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+	
+end)
+invis.MouseLeave:connect(function()
+	invis.BackgroundColor3 = Color3.new(1,1,1)
+end)
+invis.MouseButton1Up:connect(function()
+	game.Players.LocalPlayer.Character.Head.Transparency = 1
+	game.Players.LocalPlayer.Character.Head.face:Remove()
+	game.Players.LocalPlayer.Character.Torso.Transparency = 1
+	game.Players.LocalPlayer.Character["Right Arm"].Transparency = 1
+	game.Players.LocalPlayer.Character["Right Leg"].Transparency = 1
+	game.Players.LocalPlayer.Character["Left Leg"].Transparency = 1
+	game.Players.LocalPlayer.Character["Left Arm"].Transparency = 1
+
+end)
+
+noclip.MouseEnter:connect(function()
+	noclip.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+	
+end)
+noclip.MouseLeave:connect(function()
+	noclip.BackgroundColor3 = Color3.new(1,1,1)
+end)
+noclip.MouseButton1Up:connect(function()
+	local nclp = true
+	local char = game.Players.LocalPlayer.Character
+
+	while true do if nclp == true then 
+		for _,v in pairs(char:children()) do
+					pcall(function() 
+					if v.className == ("Part") then v.CanCollide = false 
+					elseif v.ClassName == ("Model") then 
+					v.Head.CanCollide = false 
+					end 
+				end) 
+			end 
+		end 
+		game:service("RunService").Stepped:wait(0)
+	end
+end)
+
+--Other Players
+
+pname.InputEnded:connect(function()
+	if pname.Text == ("") then
+		pname.Text = ("Player Name")
+	elseif pname.Text == (" ") then
+		pname.Text = ("Player Name")
+	end
+end)
+
+spec.MouseEnter:connect(function()
+	spec.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+end)
+spec.MouseLeave:connect(function()
+	spec.BackgroundColor3 = Color3.new(1,1,1)
+end)
+spec.MouseButton1Up:connect(function()
+	
+	local find = function(x)
+	for _,a in pairs(game.Players:GetPlayers()) do
+			if a.Name:sub(1, x:len()):lower()==x:lower() then
+				return a
+			end
+		end
+	end
+	local plyr = find(pname.Text)	
+	
+	
+	for i, v in pairs(game.Players:GetChildren()) do
+		if v.Name == plyr.Name then
+			game.Workspace.CurrentCamera.CameraSubject = game.Players[v.Name].Character.Humanoid
+			print("valid")
+		else
+			print("invalid")
+		end
+	end
+	
+	
+end)
+
+kill.MouseEnter:connect(function()
+	kill.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+end)
+kill.MouseLeave:connect(function()
+	kill.BackgroundColor3 = Color3.new(1,1,1)
+end)
+
+kill.MouseButton1Up:connect(function()
+	
+	player = game.Players.LocalPlayer
+	
+	local find = function(x)
+	for _,a in pairs(game.Players:GetPlayers()) do
+			if a.Name:sub(1, x:len()):lower()==x:lower() then
+				return a
+			end
+		end
+	end
+	local plyr = find(pname.Text)
+	function findergun()
+		local back = player.Backpack:GetChildren()
+			for a = 1, #back do
+				if back[a]:IsA("Model") and back[a]:FindFirstChild("Shooter") then return back[a] end
+			end
+			return nil
+		end
+
+		local findgun = findergun()
+		
+		for i, v in ipairs(game.Players:GetChildren()) do
+			if findgun and v.Character and v ~= player then
+				if v.Name == plyr.Name then
+					for i = 1, 6 do game.Workspace.Remote.DoHitLogic:FireServer(findgun, v.Character.Head) end	
+				end
+				
+			end
+		end	
+		
+end)
+
+
+
+kothers.MouseEnter:connect(function()
+	kothers.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+end)
+kothers.MouseLeave:connect(function()
+	kothers.BackgroundColor3 = Color3.new(1,1,1)
+end)
+kothers.MouseButton1Up:connect(function()
+	
+	player = game.Players.LocalPlayer
+
+	function findergun()
+		local back = player.Backpack:GetChildren()
+			for a = 1, #back do
+				if back[a]:IsA("Model") and back[a]:FindFirstChild("Shooter") then return back[a] end
+			end
+			return nil
+		end
+
+		local findgun = findergun()
+	
+		for i, v in ipairs(game.Players:GetChildren()) do
+			if findgun and v.Character and v ~= player then
+				for i = 1, 6 do game.Workspace.Remote.DoHitLogic:FireServer(findgun, v.Character.Head) end
+			end
+		end	
+end)
+
+tpto.MouseEnter:connect(function()
+	tpto.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+end)
+tpto.MouseLeave:connect(function()
+	tpto.BackgroundColor3 = Color3.new(1,1,1)
+end)
+tpto.MouseButton1Up:connect(function()
+	
+	local find = function(x)
+	for _,a in pairs(game.Players:GetPlayers()) do
+			if a.Name:sub(1, x:len()):lower()==x:lower() then
+				return a
+			end
+		end
+	end
+	local plyr = find(pname.Text)
+	game.Workspace.Remote.AddDamageSelf:FireServer(game.Players.LocalPlayer.Character.Humanoid, math.huge)
+	wait(0.5)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[plyr.Name].Character.HumanoidRootPart.CFrame + Vector3.new(0,8,0)
+	wait(1)
+	game.Players.LocalPlayer.Character.Humanoid.Health = 100
+	
+end)
+
+
+lkill.MouseEnter:connect(function()
+	lkill.BackgroundColor3 = Color3.new(0/255,165/255,255/255)
+end)
+lkill.MouseLeave:connect(function()
+	lkill.BackgroundColor3 = Color3.new(1,1,1)
+end)
+lkill.MouseButton1Up:connect(function()
+	player = game.Players.LocalPlayer
+	
+	
+	local find = function(x)
+	for _,a in pairs(game.Players:GetPlayers()) do
+			if a.Name:sub(1, x:len()):lower()==x:lower() then
+				return a
+			end
+		end
+	end
+	
+	local plyr = find(pname.Text)
+	function findergun()
+		local back = player.Backpack:GetChildren()
+			for a = 1, #back do
+				if back[a]:IsA("Model") and back[a]:FindFirstChild("Shooter") then return back[a] end
+			end
+			return nil
+		end
+
+		local findgun = findergun()
+		
+		for i, v in ipairs(game.Players:GetChildren()) do
+			if findgun and v.Character and v ~= player then
+				if v.Name == plyr.Name then
+					while true do
+						wait(0.5)
+						for i = 1, 6 do game.Workspace.Remote.DoHitLogic:FireServer(findgun, v.Character.Head) end	
+					end
+					
+				end
+				
+			end
+		end	
+		
+end)
+--Server
+
+mbox.InputEnded:connect(function()
+	if mbox.Text == ("") then
+		mbox.Text = ("Server Message")
+	elseif mbox.Text == (" ") then
+		mbox.Text = ("Server Message")
+	end
+end)
+
+
+redm.MouseButton1Down:connect(function()
+	for i,v in pairs(game.Players:GetChildren())do
+		local var = Instance.new("StringValue")
+		var.Value = "Red"
+        game.Workspace.Remote.SendMessage:FireServer(v,tostring(var.Value),tostring(mbox.Text))
+	end
+end)
+
+bluem.MouseButton1Down:connect(function()
+	for i,v in pairs(game.Players:GetChildren())do
+		local var = Instance.new("StringValue")
+		var.Value = "Blue"
+        game.Workspace.Remote.SendMessage:FireServer(v,tostring(var.Value),tostring(mbox.Text))
+	end
+end)
+
+yellowm.MouseButton1Down:connect(function()
+	for i,v in pairs(game.Players:GetChildren())do
+		local var = Instance.new("StringValue")
+		var.Value = "Yellow"
+        game.Workspace.Remote.SendMessage:FireServer(v,tostring(var.Value),tostring(mbox.Text))
+	end
+end)
+
+greenm.MouseButton1Down:connect(function()
+	for i,v in pairs(game.Players:GetChildren())do
+		local var = Instance.new("StringValue")
+		var.Value = "Green"
+        game.Workspace.Remote.SendMessage:FireServer(v,tostring(var.Value),tostring(mbox.Text))
+	end
+end)
+
+whitem.MouseButton1Down:connect(function()
+	for i,v in pairs(game.Players:GetChildren())do
+		local var = Instance.new("StringValue")
+		var.Value = "White"
+        game.Workspace.Remote.SendMessage:FireServer(v,tostring(var.Value),tostring(mbox.Text))
+	end
+end)
+
+
+
+
+
+down = false
+
+frame.MouseEnter:connect(function()
+	
+	if down == false then
+		for i, v in pairs({1,1,1,1,1,1,1,1,1,1,1}) do
+			wait(0.01)
+			frame.Position = frame.Position + UDim2.new(0,0,0.05,0)
+		end	
+		frame.Position = UDim2.new(0.5,0,0,0)
+		down = true
+	end
+	
+	
+end)
+
+frame.MouseLeave:connect(function()
+	
+	if down == true then
+		for i, v in pairs({1,1,1,1,1,1,1,1,1,1,1}) do
+			wait(0.01)
+			frame.Position = frame.Position - UDim2.new(0,0,0.05,0)
+		end	
+		frame.Position = UDim2.new(0.5,0,-0.5,0)
+		down = false
+		
+	end
+	
+	
+end)
+
+
+
+local cars = workspace.Vehicles
+
+cars.ChildAdded:connect(function(x)
+	wait(1)	
+	addCar(x)
+end)
+
+cars.ChildRemoved:connect(function(x)
+	crlist:FindFirstChild(x.Name):Destroy()
+end)
+
+for _,c in pairs(cars:GetChildren()) do
+	addCar(c)
+end
+

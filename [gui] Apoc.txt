@@ -1,0 +1,1902 @@
+local ApocGenesis = Instance.new("ScreenGui")
+local LocalPlayerTab = Instance.new("TextLabel")
+local LocalPlayerPin = Instance.new("ImageButton")
+local FastWalkButton = Instance.new("TextButton")
+local HealButton = Instance.new("TextButton")
+local HungerButton = Instance.new("TextButton")
+local NoFogButton = Instance.new("TextButton")
+local NoclipButton = Instance.new("TextButton")
+local RecoilButton = Instance.new("TextButton")
+local ThirstButton = Instance.new("TextButton")
+local LoopHealButton = Instance.new("TextButton")
+local FloatButton = Instance.new("TextButton")
+local DaysAndKillsButton = Instance.new("TextButton")
+local PlaceC4Button = Instance.new("TextButton")
+local LoopEatButton = Instance.new("TextButton")
+local LoopDrinkButton = Instance.new("TextButton")
+local StaminaButton = Instance.new("TextButton")
+local PlayersTab = Instance.new("TextLabel")
+local PlayerlistScrollingFrame = Instance.new("ScrollingFrame")
+local SelectedPlayerLabel = Instance.new("TextLabel")
+local TPToPlr = Instance.new("TextButton")
+local KillPlrButton = Instance.new("TextButton")
+local StealPlayerButton = Instance.new("TextButton")
+local ESPButton = Instance.new("TextButton")
+local PlayersPin = Instance.new("ImageButton")
+local SelectLocalPlayerButton = Instance.new("TextButton")
+local LoopKillPlrButton = Instance.new("TextButton")
+local SpectatePlayerButton = Instance.new("TextButton")
+local KitsTab = Instance.new("TextLabel")
+local KitsPin = Instance.new("ImageButton")
+local CarKitButton = Instance.new("TextButton")
+local BaseKitButton = Instance.new("TextButton")
+local HealthKitButton = Instance.new("TextButton")
+local FALKitButton = Instance.new("TextButton")
+local GadgetsButton = Instance.new("TextButton")
+local WorldWideTab = Instance.new("TextLabel")
+local WorldWidePin = Instance.new("ImageButton")
+local BlowUpCarsButton = Instance.new("TextButton")
+local BlueButton = Instance.new("TextButton")
+local CorpseTPButton = Instance.new("TextButton")
+local GreenButton = Instance.new("TextButton")
+local KillAllButton = Instance.new("TextButton")
+local KillZombiesButton = Instance.new("TextButton")
+local MessageBox = Instance.new("TextBox")
+local RedButton = Instance.new("TextButton")
+local WhiteButton = Instance.new("TextButton")
+local YellowButton = Instance.new("TextButton")
+local CratesTPButton = Instance.new("TextButton")
+local StealButton = Instance.new("TextButton")
+local VehiclesTab = Instance.new("TextLabel")
+local VehiclesPin = Instance.new("ImageButton")
+local VehicleScrollingFrame = Instance.new("ScrollingFrame")
+local VehSearchBox = Instance.new("TextBox")
+local HornIDBox = Instance.new("TextBox")
+local HealVehicleButton = Instance.new("TextButton")
+local SetHornButton = Instance.new("TextButton")
+local SpeedVehicleButton = Instance.new("TextButton")
+local SelectedVehicleLabel = Instance.new("TextLabel")
+local BringVehicleButton = Instance.new("TextButton")
+local MiscTab = Instance.new("TextLabel")
+local MiscPin = Instance.new("ImageButton")
+local RainbowCrosshairButton = Instance.new("TextButton")
+local Watermark = Instance.new("ImageLabel")
+local ItemsTab = Instance.new("TextLabel")
+local ItemsPin = Instance.new("ImageButton")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local SearchBox = Instance.new("TextBox")
+
+ApocGenesis.Name = "ApocGenesis"
+ApocGenesis.Parent = game.CoreGui
+
+LocalPlayerTab.Name = "LocalPlayerTab"
+LocalPlayerTab.Parent = ApocGenesis
+LocalPlayerTab.Active = true
+LocalPlayerTab.BackgroundColor3 = Color3.new(1, 1, 1)
+LocalPlayerTab.BackgroundTransparency = 0.30000001192093
+LocalPlayerTab.BorderSizePixel = 0
+LocalPlayerTab.Draggable = true
+LocalPlayerTab.Position = UDim2.new(0.116867945, 0, 0.190804929, 0)
+LocalPlayerTab.Size = UDim2.new(0.150000006, 0, 0.0199999996, 0)
+LocalPlayerTab.Font = Enum.Font.SourceSans
+LocalPlayerTab.FontSize = Enum.FontSize.Size14
+LocalPlayerTab.Text = "LocalPlayer"
+LocalPlayerTab.TextColor3 = Color3.new(0, 0, 0)
+LocalPlayerTab.TextScaled = true
+LocalPlayerTab.TextSize = 14
+LocalPlayerTab.TextWrapped = true
+
+LocalPlayerPin.Name = "LocalPlayerPin"
+LocalPlayerPin.Parent = LocalPlayerTab
+LocalPlayerPin.BackgroundColor3 = Color3.new(1, 1, 1)
+LocalPlayerPin.BackgroundTransparency = 1
+LocalPlayerPin.Position = UDim2.new(0.904510736, 0, -0.167075157, 0)
+LocalPlayerPin.Size = UDim2.new(0.115469456, 0, 1.33660126, 0)
+LocalPlayerPin.ZIndex = 2
+LocalPlayerPin.Image = "rbxassetid://466761271"
+LocalPlayerPin.ImageColor3 = Color3.new(1, 0, 0)
+
+FastWalkButton.Name = "FastWalkButton"
+FastWalkButton.Parent = LocalPlayerTab
+FastWalkButton.BackgroundColor3 = Color3.new(0, 0, 0)
+FastWalkButton.BackgroundTransparency = 0.60000002384186
+FastWalkButton.BorderSizePixel = 0
+FastWalkButton.Position = UDim2.new(0, 0, 4.00980377, 0)
+FastWalkButton.Size = UDim2.new(1, 0, 1, 0)
+FastWalkButton.Font = Enum.Font.SourceSans
+FastWalkButton.FontSize = Enum.FontSize.Size24
+FastWalkButton.Text = "Fastwalk"
+FastWalkButton.TextColor3 = Color3.new(1, 1, 1)
+FastWalkButton.TextScaled = true
+FastWalkButton.TextSize = 24
+FastWalkButton.TextWrapped = true
+
+HealButton.Name = "HealButton"
+HealButton.Parent = LocalPlayerTab
+HealButton.BackgroundColor3 = Color3.new(0, 0, 0)
+HealButton.BackgroundTransparency = 0.60000002384186
+HealButton.BorderSizePixel = 0
+HealButton.Position = UDim2.new(0, 0, 6.01470566, 0)
+HealButton.Size = UDim2.new(1, 0, 1, 0)
+HealButton.Font = Enum.Font.SourceSans
+HealButton.FontSize = Enum.FontSize.Size24
+HealButton.Text = "Heal up!"
+HealButton.TextColor3 = Color3.new(1, 1, 1)
+HealButton.TextScaled = true
+HealButton.TextSize = 24
+HealButton.TextWrapped = true
+
+HungerButton.Name = "HungerButton"
+HungerButton.Parent = LocalPlayerTab
+HungerButton.BackgroundColor3 = Color3.new(0, 0, 0)
+HungerButton.BackgroundTransparency = 0.5
+HungerButton.BorderSizePixel = 0
+HungerButton.Position = UDim2.new(0, 0, 7.01960754, 0)
+HungerButton.Size = UDim2.new(1, 0, 1, 0)
+HungerButton.Font = Enum.Font.SourceSans
+HungerButton.FontSize = Enum.FontSize.Size24
+HungerButton.Text = "Eat up!"
+HungerButton.TextColor3 = Color3.new(1, 1, 1)
+HungerButton.TextScaled = true
+HungerButton.TextSize = 24
+HungerButton.TextWrapped = true
+
+NoFogButton.Name = "NoFogButton"
+NoFogButton.Parent = LocalPlayerTab
+NoFogButton.BackgroundColor3 = Color3.new(0, 0, 0)
+NoFogButton.BackgroundTransparency = 0.60000002384186
+NoFogButton.BorderSizePixel = 0
+NoFogButton.Position = UDim2.new(0, 0, 12.0199995, 0)
+NoFogButton.Size = UDim2.new(1, 0, 1, 0)
+NoFogButton.Font = Enum.Font.SourceSans
+NoFogButton.FontSize = Enum.FontSize.Size24
+NoFogButton.Text = "No Fog"
+NoFogButton.TextColor3 = Color3.new(1, 1, 1)
+NoFogButton.TextScaled = true
+NoFogButton.TextSize = 24
+NoFogButton.TextWrapped = true
+
+NoclipButton.Name = "NoclipButton"
+NoclipButton.Parent = LocalPlayerTab
+NoclipButton.BackgroundColor3 = Color3.new(0, 0, 0)
+NoclipButton.BackgroundTransparency = 0.5
+NoclipButton.BorderSizePixel = 0
+NoclipButton.Position = UDim2.new(0, 0, 1.00245094, 0)
+NoclipButton.Size = UDim2.new(1, 0, 1, 0)
+NoclipButton.Font = Enum.Font.SourceSans
+NoclipButton.FontSize = Enum.FontSize.Size24
+NoclipButton.Text = "Noclip: Off"
+NoclipButton.TextColor3 = Color3.new(1, 1, 1)
+NoclipButton.TextScaled = true
+NoclipButton.TextSize = 24
+NoclipButton.TextWrapped = true
+
+RecoilButton.Name = "RecoilButton"
+RecoilButton.Parent = LocalPlayerTab
+RecoilButton.BackgroundColor3 = Color3.new(0, 0, 0)
+RecoilButton.BackgroundTransparency = 0.5
+RecoilButton.BorderSizePixel = 0
+RecoilButton.Position = UDim2.new(0, 0, 5.01225519, 0)
+RecoilButton.Size = UDim2.new(1, 0, 1, 0)
+RecoilButton.Font = Enum.Font.SourceSans
+RecoilButton.FontSize = Enum.FontSize.Size24
+RecoilButton.Text = "Disable Recoil"
+RecoilButton.TextColor3 = Color3.new(1, 1, 1)
+RecoilButton.TextScaled = true
+RecoilButton.TextSize = 24
+RecoilButton.TextWrapped = true
+
+ThirstButton.Name = "ThirstButton"
+ThirstButton.Parent = LocalPlayerTab
+ThirstButton.BackgroundColor3 = Color3.new(0, 0, 0)
+ThirstButton.BackgroundTransparency = 0.60000002384186
+ThirstButton.BorderSizePixel = 0
+ThirstButton.Position = UDim2.new(0, 0, 8.02000046, 0)
+ThirstButton.Size = UDim2.new(1, 0, 1, 0)
+ThirstButton.Font = Enum.Font.SourceSans
+ThirstButton.FontSize = Enum.FontSize.Size24
+ThirstButton.Text = "Drink up!"
+ThirstButton.TextColor3 = Color3.new(1, 1, 1)
+ThirstButton.TextScaled = true
+ThirstButton.TextSize = 24
+ThirstButton.TextWrapped = true
+
+LoopHealButton.Name = "LoopHealButton"
+LoopHealButton.Parent = LocalPlayerTab
+LoopHealButton.BackgroundColor3 = Color3.new(0, 0, 0)
+LoopHealButton.BackgroundTransparency = 0.5
+LoopHealButton.BorderSizePixel = 0
+LoopHealButton.Position = UDim2.new(0, 0, 9, 0)
+LoopHealButton.Size = UDim2.new(1, 0, 1, 0)
+LoopHealButton.Font = Enum.Font.SourceSans
+LoopHealButton.FontSize = Enum.FontSize.Size24
+LoopHealButton.Text = "LoopHeal: Off"
+LoopHealButton.TextColor3 = Color3.new(1, 1, 1)
+LoopHealButton.TextScaled = true
+LoopHealButton.TextSize = 24
+LoopHealButton.TextWrapped = true
+
+FloatButton.Name = "FloatButton"
+FloatButton.Parent = LocalPlayerTab
+FloatButton.BackgroundColor3 = Color3.new(0, 0, 0)
+FloatButton.BackgroundTransparency = 0.60000002384186
+FloatButton.BorderSizePixel = 0
+FloatButton.Position = UDim2.new(0, 0, 2.00490189, 0)
+FloatButton.Size = UDim2.new(1, 0, 1, 0)
+FloatButton.Font = Enum.Font.SourceSans
+FloatButton.FontSize = Enum.FontSize.Size24
+FloatButton.Text = "Float: Off"
+FloatButton.TextColor3 = Color3.new(1, 1, 1)
+FloatButton.TextScaled = true
+FloatButton.TextSize = 24
+FloatButton.TextWrapped = true
+
+DaysAndKillsButton.Name = "DaysAndKillsButton"
+DaysAndKillsButton.Parent = LocalPlayerTab
+DaysAndKillsButton.BackgroundColor3 = Color3.new(0, 0, 0)
+DaysAndKillsButton.BackgroundTransparency = 0.5
+DaysAndKillsButton.BorderSizePixel = 0
+DaysAndKillsButton.Position = UDim2.new(-0, 0, 13, 0)
+DaysAndKillsButton.Size = UDim2.new(1, 0, 1, 0)
+DaysAndKillsButton.Font = Enum.Font.SourceSans
+DaysAndKillsButton.FontSize = Enum.FontSize.Size24
+DaysAndKillsButton.Text = "Lots of days and kills"
+DaysAndKillsButton.TextColor3 = Color3.new(1, 1, 1)
+DaysAndKillsButton.TextScaled = true
+DaysAndKillsButton.TextSize = 24
+DaysAndKillsButton.TextWrapped = true
+
+PlaceC4Button.Name = "PlaceC4Button"
+PlaceC4Button.Parent = LocalPlayerTab
+PlaceC4Button.BackgroundColor3 = Color3.new(0, 0, 0)
+PlaceC4Button.BackgroundTransparency = 0.5
+PlaceC4Button.BorderSizePixel = 0
+PlaceC4Button.Position = UDim2.new(0, 0, 3.00735283, 0)
+PlaceC4Button.Size = UDim2.new(1, 0, 1, 0)
+PlaceC4Button.Font = Enum.Font.SourceSans
+PlaceC4Button.FontSize = Enum.FontSize.Size24
+PlaceC4Button.Text = "PlaceC4"
+PlaceC4Button.TextColor3 = Color3.new(1, 1, 1)
+PlaceC4Button.TextScaled = true
+PlaceC4Button.TextSize = 24
+PlaceC4Button.TextWrapped = true
+
+LoopEatButton.Name = "LoopEatButton"
+LoopEatButton.Parent = LocalPlayerTab
+LoopEatButton.BackgroundColor3 = Color3.new(0, 0, 0)
+LoopEatButton.BackgroundTransparency = 0.60000002384186
+LoopEatButton.BorderSizePixel = 0
+LoopEatButton.Position = UDim2.new(0, 0, 10, 0)
+LoopEatButton.Size = UDim2.new(1, 0, 1, 0)
+LoopEatButton.Font = Enum.Font.SourceSans
+LoopEatButton.FontSize = Enum.FontSize.Size24
+LoopEatButton.Text = "LoopEat: Off"
+LoopEatButton.TextColor3 = Color3.new(1, 1, 1)
+LoopEatButton.TextScaled = true
+LoopEatButton.TextSize = 24
+LoopEatButton.TextWrapped = true
+
+LoopDrinkButton.Name = "LoopDrinkButton"
+LoopDrinkButton.Parent = LocalPlayerTab
+LoopDrinkButton.BackgroundColor3 = Color3.new(0, 0, 0)
+LoopDrinkButton.BackgroundTransparency = 0.5
+LoopDrinkButton.BorderSizePixel = 0
+LoopDrinkButton.Position = UDim2.new(0, 0, 11, 0)
+LoopDrinkButton.Size = UDim2.new(1, 0, 1, 0)
+LoopDrinkButton.Font = Enum.Font.SourceSans
+LoopDrinkButton.FontSize = Enum.FontSize.Size24
+LoopDrinkButton.Text = "LoopDrink: Off"
+LoopDrinkButton.TextColor3 = Color3.new(1, 1, 1)
+LoopDrinkButton.TextScaled = true
+LoopDrinkButton.TextSize = 24
+LoopDrinkButton.TextWrapped = true
+
+StaminaButton.Name = "StaminaButton"
+StaminaButton.Parent = LocalPlayerTab
+StaminaButton.BackgroundColor3 = Color3.new(0, 0, 0)
+StaminaButton.BackgroundTransparency = 0.5
+StaminaButton.BorderSizePixel = 0
+StaminaButton.Position = UDim2.new(0, 0, 14, 0)
+StaminaButton.Size = UDim2.new(1, 0, 1, 0)
+StaminaButton.Font = Enum.Font.SourceSans
+StaminaButton.FontSize = Enum.FontSize.Size24
+StaminaButton.Text = "Refil Stamina"
+StaminaButton.TextColor3 = Color3.new(1, 1, 1)
+StaminaButton.TextScaled = true
+StaminaButton.TextSize = 24
+StaminaButton.TextWrapped = true
+
+PlayersTab.Name = "PlayersTab"
+PlayersTab.Parent = ApocGenesis
+PlayersTab.Active = true
+PlayersTab.BackgroundColor3 = Color3.new(1, 1, 1)
+PlayersTab.BackgroundTransparency = 0.30000001192093
+PlayersTab.BorderSizePixel = 0
+PlayersTab.Draggable = true
+PlayersTab.Position = UDim2.new(0.272500664, 0, 0.190804929, 0)
+PlayersTab.Size = UDim2.new(0.150000006, 0, 0.0199999996, 0)
+PlayersTab.Font = Enum.Font.SourceSans
+PlayersTab.FontSize = Enum.FontSize.Size14
+PlayersTab.Text = "Players"
+PlayersTab.TextColor3 = Color3.new(0, 0, 0)
+PlayersTab.TextScaled = true
+PlayersTab.TextSize = 14
+PlayersTab.TextWrapped = true
+
+PlayerlistScrollingFrame.Name = "PlayerlistScrollingFrame"
+PlayerlistScrollingFrame.Parent = PlayersTab
+PlayerlistScrollingFrame.BackgroundColor3 = Color3.new(0, 0, 0)
+PlayerlistScrollingFrame.BackgroundTransparency = 0.60000002384186
+PlayerlistScrollingFrame.BorderSizePixel = 0
+PlayerlistScrollingFrame.Position = UDim2.new(0, 0, 1, 0)
+PlayerlistScrollingFrame.Size = UDim2.new(1, 0, 15, 0)
+PlayerlistScrollingFrame.CanvasSize = UDim2.new(0, 0, 500, 0)
+PlayerlistScrollingFrame.ScrollBarThickness = 0
+
+SelectedPlayerLabel.Name = "SelectedPlayerLabel"
+SelectedPlayerLabel.Parent = PlayersTab
+SelectedPlayerLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+SelectedPlayerLabel.BackgroundTransparency = 0.5
+SelectedPlayerLabel.BorderSizePixel = 0
+SelectedPlayerLabel.Position = UDim2.new(0, 0, 17, 0)
+SelectedPlayerLabel.Size = UDim2.new(1, 0, 1, 0)
+SelectedPlayerLabel.Font = Enum.Font.SourceSans
+SelectedPlayerLabel.FontSize = Enum.FontSize.Size14
+SelectedPlayerLabel.Text = "Selected Player: "
+SelectedPlayerLabel.TextColor3 = Color3.new(1, 1, 1)
+SelectedPlayerLabel.TextScaled = true
+SelectedPlayerLabel.TextSize = 14
+SelectedPlayerLabel.TextWrapped = true
+
+TPToPlr.Name = "TPToPlr"
+TPToPlr.Parent = PlayersTab
+TPToPlr.BackgroundColor3 = Color3.new(0, 0, 0)
+TPToPlr.BackgroundTransparency = 0.60000002384186
+TPToPlr.BorderSizePixel = 0
+TPToPlr.Position = UDim2.new(0.5, 0, 20, 0)
+TPToPlr.Size = UDim2.new(0.5, 0, 1, 0)
+TPToPlr.Font = Enum.Font.SourceSans
+TPToPlr.FontSize = Enum.FontSize.Size18
+TPToPlr.Text = "TP to Player"
+TPToPlr.TextColor3 = Color3.new(1, 1, 1)
+TPToPlr.TextScaled = true
+TPToPlr.TextSize = 18
+TPToPlr.TextWrapped = true
+
+KillPlrButton.Name = "KillPlrButton"
+KillPlrButton.Parent = PlayersTab
+KillPlrButton.BackgroundColor3 = Color3.new(0, 0, 0)
+KillPlrButton.BackgroundTransparency = 0.60000002384186
+KillPlrButton.BorderSizePixel = 0
+KillPlrButton.Position = UDim2.new(0, 0, 18, 0)
+KillPlrButton.Size = UDim2.new(0.5, 0, 1, 0)
+KillPlrButton.Font = Enum.Font.SourceSans
+KillPlrButton.FontSize = Enum.FontSize.Size18
+KillPlrButton.Text = "Kill Player"
+KillPlrButton.TextColor3 = Color3.new(1, 1, 1)
+KillPlrButton.TextScaled = true
+KillPlrButton.TextSize = 18
+KillPlrButton.TextWrapped = true
+
+StealPlayerButton.Name = "StealPlayerButton"
+StealPlayerButton.Parent = PlayersTab
+StealPlayerButton.BackgroundColor3 = Color3.new(0, 0, 0)
+StealPlayerButton.BackgroundTransparency = 0.5
+StealPlayerButton.BorderSizePixel = 0
+StealPlayerButton.Position = UDim2.new(0, 0, 19, 0)
+StealPlayerButton.Size = UDim2.new(0.5, 0, 1, 0)
+StealPlayerButton.Font = Enum.Font.SourceSans
+StealPlayerButton.FontSize = Enum.FontSize.Size18
+StealPlayerButton.Text = "Steal items"
+StealPlayerButton.TextColor3 = Color3.new(1, 1, 1)
+StealPlayerButton.TextScaled = true
+StealPlayerButton.TextSize = 18
+StealPlayerButton.TextWrapped = true
+
+ESPButton.Name = "ESPButton"
+ESPButton.Parent = PlayersTab
+ESPButton.BackgroundColor3 = Color3.new(0, 0, 0)
+ESPButton.BackgroundTransparency = 0.5
+ESPButton.BorderSizePixel = 0
+ESPButton.Position = UDim2.new(0.5, 0, 19, 0)
+ESPButton.Size = UDim2.new(0.5, 0, 1, 0)
+ESPButton.Font = Enum.Font.SourceSans
+ESPButton.FontSize = Enum.FontSize.Size24
+ESPButton.Text = "ESP"
+ESPButton.TextColor3 = Color3.new(1, 1, 1)
+ESPButton.TextScaled = true
+ESPButton.TextSize = 24
+ESPButton.TextWrapped = true
+
+PlayersPin.Name = "PlayersPin"
+PlayersPin.Parent = PlayersTab
+PlayersPin.BackgroundColor3 = Color3.new(1, 1, 1)
+PlayersPin.BackgroundTransparency = 1
+PlayersPin.Position = UDim2.new(0.904510736, 0, -0.167075157, 0)
+PlayersPin.Size = UDim2.new(0.115469456, 0, 1.33660126, 0)
+PlayersPin.ZIndex = 2
+PlayersPin.Image = "rbxassetid://466761271"
+PlayersPin.ImageColor3 = Color3.new(1, 0, 0)
+
+SelectLocalPlayerButton.Name = "SelectLocalPlayerButton"
+SelectLocalPlayerButton.Parent = PlayersTab
+SelectLocalPlayerButton.BackgroundColor3 = Color3.new(0, 0, 0)
+SelectLocalPlayerButton.BackgroundTransparency = 0.60000002384186
+SelectLocalPlayerButton.BorderSizePixel = 0
+SelectLocalPlayerButton.Position = UDim2.new(0, 0, 16, 0)
+SelectLocalPlayerButton.Size = UDim2.new(1, 0, 1, 0)
+SelectLocalPlayerButton.Font = Enum.Font.SourceSans
+SelectLocalPlayerButton.FontSize = Enum.FontSize.Size18
+SelectLocalPlayerButton.Text = "Select LocalPlayer"
+SelectLocalPlayerButton.TextColor3 = Color3.new(1, 1, 1)
+SelectLocalPlayerButton.TextScaled = true
+SelectLocalPlayerButton.TextSize = 18
+SelectLocalPlayerButton.TextWrapped = true
+
+LoopKillPlrButton.Name = "LoopKillPlrButton"
+LoopKillPlrButton.Parent = PlayersTab
+LoopKillPlrButton.BackgroundColor3 = Color3.new(0, 0, 0)
+LoopKillPlrButton.BackgroundTransparency = 0.60000002384186
+LoopKillPlrButton.BorderSizePixel = 0
+LoopKillPlrButton.Position = UDim2.new(0.5, 0, 18, 0)
+LoopKillPlrButton.Size = UDim2.new(0.5, 0, 1, 0)
+LoopKillPlrButton.Font = Enum.Font.SourceSans
+LoopKillPlrButton.FontSize = Enum.FontSize.Size18
+LoopKillPlrButton.Text = "LoopKill"
+LoopKillPlrButton.TextColor3 = Color3.new(1, 1, 1)
+LoopKillPlrButton.TextScaled = true
+LoopKillPlrButton.TextSize = 18
+LoopKillPlrButton.TextWrapped = true
+
+SpectatePlayerButton.Name = "SpectatePlayerButton"
+SpectatePlayerButton.Parent = PlayersTab
+SpectatePlayerButton.BackgroundColor3 = Color3.new(0, 0, 0)
+SpectatePlayerButton.BackgroundTransparency = 0.60000002384186
+SpectatePlayerButton.BorderSizePixel = 0
+SpectatePlayerButton.Position = UDim2.new(0, 0, 20, 0)
+SpectatePlayerButton.Size = UDim2.new(0.5, 0, 1, 0)
+SpectatePlayerButton.Font = Enum.Font.SourceSans
+SpectatePlayerButton.FontSize = Enum.FontSize.Size18
+SpectatePlayerButton.Text = "Spectate"
+SpectatePlayerButton.TextColor3 = Color3.new(1, 1, 1)
+SpectatePlayerButton.TextScaled = true
+SpectatePlayerButton.TextSize = 18
+SpectatePlayerButton.TextWrapped = true
+
+KitsTab.Name = "KitsTab"
+KitsTab.Parent = ApocGenesis
+KitsTab.Active = true
+KitsTab.BackgroundColor3 = Color3.new(1, 1, 1)
+KitsTab.BackgroundTransparency = 0.30000001192093
+KitsTab.BorderSizePixel = 0
+KitsTab.Draggable = true
+KitsTab.Position = UDim2.new(0.427482247, 0, 0.190804929, 0)
+KitsTab.Size = UDim2.new(0.150000006, 0, 0.0199999996, 0)
+KitsTab.Font = Enum.Font.SourceSans
+KitsTab.FontSize = Enum.FontSize.Size14
+KitsTab.Text = "Kits"
+KitsTab.TextColor3 = Color3.new(0, 0, 0)
+KitsTab.TextScaled = true
+KitsTab.TextSize = 14
+KitsTab.TextWrapped = true
+
+KitsPin.Name = "KitsPin"
+KitsPin.Parent = KitsTab
+KitsPin.BackgroundColor3 = Color3.new(1, 1, 1)
+KitsPin.BackgroundTransparency = 1
+KitsPin.Position = UDim2.new(0.904510736, 0, -0.167075157, 0)
+KitsPin.Size = UDim2.new(0.115469456, 0, 1.33660126, 0)
+KitsPin.ZIndex = 2
+KitsPin.Image = "rbxassetid://466761271"
+KitsPin.ImageColor3 = Color3.new(1, 0, 0)
+
+CarKitButton.Name = "CarKitButton"
+CarKitButton.Parent = KitsTab
+CarKitButton.BackgroundColor3 = Color3.new(0, 0, 0)
+CarKitButton.BackgroundTransparency = 0.60000002384186
+CarKitButton.BorderSizePixel = 0
+CarKitButton.Position = UDim2.new(0, 0, 2.00245094, 0)
+CarKitButton.Size = UDim2.new(1, 0, 1, 0)
+CarKitButton.Font = Enum.Font.SourceSans
+CarKitButton.FontSize = Enum.FontSize.Size24
+CarKitButton.Text = "Car Repair Kit"
+CarKitButton.TextColor3 = Color3.new(1, 1, 1)
+CarKitButton.TextScaled = true
+CarKitButton.TextSize = 24
+CarKitButton.TextWrapped = true
+
+BaseKitButton.Name = "BaseKitButton"
+BaseKitButton.Parent = KitsTab
+BaseKitButton.BackgroundColor3 = Color3.new(0, 0, 0)
+BaseKitButton.BackgroundTransparency = 0.60000002384186
+BaseKitButton.BorderSizePixel = 0
+BaseKitButton.Position = UDim2.new(0, 0, 4.00735283, 0)
+BaseKitButton.Size = UDim2.new(1, 0, 1, 0)
+BaseKitButton.Font = Enum.Font.SourceSans
+BaseKitButton.FontSize = Enum.FontSize.Size24
+BaseKitButton.Text = "Base Kit"
+BaseKitButton.TextColor3 = Color3.new(1, 1, 1)
+BaseKitButton.TextScaled = true
+BaseKitButton.TextSize = 24
+BaseKitButton.TextWrapped = true
+
+HealthKitButton.Name = "HealthKitButton"
+HealthKitButton.Parent = KitsTab
+HealthKitButton.BackgroundColor3 = Color3.new(0, 0, 0)
+HealthKitButton.BackgroundTransparency = 0.5
+HealthKitButton.BorderSizePixel = 0
+HealthKitButton.Position = UDim2.new(0.000904917717, 0, 2.98161745, 0)
+HealthKitButton.Size = UDim2.new(1, 0, 1, 0)
+HealthKitButton.Font = Enum.Font.SourceSans
+HealthKitButton.FontSize = Enum.FontSize.Size24
+HealthKitButton.Text = "Health Kit"
+HealthKitButton.TextColor3 = Color3.new(1, 1, 1)
+HealthKitButton.TextScaled = true
+HealthKitButton.TextSize = 24
+HealthKitButton.TextWrapped = true
+
+FALKitButton.Name = "FALKitButton"
+FALKitButton.Parent = KitsTab
+FALKitButton.BackgroundColor3 = Color3.new(0, 0, 0)
+FALKitButton.BackgroundTransparency = 0.5
+FALKitButton.BorderSizePixel = 0
+FALKitButton.Position = UDim2.new(0, 0, 5.00980377, 0)
+FALKitButton.Size = UDim2.new(1, 0, 1, 0)
+FALKitButton.Font = Enum.Font.SourceSans
+FALKitButton.FontSize = Enum.FontSize.Size24
+FALKitButton.Text = "FAL Kit"
+FALKitButton.TextColor3 = Color3.new(1, 1, 1)
+FALKitButton.TextScaled = true
+FALKitButton.TextSize = 24
+FALKitButton.TextWrapped = true
+
+GadgetsButton.Name = "GadgetsButton"
+GadgetsButton.Parent = KitsTab
+GadgetsButton.BackgroundColor3 = Color3.new(0, 0, 0)
+GadgetsButton.BackgroundTransparency = 0.5
+GadgetsButton.BorderSizePixel = 0
+GadgetsButton.Position = UDim2.new(0, 0, 1.00245094, 0)
+GadgetsButton.Size = UDim2.new(1, 0, 1, 0)
+GadgetsButton.Font = Enum.Font.SourceSans
+GadgetsButton.FontSize = Enum.FontSize.Size24
+GadgetsButton.Text = "Gadgets Kit"
+GadgetsButton.TextColor3 = Color3.new(1, 1, 1)
+GadgetsButton.TextScaled = true
+GadgetsButton.TextSize = 24
+GadgetsButton.TextWrapped = true
+
+WorldWideTab.Name = "WorldWideTab"
+WorldWideTab.Parent = ApocGenesis
+WorldWideTab.Active = true
+WorldWideTab.BackgroundColor3 = Color3.new(1, 1, 1)
+WorldWideTab.BackgroundTransparency = 0.30000001192093
+WorldWideTab.BorderSizePixel = 0
+WorldWideTab.Draggable = true
+WorldWideTab.Position = UDim2.new(0.582463741, 0, 0.190804929, 0)
+WorldWideTab.Size = UDim2.new(0.150000006, 0, 0.0199999996, 0)
+WorldWideTab.Font = Enum.Font.SourceSans
+WorldWideTab.FontSize = Enum.FontSize.Size14
+WorldWideTab.Text = "WorldWide"
+WorldWideTab.TextColor3 = Color3.new(0, 0, 0)
+WorldWideTab.TextScaled = true
+WorldWideTab.TextSize = 14
+WorldWideTab.TextWrapped = true
+
+WorldWidePin.Name = "WorldWidePin"
+WorldWidePin.Parent = WorldWideTab
+WorldWidePin.BackgroundColor3 = Color3.new(1, 1, 1)
+WorldWidePin.BackgroundTransparency = 1
+WorldWidePin.Position = UDim2.new(0.904510736, 0, -0.167075157, 0)
+WorldWidePin.Size = UDim2.new(0.115469456, 0, 1.33660126, 0)
+WorldWidePin.ZIndex = 2
+WorldWidePin.Image = "rbxassetid://466761271"
+WorldWidePin.ImageColor3 = Color3.new(1, 0, 0)
+
+BlowUpCarsButton.Name = "BlowUpCarsButton"
+BlowUpCarsButton.Parent = WorldWideTab
+BlowUpCarsButton.BackgroundColor3 = Color3.new(0, 0, 0)
+BlowUpCarsButton.BackgroundTransparency = 0.5
+BlowUpCarsButton.BorderSizePixel = 0
+BlowUpCarsButton.Position = UDim2.new(0, 0, 8, 0)
+BlowUpCarsButton.Size = UDim2.new(1, 0, 1, 0)
+BlowUpCarsButton.Font = Enum.Font.SourceSans
+BlowUpCarsButton.FontSize = Enum.FontSize.Size24
+BlowUpCarsButton.Text = "Blow up all cars"
+BlowUpCarsButton.TextColor3 = Color3.new(1, 1, 1)
+BlowUpCarsButton.TextScaled = true
+BlowUpCarsButton.TextSize = 24
+BlowUpCarsButton.TextWrapped = true
+
+BlueButton.Name = "BlueButton"
+BlueButton.Parent = WorldWideTab
+BlueButton.BackgroundColor3 = Color3.new(0, 0.568627, 1)
+BlueButton.BorderSizePixel = 0
+BlueButton.Position = UDim2.new(0.26699996, 0, 2.37500024, 0)
+BlueButton.Size = UDim2.new(0.100000001, 0, 1, 0)
+BlueButton.Font = Enum.Font.SourceSans
+BlueButton.FontSize = Enum.FontSize.Size14
+BlueButton.Text = ""
+BlueButton.TextScaled = true
+BlueButton.TextSize = 14
+BlueButton.TextWrapped = true
+
+CorpseTPButton.Name = "CorpseTPButton"
+CorpseTPButton.Parent = WorldWideTab
+CorpseTPButton.BackgroundColor3 = Color3.new(0, 0, 0)
+CorpseTPButton.BackgroundTransparency = 0.60000002384186
+CorpseTPButton.BorderSizePixel = 0
+CorpseTPButton.Position = UDim2.new(0, 0, 5, 0)
+CorpseTPButton.Size = UDim2.new(1, 0, 1, 0)
+CorpseTPButton.Font = Enum.Font.SourceSans
+CorpseTPButton.FontSize = Enum.FontSize.Size24
+CorpseTPButton.Text = "TP Corpses"
+CorpseTPButton.TextColor3 = Color3.new(1, 1, 1)
+CorpseTPButton.TextScaled = true
+CorpseTPButton.TextSize = 24
+CorpseTPButton.TextWrapped = true
+
+GreenButton.Name = "GreenButton"
+GreenButton.Parent = WorldWideTab
+GreenButton.BackgroundColor3 = Color3.new(0.0470588, 0.74902, 0)
+GreenButton.BorderSizePixel = 0
+GreenButton.Position = UDim2.new(0.466999978, 0, 2.37500024, 0)
+GreenButton.Size = UDim2.new(0.100000001, 0, 1, 0)
+GreenButton.Font = Enum.Font.SourceSans
+GreenButton.FontSize = Enum.FontSize.Size14
+GreenButton.Text = ""
+GreenButton.TextScaled = true
+GreenButton.TextSize = 14
+GreenButton.TextWrapped = true
+
+KillAllButton.Name = "KillAllButton"
+KillAllButton.Parent = WorldWideTab
+KillAllButton.BackgroundColor3 = Color3.new(0, 0, 0)
+KillAllButton.BackgroundTransparency = 0.5
+KillAllButton.BorderSizePixel = 0
+KillAllButton.Position = UDim2.new(0, 0, 4, 0)
+KillAllButton.Size = UDim2.new(1, 0, 1, 0)
+KillAllButton.Font = Enum.Font.SourceSans
+KillAllButton.FontSize = Enum.FontSize.Size24
+KillAllButton.Text = "Kill All Players"
+KillAllButton.TextColor3 = Color3.new(1, 1, 1)
+KillAllButton.TextScaled = true
+KillAllButton.TextSize = 24
+KillAllButton.TextWrapped = true
+
+KillZombiesButton.Name = "KillZombiesButton"
+KillZombiesButton.Parent = WorldWideTab
+KillZombiesButton.BackgroundColor3 = Color3.new(0, 0, 0)
+KillZombiesButton.BackgroundTransparency = 0.5
+KillZombiesButton.BorderSizePixel = 0
+KillZombiesButton.Position = UDim2.new(0, 0, 6, 0)
+KillZombiesButton.Size = UDim2.new(1, 0, 1, 0)
+KillZombiesButton.Font = Enum.Font.SourceSans
+KillZombiesButton.FontSize = Enum.FontSize.Size24
+KillZombiesButton.Text = "Kill Zombies"
+KillZombiesButton.TextColor3 = Color3.new(1, 1, 1)
+KillZombiesButton.TextScaled = true
+KillZombiesButton.TextSize = 24
+KillZombiesButton.TextWrapped = true
+
+MessageBox.Name = "MessageBox"
+MessageBox.Parent = WorldWideTab
+MessageBox.BackgroundColor3 = Color3.new(0, 0, 0)
+MessageBox.BackgroundTransparency = 0.5
+MessageBox.BorderSizePixel = 0
+MessageBox.Position = UDim2.new(0, 0, 1, 0)
+MessageBox.Size = UDim2.new(1, 0, 1, 0)
+MessageBox.Font = Enum.Font.SourceSans
+MessageBox.FontSize = Enum.FontSize.Size24
+MessageBox.MultiLine = true
+MessageBox.Text = "Enter your message here."
+MessageBox.TextColor3 = Color3.new(1, 1, 1)
+MessageBox.TextScaled = true
+MessageBox.TextSize = 22
+MessageBox.TextWrapped = true
+
+RedButton.Name = "RedButton"
+RedButton.Parent = WorldWideTab
+RedButton.BackgroundColor3 = Color3.new(1, 0, 0)
+RedButton.BorderSizePixel = 0
+RedButton.Position = UDim2.new(0.0669999421, 0, 2.37500024, 0)
+RedButton.Size = UDim2.new(0.100000001, 0, 1, 0)
+RedButton.Font = Enum.Font.SourceSans
+RedButton.FontSize = Enum.FontSize.Size14
+RedButton.Text = ""
+RedButton.TextScaled = true
+RedButton.TextSize = 14
+RedButton.TextWrapped = true
+
+WhiteButton.Name = "WhiteButton"
+WhiteButton.Parent = WorldWideTab
+WhiteButton.BackgroundColor3 = Color3.new(1, 1, 1)
+WhiteButton.BorderSizePixel = 0
+WhiteButton.Position = UDim2.new(0.832999945, 0, 2.37500024, 0)
+WhiteButton.Size = UDim2.new(0.100000001, 0, 1, 0)
+WhiteButton.Font = Enum.Font.SourceSans
+WhiteButton.FontSize = Enum.FontSize.Size14
+WhiteButton.Text = ""
+WhiteButton.TextScaled = true
+WhiteButton.TextSize = 14
+WhiteButton.TextWrapped = true
+
+YellowButton.Name = "YellowButton"
+YellowButton.Parent = WorldWideTab
+YellowButton.BackgroundColor3 = Color3.new(0.960784, 0.960784, 0)
+YellowButton.BorderSizePixel = 0
+YellowButton.Position = UDim2.new(0.649999917, 0, 2.37500024, 0)
+YellowButton.Size = UDim2.new(0.100000001, 0, 1, 0)
+YellowButton.Font = Enum.Font.SourceSans
+YellowButton.FontSize = Enum.FontSize.Size14
+YellowButton.Text = ""
+YellowButton.TextScaled = true
+YellowButton.TextSize = 14
+YellowButton.TextWrapped = true
+
+CratesTPButton.Name = "CratesTPButton"
+CratesTPButton.Parent = WorldWideTab
+CratesTPButton.BackgroundColor3 = Color3.new(0, 0, 0)
+CratesTPButton.BackgroundTransparency = 0.60000002384186
+CratesTPButton.BorderSizePixel = 0
+CratesTPButton.Position = UDim2.new(0, 0, 7, 0)
+CratesTPButton.Size = UDim2.new(1, 0, 1, 0)
+CratesTPButton.Font = Enum.Font.SourceSans
+CratesTPButton.FontSize = Enum.FontSize.Size24
+CratesTPButton.Text = "TP Crates to you"
+CratesTPButton.TextColor3 = Color3.new(1, 1, 1)
+CratesTPButton.TextScaled = true
+CratesTPButton.TextSize = 24
+CratesTPButton.TextWrapped = true
+
+StealButton.Name = "StealButton"
+StealButton.Parent = WorldWideTab
+StealButton.BackgroundColor3 = Color3.new(0, 0, 0)
+StealButton.BackgroundTransparency = 0.60000002384186
+StealButton.BorderColor3 = Color3.new(0, 0, 0)
+StealButton.BorderSizePixel = 0
+StealButton.Position = UDim2.new(0, 0, 9, 0)
+StealButton.Size = UDim2.new(1, 0, 1.04166663, 0)
+StealButton.Font = Enum.Font.SourceSans
+StealButton.FontSize = Enum.FontSize.Size24
+StealButton.Text = "Steal all guns"
+StealButton.TextColor3 = Color3.new(1, 1, 1)
+StealButton.TextScaled = true
+StealButton.TextSize = 24
+StealButton.TextWrapped = true
+
+VehiclesTab.Name = "VehiclesTab"
+VehiclesTab.Parent = ApocGenesis
+VehiclesTab.Active = true
+VehiclesTab.BackgroundColor3 = Color3.new(1, 1, 1)
+VehiclesTab.BackgroundTransparency = 0.30000001192093
+VehiclesTab.BorderSizePixel = 0
+VehiclesTab.Draggable = true
+VehiclesTab.Position = UDim2.new(0.737445354, 0, 0.190804929, 0)
+VehiclesTab.Size = UDim2.new(0.150000006, 0, 0.0199999996, 0)
+VehiclesTab.Font = Enum.Font.SourceSans
+VehiclesTab.FontSize = Enum.FontSize.Size14
+VehiclesTab.Text = "Vehicles"
+VehiclesTab.TextColor3 = Color3.new(0, 0, 0)
+VehiclesTab.TextScaled = true
+VehiclesTab.TextSize = 14
+VehiclesTab.TextWrapped = true
+
+VehiclesPin.Name = "VehiclesPin"
+VehiclesPin.Parent = VehiclesTab
+VehiclesPin.BackgroundColor3 = Color3.new(1, 1, 1)
+VehiclesPin.BackgroundTransparency = 1
+VehiclesPin.Position = UDim2.new(0.904510736, 0, -0.167075157, 0)
+VehiclesPin.Size = UDim2.new(0.115469456, 0, 1.33660126, 0)
+VehiclesPin.ZIndex = 2
+VehiclesPin.Image = "rbxassetid://466761271"
+VehiclesPin.ImageColor3 = Color3.new(1, 0, 0)
+
+VehicleScrollingFrame.Name = "VehicleScrollingFrame"
+VehicleScrollingFrame.Parent = VehiclesTab
+VehicleScrollingFrame.BackgroundColor3 = Color3.new(0.266667, 0.266667, 0.266667)
+VehicleScrollingFrame.BackgroundTransparency = 0.5
+VehicleScrollingFrame.BorderSizePixel = 0
+VehicleScrollingFrame.Position = UDim2.new(0, 0, 2.00490189, 0)
+VehicleScrollingFrame.Size = UDim2.new(1, 0, 15, 0)
+VehicleScrollingFrame.CanvasSize = UDim2.new(0, 0, 500, 0)
+VehicleScrollingFrame.ScrollBarThickness = 0
+
+VehSearchBox.Name = "VehSearchBox"
+VehSearchBox.Parent = VehiclesTab
+VehSearchBox.BackgroundColor3 = Color3.new(0, 0, 0)
+VehSearchBox.BackgroundTransparency = 0.5
+VehSearchBox.BorderSizePixel = 0
+VehSearchBox.Position = UDim2.new(0, 0, 1.04411757, 0)
+VehSearchBox.Size = UDim2.new(1, 0, 1, 0)
+VehSearchBox.Font = Enum.Font.SourceSans
+VehSearchBox.FontSize = Enum.FontSize.Size24
+VehSearchBox.Text = "Type something here to search for a vehicle."
+VehSearchBox.TextColor3 = Color3.new(1, 1, 1)
+VehSearchBox.TextScaled = true
+VehSearchBox.TextSize = 22
+VehSearchBox.TextWrapped = true
+
+HornIDBox.Name = "HornIDBox"
+HornIDBox.Parent = VehiclesTab
+HornIDBox.BackgroundColor3 = Color3.new(0, 0, 0)
+HornIDBox.BackgroundTransparency = 0.60000002384186
+HornIDBox.BorderSizePixel = 0
+HornIDBox.Position = UDim2.new(0, 0, 20, 0)
+HornIDBox.Size = UDim2.new(1, 0, 1, 0)
+HornIDBox.Font = Enum.Font.SourceSans
+HornIDBox.FontSize = Enum.FontSize.Size24
+HornIDBox.Text = "Horn ID"
+HornIDBox.TextColor3 = Color3.new(1, 1, 1)
+HornIDBox.TextScaled = true
+HornIDBox.TextSize = 24
+HornIDBox.TextWrapped = true
+
+HealVehicleButton.Name = "HealVehicleButton"
+HealVehicleButton.Parent = VehiclesTab
+HealVehicleButton.BackgroundColor3 = Color3.new(0, 0, 0)
+HealVehicleButton.BackgroundTransparency = 0.60000002384186
+HealVehicleButton.BorderSizePixel = 0
+HealVehicleButton.Position = UDim2.new(0, 0, 18, 0)
+HealVehicleButton.Size = UDim2.new(1, 0, 1, 0)
+HealVehicleButton.Font = Enum.Font.SourceSans
+HealVehicleButton.FontSize = Enum.FontSize.Size24
+HealVehicleButton.Text = "Heal Vehicle"
+HealVehicleButton.TextColor3 = Color3.new(1, 1, 1)
+HealVehicleButton.TextScaled = true
+HealVehicleButton.TextSize = 24
+HealVehicleButton.TextWrapped = true
+
+SetHornButton.Name = "SetHornButton"
+SetHornButton.Parent = VehiclesTab
+SetHornButton.BackgroundColor3 = Color3.new(0, 0, 0)
+SetHornButton.BackgroundTransparency = 0.60000002384186
+SetHornButton.BorderSizePixel = 0
+SetHornButton.Position = UDim2.new(0, 0, 21, 0)
+SetHornButton.Size = UDim2.new(1, 0, 1, 0)
+SetHornButton.Font = Enum.Font.SourceSans
+SetHornButton.FontSize = Enum.FontSize.Size24
+SetHornButton.Text = "Set horn"
+SetHornButton.TextColor3 = Color3.new(1, 1, 1)
+SetHornButton.TextScaled = true
+SetHornButton.TextSize = 24
+SetHornButton.TextWrapped = true
+
+SpeedVehicleButton.Name = "SpeedVehicleButton"
+SpeedVehicleButton.Parent = VehiclesTab
+SpeedVehicleButton.BackgroundColor3 = Color3.new(0, 0, 0)
+SpeedVehicleButton.BackgroundTransparency = 0.5
+SpeedVehicleButton.BorderSizePixel = 0
+SpeedVehicleButton.Position = UDim2.new(0, 0, 19, 0)
+SpeedVehicleButton.Size = UDim2.new(1, 0, 1, 0)
+SpeedVehicleButton.Font = Enum.Font.SourceSans
+SpeedVehicleButton.FontSize = Enum.FontSize.Size24
+SpeedVehicleButton.Text = "Speedy Vehicle"
+SpeedVehicleButton.TextColor3 = Color3.new(1, 1, 1)
+SpeedVehicleButton.TextScaled = true
+SpeedVehicleButton.TextSize = 24
+SpeedVehicleButton.TextWrapped = true
+
+SelectedVehicleLabel.Name = "SelectedVehicleLabel"
+SelectedVehicleLabel.Parent = VehiclesTab
+SelectedVehicleLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+SelectedVehicleLabel.BackgroundTransparency = 0.5
+SelectedVehicleLabel.BorderSizePixel = 0
+SelectedVehicleLabel.Position = UDim2.new(0, 0, 17, 0)
+SelectedVehicleLabel.Size = UDim2.new(1, 0, 1, 0)
+SelectedVehicleLabel.Font = Enum.Font.SourceSans
+SelectedVehicleLabel.FontSize = Enum.FontSize.Size14
+SelectedVehicleLabel.Text = "Selected Vehicle: "
+SelectedVehicleLabel.TextColor3 = Color3.new(1, 1, 1)
+SelectedVehicleLabel.TextScaled = true
+SelectedVehicleLabel.TextSize = 14
+SelectedVehicleLabel.TextWrapped = true
+
+BringVehicleButton.Name = "BringVehicleButton"
+BringVehicleButton.Parent = VehiclesTab
+BringVehicleButton.BackgroundColor3 = Color3.new(0, 0, 0)
+BringVehicleButton.BackgroundTransparency = 0.5
+BringVehicleButton.BorderSizePixel = 0
+BringVehicleButton.Position = UDim2.new(0, 0, 22, 0)
+BringVehicleButton.Size = UDim2.new(1, 0, 1, 0)
+BringVehicleButton.Font = Enum.Font.SourceSans
+BringVehicleButton.FontSize = Enum.FontSize.Size24
+BringVehicleButton.Text = "Bring Vehicle"
+BringVehicleButton.TextColor3 = Color3.new(1, 1, 1)
+BringVehicleButton.TextScaled = true
+BringVehicleButton.TextSize = 24
+BringVehicleButton.TextWrapped = true
+
+MiscTab.Name = "MiscTab"
+MiscTab.Parent = ApocGenesis
+MiscTab.Active = true
+MiscTab.BackgroundColor3 = Color3.new(1, 1, 1)
+MiscTab.BackgroundTransparency = 0.30000001192093
+MiscTab.BorderSizePixel = 0
+MiscTab.Draggable = true
+MiscTab.Position = UDim2.new(0.272500664, 0, 0.640395045, 0)
+MiscTab.Size = UDim2.new(0.150000006, 0, 0.0199999996, 0)
+MiscTab.Font = Enum.Font.SourceSans
+MiscTab.FontSize = Enum.FontSize.Size14
+MiscTab.Text = "Misc"
+MiscTab.TextColor3 = Color3.new(0, 0, 0)
+MiscTab.TextScaled = true
+MiscTab.TextSize = 14
+MiscTab.TextWrapped = true
+
+MiscPin.Name = "MiscPin"
+MiscPin.Parent = MiscTab
+MiscPin.BackgroundColor3 = Color3.new(1, 1, 1)
+MiscPin.BackgroundTransparency = 1
+MiscPin.Position = UDim2.new(0.904510736, 0, -0.167075157, 0)
+MiscPin.Size = UDim2.new(0.115469456, 0, 1.33660126, 0)
+MiscPin.ZIndex = 2
+MiscPin.Image = "rbxassetid://466761271"
+MiscPin.ImageColor3 = Color3.new(1, 0, 0)
+
+RainbowCrosshairButton.Name = "RainbowCrosshairButton"
+RainbowCrosshairButton.Parent = MiscTab
+RainbowCrosshairButton.BackgroundColor3 = Color3.new(0, 0, 0)
+RainbowCrosshairButton.BackgroundTransparency = 0.5
+RainbowCrosshairButton.BorderSizePixel = 0
+RainbowCrosshairButton.Position = UDim2.new(0, 0, 1.00245094, 0)
+RainbowCrosshairButton.Size = UDim2.new(1, 0, 1, 0)
+RainbowCrosshairButton.Font = Enum.Font.SourceSans
+RainbowCrosshairButton.FontSize = Enum.FontSize.Size24
+RainbowCrosshairButton.Text = "Rainbow Crosshair"
+RainbowCrosshairButton.TextColor3 = Color3.new(1, 1, 1)
+RainbowCrosshairButton.TextScaled = true
+RainbowCrosshairButton.TextSize = 24
+RainbowCrosshairButton.TextWrapped = true
+
+Watermark.Name = "Watermark"
+Watermark.Parent = ApocGenesis
+Watermark.BackgroundColor3 = Color3.new(1, 1, 1)
+Watermark.BackgroundTransparency = 1
+Watermark.BorderSizePixel = 0
+Watermark.Position = UDim2.new(0.675276756, 0, 0.887254953, 0)
+Watermark.Size = UDim2.new(0.322295815, 0, 0.111246943, 0)
+Watermark.Image = "rbxassetid://1151827564"
+
+ItemsTab.Name = "ItemsTab"
+ItemsTab.Parent = ApocGenesis
+ItemsTab.Active = true
+ItemsTab.BackgroundColor3 = Color3.new(1, 1, 1)
+ItemsTab.BackgroundTransparency = 0.30000001192093
+ItemsTab.BorderSizePixel = 0
+ItemsTab.Draggable = true
+ItemsTab.Position = UDim2.new(0.116783291, 0, 0.504458547, 0)
+ItemsTab.Size = UDim2.new(0.150000006, 0, 0.0199999996, 0)
+ItemsTab.Font = Enum.Font.SourceSans
+ItemsTab.FontSize = Enum.FontSize.Size14
+ItemsTab.Text = "Items"
+ItemsTab.TextColor3 = Color3.new(0, 0, 0)
+ItemsTab.TextScaled = true
+ItemsTab.TextSize = 14
+ItemsTab.TextWrapped = true
+
+ItemsPin.Name = "ItemsPin"
+ItemsPin.Parent = ItemsTab
+ItemsPin.BackgroundColor3 = Color3.new(1, 1, 1)
+ItemsPin.BackgroundTransparency = 1
+ItemsPin.Position = UDim2.new(0.904510736, 0, -0.167075157, 0)
+ItemsPin.Size = UDim2.new(0.115469456, 0, 1.33660126, 0)
+ItemsPin.ZIndex = 2
+ItemsPin.Image = "rbxassetid://466761271"
+ItemsPin.ImageColor3 = Color3.new(1, 0, 0)
+
+ScrollingFrame.Parent = ItemsTab
+ScrollingFrame.BackgroundColor3 = Color3.new(0.266667, 0.266667, 0.266667)
+ScrollingFrame.BackgroundTransparency = 0.5
+ScrollingFrame.BorderSizePixel = 0
+ScrollingFrame.Position = UDim2.new(0, 0, 2.00490189, 0)
+ScrollingFrame.Size = UDim2.new(1, 0, 15, 0)
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 500, 0)
+ScrollingFrame.ScrollBarThickness = 0
+
+SearchBox.Name = "SearchBox"
+SearchBox.Parent = ItemsTab
+SearchBox.BackgroundColor3 = Color3.new(0, 0, 0)
+SearchBox.BackgroundTransparency = 0.5
+SearchBox.BorderSizePixel = 0
+SearchBox.Position = UDim2.new(0, 0, 1.00245094, 0)
+SearchBox.Size = UDim2.new(1, 0, 1, 0)
+SearchBox.Font = Enum.Font.SourceSans
+SearchBox.FontSize = Enum.FontSize.Size24
+SearchBox.Text = "Type something here to search for an item."
+SearchBox.TextColor3 = Color3.new(1, 1, 1)
+SearchBox.TextScaled = true
+SearchBox.TextSize = 22
+SearchBox.TextWrapped = true
+
+--[[ Apoc Genesis Main ]]-- 
+--[[ Functions ]]--
+local StartTick = tick()
+tospawnval = Instance.new("StringValue")
+WhoToAffect = Instance.new("StringValue")
+selv = Instance.new("StringValue")
+function spawnitem()
+local tospawn = tospawnval.Value
+local item = game.Lighting.LootDrops:findFirstChild(tospawn)
+game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players:findFirstChild(WhoToAffect.Value).Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))   
+end
+
+function getGun()
+	local mestuff = game.Players.LocalPlayer.Backpack:GetChildren()
+	for i = 1, #mestuff do
+		if mestuff[i]:IsA("Model") and mestuff[i]:FindFirstChild("Shooter") then
+			return mestuff[i]
+		end
+	end;
+	return nil
+end;
+
+function getGuns()
+local tab = {}
+for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+if v:FindFirstChild("Shooter") then table.insert(tab, v) end
+end
+if #tab > 1 then return tab[1], tab[2]
+else return tab[1] end
+end
+
+function getVehicles()
+local vs = game.Workspace.Vehicles:GetChildren()
+local vehicles = {}
+for i = 1, #vs do
+if vs[i].Name ~= "Holder" and vs[i].Name ~= "VehicleWreck" then table.insert(vehicles, vs[i]) end
+end
+return vehicles
+end
+
+function update()
+PlayerlistScrollingFrame:ClearAllChildren()
+local currentPos = UDim2.new(0,0,0,0)
+for _,v in pairs(game.Players:GetPlayers()) do
+	if v.Name ~= game.Players.LocalPlayer.Name then
+		local plrbutton = Instance.new("TextButton")
+		plrbutton.Name = "PlayerButton"
+		plrbutton.Parent = PlayerlistScrollingFrame
+		plrbutton.BackgroundColor3 = Color3.fromRGB(0,0,0)
+		plrbutton.BorderSizePixel = 0
+		plrbutton.Size = UDim2.new(1,0,0.005,0)
+		plrbutton.Position = currentPos
+		plrbutton.Font = Enum.Font.ArialBold
+		plrbutton.FontSize = Enum.FontSize.Size18
+		plrbutton.Text = v.Name
+		plrbutton.TextSize = 18	
+		plrbutton.BackgroundTransparency = 0.6	
+		plrbutton.TextColor3 = Color3.fromRGB(250,250,250)
+		currentPos = currentPos + UDim2.new(0,0,0.005,0)
+		plrbutton.MouseButton1Down:connect(function()
+		WhoToAffect.Value = plrbutton.Text
+		end)	
+	end
+end
+end
+update()
+
+function heal()
+local spawner = {"BloodBag"}
+for i = 1, #spawner do
+tospawnval.Value = spawner[i]; spawnitem()
+wait()
+end
+end
+
+--[[ LocalPlayer ]]--
+
+DaysAndKillsButton.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.playerstats.PlayerKill.Defensive.Value = 10000
+game.Players.LocalPlayer.playerstats.ZombieKill.Military.Value = 10000
+game.Players.LocalPlayer.playerstats.Days.Value = 75
+end)
+
+
+FastWalkButton.MouseButton1Down:connect(function()
+	local cooldown = false
+	if cooldown == false then
+		cooldown = true
+		local v = Instance.new("BodyVelocity",game.Players.LocalPlayer.Character.Torso)
+		v.Velocity = game.Players.LocalPlayer.Character.Torso.CFrame.lookVector*50
+		v.maxForce = Vector3.new(5000,5000,5000)
+		game.Debris:AddItem(v,2)
+		wait(2)
+		FastWalkButton.Text = ("5")
+		wait(1)
+		FastWalkButton.Text = ("4")
+		wait(1)
+		FastWalkButton.Text = ("3")
+		wait(1)
+		FastWalkButton.Text = ("2")
+		wait(1)
+		FastWalkButton.Text = ("1")
+		wait(1)
+		FastWalkButton.Text = ("WalkFast")
+		cooldown = false		
+	end
+end)
+
+local FloaterMain = Instance.new("Part", game.Workspace)
+FloaterMain.Name = "Float"
+FloaterMain.Material = Enum.Material.Neon
+FloaterMain.BrickColor = BrickColor.new("Lime green")
+FloaterMain.Transparency = 1
+FloaterMain.Position = Vector3.new(-141.5, 0.500001013, 40)
+FloaterMain.Anchored = true
+FloaterMain.CFrame = CFrame.new(-141.5, 0.500001013, 40, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+FloaterMain.FormFactor = Enum.FormFactor.Symmetric
+FloaterMain.Size = Vector3.new(6, 1, 6)
+FloaterMain.TopSurface = Enum.SurfaceType.Smooth
+FloaterMain.Color = Color3.new(0.0666667, 0.0666667, 0.0666667)
+local Floating = false
+local FloaterBlock = FloaterMain:Clone()
+FloaterBlock.Parent = game.Players.LocalPlayer.Character.Torso
+FloatButton.MouseButton1Down:connect(function()
+	if Floating == false then
+		Floating = true
+		FloaterBlock.CanCollide = true
+		FloatButton.Text = 'Float: On'
+		wait(0.1)
+		repeat wait()
+			FloaterBlock.CFrame = game.Players.LocalPlayer.Character.Torso.CFrame * CFrame.new(0,-3.5,0)
+		until Floating == false
+	elseif Floating == true then
+		Floating = false
+		FloatButton.Text = 'Float: Off'
+		FloaterBlock.CanCollide = false
+		
+	end
+end)
+
+HealButton.MouseButton1Down:connect(function()
+heal()
+end)
+
+HungerButton.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.playerstats.Hunger.Value = 100
+end)
+
+ThirstButton.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.playerstats.Thirst.Value = 100
+end)
+
+LoopDrinkButton.MouseButton1Down:connect(function()
+if loopdrinkval == false then
+LoopDrinkButton.Text = "LoopDrink: On"
+game.Players.LocalPlayer.playerstats.Thirst.Value = 2100000000
+loopdrinkval = true else
+LoopDrinkButton.Text = "LoopDrink: Off"
+game.Players.LocalPlayer.playerstats.Thirst.Value = 100
+loopdrinkval = false
+end
+end)
+
+LoopEatButton.MouseButton1Down:connect(function()
+if loopeatval == false then
+LoopEatButton.Text = "LoopEat: On"
+game.Players.LocalPlayer.playerstats.Hunger.Value = 2100000000
+loopeatval = true else
+LoopEatButton.Text = "LoopEat: Off"
+game.Players.LocalPlayer.playerstats.Hunger.Value = 100
+loopeatval = false
+end
+end)
+
+StaminaButton.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.Backpack.GlobalFunctions.Stamina.Value = 100
+end)
+
+LoopHealButton.MouseButton1Down:connect(function()
+local spawner = {"BloodBag","BloodBag","BloodBag","BloodBag","BloodBag"}
+for i = 1, #spawner do
+tospawnval.Value = spawner[i]; spawnitem()
+wait()
+end
+end)
+
+NoFogButton.MouseButton1Down:connect(function()
+game.Lighting.FogEnd = 99999999999
+end)
+
+
+local noclip = false
+NoclipButton.MouseButton1Down:connect(function()
+if noclip == true then
+noclip = false
+NoclipButton.Text = "Noclip: On"
+game:GetService('RunService').Stepped:connect(function()
+game.Players.LocalPlayer.Character.Torso.CanCollide = noclip
+game.Players.LocalPlayer.Character.Head.CanCollide = noclip
+game.Players.LocalPlayer.Character.Torso.Changed:connect(function()
+game.Players.LocalPlayer.Character.Torso.CanCollide = noclip
+game.Players.LocalPlayer.Character.Head.CanCollide = noclip
+end)
+end)
+elseif noclip == false then
+noclip = true
+NoclipButton.Text = "Noclip: Off"
+end
+end)
+
+PlaceC4Button.MouseButton1Down:connect(function()
+			local player = game.Players.LocalPlayer
+local material = game.Lighting.Materials.C4Placed
+        local pos = player.Character.Torso.Position - material.Head.Position + Vector3.new(0,0,0)
+        game.Workspace.Remote.PlaceC4:FireServer(material, pos, true)
+end)
+
+RecoilButton.MouseButton1Down:connect(function()
+local primary, secondary = getGuns()
+if primary and secondary then
+local primary, secondary = getGuns()
+primary.Stats.Recoil.Value = "aBiPYSaIBA"
+secondary.Stats.Recoil.Value = "aBiPYSaIBA"
+elseif not secondary then
+primary.Stats.Recoil.Value = "aBiPYSaIBA"
+end
+end)
+
+--[[ Players ]]--
+
+ESPButton.MouseButton1Down:connect(function()
+_G.FREE_FOR_ALL = true
+_G.BIND = 52
+_G.AIM_AT = 'Head'
+local player = game.Players.LocalPlayer
+local esp = false
+local track = false
+function Create(base, team)
+local bb = Instance.new("BillboardGui",player.PlayerGui)
+bb.Adornee = base
+bb.ExtentsOffset = Vector3.new(0,1,0)
+bb.AlwaysOnTop = true
+bb.Size = UDim2.new(0,5,0,5)
+bb.StudsOffset = Vector3.new(0,1,0)
+bb.Name = "tracker"
+local frame = Instance.new("Frame",bb)
+frame.ZIndex = 10
+frame.BackgroundTransparency = 0.3
+frame.Size = UDim2.new(1,0,1,0)
+frame.Position = UDim2.new(0,0,0)
+frame.Transparency = 1
+local txtlbl = Instance.new("TextLabel",bb)
+txtlbl.ZIndex = 10
+txtlbl.Text = (string.upper(base.Parent.Name))
+txtlbl.BackgroundTransparency = 1
+txtlbl.Position = UDim2.new(0,0,0,-35)
+txtlbl.Size = UDim2.new(1,0,10,0)
+txtlbl.Font = "SourceSansBold"
+txtlbl.FontSize = "Size10"
+txtlbl.TextStrokeTransparency = 0.5
+
+local txtlbl2 = Instance.new("TextLabel",bb)
+txtlbl2.ZIndex = 10
+txtlbl2.Text = (math.floor(base.Parent.Humanoid.Health*100)/100)
+txtlbl2.BackgroundTransparency = 1
+txtlbl2.Position = UDim2.new(0,0,0,-25)
+txtlbl2.Size = UDim2.new(1,0,10,0)
+txtlbl2.Font = "SourceSansBold"
+txtlbl2.FontSize = "Size10"
+
+txtlbl2.TextStrokeTransparency = 0.5
+if team then
+txtlbl.TextColor3 = Color3.new(255,0,0)
+txtlbl2.TextColor3 = Color3.new(255,0,0)
+frame.BackgroundColor3 = Color3.new(255,0,0)
+
+elseif base.Parent.Name == "sdf" or base.Parent.Name == "sdasf"  then
+txtlbl.TextColor3 = Color3.new(0,255,0)
+txtlbl2.TextColor3 = Color3.new(0,255,0)
+frame.BackgroundColor3 = Color3.new(0,255,0)
+txtlbl.Text = "FRIEND"
+txtlbl.FontSize = "Size14"
+txtlbl2.FontSize = "Size14"
+
+
+
+elseif base.Parent.Name == game.Players.LocalPlayer.Name then
+txtlbl2.Transparency = 1
+txtlbl.Transparency = 1
+frame.Transparency = 1
+else
+txtlbl.TextColor3 = Color3.new(255,0,0)
+txtlbl2.TextColor3 = Color3.new(255,0,0)
+frame.BackgroundColor3 = Color3.new(255,0,0)
+
+end
+end
+
+
+function Find()
+Clear()
+track = true
+spawn(function()
+while wait() do
+if track then
+Clear()
+for _,v in pairs(game.Players:players()) do
+
+if v.Character and v.Character.Head then
+Create(v.Character.Head, false)
+end
+end
+end
+end
+wait(1)
+end)
+end
+function Clear()
+for _,v in pairs(player.PlayerGui:children()) do
+if v.Name == "tracker" and v:isA("BillboardGui") then
+v:destroy()
+end
+end
+end 
+ESPButton.MouseButton1Down:connect(function()
+if not esp then
+Find()
+ESPButton.Text = "ESP - Refresh"
+esp = true
+else
+Clear()
+track = false
+ESPButton.Text = "ESP - Refresh"
+esp = false
+Clear()
+end
+end)
+end)
+KillPlrButton.MouseButton1Down:connect(function()
+	local gun = getGun()
+	if not gun then
+		KillPlrButton.Text = "Error, you need a gun!"
+		KillPlrButton.TextScaled = true
+		wait(2)
+		KillPlrButton.TextScaled = false
+		KillPlrButton.Text = "Kill Player"
+		return
+	end;
+	for v, c in ipairs(game.Players:GetPlayers()) do
+		if gun and c.Character and c ~= game.Players.LocalPlayer then
+			for v = 1, 6 do
+				workspace.Remote.DoHitLogic:FireServer(gun, game.Players:findFirstChild(WhoToAffect.Value).Character.Head)
+			end
+		end
+	end
+end)
+
+SpectatePlayerButton.MouseButton1Down:connect(function()
+game.Workspace.CurrentCamera.CameraSubject = game.Players:FindFirstChild(WhoToAffect.Value).Character
+end)
+
+LoopKillPlrButton.MouseButton1Down:connect(function()
+local whotosel = WhoToAffect:clone()
+while true do
+	local gun = getGun()
+				workspace.Remote.DoHitLogic:FireServer(gun, game.Players:findFirstChild(whotosel.Value).Character.Head)
+				wait(1)
+
+end
+end)
+
+StealPlayerButton.MouseButton1Down:connect(function()	
+local ppl = game.Players:FindFirstChild(WhoToAffect.Value)
+	for ppl2 = 1, #ppl do
+		local ppl3 = ppl[ppl2]
+		if ppl3.playerstats.slots.slotprimary:FindFirstChild("ObjectID") then
+			workspace.Remote.DropItem:FireServer(ppl3.playerstats.slots.slotprimary, ppl3.playerstats.slots.slotprimary.ObjectID)
+		end;
+		if ppl3.playerstats.slots.slotsecondary:FindFirstChild("ObjectID") then
+			workspace.Remote.DropItem:FireServer(ppl3.playerstats.slots.slotsecondary, ppl3.playerstats.slots.slotsecondary.ObjectID)
+		end
+	end
+end)
+
+TPToPlr.MouseButton1Down:connect(function()
+game.Workspace.Remote.AddDamageSelf:FireServer(game.Players.LocalPlayer.Character.Humanoid.Health,game.Players.LocalPlayer.Character.Humanoid.Health- 101)
+game.Workspace.Remote.AddDamageSelf:FireServer(game.Players.LocalPlayer.Character.Humanoid, math.huge)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players:findFirstChild(WhoToAffect.Value).Character.HumanoidRootPart.Position)
+end)
+
+SelectLocalPlayerButton.MouseButton1Down:connect(function()
+WhoToAffect.Value = game.Players.LocalPlayer.Name
+end)
+
+
+--[[ Vehicles ]]--
+BringVehicleButton.MouseButton1Down:connect(function()
+game.Workspace.Remote.AddDamageSelf:FireServer(game.Players.LocalPlayer.Character.Humanoid.Health,game.Players.LocalPlayer.Character.Humanoid.Health- 101)
+game.Workspace.Remote.AddDamageSelf:FireServer(game.Players.LocalPlayer.Character.Humanoid, math.huge)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Workspace.Vehicles[selv.Value].Seats.Driver.Position) + Vector3.new(0,10,0)
+end)
+
+SpeedVehicleButton.MouseButton1Down:connect(function()
+local MaxSpeed = 200
+for i,v in pairs(workspace.Vehicles:GetChildren()) do
+if v.Name ~= 'VehicleWreck' then
+v.Stats.MaxSpeed.Value = MaxSpeed
+v.Stats.MaxSpeed.Offroad.Value = MaxSpeed
+end
+end
+end)
+
+HealVehicleButton.MouseButton1Down:connect(function()
+for i,v in pairs(game.Workspace.Vehicles:GetChildren()) do
+   if v.Name ~= "Holder" or v.Name ~= "VehicleWreck" then
+if v:findFirstChild("Stats") then
+v.Stats.Engine.Value = 2100000000
+v.Stats.Tank.Value = 2100000000
+v.Stats.Hull.Value = 2100000000
+v.Stats.Armor.Value = 2100000000
+v.Stats.Fuel.Value = 500
+end
+end
+end
+end)
+
+SetHornButton.MouseButton1Down:connect(function()
+game.Workspace.Vehicles:FindFirstChild(selv.Value).Essentials.Base.Horn.SoundId = "rbxassetid://"..HornIDBox.Text..""
+end)
+
+function Search(Text)
+ local tabl = {}
+local currentPos = UDim2.new(0,0,0,0)
+ for _, v in pairs(workspace.Vehicles:GetChildren()) do
+  if v.Name:find(Text) then
+	local vehbutton = Instance.new("TextButton")
+		vehbutton.Name = "VehicleButton"
+		vehbutton.Parent = VehicleScrollingFrame
+		vehbutton.BackgroundColor3 = Color3.fromRGB(2,2,2)
+		vehbutton.BorderSizePixel = 0
+		vehbutton.Size = UDim2.new(1,0,0.003,0)
+		vehbutton.Position = currentPos
+		vehbutton.Font = Enum.Font.ArialBold
+		vehbutton.FontSize = Enum.FontSize.Size18
+		vehbutton.Text = v.Name
+		vehbutton.TextSize = 18	
+		vehbutton.BackgroundTransparency = 0.6	
+		vehbutton.TextColor3 = Color3.fromRGB(255,255,255)
+		currentPos = currentPos + UDim2.new(0,0,0.003,0)
+		vehbutton.MouseButton1Down:connect(function()
+		selv.Value = v.Name
+end)
+   tabl[#tabl+1] = v
+  end
+ end
+ return tabl
+end
+VehSearchBox.Changed:connect(function(Val)
+ if Val == "Text" then
+	VehicleScrollingFrame:ClearAllChildren()
+  Search(VehSearchBox.Text)
+ end
+end)
+
+--[[ Items ]]--
+function Search2(Text2)
+ local tabl = {}
+local currentPos = UDim2.new(0,0,0,0)
+ for _, v in pairs(game.Lighting.LootDrops:GetChildren()) do
+  if v.Name:find(Text2) then
+	local itembutton = Instance.new("TextButton")
+		itembutton.Name = "ItemButton"
+		itembutton.Parent = ScrollingFrame
+		itembutton.BackgroundColor3 = Color3.fromRGB(2,2,2)
+		itembutton.BorderSizePixel = 0
+		itembutton.Size = UDim2.new(1,0,0.005,0)
+		itembutton.Position = currentPos
+		itembutton.Font = Enum.Font.ArialBold
+		itembutton.FontSize = Enum.FontSize.Size18
+		itembutton.Text = v.Name
+		itembutton.TextSize = 18	
+		itembutton.BackgroundTransparency = 0.6	
+		itembutton.TextColor3 = Color3.fromRGB(255,255,255)
+		currentPos = currentPos + UDim2.new(0,0,0.005,0)
+		itembutton.MouseButton1Down:connect(function()
+			if WhoToAffect.Value == "" then
+				itembutton.Text = "Please select a player first."
+				wait(2)
+				itembutton.Text = v.Name else
+	    local item = game.Lighting.LootDrops[v.Name]
+	    game.Workspace.Remote.PlaceMaterial:FireServer(item, game.Players:findFirstChild(WhoToAffect.Value).Character.Torso.Position-item.PrimaryPart.Position + Vector3.new(math.random(1,10),1,math.random(1,10)))		
+			end
+			end)
+   tabl[#tabl+1] = v
+  end
+ end
+ return tabl
+end
+SearchBox.Changed:connect(function(Val)
+ if Val == "Text" then
+	ScrollingFrame:ClearAllChildren()
+  Search2(SearchBox.Text)
+ end
+end)
+
+--[[ Kits ]]--
+BaseKitButton.MouseButton1Down:connect(function()
+local c = BaseKitButton:clone()
+if WhoToAffect.Value == "" then
+BaseKitButton.Text = "Please select a player first."
+wait(2)
+BaseKitButton.Text = c.Text
+c:remove() else
+local spawner = {"Material5","Material5","Material5","Material3","Material4","LargeCrate","LargeCrate"}
+for i = 1, #spawner do
+tospawnval.Value = spawner[i]; spawnitem()
+wait()
+end
+end
+end)
+
+CarKitButton.MouseButton1Down:connect(function()
+local c = CarKitButton:clone()
+if WhoToAffect.Value == "" then
+CarKitButton.Text = "Please select a player first."
+wait(2)
+CarKitButton.Text = c.Text
+c:remove() else
+local spawner = {"ReorcedWheel","ReorcedWheel","ReorcedWheel","ReorcedWheel","ScrapMetal","EngineParts","FuelTank","BallisticGlass","ArmorPlates","JerryCan","JerryCan"}
+for i = 1, #spawner do
+tospawnval.Value = spawner[i]; spawnitem()
+wait()
+end
+end
+end)
+
+GadgetsButton.MouseButton1Down:connect(function()
+local c = GadgetsButton:clone()
+if WhoToAffect.Value == "" then
+GadgetsButton.Text = "Please select a player first."
+wait(2)
+GadgetsButton.Text = c.Text
+c:remove() else
+local spawner = {"Map","GPS","Compass","Radio","OmniLight","Watch"}
+for i = 1, #spawner do
+tospawnval.Value = spawner[i]; spawnitem()
+wait()
+end
+end
+end)
+
+HealthKitButton.MouseButton1Down:connect(function()
+local c = HealthKitButton:clone()
+if WhoToAffect.Value == "" then
+HealthKitButton.Text = "Please select a player first."
+wait(2)
+HealthKitButton.Text = c.Text
+c:remove() else
+local spawner = {"BloodBag","BloodBag","BloodBag","BloodBag","Painkillers","Painkillers"}
+for i = 1, #spawner do
+tospawnval.Value = spawner[i]; spawnitem()
+wait()
+end
+end
+end)
+
+FALKitButton.MouseButton1Down:connect(function()
+local c = FALKitButton:clone()
+if WhoToAffect.Value == "" then
+FALKitButton.Text = "Please select a player first."
+wait(2)
+FALKitButton.Text = c.Text
+c:remove() else
+local spawner = {"FAL","M14Ammo50","M14Ammo50","M14Ammo50","M14Ammo50","M14Ammo50"}
+for i = 1, #spawner do
+tospawnval.Value = spawner[i]; spawnitem()
+wait()
+end
+end
+end)
+
+--[[ WorldWide ]]--
+
+RedButton.MouseButton1Down:connect(function()
+for i,v in pairs(game.Players:GetChildren())do
+workspace.Remote.SendMessage:FireServer(game.Players[v.Name], 'Red', MessageBox.Text)
+end
+end)
+
+BlueButton.MouseButton1Down:connect(function()
+for i,v in pairs(game.Players:GetChildren())do
+workspace.Remote.SendMessage:FireServer(game.Players[v.Name], 'Blue', MessageBox.Text)
+end	
+end)
+
+GreenButton.MouseButton1Down:connect(function()
+for i,v in pairs(game.Players:GetChildren())do
+workspace.Remote.SendMessage:FireServer(game.Players[v.Name], 'Green', MessageBox.Text)
+end
+end)
+
+
+YellowButton.MouseButton1Down:connect(function()
+for i,v in pairs(game.Players:GetChildren())do
+workspace.Remote.SendMessage:FireServer(game.Players[v.Name], 'Yellow', MessageBox.Text)
+end
+end)
+
+WhiteButton.MouseButton1Down:connect(function()
+for i,v in pairs(game.Players:GetChildren())do
+workspace.Remote.SendMessage:FireServer(game.Players[v.Name], 'White', MessageBox.Text)
+end
+end)
+
+BlowUpCarsButton.MouseButton1Down:connect(function()
+for i,v in pairs(workspace.Vehicles:GetChildren()) do
+if v.Name ~= "Holder" or v.Name ~= "VehicleWreck" then
+if v:findFirstChild("Stats") then
+v.Stats.Engine.Value = 0
+end
+end
+end
+end)
+
+CorpseTPButton.MouseButton1Down:connect(function()
+for _, corpse in pairs(workspace:GetChildren()) do
+if corpse.Name == "Corpse" then
+corpse:MoveTo(workspace[game.Players.LocalPlayer.Name].Torso.Position + Vector3.new(math.random(-10,10),0,math.random(-10,10)))
+end
+end
+end)
+
+CratesTPButton.MouseButton1Down:connect(function()
+for _,v in pairs(workspace:children()) do
+if v.Name == "LargeCrateOpen" or v.Name == "SmallCrateOpen" then
+v:MoveTo(game.Players.LocalPlayer.Character.Torso.Position + Vector3.new(math.random(-10,10),0,math.random(-10,10)))
+end	
+end
+end)
+
+KillAllButton.MouseButton1Down:connect(function()
+	local gun = getGun()
+	if not gun then
+		KillAllButton.Text = "Error, you need a gun!"
+		wait(2)
+		KillAllButton.Text = "Kill All Players"
+		return
+	end;
+	for v, c in ipairs(game.Players:GetPlayers()) do
+		if gun and c.Character and c ~= game.Players.LocalPlayer then
+			for v = 1, 6 do
+				workspace.Remote.DoHitLogic:FireServer(gun, c.Character.Head)
+			end
+		end
+	end
+end)
+
+
+KillZombiesButton.MouseButton1Down:connect(function()
+	for i, v in ipairs(workspace.Zombies:GetChildren()) do
+		for o, b in pairs(v:GetChildren()) do
+			if b:IsA("Model") then
+				workspace.Remote.DamageZombie:FireServer(b:FindFirstChild("Humanoid"), 1000)
+			end
+		end
+	end
+end)
+
+
+StealButton.MouseButton1Down:connect(function()	
+local ppl = game.Players:GetPlayers()
+	for ppl2 = 1, #ppl do
+		local ppl3 = ppl[ppl2]
+		if ppl3.playerstats.slots.slotprimary:FindFirstChild("ObjectID") then
+			workspace.Remote.DropItem:FireServer(ppl3.playerstats.slots.slotprimary, ppl3.playerstats.slots.slotprimary.ObjectID)
+		end;
+		if ppl3.playerstats.slots.slotsecondary:FindFirstChild("ObjectID") then
+			workspace.Remote.DropItem:FireServer(ppl3.playerstats.slots.slotsecondary, ppl3.playerstats.slots.slotsecondary.ObjectID)
+		end
+	end
+end)
+
+--[[ Misc ]]--
+
+RainbowCrosshairButton.MouseButton1Down:connect(function()
+while wait() do
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3 = Color3.new(1, 0, 0)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3 = Color3.new(1, 0, 0)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3 = Color3.new(1, 0, 0)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3 = Color3.new(1, 0, 0)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3 = Color3.new(1, 0, 0)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3 = Color3.new(1, 0, 0)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3 = Color3.new(1, 0, 0)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3 = Color3.new(1, 0, 0)
+for i=1,15 do
+game:GetService("RunService").RenderStepped:wait()
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.g+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.g+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.g+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.g+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.g+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.g+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.g+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.g+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.b)
+end
+for i=1,15 do
+game:GetService("RunService").RenderStepped:wait()
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.r-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.r-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.r-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.r-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.r-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.r-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.r-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.r-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.b)
+end
+for i=1,15 do
+game:GetService("RunService").RenderStepped:wait()
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.b+(17/255))
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.b+(17/255))
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.b+(17/255))
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.b+(17/255))
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.b+(17/255))
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.b+(17/255))
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.b+(17/255))
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.b+(17/255))
+end
+for i=1,15 do
+game:GetService("RunService").RenderStepped:wait()
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.g-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.g-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.g-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.g-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.g-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.g-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.g-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.g-(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.b)
+end
+for i=1,15 do
+game:GetService("RunService").RenderStepped:wait()
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.r+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.r+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.r+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.r+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.r+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.r+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.r+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.b)
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.r+(17/255),game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.b)
+end
+for i=1,15 do
+game:GetService("RunService").RenderStepped:wait()
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BackgroundColor3.b-(17/255))
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Top.BorderColor3.b-(17/255))
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BackgroundColor3.b-(17/255))
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Left.BorderColor3.b-(17/255))
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BackgroundColor3.b-(17/255))
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Right.BorderColor3.b-(17/255))
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BackgroundColor3.b-(17/255))
+game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3 = Color3.new(game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.r,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.g,game.Players.LocalPlayer.PlayerGui.AmmoCursor.Bin.Cursor.Bottom.BorderColor3.b-(17/255))
+end
+end
+end)
+print("Apoc Genesis loaded in: "..string.sub(tick() - StartTick,1,4).." seconds.")
+
+
+--[[ Custom UI Elements ]] --
+
+local itemspind = false
+local kitspind = false
+local localplayerpind = false
+local miscpind = false
+local playerspind = false
+local vehiclespind = false
+local worldwidepind = false
+ItemsPin.MouseButton1Down:connect(function()
+if itemspind == false then
+	ItemsTab.ClipsDescendants = true
+	itemspind = true else
+	ItemsTab.ClipsDescendants = false
+	itemspind = false
+end
+end)
+KitsPin.MouseButton1Down:connect(function()
+if kitspind == false then
+	KitsTab.ClipsDescendants = true
+	kitspind = true else
+	KitsTab.ClipsDescendants = false
+	kitspind = false
+end
+end)
+LocalPlayerPin.MouseButton1Down:connect(function()
+if localplayerpind == false then
+	LocalPlayerTab.ClipsDescendants = true
+	localplayerpind = true else
+	LocalPlayerTab.ClipsDescendants = false
+	localplayerpind = false
+end
+end)
+MiscPin.MouseButton1Down:connect(function()
+if miscpind == false then
+	MiscTab.ClipsDescendants = true
+	miscpind = true else
+	MiscTab.ClipsDescendants = false
+	miscpind = false
+end
+end)
+PlayersPin.MouseButton1Down:connect(function()
+if playerspind == false then
+	PlayersTab.ClipsDescendants = true
+	playerspind = true else
+	PlayersTab.ClipsDescendants = false
+	playerspind = false
+end
+end)
+VehiclesPin.MouseButton1Down:connect(function()
+if vehiclespind == false then
+	VehiclesTab.ClipsDescendants = true
+	vehiclespind = true else
+	VehiclesTab.ClipsDescendants = false
+	vehiclespind = false
+end
+end)
+WorldWidePin.MouseButton1Down:connect(function()
+if worldwidepind == false then
+	WorldWideTab.ClipsDescendants = true
+	worldwidepind = true else
+	WorldWideTab.ClipsDescendants = false
+	worldwidepind = false
+end
+end)
+
+local inputHandler = game:GetService("UserInputService")
+inputHandler.InputBegan:connect(function(inp)
+	local itype = inp.UserInputType
+	local key = inp.KeyCode
+    if itype == Enum.UserInputType.Keyboard then
+	if key == Enum.KeyCode.LeftAlt then
+local children = ApocGenesis:GetChildren()
+for i =1, #children do
+children[i].Visible = false 
+Watermark.Visible = true
+end
+else	
+local children = ApocGenesis:GetChildren()
+for i =1, #children do
+children[i].Visible = true
+Watermark.Visible = true
+end
+end
+end
+end)
+
+print("Thanks for the help fixing v6 Taiga!")
+game.Players.PlayerAdded:connect(function(Player)
+Player.CharacterAdded:connect(function(update)
+	Player.CharacterRemoving:connect(function(update)
+	end)
+end)
+end)
+while true do
+SelectedPlayerLabel.Text = "Selected Player: " .. WhoToAffect.Value
+SelectedVehicleLabel.Text = "Selected Vehicle: " .. selv.Value
+if itemspind == true then
+	ItemsPin.ImageColor3 = Color3.fromRGB(0,0,0) else
+	ItemsPin.ImageColor3 = Color3.fromRGB(255,0,0)
+end
+if worldwidepind == true then
+	WorldWidePin.ImageColor3 = Color3.fromRGB(0,0,0) else
+	WorldWidePin.ImageColor3 = Color3.fromRGB(255,0,0)
+end
+if kitspind == true then
+	KitsPin.ImageColor3 = Color3.fromRGB(0,0,0) else
+	KitsPin.ImageColor3 = Color3.fromRGB(255,0,0)
+end
+if localplayerpind == true then
+	LocalPlayerPin.ImageColor3 = Color3.fromRGB(0,0,0) else
+	LocalPlayerPin.ImageColor3 = Color3.fromRGB(255,0,0)
+end
+if miscpind == true then
+	MiscPin.ImageColor3 = Color3.fromRGB(0,0,0) else
+	MiscPin.ImageColor3 = Color3.fromRGB(255,0,0)
+end
+if playerspind == true then
+	PlayersPin.ImageColor3 = Color3.fromRGB(0,0,0) else
+	PlayersPin.ImageColor3 = Color3.fromRGB(255,0,0)
+end
+if vehiclespind == true then
+	VehiclesPin.ImageColor3 = Color3.fromRGB(0,0,0) else
+	VehiclesPin.ImageColor3 = Color3.fromRGB(255,0,0)
+end
+wait(0.1)
+end

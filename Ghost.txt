@@ -1,0 +1,800 @@
+local time = tick()
+			print("Loading Wraith by joalars2...")
+
+			local plr = game:GetService("Players").LocalPlayer
+			local mouse,char = plr:GetMouse(),plr.Character
+
+			local amountGhosts = 5
+
+			for i,v in pairs(game:GetService("Workspace").CurrentCamera:GetChildren()) do v:Destroy() end
+
+			local toggle,cd,mcd = false,false,false
+			local ghosts = {}
+			local temptab = {}
+
+			char:WaitForChild("Animate"):Destroy()
+			char.Humanoid:WaitForChild("Animator"):Destroy()
+
+			local state = "idle"
+
+			local gt = false
+
+			local gyro = Instance.new("BodyGyro",char:WaitForChild("HumanoidRootPart")) --Stops the character from glitching out on enter/exit
+			gyro.MaxTorque = Vector3.new(0,0,0)
+			gyro.D = 0
+			gyro.P = 100000000
+
+
+			local wCol = BrickColor.new("Really red")
+			local wCol2 = BrickColor.new("Really black")
+			local gCol = BrickColor.new("Toothpaste")
+			local gCol2 = BrickColor.new("Institutional white")
+
+			function searchAll(m,clear)
+				if clear then
+					if clear == true then
+						for i,v in pairs(temptab) do
+							table.remove(temptab,1)
+						end
+					end
+				end
+				for i,v in pairs(m:GetChildren()) do
+					if v then
+						local s = v:Clone()
+						for _,b in pairs(s:GetChildren()) do
+							b:Destroy()
+						end
+						if s:IsA("Part") or s:IsA("WedgePart") or s:IsA("TrussPart") or s:IsA("UnionOperation") then
+							if s.Name ~= "HumanoidRootPart" then
+								s.Anchored = true
+								s.CanCollide = false
+								s.Transparency = 0.95
+								s.TopSurface = "Smooth"
+								s.BottomSurface = "Smooth"
+								s.FrontSurface = "Smooth"
+								s.RightSurface = "Smooth"
+								s.BackSurface = "Smooth"
+								s.LeftSurface = "Smooth"
+								if s.Material ~= Enum.Material.Neon then
+									if gt == true then
+										s.BrickColor = wCol2
+									else
+										s.BrickColor = gCol2
+									end
+								else
+									if gt == true then
+										s.BrickColor = wCol
+									else
+										s.BrickColor = gCol
+									end
+								end
+								for _,c in pairs(v:GetChildren()) do
+									if c:IsA("SpecialMesh") or c:IsA("CylinderMesh") then
+										c:Clone().Parent = s
+									end
+								end
+								local objValue = Instance.new("ObjectValue",s)
+								objValue.Name = "Target"
+								objValue.Value = v
+								table.insert(temptab,s)
+							end
+						--elseif s:IsA("CharacterMesh") then
+							--table.insert(temptab,s)
+						end
+						--searchAll(v)
+					end
+				end
+				return temptab
+			end
+
+			function CreateGhost()
+				local ghost = Instance.new("Model",game.Workspace)
+				searchAll(char,true)
+				ghost.Name = char.Name.."'s Ghost "..#ghosts..#plr.Name
+				--Instance.new("Humanoid",ghost)
+				for i,v in pairs(temptab) do
+					v:Clone().Parent = ghost
+				end
+				table.insert(ghosts,ghost)
+			end
+
+			function ClearGhosts()
+				for i,v in pairs(ghosts) do
+					v:Destroy()
+				end
+				for i,v in pairs(ghosts) do
+					table.remove(ghosts,1)
+				end
+				for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+					if string.sub(v.Name,1,#plr.Name+9) == plr.Name.."'s Ghost " then
+						v:Destroy()
+					end
+				end
+			end
+
+			Instance.new("ForceField",char).Visible = false
+
+			local e1 = Instance.new("Part",char)
+			e1.Size = Vector3.new(0.2,0.2,0.2)
+			e1.TopSurface = "Smooth"
+			e1.BottomSurface = "Smooth"
+			e1.Material = "Neon"
+			e1.Transparency = 1
+			e1.Anchored = true
+			e1.CanCollide = false
+			e1.BrickColor = gCol
+			e1.CFrame = char.Head.CFrame * CFrame.new(0.15,0.1,-0.6)
+			local em1 = Instance.new("SpecialMesh",e1)
+			em1.MeshType = "Sphere"
+			local e2 = Instance.new("Part",char)
+			e2.Size = Vector3.new(0.2,0.2,0.2)
+			e2.TopSurface = "Smooth"
+			e2.BottomSurface = "Smooth"
+			e2.Transparency = 1
+			e2.Material = "Neon"
+			e2.Anchored = true
+			e2.CanCollide = false
+			e2.BrickColor = gCol
+			e2.CFrame = char.Head.CFrame * CFrame.new(-0.15,0.1,-0.6)
+			local em2 = Instance.new("SpecialMesh",e2)
+			em2.MeshType = "Sphere"
+
+			toggle = true
+			for i=1,amountGhosts do
+				CreateGhost()
+			end
+			char.Parent = game:GetService("Workspace").CurrentCamera
+			char:FindFirstChild("Head").Transparency = 1
+			char:FindFirstChild("Torso").Transparency = 1
+			char:FindFirstChild("Right Arm").Transparency = 1
+			char:FindFirstChild("Left Arm").Transparency = 1
+			char:FindFirstChild("Right Leg").Transparency = 1
+			char:FindFirstChild("Left Leg").Transparency = 1
+			for i,v in pairs(char:GetChildren()) do
+				if v:IsA("Accessory") then
+					v:FindFirstChild("Handle").Transparency = 1
+				end
+			end
+			char:FindFirstChild("Head"):FindFirstChild("face"):Destroy()
+
+			local p1 = Instance.new("Part",workspace)
+			local m1 = Instance.new("SpecialMesh",p1)
+			m1.MeshType = "Sphere"
+			m1.Scale = Vector3.new(5,5,5)
+			p1.Size = Vector3.new(1,1,1)
+			p1.Anchored = true
+			p1.CanCollide = false
+			p1.TopSurface = "Smooth"
+			p1.BottomSurface = "Smooth"
+			p1.BrickColor = gCol
+			p1.Material = "Neon"
+			local p2 = Instance.new("Part",workspace)
+			local m2 = Instance.new("SpecialMesh",p2)
+			m2.MeshType = "Sphere"
+			m2.Scale = Vector3.new(8,8,8)
+			p2.Size = Vector3.new(1,1,1)
+			p2.Anchored = true
+			p2.CanCollide = false
+			p2.TopSurface = "Smooth"
+			p2.BottomSurface = "Smooth"
+			p2.BrickColor = gCol2
+			p2.Material = "Neon"
+			local p3 = Instance.new("Part",workspace)
+			local m3 = Instance.new("BlockMesh",p3)
+			m3.Scale = Vector3.new(7,7,7)
+			p3.Size = Vector3.new(1,1,1)
+			p3.Transparency = 0.4
+			p3.Anchored = true
+			p3.CanCollide = false
+			p3.TopSurface = "Smooth"
+			p3.BottomSurface = "Smooth"
+			p3.BrickColor = gCol
+			p3.Material = "Neon"
+			local p4 = Instance.new("Part",workspace)
+			local m4 = Instance.new("BlockMesh",p4)
+			m4.Scale = Vector3.new(10,10,10)
+			p4.Size = Vector3.new(1,1,1)
+			p4.Transparency = 0.4
+			p4.Anchored = true
+			p4.CanCollide = false
+			p4.TopSurface = "Smooth"
+			p4.BottomSurface = "Smooth"
+			p4.BrickColor = gCol2
+			p4.Material = "Neon"
+			local currentframe = 0
+			local frmR
+
+			frmR = game:GetService("RunService").RenderStepped:connect(function()
+				currentframe = currentframe + 1
+				if currentframe < 1*60 then
+					p1.CFrame = char:WaitForChild("Torso").CFrame
+					p2.CFrame = char:WaitForChild("Torso").CFrame
+					p3.CFrame = char:WaitForChild("Torso").CFrame * CFrame.Angles(math.rad(math.random(0,360)),math.rad(math.random(0,360)),math.rad(math.random(0,360)))
+					p4.CFrame = char:WaitForChild("Torso").CFrame * CFrame.Angles(math.rad(math.random(0,360)),math.rad(math.random(0,360)),math.rad(math.random(0,360)))
+					m1.Scale = m1.Scale + Vector3.new(0.25,0.25,0.25)
+					m2.Scale = m2.Scale + Vector3.new(0.25,0.25,0.25)
+					m3.Scale = m3.Scale + Vector3.new(0.25,0.25,0.25)
+					m4.Scale = m4.Scale + Vector3.new(0.25,0.25,0.25)
+					p1.Transparency = p1.Transparency + (1/(1*60))
+					p2.Transparency = p2.Transparency + (1/(1*60))
+					p3.Transparency = p3.Transparency + (1/(1*60))
+					p4.Transparency = p4.Transparency + (1/(1*60))
+				else
+					p1:Destroy()
+					p2:Destroy()
+					p3:Destroy()
+					p4:Destroy()
+					frmR:disconnect()
+				end
+			end)
+
+			char.Humanoid.MaxHealth = math.huge
+			wait()
+			char.Humanoid.Health = math.huge
+
+			--[[mouse.KeyDown:connect(function(key)
+				if key == "r" then
+					print("R!")
+					if cd == false then
+						print("No cooldown!")
+						cd = true
+						if toggle == false then
+							print("Entering godmode")
+							toggle = true
+							Instance.new("ForceField",char)
+							for i=1,amountGhosts do
+								CreateGhost()
+							end
+							char.Parent = game:GetService("Workspace").CurrentCamera
+							char:FindFirstChild("Head").Transparency = 1
+							char:FindFirstChild("Torso").Transparency = 1
+							char:FindFirstChild("Right Arm").Transparency = 1
+							char:FindFirstChild("Left Arm").Transparency = 1
+							char:FindFirstChild("Right Leg").Transparency = 1
+							char:FindFirstChild("Left Leg").Transparency = 1
+							for i,v in pairs(char:GetChildren()) do
+								if v:IsA("Accessory") then
+									v:FindFirstChild("Handle").Transparency = 1
+								end
+							end
+						else
+							print("Exiting godmode")
+							toggle = false
+							for i,v in pairs(ghosts) do
+								v:Destroy()
+							end
+							char.Parent = game:GetService("Workspace")
+							char:FindFirstChild("ForceField"):Destroy()
+							char:FindFirstChild("Head").Transparency = 0
+							char:FindFirstChild("Torso").Transparency = 0
+							char:FindFirstChild("Right Arm").Transparency = 0
+							char:FindFirstChild("Left Arm").Transparency = 0
+							char:FindFirstChild("Right Leg").Transparency = 0
+							char:FindFirstChild("Left Leg").Transparency = 0
+							for i,v in pairs(char:GetChildren()) do
+								if v:IsA("Accessory") then
+									v:FindFirstChild("Handle").Transparency = 0
+								end
+							end
+						end
+						cd = false
+					end
+				end
+			end)]]
+
+			mouse.KeyDown:connect(function(key)
+				spawn(function()
+					if key == "f" and toggle == true and mcd == false then
+						if #ghosts < amountGhosts then
+							print(#ghosts.."<")
+							mcd = true
+
+							ClearGhosts()
+
+							for i=1,amountGhosts do
+								CreateGhost()
+							end
+							local p1 = Instance.new("Part",workspace)
+							local m1 = Instance.new("SpecialMesh",p1)
+							m1.MeshType = "Sphere"
+							m1.Scale = Vector3.new(7,7,7)
+							p1.Size = Vector3.new(1,1,1)
+							p1.Anchored = true
+							p1.CanCollide = false
+							p1.TopSurface = "Smooth"
+							p1.BottomSurface = "Smooth"
+							if gt == false then
+								p1.BrickColor = gCol
+							else
+								p1.BrickColor = wCol
+							end
+							p1.Material = "Neon"
+							local p2 = Instance.new("Part",workspace)
+							local m2 = Instance.new("SpecialMesh",p2)
+							m2.MeshType = "Sphere"
+							m2.Scale = Vector3.new(9,9,9)
+							p2.Size = Vector3.new(1,1,1)
+							p2.Anchored = true
+							p2.CanCollide = false
+							p2.TopSurface = "Smooth"
+							p2.BottomSurface = "Smooth"
+							if gt == false then
+								p2.BrickColor = gCol2
+							else
+								p2.BrickColor = wCol2
+							end
+							p2.Material = "Neon"
+							local currentframe = 0
+							local frmR
+
+							frmR = game:GetService("RunService").RenderStepped:connect(function()
+								currentframe = currentframe + 1
+								if currentframe < 0.25*60 then
+									p1.CFrame = char:WaitForChild("Torso").CFrame
+									p2.CFrame = char:WaitForChild("Torso").CFrame
+									p1.Transparency = p1.Transparency + (1/(0.25*60))
+									p2.Transparency = p2.Transparency + (1/(0.25*60))
+								else
+									p1:Destroy()
+									p2:Destroy()
+									mcd = false
+									frmR:disconnect()
+								end
+							end)
+						else
+							mcd = true
+
+							ClearGhosts()
+
+							local p1 = Instance.new("Part",workspace)
+							local m1 = Instance.new("SpecialMesh",p1)
+							m1.MeshType = "Sphere"
+							m1.Scale = Vector3.new(7,7,7)
+							p1.Size = Vector3.new(1,1,1)
+							p1.Anchored = true
+							p1.CanCollide = false
+							p1.TopSurface = "Smooth"
+							p1.BottomSurface = "Smooth"
+							if gt == false then
+								p1.BrickColor = gCol
+							else
+								p1.BrickColor = wCol
+							end
+							p1.Material = "Neon"
+							local p2 = Instance.new("Part",workspace)
+							local m2 = Instance.new("SpecialMesh",p2)
+							m2.MeshType = "Sphere"
+							m2.Scale = Vector3.new(9,9,9)
+							p2.Size = Vector3.new(1,1,1)
+							p2.Anchored = true
+							p2.CanCollide = false
+							p2.TopSurface = "Smooth"
+							p2.BottomSurface = "Smooth"
+							if gt == false then
+								p2.BrickColor = gCol2
+							else
+								p2.BrickColor = wCol2
+							end
+							p2.Material = "Neon"
+							local currentframe = 0
+							local frmR
+
+							frmR = game:GetService("RunService").RenderStepped:connect(function()
+								currentframe = currentframe + 1
+								if currentframe < 0.25*60 then
+									p1.CFrame = char:WaitForChild("Torso").CFrame
+									p2.CFrame = char:WaitForChild("Torso").CFrame
+									p1.Transparency = p1.Transparency + (1/(0.25*60))
+									p2.Transparency = p2.Transparency + (1/(0.25*60))
+								else
+									p1:Destroy()
+									p2:Destroy()
+									mcd = false
+									frmR:disconnect()
+								end
+							end)
+						end
+					elseif key == "g" and toggle == true and mcd == false then
+						if gt == true then
+							gt = false
+							local p1 = Instance.new("Part",workspace)
+							local m1 = Instance.new("SpecialMesh",p1)
+							m1.MeshType = "Sphere"
+							m1.Scale = Vector3.new(5,5,5)
+							p1.Size = Vector3.new(1,1,1)
+							p1.Anchored = true
+							p1.CanCollide = false
+							p1.TopSurface = "Smooth"
+							p1.BottomSurface = "Smooth"
+							p1.BrickColor = gCol
+							p1.Material = "Neon"
+							local p2 = Instance.new("Part",workspace)
+							local m2 = Instance.new("SpecialMesh",p2)
+							m2.MeshType = "Sphere"
+							m2.Scale = Vector3.new(8,8,8)
+							p2.Size = Vector3.new(1,1,1)
+							p2.Anchored = true
+							p2.CanCollide = false
+							p2.TopSurface = "Smooth"
+							p2.BottomSurface = "Smooth"
+							p2.BrickColor = gCol2
+							p2.Material = "Neon"
+							local p3 = Instance.new("Part",workspace)
+							local m3 = Instance.new("BlockMesh",p3)
+							m3.Scale = Vector3.new(7,7,7)
+							p3.Size = Vector3.new(1,1,1)
+							p3.Transparency = 0.4
+							p3.Anchored = true
+							p3.CanCollide = false
+							p3.TopSurface = "Smooth"
+							p3.BottomSurface = "Smooth"
+							p3.BrickColor = gCol
+							p3.Material = "Neon"
+							local p4 = Instance.new("Part",workspace)
+							local m4 = Instance.new("BlockMesh",p4)
+							m4.Scale = Vector3.new(10,10,10)
+							p4.Size = Vector3.new(1,1,1)
+							p4.Transparency = 0.4
+							p4.Anchored = true
+							p4.CanCollide = false
+							p4.TopSurface = "Smooth"
+							p4.BottomSurface = "Smooth"
+							p4.BrickColor = gCol2
+							p4.Material = "Neon"
+
+							ClearGhosts()
+
+							for i=1,amountGhosts do
+								CreateGhost()
+							end
+
+							local currentframe = 0
+							local frmR
+
+							frmR = game:GetService("RunService").RenderStepped:connect(function()
+								currentframe = currentframe + 1
+								if currentframe < 1*60 then
+									p1.CFrame = char:WaitForChild("Torso").CFrame
+									p2.CFrame = char:WaitForChild("Torso").CFrame
+									p3.CFrame = char:WaitForChild("Torso").CFrame * CFrame.Angles(math.rad(math.random(0,360)),math.rad(math.random(0,360)),math.rad(math.random(0,360)))
+									p4.CFrame = char:WaitForChild("Torso").CFrame * CFrame.Angles(math.rad(math.random(0,360)),math.rad(math.random(0,360)),math.rad(math.random(0,360)))
+									m1.Scale = m1.Scale + Vector3.new(0.25,0.25,0.25)
+									m2.Scale = m2.Scale + Vector3.new(0.25,0.25,0.25)
+									m3.Scale = m3.Scale + Vector3.new(0.25,0.25,0.25)
+									m4.Scale = m4.Scale + Vector3.new(0.25,0.25,0.25)
+									p1.Transparency = p1.Transparency + (1/(1*60))
+									p2.Transparency = p2.Transparency + (1/(1*60))
+									p3.Transparency = p3.Transparency + (1/(1*60))
+									p4.Transparency = p4.Transparency + (1/(1*60))
+								else
+									p1:Destroy()
+									p2:Destroy()
+									p3:Destroy()
+									p4:Destroy()
+									frmR:disconnect()
+								end
+							end)
+						else
+							gt = true
+							local p1 = Instance.new("Part",workspace)
+							local m1 = Instance.new("SpecialMesh",p1)
+							m1.MeshType = "Sphere"
+							m1.Scale = Vector3.new(5,5,5)
+							p1.Size = Vector3.new(1,1,1)
+							p1.Anchored = true
+							p1.CanCollide = false
+							p1.TopSurface = "Smooth"
+							p1.BottomSurface = "Smooth"
+							p1.BrickColor = wCol
+							p1.Material = "Neon"
+							local p2 = Instance.new("Part",workspace)
+							local m2 = Instance.new("SpecialMesh",p2)
+							m2.MeshType = "Sphere"
+							m2.Scale = Vector3.new(8,8,8)
+							p2.Size = Vector3.new(1,1,1)
+							p2.Anchored = true
+							p2.CanCollide = false
+							p2.TopSurface = "Smooth"
+							p2.BottomSurface = "Smooth"
+							p2.BrickColor = wCol2
+							p2.Material = "Neon"
+							local p3 = Instance.new("Part",workspace)
+							local m3 = Instance.new("BlockMesh",p3)
+							m3.Scale = Vector3.new(7,7,7)
+							p3.Size = Vector3.new(1,1,1)
+							p3.Transparency = 0.4
+							p3.Anchored = true
+							p3.CanCollide = false
+							p3.TopSurface = "Smooth"
+							p3.BottomSurface = "Smooth"
+							p3.BrickColor = wCol
+							p3.Material = "Neon"
+							local p4 = Instance.new("Part",workspace)
+							local m4 = Instance.new("BlockMesh",p4)
+							m4.Scale = Vector3.new(10,10,10)
+							p4.Size = Vector3.new(1,1,1)
+							p4.Transparency = 0.4
+							p4.Anchored = true
+							p4.CanCollide = false
+							p4.TopSurface = "Smooth"
+							p4.BottomSurface = "Smooth"
+							p4.BrickColor = wCol2
+							p4.Material = "Neon"
+
+							ClearGhosts()
+
+							for i=1,amountGhosts do
+								CreateGhost()
+							end
+
+							local currentframe = 0
+							local frmR
+
+							frmR = game:GetService("RunService").RenderStepped:connect(function()
+								currentframe = currentframe + 1
+								if currentframe < 1*60 then
+									p1.CFrame = char:WaitForChild("Torso").CFrame
+									p2.CFrame = char:WaitForChild("Torso").CFrame
+									p3.CFrame = char:WaitForChild("Torso").CFrame * CFrame.Angles(math.rad(math.random(0,360)),math.rad(math.random(0,360)),math.rad(math.random(0,360)))
+									p4.CFrame = char:WaitForChild("Torso").CFrame * CFrame.Angles(math.rad(math.random(0,360)),math.rad(math.random(0,360)),math.rad(math.random(0,360)))
+									m1.Scale = m1.Scale + Vector3.new(0.25,0.25,0.25)
+									m2.Scale = m2.Scale + Vector3.new(0.25,0.25,0.25)
+									m3.Scale = m3.Scale + Vector3.new(0.25,0.25,0.25)
+									m4.Scale = m4.Scale + Vector3.new(0.25,0.25,0.25)
+									p1.Transparency = p1.Transparency + (1/(1*60))
+									p2.Transparency = p2.Transparency + (1/(1*60))
+									p3.Transparency = p3.Transparency + (1/(1*60))
+									p4.Transparency = p4.Transparency + (1/(1*60))
+								else
+									p1:Destroy()
+									p2:Destroy()
+									p3:Destroy()
+									p4:Destroy()
+									frmR:disconnect()
+								end
+							end)
+						end
+					end
+				end)
+			end)
+
+			local frm = 0
+
+			local toRemove = {}
+
+			game:GetService("RunService").RenderStepped:connect(function()
+				frm = frm + 1
+				if char.Parent == game:GetService("Workspace").CurrentCamera then
+					
+					e1.CFrame = char.Head.CFrame * CFrame.new(0.15,0.1,-0.55)
+					e2.CFrame = char.Head.CFrame * CFrame.new(-0.15,0.1,-0.55)
+
+					local delay = 0.9
+
+					for i,v in pairs(ghosts) do
+						for _,b in pairs(v:GetChildren()) do
+							if b:IsA("Part") or b:IsA("WedgePart") or b:IsA("TrussPart") or b:IsA("UnionOperation") then
+								b.CFrame = b.CFrame:lerp(b:FindFirstChild("Target").Value.CFrame,delay)
+							end
+						end
+						delay = delay - (0.5/(#ghosts+1))
+					end
+
+					--[[if math.floor(frm/8) == frm/8 then
+						local isub = 0
+						for i,v in pairs(ghosts) do
+							if #v:GetChildren() < 6 then
+								v:Destroy()
+								table.remove(ghosts,i - isub)
+								isub = isub + 1
+								CreateGhost()
+							end
+						end
+					end]]
+				end
+
+				--Animation states
+
+				local ray = Ray.new(char.HumanoidRootPart.CFrame.p, Vector3.new(0,-3,0).unit*4)
+				local part,pos,normal = game:GetService("Workspace"):FindPartOnRayWithIgnoreList(ray,ghosts,false,true)
+
+				if state ~= "busy" then
+					if char.HumanoidRootPart.Velocity.Magnitude <= 0.5 then
+						state = "idle"
+					elseif char.HumanoidRootPart.Velocity.Magnitude > 0.5 then
+						state = "running"
+					--[[elseif char.HumanoidRootPart.Velocity.Y < 0.1 and not part then
+						state = "falling"
+					elseif char.HumanoidRootPart.Velocity.Y >= 0.1 and not part then
+						state = "jumping"]]
+					end
+					char.Humanoid.WalkSpeed = 32
+					char.Humanoid.JumpPower = 70
+				end
+
+				--Actual animations
+
+				if state == "idle" then
+					char.HumanoidRootPart.RootJoint.C0 = char.HumanoidRootPart.RootJoint.C0:lerp(CFrame.new(0,1 + (math.cos(tick())/5),0) * CFrame.Angles(math.rad(80 + math.cos(tick())*4),math.rad(180),math.rad(0)),0.06)
+					char.Torso["Right Hip"].C0 = char.Torso["Right Hip"].C0:lerp(CFrame.new(0.5,-0.1 + (math.cos((tick())*2)/10),-0.2) * CFrame.Angles(math.rad(-20),math.rad(0),math.rad(0)),0.06)
+					char.Torso["Left Hip"].C0 = char.Torso["Left Hip"].C0:lerp(CFrame.new(-0.5,-0.5 + (math.cos((tick()-0.5)*2)/6),0.3) * CFrame.Angles(math.rad(-10),math.rad(0),math.rad(0)),0.06)
+					char.Torso["Right Shoulder"].C0 = char.Torso["Right Shoulder"].C0:lerp(CFrame.new(1.5,0.43 + (math.cos((tick()-0.5)*1.5)/30),-0.6) * CFrame.Angles(math.rad(math.cos((tick())*2)*10),math.rad(0),math.rad(math.cos(tick()/3)*3)),0.06)
+					char.Torso["Left Shoulder"].C0 = char.Torso["Left Shoulder"].C0:lerp(CFrame.new(-1.5,0.3 + (math.cos((tick()-0.5)*1.5)/30),-0.6) * CFrame.Angles(math.rad(-15 + math.cos((tick()))*7),math.rad(0),math.rad(math.cos(tick()/2)*4)),0.06)
+					char.Torso.Neck.C0 = char.Torso.Neck.C0:lerp(CFrame.new(0,1,0) * CFrame.Angles(math.rad(90 + math.cos(tick()*1.5)*6),math.rad(180),math.rad(0)),0.06)
+				elseif state == "running" then
+					char.HumanoidRootPart.RootJoint.C0 = char.HumanoidRootPart.RootJoint.C0:lerp(CFrame.new(0,1 + (math.cos(tick())/5),0) * CFrame.Angles(math.rad(65 + math.cos(tick())*4),math.rad(180),math.rad(-char.HumanoidRootPart.RotVelocity.Y*10)),0.06)
+					char.Torso["Right Hip"].C0 = char.Torso["Right Hip"].C0:lerp(CFrame.new(0.5,-0.1 + (math.cos((tick())*2)/10),-0.2) * CFrame.Angles(math.rad(-20),math.rad(0),math.rad(0)),0.06)
+					char.Torso["Left Hip"].C0 = char.Torso["Left Hip"].C0:lerp(CFrame.new(-0.5,-0.5 + (math.cos((tick()-0.5)*2)/6),0.3) * CFrame.Angles(math.rad(-10),math.rad(0),math.rad(0)),0.06)
+					char.Torso["Right Shoulder"].C0 = char.Torso["Right Shoulder"].C0:lerp(CFrame.new(1.5,0.70 + (math.cos((tick()-0.5)*1.5)/30),-0.4) * CFrame.Angles(math.rad(50 + math.cos((tick())*2)*10),math.rad(0),math.rad(math.cos(tick()/3)*3)),0.06)
+					char.Torso["Left Shoulder"].C0 = char.Torso["Left Shoulder"].C0:lerp(CFrame.new(-1.5,0.3 + (math.cos((tick()-0.5)*1.5)/30),-0.4) * CFrame.Angles(math.rad(-35 + math.cos((tick()))*7),math.rad(0),math.rad(math.cos(tick()/2)*4)),0.06)
+					char.Torso.Neck.C0 = char.Torso.Neck.C0:lerp(CFrame.new(0,1,0) * CFrame.Angles(math.rad(90 + math.cos(tick()*1.5)*6),math.rad(180),math.rad(0)),0.06)
+				end
+			end)
+
+			char.Humanoid.Died:connect(function()
+				toggle = false
+
+				ClearGhosts()
+
+				char.Parent = game.Workspace
+				char.Parent = game:GetService("Workspace")
+				char:FindFirstChild("ForceField"):Destroy()
+				char:FindFirstChild("Head").Transparency = 0
+				char:FindFirstChild("Torso").Transparency = 0
+				char:FindFirstChild("Right Arm").Transparency = 0
+				char:FindFirstChild("Left Arm").Transparency = 0
+				char:FindFirstChild("Right Leg").Transparency = 0
+				char:FindFirstChild("Left Leg").Transparency = 0
+				for i,v in pairs(char:GetChildren()) do
+					if v:IsA("Accessory") then
+						v:FindFirstChild("Handle").Transparency = 0
+					end
+				end
+				for i,v in pairs(game:GetService("Workspace").CurrentCamera:GetChildren()) do v:Destroy() end
+				plr:LoadCharacter()
+			end)
+
+			local msgidGlob = 0
+			local state = true
+			local font = "Arcade"
+			local tcol = Color3.fromRGB(255,217,0)
+			local tscol = Color3.fromRGB(0,0,0)
+			local fsiz = 28
+			local tr = true
+			local tsr = false
+			local fade = 2
+
+			local p = Instance.new("Part",game.Workspace)
+			p.Size = Vector3.new(0.2,0.2,0.2)
+			p.Transparency = 1
+			p.Anchored = true
+			p.CanCollide = false
+			p.Name = "Msg"
+			p.CFrame = plr.Character:WaitForChild("Head").CFrame + Vector3.new(0,2.25,0)
+
+			local r = 255
+			local b = 0
+			local g = 0
+
+			plr.Chatted:connect(function(c)
+				msgidGlob = msgidGlob + 1
+				local curMsgId = msgidGlob
+				if string.lower(c) == "!disable" then
+					state = false
+				elseif string.lower(c) == "!enable" then
+					state = true
+				elseif string.lower(string.sub(c,1,6)) == "!font " then
+					local old = font
+					font = string.sub(c,7,#c) or old
+				elseif string.lower(string.sub(c,1,8)) == "!tcolor " then
+					if string.lower(string.sub(c,9,#c)) == "rainbow" then
+						tr = true
+					else
+						tr = false
+						local old = tcol
+						tcol = Color3.fromRGB(string.sub(c,9,11),string.sub(c,13,15),string.sub(c,17,19)) or old
+					end
+				elseif string.lower(string.sub(c,1,9)) == "!tscolor " then
+					if string.sub(c,10,#c) == "rainbow" then
+						tsr = true
+					else
+						tsr = false
+						local old = tscol
+						tscol = Color3.fromRGB(string.sub(c,10,12),string.sub(c,14,16),string.sub(c,18,20)) or old
+					end
+				elseif string.lower(string.sub(c,1,6)) == "!size " then
+					local old = fsiz
+					fsiz = string.sub(c,7,#c) or old
+				elseif string.lower(string.sub(c,1,6)) == "!fade " then
+					local old = fade
+					fade = string.sub(c,7,#c) or old
+				end
+				if plr.Character and state == true then
+					if plr.Character:FindFirstChild("Head") then
+						for i,v in pairs(p:GetChildren()) do
+							if v:IsA("BillboardGui") and v.Name == "J2CMSG" then
+								v:Destroy()
+							end
+						end
+						local bbgui = Instance.new("BillboardGui",p)
+						bbgui.Name = "J2CMSG"
+						bbgui.AlwaysOnTop = true
+						bbgui.ExtentsOffsetWorldSpace = Vector3.new(0,4.5,0)
+						bbgui.Size = UDim2.new(0.2,0,0.14,0)
+						local tl = Instance.new("TextLabel",bbgui)
+						tl.BackgroundTransparency = 1
+						tl.BorderSizePixel = 0
+						tl.Size = UDim2.new(1,0,10,0)
+						tl.Position = UDim2.new(0,0,-5,0)
+						tl.Font = font or "SciFi"
+						tl.FontSize = "Size"..fsiz or "Size36"
+						tl.TextColor3 = tcol
+						tl.TextScaled = false
+						tl.TextWrapped = false
+						tl.TextStrokeColor3 = tscol
+						tl.TextStrokeTransparency = 0
+						
+						game:GetService("RunService").RenderStepped:connect(function()
+							if tr then
+								if tl.Parent ~= nil then
+									tl.TextColor3 = Color3.fromRGB(r,g,b)
+								end
+							end
+						end)
+
+						for i=1,#c do
+							if msgidGlob == curMsgId then
+								tl.Text = string.sub(c,1,i)
+								if string.sub(c,i,i) ~= " " then
+									local s = Instance.new("Sound",p)
+									s.SoundId = "rbxassetid://418252437"
+									s.Volume = 1
+									s.Pitch = 1
+									s:Play()
+									game.Debris:AddItem(s,2)
+								end
+								wait()
+							end
+						end
+						wait(fade)
+						if msgidGlob == curMsgId then
+							for i=1,10 do
+								if msgidGlob == curMsgId then
+									tl.TextTransparency = tl.TextTransparency + 0.1
+									tl.TextStrokeTransparency = tl.TextStrokeTransparency + 0.1
+									tl.Position = tl.Position + UDim2.new(0,0,0,-3)
+									wait()
+								end
+							end
+							if msgidGlob == curMsgId then
+								bbgui:Destroy()
+							end
+						end
+					end
+				end
+			end)
+
+			coroutine.resume(coroutine.create(function()
+				while wait() do
+					for i=0,255,10 do g = i wait() end
+					for i=255,0,-10 do r = i wait() end
+					for i=0,255,10 do b = i wait() end
+					for i=255,0,-10 do g = i wait() end
+					for i=0,255,10 do r = i wait() end
+					for i=255,0,-10 do b = i wait() end
+				end
+			end))
+
+			game:GetService("RunService").RenderStepped:connect(function()
+				if p.Parent ~= nil then
+					p.CFrame = p.CFrame:lerp(plr.Character:WaitForChild("Head").CFrame + Vector3.new(0,2.25,0),0.16)
+				else
+					p = Instance.new("Part",game.Workspace)
+					p.Size = Vector3.new(0.2,0.2,0.2)
+					p.Transparency = 1
+					p.Anchored = true
+					p.CanCollide = false
+					p.Name = "Msg"
+					p.CFrame = plr.Character:WaitForChild("Head").CFrame + Vector3.new(0,2.25,0)
+				end
+			end)

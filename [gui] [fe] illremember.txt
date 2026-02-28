@@ -1,0 +1,1369 @@
+prefix=";"wait(0.3)
+Commands={'[-] cmdbar is shown when ; is pressed.','[1] kill [plr] -- You need a tool! Will kill the player, use rkill to kill you and player','[2] bring [plr] -- You need a tool! Will bring player to you','[3] spin [plr] -- You need a tool! Makes you and the player spin crazy','[4] unspin -- Use after using spin cmd and dying, so you stop loop teleporting','[5] attach [plr] -- You need a tool! Attaches you to player','[6] unattach [plr] -- Attempts to unattach you from a player','[7] follow [plr] -- Makes you follow behind the player','[8] unfollow','[9] freefall [plr] -- You need a tool! Teleports you and the player up into the air','[10] trail [plr] -- The opposite of follow, you stay infront of player','[11] untrail','[12] orbit [plr] -- Makes you orbit the player','[13] unorbit','[14] fling [plr] -- Makes you fling the player','[15] unfling','[16] fecheck -- Checks if the game is FE or not','[17] void [plr] -- Teleports player to the void','[18] noclip -- Gives you noclip to walk through walls','[19] clip -- Removes noclip','[20] speed [num]/ws [num] -- Changes how fast you walk 16 is default','[21] jumppower [num]/jp [num] -- Changes how high you jump 50 is default','[22] hipheight [num]/hh [num] -- Changes how high you float 0 is default','[23] default -- Changes your speed, jumppower and hipheight to default values','[24] annoy [plr] -- Loop teleports you to the player','[25] unannoy','[26] headwalk [plr] -- Loop teleports you to the player head','[27] unheadwalk','[28] nolimbs -- Removes your arms and legs','[29] god -- Gives you FE Godmode','[30] drophats -- Drops your accessories','[31] droptool -- Drops any tool you have equipped','[32] loopdhats -- Loop drops your accessories','[33] unloopdhats','[34] loopdtool -- Loop drops any tools you have equipped','[35] unloopdtool','[36] invisible -- Gives you invisibility CREDIT TO TIMELESS','[37] view [plr] -- Changes your camera to the player character','[38] unview','[39] goto [plr] -- Teleports you to player','[40] fly -- Allows you to fly','[41] unfly','[42] chat [msg] -- Makes you chat a message','[43] spam [msg] -- Spams a message','[44] unspam','[45] spamwait [num] -- Changes delay of chatting a message for the spam command in seconds default is 1 second','[46] pmspam [plr] -- Spams a player in private message','[47] unpmspam','[48] cfreeze [plr] -- Freezes a player on your client, they will only be frozen for you','[49] uncfreeze [plr]','[50] unlockws -- Unlocks the workspace','[51] lockws -- Locks the workspace','[52] btools -- Gives you btools that will only show to you useful for deleting certain blocks only for you','[53] pstand -- Enables platform stand','[54] unpstand -- Disables platform stand','[55] blockhead -- Removes your head mesh','[56] sit','[57] bringobj [obj] -- Only shows on client, brings an object/part to you constantly, can be used to bring healing parts, weapons, money etc, type in exact name','[58] wsvis [num] -- Changes visibility of workspace parts, num should be between 0 and 1, only shows client sided','[59] hypertotal -- Loads in my FE GUI Hypertotal','[60] cmds -- Prints all commands','[61] rmeshhats/blockhats -- Removes the meshes of all your accessories aka block hats','[62] rmeshtool/blocktool -- Removes the mesh of the tool you have equipped aka block tool','[63] spinner -- Makes you spin','[64] nospinner','[65] reach [num] -- Gives you reach, mostly used for swords, say ;reachd for default and enter number after for custom','[66] noreach -- Removes reach, must have tool equipped','[67] rkill [plr] -- Kills you and the player, use kill to just kill the player without dying','[68] tp me [plr] -- Alternative to goto','[69] cbring [plr] -- Brings player infront of you, shows only on client, allows you to do damage to player','[70] uncbring','[71] swap [plr] -- You need a tool! Swaps players position with yours and your position with players','[72] givetool [plr] -- Gives the tool you have equipped to the player','[73] glitch [plr] -- Glitches you and the player, looks very cool','[74] unglitch -- Unglitches you','[75] grespawn -- Alternative to normal respawn and usually works best for when you want to reset with FE Godmode','[76] explorer -- Loads up DEX','[77] remotespy -- Loads up a remotespy','[78] anim [id] -- Applies an animation on you, must be created by ROBLOX','[79] animgui -- Loads up Energize animations GUI','[80] savepos -- Saves your current position','[81] loadpos -- Teleports you to your saved position','[82] bang [plr] -- 18+','[83] unbang','[84] delcmdbar -- Removes the command bar completely','[85] bringmod [obj] -- Brings all the parts in a model, client only, comes from ;bringobj enter exact name of model','[86] shutdown -- Uses harkinians script to shutdown server','[87] respawn -- If grespawn doesnt work you can use respawn','[88] delobj [obj] -- Deletes a certain brick in workspace, client sided','[89] getplrs -- Prints all players in game','[90] deldecal -- Deletes all decals client sided','[91] opfinality -- Loads in my FE GUI Opfinality','[92] remotes -- Prints all remotes in the game in the console when added','[93] noremotes -- Stops printing remotes','[94] tpdefault -- Stops all loop teleports to a player','[95] stopsit -- Will not allow you to sit','[96] gosit -- Allows you to sit','[97] clicktp -- Enables click tp','[98] noclicktp -- Disables click tp','[99] toolson -- If any tools are dropped in the workspace you will automatically get them','[100] toolsoff -- Stops ;toolson','[101] version -- Gets the admin version'}lplayer=game.Players.LocalPlayer
+function GetPlayer(a_a)local b_a={}local c_a=a_a:lower()
+if c_a==
+"all"then for d_a,_aa in pairs(game.Players:GetPlayers())do
+table.insert(b_a,_aa)end elseif c_a=="others"then
+for d_a,_aa in
+pairs(game.Players:GetPlayers())do if _aa.Name~=game.Players.LocalPlayer.Name then
+table.insert(b_a,_aa)end end elseif c_a=="me"then for d_a,_aa in pairs(game.Players:GetPlayers())do
+if _aa.Name==
+game.Players.LocalPlayer.Name then table.insert(b_a,_aa)end end else
+for d_a,_aa in
+pairs(game.Players:GetPlayers())do if
+_aa.Name:lower():sub(1,#a_a)==a_a:lower()then table.insert(b_a,_aa)end end end;return b_a end
+local db=game.Players.LocalPlayer:GetMouse()spin=false;followed=false;traill=false;noclip=false;annoying=false;hwalk=false
+droppinghats=false;droppingtools=false;flying=false;spamdelay=1;spamming=false;spammingpm=false
+cbringing=false;remotes=true;added=true;binds=false;stopsitting=false;clickgoto=false
+gettingtools=false;adminversion="Reviz admin by Uxanix, Version 1.0"
+local _c=Instance.new("ScreenGui")local ac=Instance.new("Frame")
+local bc=Instance.new("ScrollingFrame")local cc=Instance.new("TextLabel")
+local dc=Instance.new("TextButton")_c.Name="CMDS"_c.Parent=game.CoreGui;ac.Name="CMDSFRAME"ac.Parent=_c
+ac.Active=true
+ac.BackgroundColor3=Color3.new(0.223529,0.231373,0.309804)ac.BorderSizePixel=0;ac.Draggable=true
+ac.Position=UDim2.new(0,315,0,100)ac.Size=UDim2.new(0,275,0,275)ac.Visible=false;bc.Parent=ac
+bc.BackgroundColor3=Color3.new(0.160784,0.160784,0.203922)bc.BorderSizePixel=0
+bc.Position=UDim2.new(0,0,0.0729999989,0)bc.Size=UDim2.new(1.04999995,0,0.92900002,0)
+bc.CanvasSize=UDim2.new(0,0,10,0)cc.Parent=bc;cc.BackgroundColor3=Color3.new(1,1,1)
+cc.BackgroundTransparency=1;cc.Size=UDim2.new(0.930000007,0,1,0)
+cc.Font=Enum.Font.SourceSans;cc.FontSize=Enum.FontSize.Size18
+cc.Text="[-] cmdbar is shown when ; is pressed.,\n[1] kill [plr] -- You need a tool! Will kill the player, use rkill to kill you and player,\n[2] bring [plr] -- You need a tool! Will bring player to you,\n[3] spin [plr] -- You need a tool! Makes you and the player spin crazy,\n[4] unspin -- Use after using spin cmd and dying, so you stop loop teleporting,\n[5] attach [plr] -- You need a tool! Attaches you to player,\n[6] unattach [plr] -- Attempts to unattach you from a player,\n[7] follow [plr] -- Makes you follow behind the player,\n[8] unfollow,\n[9] freefall [plr] -- You need a tool! Teleports you and the player up into the air,\n[10] trail [plr] -- The opposite of follow, you stay infront of player,\n[11] untrail,\n[12] orbit [plr] -- Makes you orbit the player,\n[13] unorbit,\n[14] fling [plr] -- Makes you fling the player,\n[15] unfling,\n[16] fecheck -- Checks if the game is FE or not,\n[17] void [plr] -- Teleports player to the void,\n[18] noclip -- Gives you noclip to walk through walls,\n[19] clip -- Removes noclip,\n[20] speed [num]/ws [num] -- Changes how fast you walk 16 is default,\n[21] jumppower [num]/jp [num] -- Changes how high you jump 50 is default,\n[22] hipheight [num]/hh [num] -- Changes how high you float 0 is default,\n[23] default -- Changes your speed, jumppower and hipheight to default values,\n[24] annoy [plr] -- Loop teleports you to the player,\n[25] unannoy,\n[26] headwalk [plr] -- Loop teleports you to the player head,\n[27] unheadwalk,\n[28] nolimbs -- Removes your arms and legs,\n[29] god -- Gives you FE Godmode,\n[30] drophats -- Drops your accessories,\n[31] droptool -- Drops any tool you have equipped,\n[32] loopdhats -- Loop drops your accessories,\n[33] unloopdhats,\n[34] loopdtool -- Loop drops any tools you have equipped,\n[35] unloopdtool,\n[36] invisible -- Gives you invisibility CREDIT TO TIMELESS,\n[37] view [plr] -- Changes your camera to the player character,\n[38] unview,\n[39] goto [plr] -- Teleports you to player,\n[40] fly -- Allows you to fly,\n[41] unfly,\n[42] chat [msg] -- Makes you chat a message,\n[43] spam [msg] -- Spams a message,\n[44] unspam,\n[45] spamwait [num] -- Changes delay of chatting a message for the spam command in seconds default is 1 second,\n[46] pmspam [plr] -- Spams a player in private message,\n[47] unpmspam,\n[48] cfreeze [plr] -- Freezes a player on your client, they will only be frozen for you,\n[49] uncfreeze [plr],\n[50] unlockws -- Unlocks the workspace,\n[51] lockws -- Locks the workspace,\n[52] btools -- Gives you btools that will only show to you useful for deleting certain blocks only for you,\n[53] pstand -- Enables platform stand,\n[54] unpstand -- Disables platform stand,\n[55] blockhead -- Removes your head mesh,\n[56] sit,\n[57] bringobj [obj] -- Only shows on client, brings an object/part to you constantly, can be used to bring healing parts, weapons, money etc, type in exact name,\n[58] wsvis [num] -- Changes visibility of workspace parts, num should be between 0 and 1, only shows client sided,\n[59] hypertotal -- Loads in my FE GUI Hypertotal,\n[60] cmds -- Prints all commands,\n[61] rmeshhats/blockhats -- Removes the meshes of all your accessories aka block hats,\n[62] rmeshtool/blocktool -- Removes the mesh of the tool you have equipped aka block tool,\n[63] spinner -- Makes you spin,\n[64] nospinner,\n[65] reach [num] -- Gives you reach, mostly used for swords, say ;reachd for default and enter number after for custom,\n[66] noreach -- Removes reach, must have tool equipped,\n[67] rkill [plr] -- Kills you and the player, use kill to just kill the player without dying,\n[68] tp me [plr] -- Alternative to goto,\n[69] cbring [plr] -- Brings player infront of you, shows only on client, allows you to do damage to player,\n[70] uncbring,\n[71] swap [plr] -- You need a tool! Swaps players position with yours and your position with players,\n[72] givetool [plr] -- Gives the tool you have equipped to the player,\n[73] glitch [plr] -- Glitches you and the player, looks very cool,\n[74] unglitch -- Unglitches you,\n[75] grespawn -- Alternative to normal respawn and usually works best for when you want to reset with FE Godmode,\n[76] explorer -- Loads up DEX,\n[77] remotespy -- Loads up a remotespy,\n[78] anim [id] -- Applies an animation on you, must be created by ROBLOX,\n[79] animgui -- Loads up Energize animations GUI,\n[80] savepos -- Saves your current position,\n[81] loadpos -- Teleports you to your saved position,\n[82] bang [plr] -- 18+,\n[83] unbang,\n[84] delcmdbar -- Removes the command bar completely,\n[85] bringmod [obj] -- Brings all the parts in a model, client only, comes from ;bringobj enter exact name of model,\n[86] shutdown -- Uses harkinians script to shutdown server,\n[87] respawn -- If grespawn doesnt work you can use respawn,\n[88] delobj [obj] -- Deletes a certain brick in workspace, client sided,\n[89] getplrs -- Prints all players in game,\n[90] deldecal -- Deletes all decals client sided,\n[91] opfinality -- Loads in my FE GUI Opfinality,\n[92] remotes -- Prints all remotes in the game in the console when added,\n[93] noremotes -- Stops printing remotes,\n[94] tpdefault -- Stops all loop teleports to a player,\n[95] stopsit -- Will not allow you to sit,\n[96] gosit -- Allows you to sit,\n[97] clicktp -- Enables click tp,\n[98] noclicktp -- Disables click tp,\n[99] toolson -- If any tools are dropped in the workspace you will automatically get them,\n[100] toolsoff -- Stops ;toolson,\n[101] version -- Gets the admin version"cc.TextColor3=Color3.new(1,1,1)cc.TextSize=15;cc.TextWrapped=true
+cc.TextXAlignment=Enum.TextXAlignment.Left;cc.TextYAlignment=Enum.TextYAlignment.Top;dc.Name="closegui"
+dc.Parent=ac
+dc.BackgroundColor3=Color3.new(0.890196,0.223529,0.0588235)dc.BorderSizePixel=0;dc.Position=UDim2.new(0.995000005,0,0,0)
+dc.Size=UDim2.new(0.0545952693,0,0.0728644878,0)dc.Font=Enum.Font.SourceSansBold
+dc.FontSize=Enum.FontSize.Size24;dc.Text="X"dc.TextColor3=Color3.new(1,1,1)dc.TextSize=20
+dc.MouseButton1Click:connect(function()
+ac.Visible=false end)
+game:GetService('RunService').Stepped:connect(function()if spin then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[spinplr.Name].Character.HumanoidRootPart.CFrame end
+if followed then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=
+game.Players[flwplr.Name].Character.HumanoidRootPart.CFrame+
+game.Players[flwplr.Name].Character.HumanoidRootPart.CFrame.lookVector*-5 end
+if traill then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=
+game.Players[trlplr.Name].Character.HumanoidRootPart.CFrame+
+game.Players[trlplr.Name].Character.HumanoidRootPart.CFrame.lookVector*5 end;if annoying then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[annplr.Name].Character.HumanoidRootPart.CFrame end
+if hwalk then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=
+game.Players[hdwplr.Name].Character.HumanoidRootPart.CFrame+Vector3.new(0,4,0)end end)
+game:GetService('RunService').Stepped:connect(function()
+if noclip then
+game.Players.LocalPlayer.Character.Head.CanCollide=false
+game.Players.LocalPlayer.Character.Torso.CanCollide=false
+game.Players.LocalPlayer.Character["Left Leg"].CanCollide=false
+game.Players.LocalPlayer.Character["Right Leg"].CanCollide=false end end)
+game:GetService('RunService').Stepped:connect(function()
+if
+droppinghats then
+for a_a,b_a in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do if(b_a:IsA("Accessory"))or(b_a:IsA("Hat"))then
+b_a.Parent=workspace end end end
+if droppingtools then
+for a_a,b_a in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do if(b_a:IsA("Tool"))then b_a.Parent=workspace end end end end)
+game:GetService('RunService').Stepped:connect(function()if banpl then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[bplrr].Character.HumanoidRootPart.CFrame end end)
+game:GetService('RunService').Stepped:connect(function()if
+stopsitting then
+game.Players.LocalPlayer.Character.Humanoid.Sit=false end end)plr=game.Players.LocalPlayer
+hum=plr.Character.HumanoidRootPart;mouse=plr:GetMouse()
+mouse.KeyDown:connect(function(a_a)if a_a=="e"then
+if mouse.Target then if clickgoto then
+hum.CFrame=CFrame.new(mouse.Hit.x,
+mouse.Hit.y+5,mouse.Hit.z)end end end end)
+lplayer.Chatted:Connect(function(a_a)
+if
+string.sub(a_a,1,6)== (prefix.."kill ")then
+if string.sub(a_a,7)=="me"then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(100000,0,100000)else
+for b_a,c_a in pairs(GetPlayer(string.sub(a_a,7)))do
+local d_a=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local _aa=game.Players.LocalPlayer.Character["1"]:Clone()_aa.Parent=game.Players.LocalPlayer.Character
+_aa.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for baa,caa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(caa)end;local function aaa(baa,caa)
+local daa,_ba=baa.Character,caa.Character
+if daa and _ba then daa:MoveTo(_ba.Head.Position)end end
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(Vector3.new(
+-100000,10,-100000))wait(0.7)
+aaa(game.Players.LocalPlayer,game.Players[c_a.Name])wait(0.7)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=d_a
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end end
+if string.sub(a_a,1,7)== (prefix.."bring ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,8)))do
+local d_a=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local _aa=game.Players.LocalPlayer.Character["1"]:Clone()_aa.Parent=game.Players.LocalPlayer.Character
+_aa.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for caa,daa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(daa)end
+local function aaa(caa,daa)
+local _ba,aba=caa.Character,daa.Character;if _ba and aba then
+_ba.HumanoidRootPart.CFrame=aba.HumanoidRootPart.CFrame end end
+local function baa(caa,daa)local _ba,aba=caa.Character,daa.Character;if _ba and aba then
+_ba:MoveTo(aba.Head.Position)end end
+aaa(game.Players[c_a.Name],game.Players.LocalPlayer)wait(0.2)
+aaa(game.Players[c_a.Name],game.Players.LocalPlayer)wait(0.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=d_a;wait(0.5)
+baa(game.Players.LocalPlayer,game.Players[c_a.Name])wait(0.3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=d_a
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(a_a,1,6)== (prefix.."spin ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,7)))do
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local d_a=game.Players.LocalPlayer.Character["1"]:Clone()d_a.Parent=game.Players.LocalPlayer.Character
+d_a.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for _aa,aaa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(aaa)end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character["Left Arm"].CFrame;spinplr=c_a;wait(0.5)spin=true
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(a_a,1,7)== (prefix.."unspin")then spin=false;local function b_a(c_a,d_a)
+local _aa,aaa=c_a.Character,d_a.Character
+if _aa and aaa then _aa:MoveTo(aaa.Head.Position)end end
+b_a(game.Players.LocalPlayer,game.Players.LocalPlayer)end
+if string.sub(a_a,1,8)== (prefix.."attach ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,9)))do
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local d_a=game.Players.LocalPlayer.Character["1"]:Clone()d_a.Parent=game.Players.LocalPlayer.Character
+d_a.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for _aa,aaa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(aaa)end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character["Left Arm"].CFrame;wait(0.3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character["Left Arm"].CFrame;attplr=c_a
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(a_a,1,9)== (prefix.."unattach ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,10)))do
+local function d_a(_aa,aaa)local baa,caa=_aa.Character,aaa.Character;if baa and caa then
+baa:MoveTo(caa.Head.Position)end end
+d_a(game.Players.LocalPlayer,game.Players[c_a.Name])end end
+if string.sub(a_a,1,8)== (prefix.."follow ")then for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,9)))do followed=true;flwplr=c_a end end
+if string.sub(a_a,1,9)== (prefix.."unfollow")then followed=false end
+if string.sub(a_a,1,10)== (prefix.."freefall ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,11)))do
+local d_a=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local _aa=game.Players.LocalPlayer.Character["1"]:Clone()_aa.Parent=game.Players.LocalPlayer.Character
+_aa.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for aaa,baa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(baa)end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.6)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=d_a;wait(0.6)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(0,50000,0)
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(a_a,1,7)== (prefix.."trail ")then for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,8)))do traill=true;trlplr=c_a end end
+if string.sub(a_a,1,8)== (prefix.."untrail")then traill=false end
+if string.sub(a_a,1,7)== (prefix.."orbit ")then
+if
+string.sub(a_a,8)==
+"all"or string.sub(a_a,8)=="others"or string.sub(a_a,8)=="me"then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame else
+for b_a,c_a in pairs(GetPlayer(string.sub(a_a,8)))do
+local d_a=Instance.new("RocketPropulsion")d_a.CartoonFactor=1;d_a.MaxThrust=500000;d_a.MaxSpeed=1000
+d_a.ThrustP=500000;d_a.TurnP=100000
+d_a.Parent=game.Players.LocalPlayer.Character.HumanoidRootPart;d_a.Name="Orbit"
+d_a.Target=game.Players[c_a.Name].Character.HumanoidRootPart;d_a:Fire()noclip=true end end end
+if string.sub(a_a,1,8)== (prefix.."unorbit")then
+game.Players.LocalPlayer.Character.HumanoidRootPart.Orbit:Destroy()noclip=false end
+if string.sub(a_a,1,7)== (prefix.."fling ")then
+if
+string.sub(a_a,8)==
+"all"or string.sub(a_a,8)=="others"or string.sub(a_a,8)=="me"then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame else
+for b_a,c_a in pairs(GetPlayer(string.sub(a_a,8)))do
+local d_a=Instance.new("RocketPropulsion")
+d_a.Parent=game.Players.LocalPlayer.Character.HumanoidRootPart;d_a.CartoonFactor=1;d_a.MaxThrust=500000;d_a.MaxSpeed=1000
+d_a.ThrustP=100000;d_a.Name="Fling"
+game.Workspace.CurrentCamera.CameraSubject=game.Players[c_a.Name].Character.Head
+d_a.Target=game.Players[c_a.Name].Character.HumanoidRootPart;d_a:Fire()noclip=true end end end
+if string.sub(a_a,1,8)== (prefix.."unfling")then noclip=false
+game.Players.LocalPlayer.Character.HumanoidRootPart.Fling:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character.Head;wait(0.4)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Fling:Destroy()end
+if string.sub(a_a,1,8)== (prefix.."fecheck")then
+if
+game.Workspace.FilteringEnabled==true then
+warn("FE is Enabled (Filtering Enabled)")
+game.StarterGui:SetCore("SendNotification",{Title="FE is Enabled",Text="Filtering Enabled. Enjoy using Reviz Admin!"})else
+warn("FE is Disabled (Filtering Disabled) Consider using a different admin script.")
+game.StarterGui:SetCore("SendNotification",{Title="FE is Disabled",Text="Filtering Disabled. Consider using a different admin script."})end end
+if string.sub(a_a,1,6)== (prefix.."void ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,7)))do
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local d_a=game.Players.LocalPlayer.Character["1"]:Clone()d_a.Parent=game.Players.LocalPlayer.Character
+d_a.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for _aa,aaa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(aaa)end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.6)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(999999999999999,0,999999999999999)
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(a_a,1,7)== (prefix.."noclip")then noclip=true
+game.StarterGui:SetCore("SendNotification",{Title="Noclip enabled",Text="Type ;clip to disable"})end
+if string.sub(a_a,1,5)== (prefix.."clip")then noclip=false
+game.StarterGui:SetCore("SendNotification",{Title="Noclip disabled",Text="Type ;noclip to enable"})end;if string.sub(a_a,1,7)== (prefix.."speed ")then
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed=(string.sub(a_a,8))end;if
+string.sub(a_a,1,4)== (prefix.."ws ")then
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed=(string.sub(a_a,5))end;if
+string.sub(a_a,1,11)== (prefix.."hipheight ")then
+game.Players.LocalPlayer.Character.Humanoid.HipHeight=(string.sub(a_a,12))end;if
+string.sub(a_a,1,4)== (prefix.."hh ")then
+game.Players.LocalPlayer.Character.Humanoid.HipHeight=(string.sub(a_a,5))end;if
+string.sub(a_a,1,11)== (prefix.."jumppower ")then
+game.Players.LocalPlayer.Character.Humanoid.JumpPower=(string.sub(a_a,12))end;if
+string.sub(a_a,1,4)== (prefix.."jp ")then
+game.Players.LocalPlayer.Character.Humanoid.JumpPower=(string.sub(a_a,5))end
+if
+string.sub(a_a,1,8)== (prefix.."default")then
+game.Players.LocalPlayer.Character.Humanoid.JumpPower=50
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed=16
+game.Players.LocalPlayer.Character.Humanoid.HipHeight=0 end
+if string.sub(a_a,1,7)== (prefix.."annoy ")then for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,8)))do annoying=true;annplr=c_a end end
+if string.sub(a_a,1,8)== (prefix.."unannoy")then annoying=false end
+if string.sub(a_a,1,10)== (prefix.."headwalk ")then for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,11)))do hwalk=true;hdwplr=c_a end end
+if string.sub(a_a,1,11)== (prefix.."unheadwalk")then hwalk=false end
+if string.sub(a_a,1,8)== (prefix.."nolimbs")then
+game.Players.LocalPlayer.Character["Left Leg"]:Destroy()
+game.Players.LocalPlayer.Character["Left Arm"]:Destroy()
+game.Players.LocalPlayer.Character["Right Leg"]:Destroy()
+game.Players.LocalPlayer.Character["Right Arm"]:Destroy()end
+if string.sub(a_a,1,4)== (prefix.."god")then
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local b_a=game.Players.LocalPlayer.Character["1"]:Clone()b_a.Parent=game.Players.LocalPlayer.Character
+b_a.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"
+game.StarterGui:SetCore("SendNotification",{Title="FE Godmode enabled",Text="Use ;kill me OR ;respawn to reset"})end
+if string.sub(a_a,1,9)== (prefix.."drophats")then
+for b_a,c_a in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do if(c_a:IsA("Accessory"))or(c_a:IsA("Hat"))then
+c_a.Parent=workspace end end end
+if string.sub(a_a,1,9)== (prefix.."droptool")then
+for b_a,c_a in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do if(c_a:IsA("Tool"))then c_a.Parent=workspace end end end
+if string.sub(a_a,1,10)== (prefix.."loopdhats")then
+droppinghats=true
+game.StarterGui:SetCore("SendNotification",{Title="Loop Drop Enabled",Text="Type ;unloopdhats to disable"})end
+if string.sub(a_a,1,12)== (prefix.."unloopdhats")then
+droppinghats=false
+game.StarterGui:SetCore("SendNotification",{Title="Loop Drop Disabled",Text="Type ;loopdhats to enable."})end
+if string.sub(a_a,1,10)== (prefix.."loopdtool")then
+droppingtools=true
+game.StarterGui:SetCore("SendNotification",{Title="Loop Drop Enabled",Text="Type ;unloopdtool to disable"})end
+if string.sub(a_a,1,12)== (prefix.."unloopdtool")then
+droppingtools=false
+game.StarterGui:SetCore("SendNotification",{Title="Loop Drop Disabled",Text="Type ;loopdtool to enable."})end
+if string.sub(a_a,1,10)== (prefix.."invisible")then
+Local=game:GetService('Players').LocalPlayer;Char=Local.Character;touched,tpdback=false,false
+box=Instance.new('Part',workspace)box.Anchored=true;box.CanCollide=true
+box.Size=Vector3.new(10,1,10)box.Position=Vector3.new(0,10000,0)
+box.Touched:connect(function(b_a)
+if(
+b_a.Parent.Name==Local.Name)then
+if touched==false then touched=true
+function apply()
+if script.Disabled~=true then
+no=Char.HumanoidRootPart:Clone()wait(.25)Char.HumanoidRootPart:Destroy()
+no.Parent=Char;Char:MoveTo(loc)touched=false end end;if Char then apply()end end end end)repeat wait()until Char;loc=Char.HumanoidRootPart.Position
+Char:MoveTo(
+box.Position+Vector3.new(0,.5,0))
+game.StarterGui:SetCore("SendNotification",{Title="Invisibility enabled!",Text="Reset or use ;respawn to remove."})end
+if string.sub(a_a,1,6)== (prefix.."view ")then for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,7)))do
+game.Workspace.CurrentCamera.CameraSubject=game.Players[c_a.Name].Character.Head end end;if string.sub(a_a,1,7)== (prefix.."unview")then
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character.Head end
+if
+string.sub(a_a,1,6)== (prefix.."goto ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,7)))do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame end end
+if string.sub(a_a,1,4)== (prefix.."fly")then flying=true
+repeat wait()until
+
+game.Players.LocalPlayer and game.Players.LocalPlayer.Character and
+game.Players.LocalPlayer.Character:findFirstChild("Torso")and
+game.Players.LocalPlayer.Character:findFirstChild("Humanoid")
+local b_a=game.Players.LocalPlayer:GetMouse()repeat wait()until b_a;local c_a=game.Players.LocalPlayer
+local d_a=c_a.Character.Torso;local _aa=true;local aaa={f=0,b=0,l=0,r=0}local baa={f=0,b=0,l=0,r=0}local caa=80;local daa=0
+function FlyFunction()
+local _ba=Instance.new("BodyGyro",d_a)_ba.P=9e4;_ba.maxTorque=Vector3.new(9e9,9e9,9e9)
+_ba.cframe=d_a.CFrame;local aba=Instance.new("BodyVelocity",d_a)
+aba.velocity=Vector3.new(0,0.1,0)aba.maxForce=Vector3.new(9e9,9e9,9e9)
+repeat wait()
+c_a.Character.Humanoid.PlatformStand=true
+if aaa.l+aaa.r~=0 or aaa.f+aaa.b~=0 then
+daa=daa+.5 + (daa/caa)if daa>caa then daa=caa end elseif not
+(aaa.l+aaa.r~=0 or aaa.f+aaa.b~=0)and daa~=0 then daa=daa-1
+if daa<0 then daa=0 end end
+if(aaa.l+aaa.r)~=0 or(aaa.f+aaa.b)~=0 then
+aba.velocity=
+( (
+game.Workspace.CurrentCamera.CoordinateFrame.lookVector* (aaa.f+aaa.b))+ ( (
+game.Workspace.CurrentCamera.CoordinateFrame*
+CFrame.new(aaa.l+aaa.r,(aaa.f+aaa.b)*.2,0).p)-
+game.Workspace.CurrentCamera.CoordinateFrame.p))*daa;baa={f=aaa.f,b=aaa.b,l=aaa.l,r=aaa.r}elseif
+(aaa.l+aaa.r)==0 and(aaa.f+aaa.b)==0 and daa~=0 then
+aba.velocity=
+( (
+game.Workspace.CurrentCamera.CoordinateFrame.lookVector* (baa.f+baa.b))+ ( (
+game.Workspace.CurrentCamera.CoordinateFrame*
+CFrame.new(baa.l+baa.r,(baa.f+baa.b)*.2,0).p)-
+game.Workspace.CurrentCamera.CoordinateFrame.p))*daa else aba.velocity=Vector3.new(0,0.1,0)end
+_ba.cframe=game.Workspace.CurrentCamera.CoordinateFrame*
+CFrame.Angles(-math.rad(
+(aaa.f+aaa.b)*50 *daa/caa),0,0)until not flying;aaa={f=0,b=0,l=0,r=0}baa={f=0,b=0,l=0,r=0}daa=0;_ba:Destroy()
+aba:Destroy()c_a.Character.Humanoid.PlatformStand=false end
+b_a.KeyDown:connect(function(_ba)
+if _ba:lower()=="w"then aaa.f=1 elseif _ba:lower()=="s"then
+aaa.b=-1 elseif _ba:lower()=="a"then aaa.l=-1 elseif _ba:lower()=="d"then aaa.r=1 end end)
+b_a.KeyUp:connect(function(_ba)
+if _ba:lower()=="w"then aaa.f=0 elseif _ba:lower()=="s"then aaa.b=0 elseif
+_ba:lower()=="a"then aaa.l=0 elseif _ba:lower()=="d"then aaa.r=0 end end)FlyFunction()end
+if string.sub(a_a,1,6)== (prefix.."unfly")then flying=false end
+if string.sub(a_a,1,6)== (prefix.."chat ")then
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer((string.sub(a_a,7)),"All")end;if string.sub(a_a,1,6)== (prefix.."spam ")then
+spamtext=(string.sub(a_a,7))spamming=true end
+if
+string.sub(a_a,1,7)== (prefix.."unspam")then spamming=false end;if string.sub(a_a,1,10)== (prefix.."spamwait ")then
+spamdelay=(string.sub(a_a,11))end;if string.sub(a_a,1,8)==
+(prefix.."pmspam ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,9)))do pmspammed=c_a.Name;spammingpm=true end end
+if
+string.sub(a_a,1,9)== (prefix.."unpmspam")then spammingpm=false end
+if string.sub(a_a,1,9)== (prefix.."cfreeze ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,10)))do c_a.Character["Left Leg"].Anchored=true
+c_a.Character["Left Arm"].Anchored=true;c_a.Character["Right Leg"].Anchored=true
+c_a.Character["Right Arm"].Anchored=true;c_a.Character.Torso.Anchored=true
+c_a.Character.Head.Anchored=true end end
+if string.sub(a_a,1,11)== (prefix.."uncfreeze ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,12)))do c_a.Character["Left Leg"].Anchored=false
+c_a.Character["Left Arm"].Anchored=false;c_a.Character["Right Leg"].Anchored=false
+c_a.Character["Right Arm"].Anchored=false;c_a.Character.Torso.Anchored=false
+c_a.Character.Head.Anchored=false end end
+if string.sub(a_a,1,9)== (prefix.."unlockws")then
+local b_a=game.Workspace:getChildren()
+for i=1,#b_a do
+if b_a[i].className=="Part"then b_a[i].Locked=false elseif
+b_a[i].className=="Model"then local c_a=b_a[i]:getChildren()for i=1,#c_a do if c_a[i].className=="Part"then
+c_a[i].Locked=false end end end end
+game.StarterGui:SetCore("SendNotification",{Title="Success!",Text="Workspace unlocked. Use ;lockws to lock."})end
+if string.sub(a_a,1,7)== (prefix.."lockws")then
+local b_a=game.Workspace:getChildren()
+for i=1,#b_a do
+if b_a[i].className=="Part"then b_a[i].Locked=true elseif
+b_a[i].className=="Model"then local c_a=b_a[i]:getChildren()for i=1,#c_a do if c_a[i].className=="Part"then
+c_a[i].Locked=true end end end end end
+if string.sub(a_a,1,7)== (prefix.."btools")then
+local b_a=Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)b_a.BinType="Clone"
+local c_a=Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)c_a.BinType="Hammer"
+local d_a=Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)d_a.BinType="Grab"end;if string.sub(a_a,1,7)== (prefix.."pstand")then
+game.Players.LocalPlayer.Character.Humanoid.PlatformStand=true end;if
+string.sub(a_a,1,9)== (prefix.."unpstand")then
+game.Players.LocalPlayer.Character.Humanoid.PlatformStand=false end;if
+string.sub(a_a,1,10)== (prefix.."blockhead")then
+game.Players.LocalPlayer.Character.Head.Mesh:Destroy()end;if string.sub(a_a,1,4)== (
+prefix.."sit")then
+game.Players.LocalPlayer.Character.Humanoid.Sit=true end
+if string.sub(a_a,1,10)== (prefix..
+"bringobj ")then
+local function b_a()
+for c_a,d_a in
+ipairs(game.Workspace:GetDescendants())do
+if d_a.Name== (string.sub(a_a,11))then
+d_a.CFrame=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;d_a.CanCollide=false;d_a.Transparency=0.7;wait()
+d_a.CFrame=game.Players.LocalPlayer.Character["Left Leg"].CFrame;wait()
+d_a.CFrame=game.Players.LocalPlayer.Character["Right Leg"].CFrame;wait()
+d_a.CFrame=game.Players.LocalPlayer.Character["Head"].CFrame end end end;while wait()do b_a()end
+game.StarterGui:SetCore("SendNotification",{Title="BringObj",Text="BringObj enabled."})end
+if string.sub(a_a,1,7)== (prefix.."wsvis ")then
+vis=(string.sub(a_a,8))local b_a=game.Workspace:GetDescendants()
+for i=1,#b_a do
+if
+b_a[i].className=="Part"then b_a[i].Transparency=vis elseif b_a[i].className=="Model"then
+local c_a=b_a[i]:getChildren()for i=1,#c_a do
+if c_a[i].className=="Part"then c_a[i].Transparency=vis end end end end end
+if string.sub(a_a,1,11)== (prefix.."hypertotal")then
+loadstring(game:GetObjects("rbxassetid://1255063809")[1].Source)()
+game.StarterGui:SetCore("SendNotification",{Title="Success!",Text="HyperTotal GUI Loaded!"})end
+if string.sub(a_a,1,5)== (prefix.."cmds")then ac.Visible=true end
+if string.sub(a_a,1,10)== (prefix.."rmeshhats")then
+for b_a,c_a in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do if(c_a:IsA("Accessory"))or(c_a:IsA("Hat"))then
+c_a.Handle.Mesh:Destroy()end end end
+if string.sub(a_a,1,10)== (prefix.."blockhats")then
+for b_a,c_a in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do if(c_a:IsA("Accessory"))or(c_a:IsA("Hat"))then
+c_a.Handle.Mesh:Destroy()end end end
+if string.sub(a_a,1,10)== (prefix.."rmeshtool")then for b_a,c_a in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do
+if(c_a:IsA("Tool"))then c_a.Handle.Mesh:Destroy()end end end
+if string.sub(a_a,1,10)== (prefix.."blocktool")then for b_a,c_a in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do
+if(c_a:IsA("Tool"))then c_a.Handle.Mesh:Destroy()end end end
+if string.sub(a_a,1,8)== (prefix.."spinner")then
+local b_a=Instance.new("RocketPropulsion")
+b_a.Parent=game.Players.LocalPlayer.Character.HumanoidRootPart;b_a.Name="Spinner"
+b_a.Target=game.Players.LocalPlayer.Character["Left Arm"]b_a:Fire()
+game.StarterGui:SetCore("SendNotification",{Title="Spinner enabled",Text="Type ;nospinner to disable."})end;if string.sub(a_a,1,10)== (prefix.."nospinner")then
+game.Players.LocalPlayer.Character.HumanoidRootPart.Spinner:Destroy()end
+if
+string.sub(a_a,1,7)== (prefix.."reachd")then
+for b_a,c_a in
+pairs(game:GetService'Players'.LocalPlayer.Character:GetChildren())do
+if c_a:isA("Tool")then
+local d_a=Instance.new("SelectionBox",c_a.Handle)d_a.Adornee=c_a.Handle
+c_a.Handle.Size=Vector3.new(0.5,0.5,60)c_a.GripPos=Vector3.new(0,0,0)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools()end end
+game.StarterGui:SetCore("SendNotification",{Title="Reach applied!",Text="Applied to equipped sword. Use ;noreach to disable."})end
+if string.sub(a_a,1,7)== (prefix.."reach ")then
+for b_a,c_a in
+pairs(game:GetService'Players'.LocalPlayer.Character:GetChildren())do
+if c_a:isA("Tool")then
+local d_a=Instance.new("SelectionBox",c_a.Handle)d_a.Name="Reach"d_a.Adornee=c_a.Handle
+c_a.Handle.Size=Vector3.new(0.5,0.5,(string.sub(a_a,8)))c_a.GripPos=Vector3.new(0,0,0)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools()end end
+game.StarterGui:SetCore("SendNotification",{Title="Reach applied!",Text="Applied to equipped sword. Use ;noreach to disable."})end
+if string.sub(a_a,1,8)== (prefix.."noreach")then for b_a,c_a in
+pairs(game:GetService'Players'.LocalPlayer.Character:GetChildren())do
+if c_a:isA("Tool")then c_a.Handle.Reach:Destroy()end end
+game.StarterGui:SetCore("SendNotification",{Title="Reach removed!",Text="Removed reach from equipped sword."})end
+if string.sub(a_a,1,7)== (prefix.."rkill ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,8)))do
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local d_a=game.Players.LocalPlayer.Character["1"]:Clone()d_a.Parent=game.Players.LocalPlayer.Character
+d_a.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for _aa,aaa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(aaa)end
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(Vector3.new(
+-100000,10,-100000))
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(a_a,1,7)== (prefix.."tp me ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,8)))do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame end end
+if string.sub(a_a,1,8)== (prefix.."cbring ")then
+if
+
+
+(string.sub(a_a,9))=="all"or(string.sub(a_a,9))=="All"or(string.sub(a_a,9))=="ALL"then cbringall=true else for b_a,c_a in pairs(GetPlayer(string.sub(a_a,9)))do
+brplr=c_a.Name end end;cbring=true end;if string.sub(a_a,1,9)== (prefix.."uncbring")then cbring=false
+cbringall=false end
+if string.sub(a_a,1,6)==
+(prefix.."swap ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,7)))do
+local d_a=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame
+local _aa=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local aaa=game.Players.LocalPlayer.Character["1"]:Clone()aaa.Parent=game.Players.LocalPlayer.Character
+aaa.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for caa,daa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(daa)end;local function baa(caa,daa)
+local _ba,aba=caa.Character,daa.Character
+if _ba and aba then _ba:MoveTo(aba.Head.Position)end end
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=_aa;wait(0.6)
+baa(game.Players.LocalPlayer,game.Players[c_a.Name])wait(0.4)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=d_a
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(a_a,1,9)== (prefix.."givetool")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,10)))do for d_a,_aa in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do
+if(_aa:IsA("Tool"))then _aa.Parent=game.Workspace[c_a.Name]end end end end
+if string.sub(a_a,1,8)== (prefix.."glitch ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,9)))do
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local d_a=game.Players.LocalPlayer.Character["1"]:Clone()d_a.Parent=game.Players.LocalPlayer.Character
+d_a.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for _aa,aaa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(aaa)end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character["Left Arm"].CFrame;wait(0.3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character["Left Arm"].CFrame;wait(0.4)b=Instance.new("BodyForce")
+b.Parent=game.Players.LocalPlayer.Character.HumanoidRootPart;b.Name="Glitch"b.Force=Vector3.new(100000000,5000,0)
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(a_a,1,9)== (prefix.."unglitch")then
+game.Players.LocalPlayer.Character.HumanoidRootPart.Glitch:Destroy()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(10000,0,10000)b=Instance.new("BodyForce")
+b.Parent=game.Players.LocalPlayer.Character.HumanoidRootPart;b.Name="unGlitch"b.Force=Vector3.new(0,-5000000,0)
+wait(2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.unGlitch:Destroy()end
+if string.sub(a_a,1,9)== (prefix.."grespawn")then
+game.Players.LocalPlayer.Character.Humanoid.Health=0;wait(1)
+game.Players.LocalPlayer.Character.Head.CFrame=CFrame.new(1000000,0,1000000)
+game.Players.LocalPlayer.Character.Torso.CFrame=CFrame.new(1000000,0,1000000)end
+if string.sub(a_a,1,9)== (prefix.."explorer")then
+loadstring(game:GetObjects("rbxassetid://492005721")[1].Source)()
+game.StarterGui:SetCore("SendNotification",{Title="Success!",Text="DEX Explorer has loaded."})end
+if string.sub(a_a,1,6)== (prefix.."anim ")then
+local b_a=Instance.new("Animation")
+b_a.AnimationId="rbxassetid://".. (string.sub(a_a,7))
+local c_a=game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(b_a)c_a:Play(.1,1,1)end
+if string.sub(a_a,1,8)== (prefix.."animgui")then
+loadstring(game:GetObjects("rbxassetid://1202558084")[1].Source)()
+game.StarterGui:SetCore("SendNotification",{Title="Success!",Text="Energize Animations GUI has loaded."})end
+if string.sub(a_a,1,8)== (prefix.."savepos")then
+saved=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.StarterGui:SetCore("SendNotification",{Title="Position Saved",Text="Use ;loadpos to return to saved position."})end;if string.sub(a_a,1,8)== (prefix.."loadpos")then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=saved end
+if
+string.sub(a_a,1,6)== (prefix.."bang ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(a_a,7)))do local d_a=Instance.new("Animation")
+d_a.AnimationId="rbxassetid://148840371"
+local _aa=game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(d_a)_aa:Play(.1,1,1)bplrr=c_a.Name;banpl=true end end
+if string.sub(a_a,1,7)== (prefix.."unbang")then banpl=false end
+if string.sub(a_a,1,10)== (prefix.."bringmod ")then
+local function b_a()
+for c_a,d_a in
+ipairs(game.Workspace:GetDescendants())do
+if d_a.Name== (string.sub(a_a,11))then
+for _aa,aaa in
+pairs(d_a:GetDescendants())do
+if(aaa:IsA("BasePart"))then
+aaa.CFrame=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;aaa.CanCollide=false;aaa.Transparency=0.7;wait()
+aaa.CFrame=game.Players.LocalPlayer.Character["Left Leg"].CFrame;wait()
+aaa.CFrame=game.Players.LocalPlayer.Character["Right Leg"].CFrame;wait()
+aaa.CFrame=game.Players.LocalPlayer.Character["Head"].CFrame end end end end end;while wait()do b_a()end
+game.StarterGui:SetCore("SendNotification",{Title="BringMod",Text="BringMod enabled."})end
+if string.sub(a_a,1,8)== (prefix.."respawn")then
+local b_a=Instance.new('Model',workspace)
+b_a.Name='re '..game.Players.LocalPlayer.Name;local c_a=Instance.new('Humanoid',b_a)
+local d_a=Instance.new('Part',b_a)d_a.Name='Torso'd_a.CanCollide=false;d_a.Transparency=1
+game.Players.LocalPlayer.Character=b_a end
+if string.sub(a_a,1,9)== (prefix.."shutdown")then
+game:GetService'RunService'.Stepped:Connect(function()
+pcall(function()
+for b_a,c_a in
+pairs(game:GetService'Players':GetPlayers())do
+if
+c_a.Character~=nil and c_a.Character:FindFirstChild'Head'then
+for d_a,_aa in pairs(c_a.Character.Head:GetChildren())do if
+_aa:IsA'Sound'then _aa.Playing=true
+_aa.CharacterSoundEvent:FireServer(true,true)end end end end end)end)
+game.StarterGui:SetCore("SendNotification",{Title="Attempting Shutdown",Text="Shutdown Attempt has begun."})end;if string.sub(a_a,1,8)== (prefix.."delobj ")then
+objtodel=(string.sub(a_a,9))delobject()end
+if
+string.sub(a_a,1,8)== (prefix.."getplrs")then for b_a,c_a in
+pairs(game:GetService("Players"):GetChildren())do print(c_a)end
+game.StarterGui:SetCore("SendNotification",{Title="Printed",Text="Players have been printed to console. (F9)"})end
+if string.sub(a_a,1,9)== (prefix.."deldecal")then
+for b_a,c_a in
+pairs(game.Workspace:GetDescendants())do if(c_a:IsA("Decal"))then c_a:Destroy()end end end
+if string.sub(a_a,1,11)== (prefix.."opfinality")then
+loadstring(game:GetObjects("rbxassetid://1294358929")[1].Source)()
+game.StarterGui:SetCore("SendNotification",{Title="Success!",Text="OpFinality GUI has loaded."})end
+if string.sub(a_a,1,8)== (prefix.."remotes")then remotes=true
+added=true
+game.DescendantAdded:connect(function(b_a)
+if added==true then
+if remotes==true then
+if b_a:IsA("RemoteEvent")then
+print("A RemoteEvent was added!")
+print(" game."..b_a:GetFullName().." | RemoteEvent")
+print(" game."..b_a:GetFullName().." | RemoteEvent",247,0,0,true)end end end end)
+game.DescendantAdded:connect(function(b_a)
+if added==true then
+if remotes==true then
+if b_a:IsA("RemoteFunction")then
+warn("A RemoteFunction was added!")
+warn(" game."..b_a:GetFullName().." | RemoteFunction")
+print(" game."..b_a:GetFullName().." | RemoteFunction",5,102,198,true)end end end end)
+game.DescendantAdded:connect(function(b_a)
+if added==true then
+if binds==true then
+if b_a:IsA("BindableFunction")then
+print("A BindableFunction was added!")
+print(" game."..b_a:GetFullName().." | BindableFunction")
+print(" game."..b_a:GetFullName().." | BindableFunction",239,247,4,true)end end end end)
+game.DescendantAdded:connect(function(b_a)
+if added==true then
+if binds==true then
+if b_a:IsA("BindableEvent")then
+warn("A BindableEvent was added!")
+warn(" game."..b_a:GetFullName().." | BindableEvent")
+print(" game."..b_a:GetFullName().." | BindableEvent",13,193,22,true)end end end end)
+if binds==true then
+for b_a,c_a in pairs(game:GetDescendants())do
+if
+c_a:IsA("BindableFunction")then
+print(" game."..c_a:GetFullName().." | BindableFunction")
+print(" game."..c_a:GetFullName().." | BindableFunction",239,247,4,true)end end
+for b_a,c_a in pairs(game:GetDescendants())do
+if c_a:IsA("BindableEvent")then
+warn(" game."..
+c_a:GetFullName().." | BindableEvent")
+print(" game."..c_a:GetFullName().." | BindableEvent",13,193,22,true)end end else print("Off")end
+if remotes==true then
+for b_a,c_a in pairs(game:GetDescendants())do
+if
+c_a:IsA("RemoteFunction")then
+warn(" game."..c_a:GetFullName().." | RemoteFunction")
+print(" game."..c_a:GetFullName().." | RemoteFunction",5,102,198,true)end end;wait()
+for b_a,c_a in pairs(game:GetDescendants())do
+if c_a:IsA("RemoteEvent")then
+print(
+" game."..c_a:GetFullName().." | RemoteEvent")
+print(" game."..c_a:GetFullName().." | RemoteEvent",247,0,0,true)end end else print("Off")end
+game.StarterGui:SetCore("SendNotification",{Title="Printing Remotes",Text="Type ;noremotes to disable."})end
+if string.sub(a_a,1,10)== (prefix.."noremotes")then remotes=false
+added=false
+game.StarterGui:SetCore("SendNotification",{Title="Printing Remotes Disabled",Text="Type ;remotes to enable."})end
+if string.sub(a_a,1,10)== (prefix.."tpdefault")then spin=false
+followed=false;traill=false;noclip=false;annoying=false;hwalk=false;cbringing=false end
+if string.sub(a_a,1,8)== (prefix.."stopsit")then stopsitting=true end
+if string.sub(a_a,1,6)== (prefix.."gosit")then stopsitting=false end
+if string.sub(a_a,1,8)== (prefix.."version")then
+print(adminversion)
+game.StarterGui:SetCore("SendNotification",{Title="Version",Text=adminversion})end
+if string.sub(a_a,1,8)== (prefix.."clicktp")then clickgoto=true
+game.StarterGui:SetCore("SendNotification",{Title="Click TP",Text="Press E to teleport to mouse position"})end
+if string.sub(a_a,1,10)== (prefix.."noclicktp")then
+clickgoto=false
+game.StarterGui:SetCore("SendNotification",{Title="Click TP",Text="Click TP has been disabled."})end
+if string.sub(a_a,1,8)== (prefix.."toolson")then gettingtools=true
+game.StarterGui:SetCore("SendNotification",{Title="Tools Enabled",Text="Automatically colleting tools dropped."})end
+if string.sub(a_a,1,9)== (prefix.."toolsoff")then
+gettingtools=false
+game.StarterGui:SetCore("SendNotification",{Title="Tools Disabled",Text="Click TP has been disabled."})end end)
+local function _d()
+for a_a,b_a in ipairs(game.Players:GetChildren())do
+if b_a.Character and
+b_a.Character:FindFirstChild("HumanoidRootPart")then
+if b_a.Name==brplr then
+b_a.Character.HumanoidRootPart.CFrame=
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector*2 end end end end
+local function ad()
+for a_a,b_a in ipairs(game.Players:GetChildren())do
+if b_a.Character and
+b_a.Character:FindFirstChild("HumanoidRootPart")then
+b_a.Character.HumanoidRootPart.CFrame=
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector*3 end end end;local function bd()
+for a_a,b_a in pairs(game.Workspace:GetDescendants())do if
+b_a.Name==objtodel then b_a:Destroy()end end end
+spawn(function()
+while
+wait(spamdelay)do if spamming==true then
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(spamtext,"All")end end end)
+spawn(function()
+while wait(spamdelay)do
+if spammingpm==true then
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+"/w "..
+pmspammed.." @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@","All")end end end)
+spawn(function()while wait()do if cbring==true then _d()end end end)
+spawn(function()while wait()do if cbringall==true then ad()end end end)local cd=Instance.new("ScreenGui")
+local dd=Instance.new("Frame")local __a=Instance.new("TextBox")cd.Parent=game.CoreGui
+dd.Parent=cd;dd.BackgroundColor3=Color3.new(0.3,0.1,0.1)
+dd.BackgroundTransparency=0.3;dd.Position=UDim2.new(0.5,0,0,10)
+dd.Size=UDim2.new(0,200,0,40)dd.Active=true;dd.Draggable=true;__a.Name="CMDBAR"__a.Parent=dd
+__a.BackgroundColor3=Color3.new(0.105882,0.164706,0.207843)__a.BackgroundTransparency=0.20000000298023
+__a.Size=UDim2.new(0,180,0,20)__a.Position=UDim2.new(0.05,0,0.25,0)
+__a.Font=Enum.Font.SourceSansLight;__a.FontSize=Enum.FontSize.Size14
+__a.TextColor3=Color3.new(0.945098,0.945098,0.945098)__a.TextScaled=true;__a.TextSize=14;__a.TextWrapped=true
+__a.Text="Press ; to type, Enter to execute"
+db.KeyDown:connect(function(a_a)if a_a==prefix then __a:CaptureFocus()end end)
+__a.FocusLost:connect(function(a_a)
+if a_a then
+if string.sub(__a.Text,1,5)== ("kill ")then
+if
+string.sub(__a.Text,6)=="me"then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(100000,0,100000)else
+for b_a,c_a in pairs(GetPlayer(string.sub(__a.Text,6)))do
+local d_a=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local _aa=game.Players.LocalPlayer.Character["1"]:Clone()_aa.Parent=game.Players.LocalPlayer.Character
+_aa.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for baa,caa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(caa)end;local function aaa(baa,caa)
+local daa,_ba=baa.Character,caa.Character
+if daa and _ba then daa:MoveTo(_ba.Head.Position)end end
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(Vector3.new(
+-100000,10,-100000))wait(0.7)
+aaa(game.Players.LocalPlayer,game.Players[c_a.Name])wait(0.7)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=d_a
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end end
+if string.sub(__a.Text,1,6)== ("bring ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,7)))do
+local d_a=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local _aa=game.Players.LocalPlayer.Character["1"]:Clone()_aa.Parent=game.Players.LocalPlayer.Character
+_aa.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for caa,daa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(daa)end
+local function aaa(caa,daa)
+local _ba,aba=caa.Character,daa.Character;if _ba and aba then
+_ba.HumanoidRootPart.CFrame=aba.HumanoidRootPart.CFrame end end
+local function baa(caa,daa)local _ba,aba=caa.Character,daa.Character;if _ba and aba then
+_ba:MoveTo(aba.Head.Position)end end
+aaa(game.Players[c_a.Name],game.Players.LocalPlayer)wait(0.2)
+aaa(game.Players[c_a.Name],game.Players.LocalPlayer)wait(0.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=d_a;wait(0.5)
+baa(game.Players.LocalPlayer,game.Players[c_a.Name])wait(0.3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=d_a
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(__a.Text,1,5)== ("spin ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,6)))do
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local d_a=game.Players.LocalPlayer.Character["1"]:Clone()d_a.Parent=game.Players.LocalPlayer.Character
+d_a.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for _aa,aaa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(aaa)end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character["Left Arm"].CFrame;spinplr=c_a;wait(0.5)spin=true
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(__a.Text,1,6)== ("unspin")then spin=false;local function b_a(c_a,d_a)
+local _aa,aaa=c_a.Character,d_a.Character
+if _aa and aaa then _aa:MoveTo(aaa.Head.Position)end end
+b_a(game.Players.LocalPlayer,game.Players.LocalPlayer)end
+if string.sub(__a.Text,1,7)== ("attach ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,8)))do
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local d_a=game.Players.LocalPlayer.Character["1"]:Clone()d_a.Parent=game.Players.LocalPlayer.Character
+d_a.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for _aa,aaa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(aaa)end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character["Left Arm"].CFrame;wait(0.3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character["Left Arm"].CFrame;attplr=c_a
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(__a.Text,1,8)== ("unattach ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,9)))do
+local function d_a(_aa,aaa)local baa,caa=_aa.Character,aaa.Character;if baa and caa then
+baa:MoveTo(caa.Head.Position)end end
+d_a(game.Players.LocalPlayer,game.Players[c_a.Name])end end
+if string.sub(__a.Text,1,7)== ("follow ")then for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,8)))do followed=true;flwplr=c_a end end
+if string.sub(__a.Text,1,8)== ("unfollow")then followed=false end
+if string.sub(__a.Text,1,9)== ("freefall ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,10)))do
+local d_a=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local _aa=game.Players.LocalPlayer.Character["1"]:Clone()_aa.Parent=game.Players.LocalPlayer.Character
+_aa.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for aaa,baa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(baa)end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.6)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=d_a;wait(0.6)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(0,50000,0)
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(__a.Text,1,6)== ("trail ")then for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,7)))do traill=true;trlplr=c_a end end
+if string.sub(__a.Text,1,7)== ("untrail")then traill=false end
+if string.sub(__a.Text,1,6)== ("orbit ")then
+if
+
+string.sub(__a.Text,7)==
+"all"or string.sub(__a.Text,7)=="others"or string.sub(__a.Text,7)=="me"then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame else
+for b_a,c_a in pairs(GetPlayer(string.sub(__a.Text,7)))do
+local d_a=Instance.new("RocketPropulsion")
+d_a.Parent=game.Players.LocalPlayer.Character.HumanoidRootPart;d_a.Name="Orbit"
+d_a.Target=game.Players[c_a.Name].Character.HumanoidRootPart;d_a:Fire()noclip=true end end end
+if string.sub(__a.Text,1,7)== ("unorbit")then
+game.Players.LocalPlayer.Character.HumanoidRootPart.Orbit:Destroy()noclip=false end
+if string.sub(__a.Text,1,6)== ("fling ")then
+if
+
+string.sub(__a.Text,7)==
+"all"or string.sub(__a.Text,7)=="others"or string.sub(__a.Text,7)=="me"then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame else
+for b_a,c_a in pairs(GetPlayer(string.sub(__a.Text,7)))do
+local d_a=Instance.new("RocketPropulsion")
+d_a.Parent=game.Players.LocalPlayer.Character.HumanoidRootPart;d_a.CartoonFactor=1;d_a.MaxThrust=500000;d_a.MaxSpeed=1000
+d_a.ThrustP=100000;d_a.Name="Fling"
+game.Workspace.CurrentCamera.CameraSubject=game.Players[c_a.Name].Character.Head
+d_a.Target=game.Players[c_a.Name].Character.HumanoidRootPart;d_a:Fire()noclip=true end end end
+if string.sub(__a.Text,1,7)== ("unfling")then noclip=false
+game.Players.LocalPlayer.Character.HumanoidRootPart.Fling:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character.Head;wait(0.4)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Fling:Destroy()end
+if string.sub(__a.Text,1,7)== ("fecheck")then
+if
+game.Workspace.FilteringEnabled==true then
+warn("FE is Enabled (Filtering Enabled)")
+game.StarterGui:SetCore("SendNotification",{Title="FE is Enabled",Text="Filtering Enabled. Enjoy using Reviz Admin!"})else
+warn("FE is Disabled (Filtering Disabled) Consider using a different admin script.")
+game.StarterGui:SetCore("SendNotification",{Title="FE is Disabled",Text="Filtering Disabled. Consider using a different admin script."})end end
+if string.sub(__a.Text,1,5)== ("void ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,6)))do
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local d_a=game.Players.LocalPlayer.Character["1"]:Clone()d_a.Parent=game.Players.LocalPlayer.Character
+d_a.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for _aa,aaa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(aaa)end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.6)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(999999999999999,0,999999999999999)
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(__a.Text,1,6)== ("noclip")then noclip=true
+game.StarterGui:SetCore("SendNotification",{Title="Noclip enabled",Text="Type ;clip to disable"})end
+if string.sub(__a.Text,1,4)== ("clip")then noclip=false
+game.StarterGui:SetCore("SendNotification",{Title="Noclip disabled",Text="Type ;noclip to enable"})end;if string.sub(__a.Text,1,6)== ("speed ")then
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed=(string.sub(__a.Text,7))end;if
+string.sub(__a.Text,1,3)== ("ws ")then
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed=(string.sub(__a.Text,4))end;if
+string.sub(__a.Text,1,10)== ("hipheight ")then
+game.Players.LocalPlayer.Character.Humanoid.HipHeight=(string.sub(__a.Text,11))end;if
+string.sub(__a.Text,1,3)== ("hh ")then
+game.Players.LocalPlayer.Character.Humanoid.HipHeight=(string.sub(__a.Text,4))end;if
+string.sub(__a.Text,1,10)== ("jumppower ")then
+game.Players.LocalPlayer.Character.Humanoid.JumpPower=(string.sub(__a.Text,11))end;if
+string.sub(__a.Text,1,3)== ("jp ")then
+game.Players.LocalPlayer.Character.Humanoid.JumpPower=(string.sub(__a.Text,4))end
+if
+string.sub(__a.Text,1,7)== ("default")then
+game.Players.LocalPlayer.Character.Humanoid.JumpPower=50
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed=16
+game.Players.LocalPlayer.Character.Humanoid.HipHeight=0 end
+if string.sub(__a.Text,1,6)== ("annoy ")then for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,7)))do annoying=true;annplr=c_a end end
+if string.sub(__a.Text,1,7)== ("unannoy")then annoying=false end
+if string.sub(__a.Text,1,9)== ("headwalk ")then for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,10)))do hwalk=true;hdwplr=c_a end end
+if string.sub(__a.Text,1,10)== ("unheadwalk")then hwalk=false end
+if string.sub(__a.Text,1,7)== ("nolimbs")then
+game.Players.LocalPlayer.Character["Left Leg"]:Destroy()
+game.Players.LocalPlayer.Character["Left Arm"]:Destroy()
+game.Players.LocalPlayer.Character["Right Leg"]:Destroy()
+game.Players.LocalPlayer.Character["Right Arm"]:Destroy()end
+if string.sub(__a.Text,1,3)== ("god")then
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local b_a=game.Players.LocalPlayer.Character["1"]:Clone()b_a.Parent=game.Players.LocalPlayer.Character
+b_a.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"
+game.StarterGui:SetCore("SendNotification",{Title="FE Godmode enabled",Text="Use ;kill me OR ;respawn to reset"})end
+if string.sub(__a.Text,1,8)== ("drophats")then
+for b_a,c_a in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do if(c_a:IsA("Accessory"))or(c_a:IsA("Hat"))then
+c_a.Parent=workspace end end end
+if string.sub(__a.Text,1,8)== ("droptool")then
+for b_a,c_a in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do if(c_a:IsA("Tool"))then c_a.Parent=workspace end end end
+if string.sub(__a.Text,1,9)== ("loopdhats")then droppinghats=true
+game.StarterGui:SetCore("SendNotification",{Title="Loop Drop Enabled",Text="Type ;unloopdhats to disable"})end
+if string.sub(__a.Text,1,11)== ("unloopdhats")then droppinghats=false
+game.StarterGui:SetCore("SendNotification",{Title="Loop Drop Disabled",Text="Type ;loopdhats to enable."})end
+if string.sub(__a.Text,1,9)== ("loopdtool")then droppingtools=true
+game.StarterGui:SetCore("SendNotification",{Title="Loop Drop Enabled",Text="Type ;unloopdtool to disable"})end
+if string.sub(__a.Text,1,11)== ("unloopdtool")then droppingtools=false
+game.StarterGui:SetCore("SendNotification",{Title="Loop Drop Disabled",Text="Type ;loopdtool to enable."})end
+if string.sub(__a.Text,1,9)== ("invisible")then
+Local=game:GetService('Players').LocalPlayer;Char=Local.Character;touched,tpdback=false,false
+box=Instance.new('Part',workspace)box.Anchored=true;box.CanCollide=true
+box.Size=Vector3.new(10,1,10)box.Position=Vector3.new(0,10000,0)
+box.Touched:connect(function(b_a)
+if(
+b_a.Parent.Name==Local.Name)then
+if touched==false then touched=true
+function apply()
+if script.Disabled~=true then
+no=Char.HumanoidRootPart:Clone()wait(.25)Char.HumanoidRootPart:Destroy()
+no.Parent=Char;Char:MoveTo(loc)touched=false end end;if Char then apply()end end end end)repeat wait()until Char;loc=Char.HumanoidRootPart.Position
+Char:MoveTo(
+box.Position+Vector3.new(0,.5,0))
+game.StarterGui:SetCore("SendNotification",{Title="Invisibility enabled!",Text="Reset or use ;respawn to remove."})end
+if string.sub(__a.Text,1,5)== ("view ")then for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,6)))do
+game.Workspace.CurrentCamera.CameraSubject=game.Players[c_a.Name].Character.Head end end;if string.sub(__a.Text,1,6)== ("unview")then
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character.Head end
+if
+string.sub(__a.Text,1,5)== ("goto ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,6)))do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame end end
+if string.sub(__a.Text,1,3)== ("fly")then flying=true
+repeat wait()until
+
+game.Players.LocalPlayer and game.Players.LocalPlayer.Character and
+game.Players.LocalPlayer.Character:findFirstChild("Torso")and
+game.Players.LocalPlayer.Character:findFirstChild("Humanoid")
+local b_a=game.Players.LocalPlayer:GetMouse()repeat wait()until b_a;local c_a=game.Players.LocalPlayer
+local d_a=c_a.Character.Torso;local _aa=true;local aaa={f=0,b=0,l=0,r=0}local baa={f=0,b=0,l=0,r=0}local caa=80;local daa=0
+function FlyFunction()
+local _ba=Instance.new("BodyGyro",d_a)_ba.P=9e4;_ba.maxTorque=Vector3.new(9e9,9e9,9e9)
+_ba.cframe=d_a.CFrame;local aba=Instance.new("BodyVelocity",d_a)
+aba.velocity=Vector3.new(0,0.1,0)aba.maxForce=Vector3.new(9e9,9e9,9e9)
+repeat wait()
+c_a.Character.Humanoid.PlatformStand=true
+if aaa.l+aaa.r~=0 or aaa.f+aaa.b~=0 then
+daa=daa+.5 + (daa/caa)if daa>caa then daa=caa end elseif not
+(aaa.l+aaa.r~=0 or aaa.f+aaa.b~=0)and daa~=0 then daa=daa-1
+if daa<0 then daa=0 end end
+if(aaa.l+aaa.r)~=0 or(aaa.f+aaa.b)~=0 then
+aba.velocity=
+( (
+game.Workspace.CurrentCamera.CoordinateFrame.lookVector* (aaa.f+aaa.b))+ ( (
+game.Workspace.CurrentCamera.CoordinateFrame*
+CFrame.new(aaa.l+aaa.r,(aaa.f+aaa.b)*.2,0).p)-
+game.Workspace.CurrentCamera.CoordinateFrame.p))*daa;baa={f=aaa.f,b=aaa.b,l=aaa.l,r=aaa.r}elseif
+(aaa.l+aaa.r)==0 and(aaa.f+aaa.b)==0 and daa~=0 then
+aba.velocity=
+( (
+game.Workspace.CurrentCamera.CoordinateFrame.lookVector* (baa.f+baa.b))+ ( (
+game.Workspace.CurrentCamera.CoordinateFrame*
+CFrame.new(baa.l+baa.r,(baa.f+baa.b)*.2,0).p)-
+game.Workspace.CurrentCamera.CoordinateFrame.p))*daa else aba.velocity=Vector3.new(0,0.1,0)end
+_ba.cframe=game.Workspace.CurrentCamera.CoordinateFrame*
+CFrame.Angles(-math.rad(
+(aaa.f+aaa.b)*50 *daa/caa),0,0)until not flying;aaa={f=0,b=0,l=0,r=0}baa={f=0,b=0,l=0,r=0}daa=0;_ba:Destroy()
+aba:Destroy()c_a.Character.Humanoid.PlatformStand=false end
+b_a.KeyDown:connect(function(_ba)
+if _ba:lower()=="w"then aaa.f=1 elseif _ba:lower()=="s"then
+aaa.b=-1 elseif _ba:lower()=="a"then aaa.l=-1 elseif _ba:lower()=="d"then aaa.r=1 end end)
+b_a.KeyUp:connect(function(_ba)
+if _ba:lower()=="w"then aaa.f=0 elseif _ba:lower()=="s"then aaa.b=0 elseif
+_ba:lower()=="a"then aaa.l=0 elseif _ba:lower()=="d"then aaa.r=0 end end)FlyFunction()end
+if string.sub(__a.Text,1,5)== ("unfly")then flying=false end
+if string.sub(__a.Text,1,5)== ("chat ")then
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer((string.sub(__a.Text,6)),"All")end;if string.sub(__a.Text,1,5)== ("spam ")then
+spamtext=(string.sub(__a.Text,6))spamming=true end;if
+string.sub(__a.Text,1,6)== ("unspam")then spamming=false end;if
+string.sub(__a.Text,1,9)== ("spamwait ")then
+spamdelay=(string.sub(__a.Text,10))end
+if
+string.sub(__a.Text,1,7)== ("pmspam ")then for b_a,c_a in pairs(GetPlayer(string.sub(__a.Text,8)))do
+pmspammed=c_a.Name;spammingpm=true end end
+if string.sub(__a.Text,1,8)== ("unpmspam")then spammingpm=false end
+if string.sub(__a.Text,1,8)== ("cfreeze ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,9)))do c_a.Character["Left Leg"].Anchored=true
+c_a.Character["Left Arm"].Anchored=true;c_a.Character["Right Leg"].Anchored=true
+c_a.Character["Right Arm"].Anchored=true;c_a.Character.Torso.Anchored=true
+c_a.Character.Head.Anchored=true end end
+if string.sub(__a.Text,1,10)== ("uncfreeze ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,11)))do c_a.Character["Left Leg"].Anchored=false
+c_a.Character["Left Arm"].Anchored=false;c_a.Character["Right Leg"].Anchored=false
+c_a.Character["Right Arm"].Anchored=false;c_a.Character.Torso.Anchored=false
+c_a.Character.Head.Anchored=false end end
+if string.sub(__a.Text,1,8)== ("unlockws")then
+local b_a=game.Workspace:getChildren()
+for i=1,#b_a do
+if b_a[i].className=="Part"then b_a[i].Locked=false elseif
+b_a[i].className=="Model"then local c_a=b_a[i]:getChildren()for i=1,#c_a do if c_a[i].className=="Part"then
+c_a[i].Locked=false end end end end
+game.StarterGui:SetCore("SendNotification",{Title="Success!",Text="Workspace unlocked. Use ;lockws to lock."})end
+if string.sub(__a.Text,1,6)== ("lockws")then
+local b_a=game.Workspace:getChildren()
+for i=1,#b_a do
+if b_a[i].className=="Part"then b_a[i].Locked=true elseif
+b_a[i].className=="Model"then local c_a=b_a[i]:getChildren()for i=1,#c_a do if c_a[i].className=="Part"then
+c_a[i].Locked=true end end end end end
+if string.sub(__a.Text,1,6)== ("btools")then
+local b_a=Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)b_a.BinType="Clone"
+local c_a=Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)c_a.BinType="Hammer"
+local d_a=Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)d_a.BinType="Grab"end;if string.sub(__a.Text,1,6)== ("pstand")then
+game.Players.LocalPlayer.Character.Humanoid.PlatformStand=true end;if
+string.sub(__a.Text,1,8)== ("unpstand")then
+game.Players.LocalPlayer.Character.Humanoid.PlatformStand=false end;if
+string.sub(__a.Text,1,9)== ("blockhead")then
+game.Players.LocalPlayer.Character.Head.Mesh:Destroy()end;if
+string.sub(__a.Text,1,3)== ("sit")then
+game.Players.LocalPlayer.Character.Humanoid.Sit=true end
+if
+string.sub(__a.Text,1,9)== ("bringobj ")then
+local function b_a()
+for c_a,d_a in
+ipairs(game.Workspace:GetDescendants())do
+if d_a.Name== (string.sub(__a.Text,10))then
+d_a.CFrame=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;d_a.CanCollide=false;d_a.Transparency=0.7;wait()
+d_a.CFrame=game.Players.LocalPlayer.Character["Left Leg"].CFrame;wait()
+d_a.CFrame=game.Players.LocalPlayer.Character["Right Leg"].CFrame;wait()
+d_a.CFrame=game.Players.LocalPlayer.Character["Head"].CFrame end end end;while wait()do b_a()end
+game.StarterGui:SetCore("SendNotification",{Title="BringObj",Text="BringObj enabled."})end
+if string.sub(__a.Text,1,6)== ("wsvis ")then
+vis=(string.sub(__a.Text,7))local b_a=game.Workspace:GetDescendants()
+for i=1,#b_a do
+if
+b_a[i].className=="Part"then b_a[i].Transparency=vis elseif b_a[i].className=="Model"then
+local c_a=b_a[i]:getChildren()for i=1,#c_a do
+if c_a[i].className=="Part"then c_a[i].Transparency=vis end end end end end
+if string.sub(__a.Text,1,10)== ("hypertotal")then
+loadstring(game:GetObjects("rbxassetid://1255063809")[1].Source)()
+game.StarterGui:SetCore("SendNotification",{Title="Success!",Text="HyperTotal GUI Loaded!"})end
+if string.sub(__a.Text,1,4)== ("cmds")then ac.Visible=true end
+if string.sub(__a.Text,1,9)== ("rmeshhats")then
+for b_a,c_a in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do if(c_a:IsA("Accessory"))or(c_a:IsA("Hat"))then
+c_a.Handle.Mesh:Destroy()end end end
+if string.sub(__a.Text,1,9)== ("blockhats")then
+for b_a,c_a in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do if(c_a:IsA("Accessory"))or(c_a:IsA("Hat"))then
+c_a.Handle.Mesh:Destroy()end end end
+if string.sub(__a.Text,1,9)== ("rmeshtool")then for b_a,c_a in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do
+if(c_a:IsA("Tool"))then c_a.Handle.Mesh:Destroy()end end end
+if string.sub(__a.Text,1,9)== ("blocktool")then for b_a,c_a in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do
+if(c_a:IsA("Tool"))then c_a.Handle.Mesh:Destroy()end end end
+if string.sub(__a.Text,1,7)== ("spinner")then
+local b_a=Instance.new("RocketPropulsion")
+b_a.Parent=game.Players.LocalPlayer.Character.HumanoidRootPart;b_a.Name="Spinner"
+b_a.Target=game.Players.LocalPlayer.Character["Left Arm"]b_a:Fire()
+game.StarterGui:SetCore("SendNotification",{Title="Spinner enabled",Text="Type ;nospinner to disable."})end;if string.sub(__a.Text,1,9)== ("nospinner")then
+game.Players.LocalPlayer.Character.HumanoidRootPart.Spinner:Destroy()end
+if
+string.sub(__a.Text,1,6)== ("reachd")then
+for b_a,c_a in
+pairs(game:GetService'Players'.LocalPlayer.Character:GetChildren())do
+if c_a:isA("Tool")then
+local d_a=Instance.new("SelectionBox",c_a.Handle)d_a.Adornee=c_a.Handle
+c_a.Handle.Size=Vector3.new(0.5,0.5,60)c_a.GripPos=Vector3.new(0,0,0)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools()end end
+game.StarterGui:SetCore("SendNotification",{Title="Reach applied!",Text="Applied to equipped sword. Use ;noreach to disable."})end
+if string.sub(__a.Text,1,6)== ("reach ")then
+for b_a,c_a in
+pairs(game:GetService'Players'.LocalPlayer.Character:GetChildren())do
+if c_a:isA("Tool")then
+local d_a=Instance.new("SelectionBox",c_a.Handle)d_a.Name="Reach"d_a.Adornee=c_a.Handle
+c_a.Handle.Size=Vector3.new(0.5,0.5,(string.sub(__a.Text,7)))c_a.GripPos=Vector3.new(0,0,0)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools()end end
+game.StarterGui:SetCore("SendNotification",{Title="Reach applied!",Text="Applied to equipped sword. Use ;noreach to disable."})end
+if string.sub(__a.Text,1,7)== ("noreach")then for b_a,c_a in
+pairs(game:GetService'Players'.LocalPlayer.Character:GetChildren())do
+if c_a:isA("Tool")then c_a.Handle.Reach:Destroy()end end
+game.StarterGui:SetCore("SendNotification",{Title="Reach removed!",Text="Removed reach from equipped sword."})end
+if string.sub(__a.Text,1,6)== ("rkill ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,7)))do
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local d_a=game.Players.LocalPlayer.Character["1"]:Clone()d_a.Parent=game.Players.LocalPlayer.Character
+d_a.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for _aa,aaa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(aaa)end
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(Vector3.new(
+-100000,10,-100000))
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(__a.Text,1,6)== ("tp me ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,7)))do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame end end
+if string.sub(__a.Text,1,7)== ("cbring ")then
+if
+
+
+(string.sub(__a.Text,8))=="all"or(string.sub(__a.Text,8))=="All"or(string.sub(__a.Text,8))=="ALL"then cbringall=true else for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,8)))do brplr=c_a.Name end end;cbring=true end;if string.sub(__a.Text,1,8)== ("uncbring")then cbring=false
+cbringall=false end
+if
+string.sub(__a.Text,1,5)== ("swap ")then
+for b_a,c_a in pairs(GetPlayer(string.sub(__a.Text,6)))do
+local d_a=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame
+local _aa=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local aaa=game.Players.LocalPlayer.Character["1"]:Clone()aaa.Parent=game.Players.LocalPlayer.Character
+aaa.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for caa,daa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(daa)end;local function baa(caa,daa)
+local _ba,aba=caa.Character,daa.Character
+if _ba and aba then _ba:MoveTo(aba.Head.Position)end end
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character.HumanoidRootPart.CFrame;wait(0.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=_aa;wait(0.6)
+baa(game.Players.LocalPlayer,game.Players[c_a.Name])wait(0.4)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=d_a
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(__a.Text,1,8)== ("givetool")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,9)))do for d_a,_aa in
+pairs(game.Players.LocalPlayer.Character:GetChildren())do
+if(_aa:IsA("Tool"))then _aa.Parent=game.Workspace[c_a.Name]end end end end
+if string.sub(__a.Text,1,7)== ("glitch ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,8)))do
+game.Players.LocalPlayer.Character.Humanoid.Name=1
+local d_a=game.Players.LocalPlayer.Character["1"]:Clone()d_a.Parent=game.Players.LocalPlayer.Character
+d_a.Name="Humanoid"wait(0.1)
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled=true;wait(0.1)
+game.Players.LocalPlayer.Character.Animate.Disabled=false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType="None"for _aa,aaa in
+pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(aaa)end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character["Left Arm"].CFrame;wait(0.3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players[c_a.Name].Character["Left Arm"].CFrame;wait(0.4)b=Instance.new("BodyForce")
+b.Parent=game.Players.LocalPlayer.Character.HumanoidRootPart;b.Name="Glitch"b.Force=Vector3.new(100000000,5000,0)
+game.StarterGui:SetCore("SendNotification",{Title="Tools needed!",Text="You need a tool in your backpack for this command!"})end end
+if string.sub(__a.Text,1,8)== ("unglitch")then
+game.Players.LocalPlayer.Character.HumanoidRootPart.Glitch:Destroy()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(10000,0,10000)b=Instance.new("BodyForce")
+b.Parent=game.Players.LocalPlayer.Character.HumanoidRootPart;b.Name="unGlitch"b.Force=Vector3.new(0,-5000000,0)
+wait(2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.unGlitch:Destroy()end
+if string.sub(__a.Text,1,8)== ("grespawn")then
+game.Players.LocalPlayer.Character.Humanoid.Health=0;wait(1)
+game.Players.LocalPlayer.Character.Head.CFrame=CFrame.new(1000000,0,1000000)
+game.Players.LocalPlayer.Character.Torso.CFrame=CFrame.new(1000000,0,1000000)end
+if string.sub(__a.Text,1,8)== ("explorer")then
+loadstring(game:GetObjects("rbxassetid://492005721")[1].Source)()
+game.StarterGui:SetCore("SendNotification",{Title="Success!",Text="DEX Explorer has loaded."})end
+if string.sub(__a.Text,1,5)== ("anim ")then
+local b_a=Instance.new("Animation")
+b_a.AnimationId="rbxassetid://".. (string.sub(__a.Text,6))
+local c_a=game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(b_a)c_a:Play(.1,1,1)end
+if string.sub(__a.Text,1,7)== ("animgui")then
+loadstring(game:GetObjects("rbxassetid://1202558084")[1].Source)()
+game.StarterGui:SetCore("SendNotification",{Title="Success!",Text="Energize Animations GUI has loaded."})end
+if string.sub(__a.Text,1,7)== ("savepos")then
+saved=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.StarterGui:SetCore("SendNotification",{Title="Position Saved",Text="Use ;loadpos to return to saved position."})end;if string.sub(__a.Text,1,7)== ("loadpos")then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=saved end
+if
+string.sub(__a.Text,1,5)== ("bang ")then
+for b_a,c_a in
+pairs(GetPlayer(string.sub(__a.Text,6)))do local d_a=Instance.new("Animation")
+d_a.AnimationId="rbxassetid://148840371"
+local _aa=game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(d_a)_aa:Play(.1,1,1)bplrr=c_a.Name;banpl=true end end
+if string.sub(__a.Text,1,6)== ("unbang")then banpl=false end
+if string.sub(__a.Text,1,9)== ("bringmod ")then
+local function b_a()
+for c_a,d_a in
+ipairs(game.Workspace:GetDescendants())do
+if d_a.Name== (string.sub(__a.Text,10))then
+for _aa,aaa in
+pairs(d_a:GetDescendants())do
+if(aaa:IsA("BasePart"))then
+aaa.CFrame=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;aaa.CanCollide=false;aaa.Transparency=0.7;wait()
+aaa.CFrame=game.Players.LocalPlayer.Character["Left Leg"].CFrame;wait()
+aaa.CFrame=game.Players.LocalPlayer.Character["Right Leg"].CFrame;wait()
+aaa.CFrame=game.Players.LocalPlayer.Character["Head"].CFrame end end end end end;while wait()do b_a()end
+game.StarterGui:SetCore("SendNotification",{Title="BringMod",Text="BringMod enabled."})end
+if string.sub(__a.Text,1,7)== ("respawn")then
+local b_a=Instance.new('Model',workspace)
+b_a.Name='re '..game.Players.LocalPlayer.Name;local c_a=Instance.new('Humanoid',b_a)
+local d_a=Instance.new('Part',b_a)d_a.Name='Torso'd_a.CanCollide=false;d_a.Transparency=1
+game.Players.LocalPlayer.Character=b_a end
+if string.sub(__a.Text,1,8)== ("shutdown")then
+game:GetService'RunService'.Stepped:Connect(function()
+pcall(function()
+for b_a,c_a in
+pairs(game:GetService'Players':GetPlayers())do
+if
+c_a.Character~=nil and c_a.Character:FindFirstChild'Head'then
+for d_a,_aa in pairs(c_a.Character.Head:GetChildren())do if
+_aa:IsA'Sound'then _aa.Playing=true
+_aa.CharacterSoundEvent:FireServer(true,true)end end end end end)end)
+game.StarterGui:SetCore("SendNotification",{Title="Attempting Shutdown",Text="Shutdown Attempt has begun."})end;if string.sub(__a.Text,1,7)== ("delobj ")then
+objtodel=(string.sub(__a.Text,8))bd()end
+if string.sub(__a.Text,1,7)==
+("getplrs")then for b_a,c_a in
+pairs(game:GetService("Players"):GetChildren())do print(c_a)end
+game.StarterGui:SetCore("SendNotification",{Title="Printed",Text="Players have been printed to console. (F9)"})end
+if string.sub(__a.Text,1,8)== ("deldecal")then
+for b_a,c_a in
+pairs(game.Workspace:GetDescendants())do if(c_a:IsA("Decal"))then c_a:Destroy()end end end
+if string.sub(__a.Text,1,10)== ("opfinality")then
+loadstring(game:GetObjects("rbxassetid://1294358929")[1].Source)()
+game.StarterGui:SetCore("SendNotification",{Title="Success!",Text="OpFinality GUI has loaded."})end
+if string.sub(__a.Text,1,7)== ("remotes")then remotes=true;added=true
+game.DescendantAdded:connect(function(b_a)
+if
+added==true then
+if remotes==true then
+if b_a:IsA("RemoteEvent")then
+print("A RemoteEvent was added!")
+print(" game."..b_a:GetFullName().." | RemoteEvent")
+print(" game."..b_a:GetFullName().." | RemoteEvent",247,0,0,true)end end end end)
+game.DescendantAdded:connect(function(b_a)
+if added==true then
+if remotes==true then
+if b_a:IsA("RemoteFunction")then
+warn("A RemoteFunction was added!")
+warn(" game."..b_a:GetFullName().." | RemoteFunction")
+print(" game."..b_a:GetFullName().." | RemoteFunction",5,102,198,true)end end end end)
+game.DescendantAdded:connect(function(b_a)
+if added==true then
+if binds==true then
+if b_a:IsA("BindableFunction")then
+print("A BindableFunction was added!")
+print(" game."..b_a:GetFullName().." | BindableFunction")
+print(" game."..b_a:GetFullName().." | BindableFunction",239,247,4,true)end end end end)
+game.DescendantAdded:connect(function(b_a)
+if added==true then
+if binds==true then
+if b_a:IsA("BindableEvent")then
+warn("A BindableEvent was added!")
+warn(" game."..b_a:GetFullName().." | BindableEvent")
+print(" game."..b_a:GetFullName().." | BindableEvent",13,193,22,true)end end end end)
+if binds==true then
+for b_a,c_a in pairs(game:GetDescendants())do
+if
+c_a:IsA("BindableFunction")then
+print(" game."..c_a:GetFullName().." | BindableFunction")
+print(" game."..c_a:GetFullName().." | BindableFunction",239,247,4,true)end end
+for b_a,c_a in pairs(game:GetDescendants())do
+if c_a:IsA("BindableEvent")then
+warn(" game."..
+c_a:GetFullName().." | BindableEvent")
+print(" game."..c_a:GetFullName().." | BindableEvent",13,193,22,true)end end else print("Off")end
+if remotes==true then
+for b_a,c_a in pairs(game:GetDescendants())do
+if
+c_a:IsA("RemoteFunction")then
+warn(" game."..c_a:GetFullName().." | RemoteFunction")
+print(" game."..c_a:GetFullName().." | RemoteFunction",5,102,198,true)end end;wait()
+for b_a,c_a in pairs(game:GetDescendants())do
+if c_a:IsA("RemoteEvent")then
+print(
+" game."..c_a:GetFullName().." | RemoteEvent")
+print(" game."..c_a:GetFullName().." | RemoteEvent",247,0,0,true)end end else print("Off")end
+game.StarterGui:SetCore("SendNotification",{Title="Printing Remotes",Text="Type ;noremotes to disable."})end
+if string.sub(__a.Text,1,9)== ("noremotes")then remotes=false
+added=false
+game.StarterGui:SetCore("SendNotification",{Title="Printing Remotes Disabled",Text="Type ;remotes to enable."})end
+if string.sub(__a.Text,1,9)== ("tpdefault")then spin=false
+followed=false;traill=false;noclip=false;annoying=false;hwalk=false;cbringing=false end
+if string.sub(__a.Text,1,7)== ("stopsit")then stopsitting=true end
+if string.sub(__a.Text,1,5)== ("gosit")then stopsitting=false end;if string.sub(__a.Text,1,7)== ("version")then
+print(adminversion)
+game.StarterGui:SetCore("SendNotification",{Title="Version",Text=adminversion})end
+if
+string.sub(__a.Text,1,7)== ("clicktp")then clickgoto=true
+game.StarterGui:SetCore("SendNotification",{Title="Click TP",Text="Press E to teleport to mouse position"})end
+if string.sub(__a.Text,1,9)== ("noclicktp")then clickgoto=false
+game.StarterGui:SetCore("SendNotification",{Title="Click TP",Text="Click TP has been disabled."})end
+if string.sub(__a.Text,1,7)== ("toolson")then gettingtools=true
+game.StarterGui:SetCore("SendNotification",{Title="Tools Enabled",Text="Automatically colleting tools dropped."})end
+if string.sub(__a.Text,1,8)== ("toolsoff")then gettingtools=false
+game.StarterGui:SetCore("SendNotification",{Title="Tools Disabled",Text="Click TP has been disabled."})end;__a.Text=""end end)wait(0.3)
+game.StarterGui:SetCore("SendNotification",{Title="Loaded successfully!",Text="Reviz Admin by Uxanix"})wait(0.1)
+if game.Workspace.FilteringEnabled==true then
+warn("FE is Enabled (Filtering Enabled)")
+game.StarterGui:SetCore("SendNotification",{Title="FE is Enabled",Text="Filtering Enabled. Enjoy using Reviz Admin!"})else
+warn("FE is Disabled (Filtering Disabled) Consider using a different admin script.")
+game.StarterGui:SetCore("SendNotification",{Title="FE is Disabled",Text="Filtering Disabled. Consider using a different admin script."})end

